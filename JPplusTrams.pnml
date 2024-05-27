@@ -1,0 +1,4 @@
+/*---HEADER--*/
+
+// Define the GRF
+#include "src/header.pnml"

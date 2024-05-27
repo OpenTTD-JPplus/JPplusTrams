@@ -1,0 +1,320 @@
+﻿##grflangid 0x01 
+# This is the English language file 
+# GRF name and description definitions 
+STR_GRF_NAME:{TITLE} {VERSION}
+STR_GRF_DESCRIPTION:Steam Trams to Trolleybuses, and everything in between! Generic Trucks, Buses and Trams in OGFX+ style for use with NotRoadTypes {}{COPYRIGHT}2017 D Erikson{}License - GPL v2 
+
+STR_PARAM_NAME_CAP:Road Vehicle Capacity
+STR_PARAM_DESC_CAP:Adjust vehicle capacities.
+STR_PARAM_VALUE_CAP_TTD:Original Vehicle Style (Low)
+STR_PARAM_VALUE_CAP_MED:Medium
+STR_PARAM_VALUE_CAP_HIGH:High
+
+STR_PARAM_NAME_RUNCOST:Road Vehicle Running Cost
+STR_PARAM_DESC_RUNCOST:Adjust vehicle running costs.
+STR_PARAM_VALUE_RUNCOST_EASY:Low
+STR_PARAM_VALUE_RUNCOST_TTDISH:Original Vehicle Style (Medium)
+STR_PARAM_VALUE_RUNCOST_HARD:High
+STR_PARAM_VALUE_RUNCOST_HARDER:Highest
+
+STR_PARAM_NAME_BUYCOST:Road Vehicle Purchase Cost
+STR_PARAM_DESC_BUYCOST:Adjust vehicle purchase costs.
+
+STR_PARAM_NAME_ELRV:Electric Road Vehicles
+STR_PARAM_DESC_ELRV:Enable Electric Vehicles (Dual-mode Road Vehicles, Trolley Trucks and Busses)
+
+STR_PARAM_NAME_FFRV:Fossil Fuel Road Vehicles
+STR_PARAM_DESC_FFRV:Enable Fossil Fueled Vehicles (Regular Diesel Trucks and Busses)
+
+STR_PARAM_NAME_HRV:Multiple Trailer Road Vehicles
+STR_PARAM_DESC_HRV:Enable Road Trains
+
+STR_PARAM_NAME_SRV:Steam Road Vehicles
+STR_PARAM_DESC_SRV:Enable Early Steam Powered Trucks and Buses
+
+STR_PARAM_NAME_ELTV:Electric Trams
+STR_PARAM_DESC_ELTV:Enable Electric Trams
+
+STR_PARAM_NAME_FFTV:Fossil Fuel Trams
+STR_PARAM_DESC_FFTV:Enable Fossil Fueled Trams (Can run on non-electrified tramways)
+
+STR_PARAM_NAME_HTV:Industrial Trams
+STR_PARAM_DESC_HTV:Enable Tramway Trains (Small Industrial and Harbor Trains)
+
+STR_PARAM_NAME_STV:Steam Trams
+STR_PARAM_DESC_STV:Enable Early Steam Powered Trams
+
+STR_PARAM_NAME_FUNC:Cable Cars
+STR_PARAM_DESC_FUNC:Enable Cable Hauled Trams
+
+STR_PARAM_NAME_LTRV:Light Road Vehicles
+STR_PARAM_DESC_LTRV:Enable Light Duty Road Vehicles
+
+STR_PARAM_NAME_FGEI:Steam Vehicle Introduction Year
+STR_PARAM_DESC_FGEI:This changes the introduction year of the Steam Vehicles.
+STR_PARAM_FGEI_VALUE_ORIG: Use default introduction year 1860.
+STR_PARAM_FGEI_VALUE_1830: Use alternative introduction year 1830.
+STR_PARAM_FGEI_VALUE_1800: Use alternative introduction year 1800. Also changes 2nd Gen Steam to 1850.
+
+STR_PARAM_NAME_AGE:Tram Cargo Aging
+STR_PARAM_DESC_AGE:Adjust passenger cargo aging for trams.
+STR_PARAM_VALUE_AGE_EASY:Comfortable
+STR_PARAM_VALUE_AGE_NORMAL:Regular
+STR_PARAM_VALUE_AGE_HARD:Sweaty
+STR_PARAM_VALUE_AGE_HARDER:Slammed
+
+STR_MFR_AB1:Adelbrecht
+STR_MFR_BW1:Bufo Motive Works
+STR_MFR_KD1:Kurokawa Denki
+STR_MFR_DN1:duNord Carriage
+STR_MFR_TM1:Tama
+STR_MFR_PM1:Keppler
+STR_MFR_OG1:Oregrund Works
+STR_MFR_HP1:Hai Phong
+STR_MFR_PK1:Puckett
+STR_MFR_YR1:Yarra
+STR_MFR_KM1:Kaimuki
+STR_MFR_LC1:Lupo Carelli
+
+STR_MFR_AB2:AB
+STR_MFR_BW2:Bufo
+STR_MFR_KD2:Kurokawa
+STR_MFR_DN2:duNord
+STR_MFR_TM2:Tama
+STR_MFR_PM2:Keppler
+STR_MFR_OG2:Oregrund
+STR_MFR_HP2:Hai Phong
+STR_MFR_PK2:Puckett
+STR_MFR_YR2:Yarra
+STR_MFR_KM2:Kaimuki
+STR_MFR_LC2:LCS
+
+STR_SMOD_HPD:Hai Phong Foundry
+STR_SMOD_PKD:Puckett 'Belle'
+
+STR_SMOD_TMC:Bufo Motive Works 'GP'
+STR_SMOD_OGC:Oregrund Works
+STR_SMOD_HPC:Hai Phong 
+STR_SMOD_PKC:Puckett 'Improved'
+
+STR_FMOD_BWB:Bufo Motive Works 'B'
+STR_FMOD_DNB:duNord Carriage MKI
+STR_FMOD_TMB:Tama 'Hana'
+STR_FMOD_OGB:Oregrund Works
+
+STR_FMOD_BWA:Bufo Motive Works 'GP'
+STR_FMOD_DNA:duNord Carriage MKII
+STR_FMOD_TMA:Tama Motors
+STR_FMOD_OGA:Oregrund Model 2
+
+STR_FMOD_BW1:Bufo Motive Works 'GPII'
+STR_FMOD_DN1:duNord
+STR_FMOD_TM1:Tama Type 5
+STR_FMOD_OG1:Oregrund 'F'
+
+STR_FMOD_BW2:Bufo
+STR_FMOD_DN2:duNord Alpaca
+STR_FMOD_TM2:Tama Type 8
+STR_FMOD_OG2:Oregrund F3
+
+STR_FMOD_BW3:Bufo
+STR_FMOD_DN3:duNord Antelope
+STR_FMOD_TM3:Tama 1000
+STR_FMOD_OG3:Oregrund F4
+
+STR_FMOD_BW4:Bufo Trailrunner
+STR_FMOD_DN4:duNord Metro
+STR_FMOD_TM4:Tama 2000
+STR_FMOD_OG4:Oregrund F5
+
+STR_CFMOD_BWB:Bufo Motive Works 'C'
+STR_CFMOD_DNB:duNord Carriage MKIb
+STR_CFMOD_TMB:Tama Motors Hinoki
+STR_CFMOD_OGB:Oregrund Model 2C
+
+STR_CFMOD_BWA:Bufo Motive Works 'HP'
+STR_CFMOD_DNA:duNord Carriage MKIIb
+STR_CFMOD_TMA:Tama Motors
+STR_CFMOD_OGA:Oregrund Model 2C
+
+STR_CFMOD_BW1:Bufo Motive Works 'GPII'
+STR_CFMOD_DN1:duNord
+STR_CFMOD_TM1:Tama Type 5
+STR_CFMOD_OG1:Oregrund 'CF'
+
+STR_CFMOD_BW2:Bufo 'Semi'
+STR_CFMOD_DN2:duNord Llama
+STR_CFMOD_TM2:Tama Type 8
+STR_CFMOD_OG2:Oregrund CF300
+
+STR_CFMOD_BW3:Bufo Sierra
+STR_CFMOD_DN3:duNord Elk
+STR_CFMOD_TM3:Tama 1500
+STR_CFMOD_OG3:Oregrund CF400
+
+STR_CFMOD_BW4:Bufo Trailrunner
+STR_CFMOD_DN4:duNord Metro
+STR_CFMOD_TM4:Tama 2500
+STR_CFMOD_OG4:Oregrund CF500
+
+STR_TMOD_BW1:Bufo Motive Works 'ST'
+STR_TMOD_KD1:Kurokawa Denki Type 30
+STR_TMOD_DN1:duNord Carriage 'R'
+STR_TMOD_LC1:Lupo Carelli t.1
+
+STR_TMOD_BW2:Bufo
+STR_TMOD_KD2:Kurokawa E60
+STR_TMOD_DN2:duNord 'Clifton'
+STR_TMOD_LC2:Lupo t.20
+
+STR_TMOD_BW3:Bufo Alvarius
+STR_TMOD_KD3:Kurokawa E90
+STR_TMOD_DN3:duNord 'Pony'
+STR_TMOD_LC3:LCS t.30
+
+STR_TMOD_BW4:Bufo Yardrunner
+STR_TMOD_KD4:KD E4
+STR_TMOD_DN4:duNord 'Eco'
+STR_TMOD_LC4:LCS t.40
+
+STR_CTMOD_BW1:Bufo Motive Works 'LT'
+STR_CTMOD_KD1:Kurokawa Denki Type 36
+STR_CTMOD_DN1:duNord Carriage 'C'
+STR_CTMOD_LC1:Lupo Carelli t.15
+
+STR_CTMOD_BW2:Bufo 'Semi' 
+STR_CTMOD_KD2:Kurokawa E60
+STR_CTMOD_DN2:duNord 'Torwood'
+STR_CTMOD_LC2:Lupo t.25
+
+STR_CTMOD_BW3:Bufo Bocourt
+STR_CTMOD_KD3:KD M90
+STR_CTMOD_DN3:duNord 'Ox'
+STR_CTMOD_LC3:LCS t.35
+
+STR_CTMOD_BW4:Bufo Yardmaster
+STR_CTMOD_KD4:KD M4
+STR_CTMOD_DN4:duNord 'Ecohaul'
+STR_CTMOD_LC4:LCS t.45
+
+STR_DMOD_BW3:Bufo Alvarius-D
+STR_DMOD_TM3:Tama H3
+STR_DMOD_DN3:duNord JA-I
+
+STR_DMOD_BW4:Bufo Portrunner
+STR_DMOD_TM4:Tama H4
+STR_DMOD_DN4:duNord JA-II
+
+STR_CDMOD_BW3:Bufo Bocourt-D 
+STR_CDMOD_OG3:Oregrund D300
+STR_CDMOD_DN3:duNord JB-I
+
+STR_CDMOD_BW4:Bufo Portmaster
+STR_CDMOD_OG4:Oregrund D400
+STR_CDMOD_DN4:duNord JB-II
+
+STR_BOX:Piece Goods
+STR_REF:Refridgerated
+STR_STOCK:Livestock
+STR_OPEN:Open
+STR_FLAT:Flatbed
+STR_HOPP:Covered Hopper
+STR_MINE:Mineral Hopper
+STR_MAIL:Mail
+STR_TANK:Tanker
+
+STR_P_F:Truck
+STR_P_T:Trolley Truck
+STR_P_D:Dual-Mode Truck
+STR_P_S:Steam Truck
+
+STR_P_HF:Road Train
+STR_P_HT:Electric Road Train
+STR_P_HD:Trolley-Assist Road Train
+
+STR_FBUS_0:Jitney
+STR_FBUS_1:Omnibus
+STR_FBUS_2:Bus
+STR_FBUS_3:Articulated Bus
+
+STR_TBUS_1:Electric Omnibus
+STR_TBUS_2:Trolley Bus
+STR_TBUS_3:Articulated Trolley Bus
+
+STR_DBUS_1:Dual Mode Bus
+STR_DBUS_2:Articulated Dual Mode Bus
+
+STR_SBUS_1:Steam Omnibus
+
+STR_ETRAM_1:Electric Tram
+STR_ETRAM_2:Articulated Electric Tram
+STR_ETRAM_3:Electric Tram and Trailer
+STR_ETRAM_4:Light Rail Vehicle
+STR_ETRAM_5:Electric Parcels Tram
+STR_ETRAM_6:Electric Express Cargo LRV
+
+STR_STRAM_1:Steam Tram
+STR_STRAM_2:Steam Tram and Trailer
+
+STR_FTRAM_1:Gasoline Tram
+STR_FTRAM_2:Diesel Tram
+STR_FTRAM_3:Diesel Light Rail Vehicle
+STR_FTRAM_4:Hybrid Light Rail Vehicle
+STR_FTRAM_5:Diesel Parcels Tram
+STR_FTRAM_6:Hybrid Express Cargo LRV
+
+STR_FUNC_TRAM_1:Cable Car
+
+STR_MFR_AB_IS0:Adelbrecht 'Werft' Steam
+STR_MFR_PM_IS0:Keppler VB Steam
+STR_MFR_HP_IS0:Hai Phong 'Cua' Steam
+STR_MFR_PK_IS0:Puckett 'Ox' Steam
+
+STR_MFR_AB_IS1:Adelbrecht S12 Steam
+STR_MFR_PM_IS1:Keppler HB Steam
+STR_MFR_HP_IS1:Hai Phong 'Type C' Steam
+STR_MFR_PK_IS1:Puckett '0-4-0' Steam
+
+STR_MFR_AB_IC1:Adelbrecht 150 Diesel
+STR_MFR_PM_IC1:Keppler D15 Diesel
+STR_MFR_YR_IC1:Yarra 'Ute' Diesel
+STR_MFR_KM_IC1:Kaimuki 1F Diesel
+
+STR_MFR_AB_IC2:Adelbrecht 300 Diesel
+STR_MFR_PM_IC2:Keppler D30 Diesel
+STR_MFR_YR_IC2:Yarra 'Mornington' Diesel
+STR_MFR_KM_IC2:Kaimuki 3F Diesel
+
+STR_MFR_AB_IC3:Adelbrecht 500 Hybrid
+STR_MFR_PM_IC3:Keppler H50 Hybrid
+STR_MFR_YR_IC3:Yarra 'Wharfie' Hybrid
+STR_MFR_KM_IC3:Kaimuki 4H Hybrid
+
+STR_MFR_KD_IE1:Kurokawa Denki 'Kamo' Electric
+STR_MFR_YR_IE1:Yarra 'Lammington' Electric
+STR_MFR_KM_IE1:Kaimuki 1M Electric
+STR_MFR_LC_IE1:Lupo Carelli 'C-Motor' Electric
+
+STR_MFR_KD_IE2:Kaimuki BX Electric
+STR_MFR_YR_IE2:Yarra 'Bluestone' Electric
+STR_MFR_KM_IE2:Kaimuki BX Electric
+STR_MFR_LC_IE2:Lupo c.24 Electric
+
+STR_MFR_KD_IE3:KD E600 Electric
+STR_MFR_YR_IE3:Yarra 'Magpie' Electric
+STR_MFR_KM_IE3:Kaimuki 6M Electric
+STR_MFR_LC_IE3:LCS c.60 Electric
+
+STR_B_ITRAM:Boxcar Train
+STR_F_ITRAM:Flatbed Train
+STR_O_ITRAM:Open Train
+
+STR_CABLECAR_01:Garamayr Cable Car
+STR_CABLECAR_02:Doppelventa Cable Car
+
+STR_PICKUP_1:Tama Tradie Pickup
+STR_WRX_1:Tama Boxer
+
+STR_CONCAT:{STRING} {STRING} {STRING}
+STR_CONCAT_BUS:{STRING} {STRING}
+STR_CONCAT_TRAM:{STRING} {STRING}

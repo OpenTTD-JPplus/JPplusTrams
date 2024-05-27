@@ -1,0 +1,24 @@
+# 1 "JPplusTrams.pnml"
+/*---HEADER--*/
+
+// Define the GRF
+# 1 "src/header.pnml" 1
+/*
+*	Welcome to JPplusTrams!
+*/
+
+grf {
+	grfid: 						"KR06";
+	name: 						string(STR_GRF_NAME);
+	desc: 						string(STR_GRF_DESC);
+	version: 					010;	// v0.1.0
+	min_compatible_version: 	010;	// v0.1.0
+	url: 						string(STR_WEBSITE);
+
+	
+}
+
+if (version_openttd(1,10,0,28004) > openttd_version) {
+	error(FATAL, string(STR_ERROR_GAME_VERSION));
+}
+# 1 "JPplusTrams.pnml" 4

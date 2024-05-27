@@ -1,0 +1,8 @@
+##grflangid 0x01
+
+STR_GRF_NAME							        :{TITLE} {VERSION}
+STR_GRF_DESC							        :{WHITE}JP{RED}+{WHITE}Trams{}{}{}{BLACK}PENDING{}{}{BLACK}{COPYRIGHT}JP+Trams{}Licence: GPLv2{}{BLACK}{}{BLACK}Coded by{}{LTBLUE}KeepinItRail
+
+STR_WEBSITE								        :https://github.com/KeepinItRail/JPplusTrams
+
+STR_ERROR_GAME_VERSION					        :JP+ Trams requires JGRPP version 0.57.0, or better
