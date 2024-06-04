@@ -10,9 +10,92 @@ grf {
 	min_compatible_version: 	010;	// v0.1.0
 	url: 						string(STR_WEBSITE);
 
+	// Hide logo
+	param 0 {
+        param_hide_logo {
+            type: bool;
+            name: string(STR_PARAM_HIDE_LOGO);
+            desc: string(STR_PARAM_HIDE_LOGO);
+            bit: 0;
+            def_value: 0;
+            }
+        }
 	
+	//Set capacities
+	param 1 {
+		param_capacity {
+			type: int;
+			name: string(STR_PARAM_NAME_CAP);
+			desc: string(STR_PARAM_DESC_CAP);
+			min_value: 2;
+			max_value: 4;
+			def_value: 2;
+			names: {
+				2: string(STR_PARAM_VALUE_CAP_TTD);
+				3: string(STR_PARAM_VALUE_CAP_MED);
+				4: string(STR_PARAM_VALUE_CAP_HIGH);
+			};
+		}
+	}
+
+	//Adjust Running Costs
+	param 2 {
+		param_runcost {
+			type: int;
+			name: string(STR_PARAM_NAME_RUNCOST);
+			desc: string(STR_PARAM_DESC_RUNCOST);
+			min_value: 1;
+			max_value: 4;
+			def_value: 2;
+			names: {
+				1: string(STR_PARAM_VALUE_RUNCOST_EASY);            
+				2: string(STR_PARAM_VALUE_RUNCOST_TTDISH);
+				3: string(STR_PARAM_VALUE_RUNCOST_HARD);
+				4: string(STR_PARAM_VALUE_RUNCOST_HARDER);
+			};
+		}
+	}
+
+	//Adjust Purchase Costs
+	param 3 {
+		param_buycost {
+			type: int;
+			name: string(STR_PARAM_NAME_BUYCOST);
+			desc: string(STR_PARAM_DESC_BUYCOST);
+			min_value: 3;
+			max_value: 6;
+			def_value: 4;
+			names: {
+				3: string(STR_PARAM_VALUE_RUNCOST_EASY);            
+				4: string(STR_PARAM_VALUE_RUNCOST_TTDISH);
+				5: string(STR_PARAM_VALUE_RUNCOST_HARD);
+				6: string(STR_PARAM_VALUE_RUNCOST_HARDER);
+			};
+		}
+	}
+
+	//cargo aging
+	param 4 { 
+		param_aging { 
+			name: string(STR_PARAM_NAME_AGE);
+			desc: string(STR_PARAM_DESC_AGE);
+			min_value: 0;
+			max_value: 3;
+			def_value: 1;
+			names: {
+				0: string(STR_PARAM_VALUE_AGE_EASY);            
+				1: string(STR_PARAM_VALUE_AGE_NORMAL);
+				2: string(STR_PARAM_VALUE_AGE_HARD);
+				3: string(STR_PARAM_VALUE_AGE_HARDER);
+			};
+		}
+	}
 }
 
 if (version_openttd(1,10,0,28004) > openttd_version) {
 	error(FATAL, string(STR_ERROR_GAME_VERSION));
 }
+
+tramtypetable { RAIL, ELRL, FUNC } //tramtype translation table 
+
+disable_item(FEAT_ROADVEHS); // disable default road vehicles

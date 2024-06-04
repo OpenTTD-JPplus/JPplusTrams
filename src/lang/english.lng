@@ -6,3 +6,47 @@ STR_GRF_DESC							        :{WHITE}JP{RED}+{WHITE}Trams{}{}{}{BLACK}PENDING{}{}{
 STR_WEBSITE								        :https://github.com/KeepinItRail/JPplusTrams
 
 STR_ERROR_GAME_VERSION					        :JP+ Trams requires JGRPP version 0.57.0, or better
+
+# Parameters
+
+# Hide Logos
+STR_PARAM_HIDE_LOGO                             :Hide Logos from the purchase menu
+
+# Capacity
+STR_PARAM_NAME_CAP                              :Road Vehicle Capacity
+STR_PARAM_DESC_CAP                              :Adjust vehicle capacities.
+STR_PARAM_VALUE_CAP_TTD                         :Original Vehicle Style (Low)
+STR_PARAM_VALUE_CAP_MED                         :Medium
+STR_PARAM_VALUE_CAP_HIGH                        :High
+
+# Run Cost
+STR_PARAM_NAME_RUNCOST                          :Road Vehicle Running Cost
+STR_PARAM_DESC_RUNCOST                          :Adjust vehicle running costs.
+STR_PARAM_VALUE_RUNCOST_EASY                    :Low
+STR_PARAM_VALUE_RUNCOST_TTDISH                  :Original Vehicle Style (Medium)
+STR_PARAM_VALUE_RUNCOST_HARD                    :High
+STR_PARAM_VALUE_RUNCOST_HARDER                  :Highest
+
+# Purchase Cost
+STR_PARAM_NAME_BUYCOST                          :Road Vehicle Purchase Cost
+STR_PARAM_DESC_BUYCOST                          :Adjust vehicle purchase costs.
+
+# Aging
+STR_PARAM_NAME_AGE                              :Tram Cargo Aging
+STR_PARAM_DESC_AGE                              :Adjust passenger cargo aging for trams.
+STR_PARAM_VALUE_AGE_EASY                        :Comfortable
+STR_PARAM_VALUE_AGE_NORMAL                      :Regular
+STR_PARAM_VALUE_AGE_HARD                        :Sweaty
+STR_PARAM_VALUE_AGE_HARDER                      :Slammed
+
+LV_IRL                                          : Original Livery
+LV_2CC                                          : 2CC Livery
+LV_RANDOM                                       : Random Livery
+
+# Trams
+STR_HU300                                       :HU300 Series ("Lightline")
+STR_F1000                                       :F1000 Series ("Fukuram")
+LV_F1001                                        :{ORANGE} (F1001)
+LV_F1002                                        :{LTBLUE} (F1002)
+LV_F1003                                        :{GREEN} (F1003)
+LV_F1004                                        :{CREAM} (F1004)

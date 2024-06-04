@@ -2,3 +2,9 @@
 
 // Define the GRF
 #include "src/header.pnml"
+#include "src/template.pnml"
+#include "src/logos.pnml"
+
+// Trams
+#include "src/trams/hu300/hu300.pnml"
+#include "src/trams/f1000/f1000.pnml"

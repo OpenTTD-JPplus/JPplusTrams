@@ -1,0 +1,8 @@
+
+// Lightline
+spriteset (sprite_logo_lightline,"src/logos/lightline.png") { tmpl_p() }
+switch(FEAT_ROADVEHS, SELF, logo_lightline, param_hide_logo) {0:sprite_logo_lightline;}
+
+// Fukui
+spriteset (sprite_logo_fukui,"src/logos/fukui.png") { tmpl_p() }
+switch(FEAT_ROADVEHS, SELF, logo_fukui, param_hide_logo) {0:sprite_logo_fukui;}
