@@ -7,6 +7,14 @@ STR_WEBSITE								        :https://github.com/KeepinItRail/JPplusTrams
 
 STR_ERROR_GAME_VERSION					        :JP+ Trams requires JGRPP version 0.57.0, or better
 
+STR_CONCAT_2	                                :{STRING} {STRING}
+STR_CONCAT_3	                                :{STRING} {STRING} {STRING}
+STR_CONCAT_4	                                :{STRING} {STRING} {STRING} {STRING}
+STR_CONCAT_5	                                :{STRING} {STRING} {STRING} {STRING} {STRING}
+
+OPERATORS                                       :{BLACK}Operators: 
+LIVERIES                                        :{}{BLACK}Liveries: 
+
 # Parameters
 
 # Hide Logos
@@ -39,9 +47,18 @@ STR_PARAM_VALUE_AGE_NORMAL                      :Regular
 STR_PARAM_VALUE_AGE_HARD                        :Sweaty
 STR_PARAM_VALUE_AGE_HARDER                      :Slammed
 
+# Liveries
 LV_IRL                                          : Original Livery
 LV_2CC                                          : 2CC Livery
 LV_RANDOM                                       : Random Livery
+
+IRL2CC                                          :{GOLD}Original & 2cc
+VARIOUS                                         :{GOLD}Various, see cargo subtype menu                       
+
+# Operators
+OKAYAMA                                         :{GOLD}Okayama Electric Tramway
+UTSUNOMIYA                                      :{GOLD}Utsunomiya Light Rail
+FUKUI                                           :{GOLD}Fukui Railway
 
 # Trams
 STR_HU300                                       :HU300 Series ("Lightline")
@@ -50,3 +67,4 @@ LV_F1001                                        :{ORANGE} (F1001)
 LV_F1002                                        :{LTBLUE} (F1002)
 LV_F1003                                        :{GREEN} (F1003)
 LV_F1004                                        :{CREAM} (F1004)
+STR_9200                                        :9200 Series ("Momo")

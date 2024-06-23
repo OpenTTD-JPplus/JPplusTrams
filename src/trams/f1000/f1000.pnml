@@ -289,7 +289,7 @@ item(FEAT_ROADVEHS, item_f1000) {
         weight:                         37 ton;
         }
     graphics {
-
+        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(FUKUI),string(LIVERIES),string(VARIOUS));
         cargo_subtype_text:             sw_f1000_subtype_text;
         cargo_capacity:                 sw_f1000_capacity;
         purchase_cargo_capacity:        ((param_capacity*155)/2)/3;

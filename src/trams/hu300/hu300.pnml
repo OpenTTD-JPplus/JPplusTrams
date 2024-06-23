@@ -184,7 +184,7 @@ item(FEAT_ROADVEHS, item_hu300) {
         weight:                         39 ton;
         }
     graphics {
-
+        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(UTSUNOMIYA),string(LIVERIES),string(IRL2CC));
         cargo_subtype_text:             sw_hu300_subtype_text;
         cargo_capacity:                 sw_hu300_capacity;
         purchase_cargo_capacity:        ((param_capacity*155)/2)/3;
