@@ -49,10 +49,12 @@ STR_PARAM_VALUE_AGE_HARDER                      :Slammed
 
 # Liveries
 LV_IRL                                          : Original Livery
-LV_2CC                                          : 2CC Livery
+LV_1CC                                          : 1cc Livery
+LV_2CC                                          : 2cc Livery
 LV_RANDOM                                       : Random Livery
 
 IRL2CC                                          :{GOLD}Original & 2cc
+IRL1CC2CC                                       :{GOLD}Original, 1cc & 2cc
 VARIOUS                                         :{GOLD}Various, see cargo subtype menu                       
 
 # Operators

@@ -4,7 +4,8 @@
 
 switch(FEAT_ROADVEHS, SELF, sw_hu300_subtype_text, cargo_subtype) {
 	    0: return string(LV_IRL);
-        1: return string(LV_2CC);
+        1: return string(LV_1CC);
+        2: return string(LV_2CC);
         return CB_RESULT_NO_TEXT;
         }
 
@@ -44,6 +45,28 @@ switch(FEAT_ROADVEHS, SELF, sw_hu300_subtype_text, cargo_subtype) {
         loading: [spriteset_hu300_rear_loading_irl];
     }
 
+    // 1cc
+    spriteset(spriteset_hu300_lead_loaded_1cc,  "src/trams/hu300/gfx/hu300_1cc.png") {tmpl_7(1,1)}
+    spriteset(spriteset_hu300_lead_loading_1cc, "src/trams/hu300/gfx/hu300_1cc.png") {tmpl_7(1,25)}
+    spritegroup spritegroup_hu300_lead_1cc {
+        loaded:  [spriteset_hu300_lead_loaded_1cc];
+        loading: [spriteset_hu300_lead_loading_1cc];
+    }
+
+    spriteset(spriteset_hu300_mid_loaded_1cc,  "src/trams/hu300/gfx/hu300_1cc.png") {tmpl_7(1,49)}
+    spriteset(spriteset_hu300_mid_loading_1cc, "src/trams/hu300/gfx/hu300_1cc.png") {tmpl_7(1,73)}
+    spritegroup spritegroup_hu300_mid_1cc {
+        loaded:  [spriteset_hu300_mid_loaded_1cc];
+        loading: [spriteset_hu300_mid_loading_1cc];
+    }
+
+    spriteset(spriteset_hu300_rear_loaded_1cc,  "src/trams/hu300/gfx/hu300_1cc.png") {tmpl_7(1,97)}
+    spriteset(spriteset_hu300_rear_loading_1cc, "src/trams/hu300/gfx/hu300_1cc.png") {tmpl_7(1,121)}
+    spritegroup spritegroup_hu300_rear_1cc {
+        loaded:  [spriteset_hu300_rear_loaded_1cc];
+        loading: [spriteset_hu300_rear_loading_1cc];
+    }
+    
     // 2cc
     spriteset(spriteset_hu300_lead_loaded_2cc,  "src/trams/hu300/gfx/hu300_2cc.png") {tmpl_7(1,1)}
     spriteset(spriteset_hu300_lead_loading_2cc, "src/trams/hu300/gfx/hu300_2cc.png") {tmpl_7(1,25)}
@@ -67,17 +90,20 @@ switch(FEAT_ROADVEHS, SELF, sw_hu300_subtype_text, cargo_subtype) {
     }
 
     switch (FEAT_ROADVEHS, PARENT, sw_hu300_lead, cargo_subtype ) {
-        1:  spritegroup_hu300_lead_2cc;
+        1:  spritegroup_hu300_lead_1cc;
+        2:  spritegroup_hu300_lead_2cc;
             spritegroup_hu300_lead_irl;
     }
 
     switch (FEAT_ROADVEHS, PARENT, sw_hu300_mid, cargo_subtype ) {
-        1:  spritegroup_hu300_mid_2cc;
+        1:  spritegroup_hu300_mid_1cc;
+        2:  spritegroup_hu300_mid_2cc;
             spritegroup_hu300_mid_irl;
     }
 
     switch (FEAT_ROADVEHS, PARENT, sw_hu300_rear, cargo_subtype ) {
-        1:  spritegroup_hu300_rear_2cc;
+        1:  spritegroup_hu300_rear_1cc;
+        2:  spritegroup_hu300_rear_2cc;
             spritegroup_hu300_rear_irl;
     }
 
@@ -184,7 +210,7 @@ item(FEAT_ROADVEHS, item_hu300) {
         weight:                         39 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(UTSUNOMIYA),string(LIVERIES),string(IRL2CC));
+        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(UTSUNOMIYA),string(LIVERIES),string(IRL1CC2CC));
         cargo_subtype_text:             sw_hu300_subtype_text;
         cargo_capacity:                 sw_hu300_capacity;
         purchase_cargo_capacity:        ((param_capacity*155)/2)/3;
