@@ -7,7 +7,7 @@ switch(FEAT_ROADVEHS, SELF, sw_f1000_subtype_text, cargo_subtype) {
         2: return string(LV_F1002);
         3: return string(LV_F1003);
         4: return string(LV_F1004);
-        5: return string(LV_2CC);
+        5: return string(LV_1CC);
         return CB_RESULT_NO_TEXT;
         }
 
@@ -25,115 +25,339 @@ switch(FEAT_ROADVEHS, SELF, sw_f1000_subtype_text, cargo_subtype) {
     // Tram Graphics
 
     // F1001 Orange
-    spriteset(spriteset_f1001_lead_loaded,      "src/trams/f1000/gfx/f1001.png") {tmpl_7(1,1)}
-    spriteset(spriteset_f1001_lead_loading,     "src/trams/f1000/gfx/f1001.png") {tmpl_7(1,25)}
-    spritegroup spritegroup_f1001_lead {
-        loaded:  [spriteset_f1001_lead_loaded];
-        loading: [spriteset_f1001_lead_loading];
-    }
+        // Lead
+            spriteset(spriteset_f1001_lead_clsd,            "src/trams/f1000/gfx/f1001_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1001_lead_left,            "src/trams/f1000/gfx/f1001_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1001_lead_rght,            "src/trams/f1000/gfx/f1001_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_f1001_lead_left {
+                loaded:  [spriteset_f1001_lead_clsd];
+                loading: [spriteset_f1001_lead_left];
+            }
 
-    spriteset(spriteset_f1001_mid_loaded,       "src/trams/f1000/gfx/f1001.png") {tmpl_7(1,49)}
-    spriteset(spriteset_f1001_mid_loading,      "src/trams/f1000/gfx/f1001.png") {tmpl_7(1,73)}
-    spritegroup spritegroup_f1001_mid {
-        loaded:  [spriteset_f1001_mid_loaded];
-        loading: [spriteset_f1001_mid_loading];
-    }
+            // Right
+            spritegroup spritegroup_f1001_lead_rght {
+                loaded:  [spriteset_f1001_lead_clsd];
+                loading: [spriteset_f1001_lead_rght];
+            }
 
-    spriteset(spriteset_f1001_rear_loaded,      "src/trams/f1000/gfx/f1001.png") {tmpl_7(1,97)}
-    spriteset(spriteset_f1001_rear_loading,     "src/trams/f1000/gfx/f1001.png") {tmpl_7(1,121)}
-    spritegroup spritegroup_f1001_rear {
-        loaded:  [spriteset_f1001_rear_loaded];
-        loading: [spriteset_f1001_rear_loading];
-    }
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1001_lead, param_side_of_road ) {
+                1:  spritegroup_f1001_lead_rght;
+                    spritegroup_f1001_lead_left; //default
+            } 
+
+        // Mid
+            spriteset(spriteset_f1001_mid_clsd,             "src/trams/f1000/gfx/f1001_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1001_mid_left,             "src/trams/f1000/gfx/f1001_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1001_mid_rght,             "src/trams/f1000/gfx/f1001_rght.png") {tmpl_7(1,25)}
+            
+            // Left
+            spritegroup spritegroup_f1001_mid_left {
+                loaded:  [spriteset_f1001_mid_clsd];
+                loading: [spriteset_f1001_mid_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1001_mid_rght {
+                loaded:  [spriteset_f1001_mid_clsd];
+                loading: [spriteset_f1001_mid_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1001_mid, param_side_of_road ) {
+                1:  spritegroup_f1001_mid_rght;
+                    spritegroup_f1001_mid_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_f1001_rear_clsd,            "src/trams/f1000/gfx/f1001_clsd.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1001_rear_left,            "src/trams/f1000/gfx/f1001_left.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1001_rear_rght,            "src/trams/f1000/gfx/f1001_rght.png") {tmpl_7(1,49)}
+
+            // Left
+            spritegroup spritegroup_f1001_rear_left {
+                loaded:  [spriteset_f1001_rear_clsd];
+                loading: [spriteset_f1001_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1001_rear_rght {
+                loaded:  [spriteset_f1001_rear_clsd];
+                loading: [spriteset_f1001_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1001_rear, param_side_of_road ) {
+                1:  spritegroup_f1001_rear_rght;
+                    spritegroup_f1001_rear_left; //default
+            } 
 
     // F1002 Blue
-    spriteset(spriteset_f1002_lead_loaded,      "src/trams/f1000/gfx/f1002.png") {tmpl_7(1,1)}
-    spriteset(spriteset_f1002_lead_loading,     "src/trams/f1000/gfx/f1002.png") {tmpl_7(1,25)}
-    spritegroup spritegroup_f1002_lead {
-        loaded:  [spriteset_f1002_lead_loaded];
-        loading: [spriteset_f1002_lead_loading];
-    }
+        // Lead
+            spriteset(spriteset_f1002_lead_clsd,            "src/trams/f1000/gfx/f1002_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1002_lead_left,            "src/trams/f1000/gfx/f1002_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1002_lead_rght,            "src/trams/f1000/gfx/f1002_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_f1002_lead_left {
+                loaded:  [spriteset_f1002_lead_clsd];
+                loading: [spriteset_f1002_lead_left];
+            }
 
-    spriteset(spriteset_f1002_mid_loaded,       "src/trams/f1000/gfx/f1002.png") {tmpl_7(1,49)}
-    spriteset(spriteset_f1002_mid_loading,      "src/trams/f1000/gfx/f1002.png") {tmpl_7(1,73)}
-    spritegroup spritegroup_f1002_mid {
-        loaded:  [spriteset_f1002_mid_loaded];
-        loading: [spriteset_f1002_mid_loading];
-    }
+            // Right
+            spritegroup spritegroup_f1002_lead_rght {
+                loaded:  [spriteset_f1002_lead_clsd];
+                loading: [spriteset_f1002_lead_rght];
+            }
 
-    spriteset(spriteset_f1002_rear_loaded,      "src/trams/f1000/gfx/f1002.png") {tmpl_7(1,97)}
-    spriteset(spriteset_f1002_rear_loading,     "src/trams/f1000/gfx/f1002.png") {tmpl_7(1,121)}
-    spritegroup spritegroup_f1002_rear {
-        loaded:  [spriteset_f1002_rear_loaded];
-        loading: [spriteset_f1002_rear_loading];
-    }
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1002_lead, param_side_of_road ) {
+                1:  spritegroup_f1002_lead_rght;
+                    spritegroup_f1002_lead_left; //default
+            } 
+
+        // Mid
+            spriteset(spriteset_f1002_mid_clsd,             "src/trams/f1000/gfx/f1002_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1002_mid_left,             "src/trams/f1000/gfx/f1002_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1002_mid_rght,             "src/trams/f1000/gfx/f1002_rght.png") {tmpl_7(1,25)}
+            
+            // Left
+            spritegroup spritegroup_f1002_mid_left {
+                loaded:  [spriteset_f1002_mid_clsd];
+                loading: [spriteset_f1002_mid_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1002_mid_rght {
+                loaded:  [spriteset_f1002_mid_clsd];
+                loading: [spriteset_f1002_mid_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1002_mid, param_side_of_road ) {
+                1:  spritegroup_f1002_mid_rght;
+                    spritegroup_f1002_mid_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_f1002_rear_clsd,            "src/trams/f1000/gfx/f1002_clsd.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1002_rear_left,            "src/trams/f1000/gfx/f1002_left.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1002_rear_rght,            "src/trams/f1000/gfx/f1002_rght.png") {tmpl_7(1,49)}
+
+            // Left
+            spritegroup spritegroup_f1002_rear_left {
+                loaded:  [spriteset_f1002_rear_clsd];
+                loading: [spriteset_f1002_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1002_rear_rght {
+                loaded:  [spriteset_f1002_rear_clsd];
+                loading: [spriteset_f1002_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1002_rear, param_side_of_road ) {
+                1:  spritegroup_f1002_rear_rght;
+                    spritegroup_f1002_rear_left; //default
+            } 
 
     // F1003 Green
-    spriteset(spriteset_f1003_lead_loaded,      "src/trams/f1000/gfx/f1003.png") {tmpl_7(1,1)}
-    spriteset(spriteset_f1003_lead_loading,     "src/trams/f1000/gfx/f1003.png") {tmpl_7(1,25)}
-    spritegroup spritegroup_f1003_lead {
-        loaded:  [spriteset_f1003_lead_loaded];
-        loading: [spriteset_f1003_lead_loading];
-    }
+        // Lead
+            spriteset(spriteset_f1003_lead_clsd,            "src/trams/f1000/gfx/f1003_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1003_lead_left,            "src/trams/f1000/gfx/f1003_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1003_lead_rght,            "src/trams/f1000/gfx/f1003_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_f1003_lead_left {
+                loaded:  [spriteset_f1003_lead_clsd];
+                loading: [spriteset_f1003_lead_left];
+            }
 
-    spriteset(spriteset_f1003_mid_loaded,       "src/trams/f1000/gfx/f1003.png") {tmpl_7(1,49)}
-    spriteset(spriteset_f1003_mid_loading,      "src/trams/f1000/gfx/f1003.png") {tmpl_7(1,73)}
-    spritegroup spritegroup_f1003_mid {
-        loaded:  [spriteset_f1003_mid_loaded];
-        loading: [spriteset_f1003_mid_loading];
-    }
+            // Right
+            spritegroup spritegroup_f1003_lead_rght {
+                loaded:  [spriteset_f1003_lead_clsd];
+                loading: [spriteset_f1003_lead_rght];
+            }
 
-    spriteset(spriteset_f1003_rear_loaded,      "src/trams/f1000/gfx/f1003.png") {tmpl_7(1,97)}
-    spriteset(spriteset_f1003_rear_loading,     "src/trams/f1000/gfx/f1003.png") {tmpl_7(1,121)}
-    spritegroup spritegroup_f1003_rear {
-        loaded:  [spriteset_f1003_rear_loaded];
-        loading: [spriteset_f1003_rear_loading];
-    }
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1003_lead, param_side_of_road ) {
+                1:  spritegroup_f1003_lead_rght;
+                    spritegroup_f1003_lead_left; //default
+            } 
+
+        // Mid
+            spriteset(spriteset_f1003_mid_clsd,             "src/trams/f1000/gfx/f1003_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1003_mid_left,             "src/trams/f1000/gfx/f1003_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1003_mid_rght,             "src/trams/f1000/gfx/f1003_rght.png") {tmpl_7(1,25)}
+            
+            // Left
+            spritegroup spritegroup_f1003_mid_left {
+                loaded:  [spriteset_f1003_mid_clsd];
+                loading: [spriteset_f1003_mid_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1003_mid_rght {
+                loaded:  [spriteset_f1003_mid_clsd];
+                loading: [spriteset_f1003_mid_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1003_mid, param_side_of_road ) {
+                1:  spritegroup_f1003_mid_rght;
+                    spritegroup_f1003_mid_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_f1003_rear_clsd,            "src/trams/f1000/gfx/f1003_clsd.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1003_rear_left,            "src/trams/f1000/gfx/f1003_left.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1003_rear_rght,            "src/trams/f1000/gfx/f1003_rght.png") {tmpl_7(1,49)}
+
+            // Left
+            spritegroup spritegroup_f1003_rear_left {
+                loaded:  [spriteset_f1003_rear_clsd];
+                loading: [spriteset_f1003_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1003_rear_rght {
+                loaded:  [spriteset_f1003_rear_clsd];
+                loading: [spriteset_f1003_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1003_rear, param_side_of_road ) {
+                1:  spritegroup_f1003_rear_rght;
+                    spritegroup_f1003_rear_left; //default
+            } 
 
     // F1004 Pink
-    spriteset(spriteset_f1004_lead_loaded,      "src/trams/f1000/gfx/f1004.png") {tmpl_7(1,1)}
-    spriteset(spriteset_f1004_lead_loading,     "src/trams/f1000/gfx/f1004.png") {tmpl_7(1,25)}
-    spritegroup spritegroup_f1004_lead {
-        loaded:  [spriteset_f1004_lead_loaded];
-        loading: [spriteset_f1004_lead_loading];
-    }
+        // Lead
+            spriteset(spriteset_f1004_lead_clsd,            "src/trams/f1000/gfx/f1004_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1004_lead_left,            "src/trams/f1000/gfx/f1004_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1004_lead_rght,            "src/trams/f1000/gfx/f1004_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_f1004_lead_left {
+                loaded:  [spriteset_f1004_lead_clsd];
+                loading: [spriteset_f1004_lead_left];
+            }
 
-    spriteset(spriteset_f1004_mid_loaded,       "src/trams/f1000/gfx/f1004.png") {tmpl_7(1,49)}
-    spriteset(spriteset_f1004_mid_loading,      "src/trams/f1000/gfx/f1004.png") {tmpl_7(1,73)}
-    spritegroup spritegroup_f1004_mid {
-        loaded:  [spriteset_f1004_mid_loaded];
-        loading: [spriteset_f1004_mid_loading];
-    }
+            // Right
+            spritegroup spritegroup_f1004_lead_rght {
+                loaded:  [spriteset_f1004_lead_clsd];
+                loading: [spriteset_f1004_lead_rght];
+            }
 
-    spriteset(spriteset_f1004_rear_loaded,      "src/trams/f1000/gfx/f1004.png") {tmpl_7(1,97)}
-    spriteset(spriteset_f1004_rear_loading,     "src/trams/f1000/gfx/f1004.png") {tmpl_7(1,121)}
-    spritegroup spritegroup_f1004_rear {
-        loaded:  [spriteset_f1004_rear_loaded];
-        loading: [spriteset_f1004_rear_loading];
-    }
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1004_lead, param_side_of_road ) {
+                1:  spritegroup_f1004_lead_rght;
+                    spritegroup_f1004_lead_left; //default
+            } 
 
+        // Mid
+            spriteset(spriteset_f1004_mid_clsd,             "src/trams/f1000/gfx/f1004_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1004_mid_left,             "src/trams/f1000/gfx/f1004_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1004_mid_rght,             "src/trams/f1000/gfx/f1004_rght.png") {tmpl_7(1,25)}
+            
+            // Left
+            spritegroup spritegroup_f1004_mid_left {
+                loaded:  [spriteset_f1004_mid_clsd];
+                loading: [spriteset_f1004_mid_left];
+            }
 
-    // 2cc
-    spriteset(spriteset_f1000_lead_loaded_2cc,  "src/trams/f1000/gfx/f1000_2cc.png") {tmpl_7(1,1)}
-    spriteset(spriteset_f1000_lead_loading_2cc, "src/trams/f1000/gfx/f1000_2cc.png") {tmpl_7(1,25)}
-    spritegroup spritegroup_f1000_lead_2cc {
-        loaded:  [spriteset_f1000_lead_loaded_2cc];
-        loading: [spriteset_f1000_lead_loading_2cc];
-    }
+            // Right
+            spritegroup spritegroup_f1004_mid_rght {
+                loaded:  [spriteset_f1004_mid_clsd];
+                loading: [spriteset_f1004_mid_rght];
+            }
 
-    spriteset(spriteset_f1000_mid_loaded_2cc,  "src/trams/f1000/gfx/f1000_2cc.png") {tmpl_7(1,49)}
-    spriteset(spriteset_f1000_mid_loading_2cc, "src/trams/f1000/gfx/f1000_2cc.png") {tmpl_7(1,73)}
-    spritegroup spritegroup_f1000_mid_2cc {
-        loaded:  [spriteset_f1000_mid_loaded_2cc];
-        loading: [spriteset_f1000_mid_loading_2cc];
-    }
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1004_mid, param_side_of_road ) {
+                1:  spritegroup_f1004_mid_rght;
+                    spritegroup_f1004_mid_left; //default
+            } 
 
-    spriteset(spriteset_f1000_rear_loaded_2cc,  "src/trams/f1000/gfx/f1000_2cc.png") {tmpl_7(1,97)}
-    spriteset(spriteset_f1000_rear_loading_2cc, "src/trams/f1000/gfx/f1000_2cc.png") {tmpl_7(1,121)}
-    spritegroup spritegroup_f1000_rear_2cc {
-        loaded:  [spriteset_f1000_rear_loaded_2cc];
-        loading: [spriteset_f1000_rear_loading_2cc];
-    }
+        // Rear
+            spriteset(spriteset_f1004_rear_clsd,            "src/trams/f1000/gfx/f1004_clsd.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1004_rear_left,            "src/trams/f1000/gfx/f1004_left.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1004_rear_rght,            "src/trams/f1000/gfx/f1004_rght.png") {tmpl_7(1,49)}
+
+            // Left
+            spritegroup spritegroup_f1004_rear_left {
+                loaded:  [spriteset_f1004_rear_clsd];
+                loading: [spriteset_f1004_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1004_rear_rght {
+                loaded:  [spriteset_f1004_rear_clsd];
+                loading: [spriteset_f1004_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1004_rear, param_side_of_road ) {
+                1:  spritegroup_f1004_rear_rght;
+                    spritegroup_f1004_rear_left; //default
+            } 
+
+    // 1cc
+        // Lead
+            spriteset(spriteset_f1000_1cc_lead_clsd,            "src/trams/f1000/gfx/f1000_1cc_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1000_1cc_lead_left,            "src/trams/f1000/gfx/f1000_1cc_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1000_1cc_lead_rght,            "src/trams/f1000/gfx/f1000_1cc_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_f1000_1cc_lead_left {
+                loaded:  [spriteset_f1000_1cc_lead_clsd];
+                loading: [spriteset_f1000_1cc_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1000_1cc_lead_rght {
+                loaded:  [spriteset_f1000_1cc_lead_clsd];
+                loading: [spriteset_f1000_1cc_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1000_1cc_lead, param_side_of_road ) {
+                1:  spritegroup_f1000_1cc_lead_rght;
+                    spritegroup_f1000_1cc_lead_left; //default
+            } 
+
+        // Mid
+            spriteset(spriteset_f1000_1cc_mid_clsd,             "src/trams/f1000/gfx/f1000_1cc_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1000_1cc_mid_left,             "src/trams/f1000/gfx/f1000_1cc_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1000_1cc_mid_rght,             "src/trams/f1000/gfx/f1000_1cc_rght.png") {tmpl_7(1,25)}
+            
+            // Left
+            spritegroup spritegroup_f1000_1cc_mid_left {
+                loaded:  [spriteset_f1000_1cc_mid_clsd];
+                loading: [spriteset_f1000_1cc_mid_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1000_1cc_mid_rght {
+                loaded:  [spriteset_f1000_1cc_mid_clsd];
+                loading: [spriteset_f1000_1cc_mid_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1000_1cc_mid, param_side_of_road ) {
+                1:  spritegroup_f1000_1cc_mid_rght;
+                    spritegroup_f1000_1cc_mid_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_f1000_1cc_rear_clsd,            "src/trams/f1000/gfx/f1000_1cc_clsd.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1000_1cc_rear_left,            "src/trams/f1000/gfx/f1000_1cc_left.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1000_1cc_rear_rght,            "src/trams/f1000/gfx/f1000_1cc_rght.png") {tmpl_7(1,49)}
+
+            // Left
+            spritegroup spritegroup_f1000_1cc_rear_left {
+                loaded:  [spriteset_f1000_1cc_rear_clsd];
+                loading: [spriteset_f1000_1cc_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1000_1cc_rear_rght {
+                loaded:  [spriteset_f1000_1cc_rear_clsd];
+                loading: [spriteset_f1000_1cc_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1000_1cc_rear, param_side_of_road ) {
+                1:  spritegroup_f1000_1cc_rear_rght;
+                    spritegroup_f1000_1cc_rear_left; //default
+            } 
 
     // Lead
     switch (FEAT_ROADVEHS, PARENT, sw_f1000_lead_random, random_bits % 4) {
@@ -149,7 +373,7 @@ switch(FEAT_ROADVEHS, SELF, sw_f1000_subtype_text, cargo_subtype) {
         2:  spritegroup_f1002_lead;
         3:  spritegroup_f1003_lead;
         4:  spritegroup_f1004_lead;
-            spritegroup_f1000_lead_2cc;
+            spritegroup_f1000_1cc_lead;
     }
 
     // Mid
@@ -166,7 +390,7 @@ switch(FEAT_ROADVEHS, SELF, sw_f1000_subtype_text, cargo_subtype) {
         2:  spritegroup_f1002_mid;
         3:  spritegroup_f1003_mid;
         4:  spritegroup_f1004_mid;
-            spritegroup_f1000_mid_2cc;
+            spritegroup_f1000_1cc_mid;
     }
 
     // Rear
@@ -183,7 +407,7 @@ switch(FEAT_ROADVEHS, SELF, sw_f1000_subtype_text, cargo_subtype) {
         2:  spritegroup_f1002_rear;
         3:  spritegroup_f1003_rear;
         4:  spritegroup_f1004_rear;
-            spritegroup_f1000_rear_2cc;
+            spritegroup_f1000_1cc_rear;
     }
 
     switch (FEAT_ROADVEHS, SELF, sw_f1000_graphics, position_in_consist ) {

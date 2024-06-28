@@ -20,7 +20,23 @@ grf {
             def_value: 0;
             }
         }
-	
+
+	// Side of Road	
+	param 5 {
+        param_side_of_road {
+            type: int;
+            name: string(STR_PARAM_NAME_SIDE_OF_ROAD);
+            desc: string(STR_PARAM_DESC_SIDE_OF_ROAD);
+            min_value: 0;
+			max_value: 1;
+			def_value: 0;
+			names: {
+				0: string(STR_LEFT);
+				1: string(STR_RIGHT);
+			};
+        }
+    }
+
 	//Set capacities
 	param 1 {
 		param_capacity {

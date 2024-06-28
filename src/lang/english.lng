@@ -20,6 +20,12 @@ LIVERIES                                        :{}{BLACK}Liveries:
 # Hide Logos
 STR_PARAM_HIDE_LOGO                             :Hide Logos from the purchase menu
 
+# Side of Road
+STR_PARAM_NAME_SIDE_OF_ROAD                     :Door side to open
+STR_PARAM_DESC_SIDE_OF_ROAD                     :Choose which side of the tram that the doors will open at stops. Default Left
+STR_LEFT                                        :Left
+STR_RIGHT                                       :Right
+
 # Capacity
 STR_PARAM_NAME_CAP                              :Road Vehicle Capacity
 STR_PARAM_DESC_CAP                              :Adjust vehicle capacities.
@@ -53,6 +59,7 @@ LV_1CC                                          : 1cc Livery
 LV_2CC                                          : 2cc Livery
 LV_RANDOM                                       : Random Livery
 
+IRL1CC                                          :{GOLD}Original & 1cc
 IRL2CC                                          :{GOLD}Original & 2cc
 IRL1CC2CC                                       :{GOLD}Original, 1cc & 2cc
 VARIOUS                                         :{GOLD}Various, see cargo subtype menu                       
@@ -61,6 +68,7 @@ VARIOUS                                         :{GOLD}Various, see cargo subtyp
 OKAYAMA                                         :{GOLD}Okayama Electric Tramway
 UTSUNOMIYA                                      :{GOLD}Utsunomiya Light Rail
 FUKUI                                           :{GOLD}Fukui Railway
+MANYOSEN                                        :{GOLD}Manyosen
 
 # Trams
 STR_HU300                                       :HU300 Series ("Lightline")
@@ -70,3 +78,6 @@ LV_F1002                                        :{LTBLUE} (F1002)
 LV_F1003                                        :{GREEN} (F1003)
 LV_F1004                                        :{CREAM} (F1004)
 STR_9200                                        :9200 Series ("Momo")
+STR_MLRV1000                                    :Manyosen MLRV1000 Series ("AI-Tram")
+LV_DORAEMON                                     :{LTBLUE} Doraemon Livery
+DES_MLRV1000                                    :{GOLD}Original, 1cc & Doraemon

@@ -10,3 +10,7 @@ switch(FEAT_ROADVEHS, SELF, logo_fukui, param_hide_logo) {0:sprite_logo_fukui;}
 // Okayama
 spriteset (sprite_logo_okayama,"src/logos/okayama.png") { tmpl_p() }
 switch(FEAT_ROADVEHS, SELF, logo_okayama, param_hide_logo) {0:sprite_logo_okayama;}
+
+// Manyosen
+spriteset (sprite_logo_manyosen,"src/logos/manyosen.png") { tmpl_p() }
+switch(FEAT_ROADVEHS, SELF, logo_manyosen, param_hide_logo) {0:sprite_logo_manyosen;}
