@@ -70,6 +70,7 @@ UTSUNOMIYA                                      :{GOLD}Utsunomiya Light Rail
 FUKUI                                           :{GOLD}Fukui Railway
 MANYOSEN                                        :{GOLD}Manyosen
 ECHIZEN                                         :{GOLD}Echizen
+KUMAMOTO                                        :{GOLD}Kumamoto City Transportation Bureau
 
 # Trams
 STR_HU300                                       :HU300 Series ("Lightline")
@@ -83,3 +84,6 @@ STR_MLRV1000                                    :Manyosen MLRV1000 Series ("AI-T
 LV_DORAEMON                                     :{LTBLUE} Doraemon Livery
 DES_MLRV1000                                    :{GOLD}Original, 1cc & Doraemon
 STR_L                                           :L Series ("ki-bo")
+STR_0800                                        :0800 Series
+LV_COCORO                                       : "Cocoro"
+DES_0800                                        :{GOLD}Original, Cocoro, 1cc & 2cc

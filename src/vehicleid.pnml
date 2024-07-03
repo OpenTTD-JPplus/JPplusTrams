@@ -5,11 +5,13 @@ item(FEAT_ROADVEHS, item_f1000,         2  ) {}
 item(FEAT_ROADVEHS, item_9200,          3  ) {}
 item(FEAT_ROADVEHS, item_mlrv1000,      4  ) {}
 item(FEAT_ROADVEHS, item_l,             5  ) {}
+item(FEAT_ROADVEHS, item_0800,          6  ) {}
 
 // Sort Order in Menu
 sort(FEAT_ROADVEHS, [
 3,  // 2002 9200
 4,  // 2004 mlrv1000
+6,  // 2009 0800
 2,  // 2013 f1000
 5,  // 2016 l
 1,  // 2024 hu300

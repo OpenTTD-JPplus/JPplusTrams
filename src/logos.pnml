@@ -18,3 +18,7 @@ switch(FEAT_ROADVEHS, SELF, logo_manyosen, param_hide_logo) {0:sprite_logo_manyo
 // Echizen
 spriteset (sprite_logo_echizen,"src/logos/echizen.png") { tmpl_p() }
 switch(FEAT_ROADVEHS, SELF, logo_echizen, param_hide_logo) {0:sprite_logo_echizen;}
+
+// Kumamoto
+spriteset (sprite_logo_kumamoto,"src/logos/kumamoto.png") { tmpl_p() }
+switch(FEAT_ROADVEHS, SELF, logo_kumamoto, param_hide_logo) {0:sprite_logo_kumamoto;}
