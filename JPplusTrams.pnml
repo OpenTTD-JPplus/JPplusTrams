@@ -4,6 +4,7 @@
 #include "src/header.pnml"
 #include "src/template.pnml"
 #include "src/vehicleid.pnml"
+#include "src/functions.pnml"
 #include "src/logos.pnml"
 
 // Trams
@@ -11,3 +12,4 @@
 #include "src/trams/f1000/f1000.pnml"
 #include "src/trams/9200/9200.pnml"
 #include "src/trams/mlrv1000/mlrv1000.pnml"
+#include "src/trams/l/l.pnml"

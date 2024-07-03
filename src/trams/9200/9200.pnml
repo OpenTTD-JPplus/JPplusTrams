@@ -203,43 +203,6 @@ switch (FEAT_ROADVEHS, SELF, sw_9200_cargo_age_period, (param_aging)) {
         return 240; //default
 } 
 
-switch (FEAT_ROADVEHS, SELF, sw_9200_depotcost, current_year ) {
-        0..1900:    88+((param_runcost*20)/2);
-        1901..1940: 88+((param_runcost*24)/2);
-        1941..1980: 88+((param_runcost*22)/2);
-        1981..2020: 88+((param_runcost*20)/2);
-        default:    88+((param_runcost*18)/2);      
-}
-
-switch (FEAT_ROADVEHS, SELF, sw_9200_staffedcost, current_year ) {
-        0..1900:    88+((param_runcost*30)/2);
-        1901..1940: 88+((param_runcost*34)/2);
-        1941..1980: 88+((param_runcost*32)/2);
-        1981..2020: 88+((param_runcost*35)/2);
-        default:    88+((param_runcost*33)/2);          
-}
-
-switch (FEAT_ROADVEHS, SELF, sw_9200_powercost, current_year ) {
-        0..1900:    133+((param_runcost*30)/2);
-        1901..1940: 133+((param_runcost*34)/2);
-        1941..1980: 133+((param_runcost*32)/2);
-        1981..2020: 133+((param_runcost*35)/2);
-        default:    133+((param_runcost*33)/2);      
-
-}
-
-switch (FEAT_ROADVEHS, SELF, sw_9200_stopcost, vehicle_is_stopped  ) {
-        0: sw_9200_powercost;
-        1: sw_9200_staffedcost;
-        default: sw_9200_powercost;       
-}
-
-switch (FEAT_ROADVEHS, SELF, sw_9200_runcost, vehicle_is_in_depot  ) {
-        0: sw_9200_stopcost;
-        1: sw_9200_depotcost;
-        default: sw_9200_powercost;       
-}
-
 item(FEAT_ROADVEHS, item_9200) {
     property {
         name:                           string(STR_9200);
@@ -273,11 +236,11 @@ item(FEAT_ROADVEHS, item_9200) {
         default:                        sw_9200_graphics;
         length:                         7;
         cargo_age_period:               sw_9200_cargo_age_period;
-        running_cost_factor:            sw_9200_runcost;
-        purchase_running_cost_factor:   sw_9200_powercost;
+        running_cost_factor:            89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+        purchase_running_cost_factor:   89 + ((param_runcost * 30 ) / 2 );
         articulated_part:               sw_9200_articulated_part;
         visual_effect:                  sw_9200_spark;
         purchase:                       sw_9200_purchase;
-        cost_factor:                    ((param_buycost*175)/4);
+        cost_factor:                    ((param_buycost * 122 ) / 4);
         }
 }

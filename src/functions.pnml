@@ -1,0 +1,5 @@
+switch (FEAT_ROADVEHS, SELF, RunningCostFactor, current_speed) {
+        0: return 1/10 ;        	// Stopped
+        1..15: return 1/4 ;        	// Moving below ~33.5 mph
+        return 1; 				    // Track speed
+    }

@@ -69,6 +69,7 @@ OKAYAMA                                         :{GOLD}Okayama Electric Tramway
 UTSUNOMIYA                                      :{GOLD}Utsunomiya Light Rail
 FUKUI                                           :{GOLD}Fukui Railway
 MANYOSEN                                        :{GOLD}Manyosen
+ECHIZEN                                         :{GOLD}Echizen
 
 # Trams
 STR_HU300                                       :HU300 Series ("Lightline")
@@ -81,3 +82,4 @@ STR_9200                                        :9200 Series ("Momo")
 STR_MLRV1000                                    :Manyosen MLRV1000 Series ("AI-Tram")
 LV_DORAEMON                                     :{LTBLUE} Doraemon Livery
 DES_MLRV1000                                    :{GOLD}Original, 1cc & Doraemon
+STR_L                                           :L Series ("ki-bo")
