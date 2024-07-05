@@ -22,3 +22,10 @@ switch(FEAT_ROADVEHS, SELF, logo_echizen, param_hide_logo) {0:sprite_logo_echize
 // Kumamoto
 spriteset (sprite_logo_kumamoto,"src/logos/kumamoto.png") { tmpl_p() }
 switch(FEAT_ROADVEHS, SELF, logo_kumamoto, param_hide_logo) {0:sprite_logo_kumamoto;}
+
+// Toyama
+spriteset (sprite_logo_toyama,"src/logos/toyama.png") { tmpl_p() }
+switch(FEAT_ROADVEHS, SELF, logo_toyama, param_hide_logo) {0:sprite_logo_toyama;}
+
+
+spriteset (sprite_panto01,"src/pantos/panto01.png") {tmpl_7(1,1)}

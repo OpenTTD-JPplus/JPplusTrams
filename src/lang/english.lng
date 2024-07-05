@@ -1,5 +1,7 @@
 ##grflangid 0x01
 
+# https://newgrf-specs.tt-wiki.net/wiki/NML:Language_files
+
 STR_GRF_NAME							        :{TITLE} {VERSION}
 STR_GRF_DESC							        :{WHITE}JP{RED}+{WHITE}Trams{}{}{}{BLACK}PENDING{}{}{BLACK}{COPYRIGHT}JP+Trams{}Licence: GPLv2{}{BLACK}{}{BLACK}Coded by{}{LTBLUE}KeepinItRail
 
@@ -71,6 +73,7 @@ FUKUI                                           :{GOLD}Fukui Railway
 MANYOSEN                                        :{GOLD}Manyosen
 ECHIZEN                                         :{GOLD}Echizen
 KUMAMOTO                                        :{GOLD}Kumamoto City Transportation Bureau
+TOYAMA                                          :{GOLD}Toyama Chihō Railway
 
 # Trams
 STR_HU300                                       :HU300 Series ("Lightline")
@@ -87,3 +90,12 @@ STR_L                                           :L Series ("ki-bo")
 STR_0800                                        :0800 Series
 LV_COCORO                                       : "Cocoro"
 DES_0800                                        :{GOLD}Original, Cocoro, 1cc & 2cc
+STR_TLR0600                                     :TLR0600 Series
+LV_TLR0601                                      :{RED} (TLR0601) Koko-kun
+LV_TLR0602                                      :{ORANGE} (TLR0602) Mogu-kun
+LV_TLR0603                                      :{GOLD} (TLR0603) Hana-chan
+LV_TLR0604                                      :{GREEN}(TLR0604) Yuu-kun
+LV_TLR0605                                      :{DKGREEN} (TLR0605) Eko-kun
+LV_TLR0606                                      :{BLUE} (TLR0606) Ru—ku-kun
+LV_TLR0607                                      :{PURPLE} (TLR0607) Su—pi—-kun
+LV_TLR0608                                      :{SILVER} (TLR0608)

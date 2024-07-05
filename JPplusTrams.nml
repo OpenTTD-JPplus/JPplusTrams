@@ -151,11 +151,13 @@ item(FEAT_ROADVEHS, item_9200,          3  ) {}
 item(FEAT_ROADVEHS, item_mlrv1000,      4  ) {}
 item(FEAT_ROADVEHS, item_l,             5  ) {}
 item(FEAT_ROADVEHS, item_0800,          6  ) {}
+item(FEAT_ROADVEHS, item_tlr0600,       7  ) {}
 
 // Sort Order in Menu
 sort(FEAT_ROADVEHS, [
 3,  // 2002 9200
 4,  // 2004 mlrv1000
+7,  // 2006 tlr0600
 6,  // 2009 0800
 2,  // 2013 f1000
 5,  // 2016 l
@@ -169,7 +171,7 @@ switch (FEAT_ROADVEHS, SELF, RunningCostFactor, current_speed) {
         return 1; 				    // Track speed
     }
 # 1 "JPplusTrams.pnml" 4
-# 1 "src/logos.pnml" 1
+# 1 "src/logos&pantos.pnml" 1
 
 // Lightline
 spriteset (sprite_logo_lightline,"src/logos/lightline.png") { tmpl_p() }
@@ -194,6 +196,13 @@ switch(FEAT_ROADVEHS, SELF, logo_echizen, param_hide_logo) {0:sprite_logo_echize
 // Kumamoto
 spriteset (sprite_logo_kumamoto,"src/logos/kumamoto.png") { tmpl_p() }
 switch(FEAT_ROADVEHS, SELF, logo_kumamoto, param_hide_logo) {0:sprite_logo_kumamoto;}
+
+// Toyama
+spriteset (sprite_logo_toyama,"src/logos/toyama.png") { tmpl_p() }
+switch(FEAT_ROADVEHS, SELF, logo_toyama, param_hide_logo) {0:sprite_logo_toyama;}
+
+
+spriteset (sprite_panto01,"src/pantos/panto01.png") {tmpl_7(1,1)}
 # 1 "JPplusTrams.pnml" 4
 
 // Trams
@@ -2012,6 +2021,596 @@ item(FEAT_ROADVEHS, item_0800) {
         articulated_part:               sw_0800_articulated_part;
         visual_effect:                  sw_0800_spark;
         purchase:                       sw_0800_purchase;
+        cost_factor:                    ((param_buycost*175)/4);
+        }
+}
+# 1 "JPplusTrams.pnml" 4
+# 1 "src/trams/tlr0600/tlr0600.pnml" 1
+
+// https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E3%83%A9%E3%82%A4%E3%83%88%E3%83%AC%E3%83%BC%E3%83%AB9200%E5%BD%A2%E9%9B%BB%E8%BB%8A
+
+
+switch(FEAT_ROADVEHS, SELF, sw_tlr0600_subtype_text, cargo_subtype) {
+	    0: return string(LV_TLR0601);
+        1: return string(LV_TLR0602);
+        2: return string(LV_TLR0603);
+        3: return string(LV_TLR0604);
+        4: return string(LV_TLR0605);
+        5: return string(LV_TLR0606);
+        6: return string(LV_TLR0607);
+        7: return string(LV_TLR0608);
+        8: return string(LV_1CC);
+        9: return string(LV_2CC);
+        return CB_RESULT_NO_TEXT;
+        }
+
+
+// Graphics
+
+    // Purchase
+    spriteset(spriteset_tlr0600_purchase,     "src/trams/tlr0600/gfx/tlr0600_purchase.png") {tmpl_p()}
+
+    switch(FEAT_ROADVEHS, SELF, sw_tlr0600_purchase, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: logo_toyama; 
+            1: spriteset_tlr0600_purchase;
+        }
+
+    // Tram Graphics
+
+    // TLO0601 Red
+        // Lead
+            spriteset(spriteset_tlr0601_lead_clsd,     "src/trams/tlr0600/gfx/tlr0601_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0601_lead_left,     "src/trams/tlr0600/gfx/tlr0601_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0601_lead_rght,     "src/trams/tlr0600/gfx/tlr0601_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_tlr0601_lead_left {
+                loaded:  [spriteset_tlr0601_lead_clsd];
+                loading: [spriteset_tlr0601_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0601_lead_rght {
+                loaded:  [spriteset_tlr0601_lead_clsd];
+                loading: [spriteset_tlr0601_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0601_lead, param_side_of_road ) {
+                1:  spritegroup_tlr0601_lead_rght;
+                    spritegroup_tlr0601_lead_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_tlr0601_rear_clsd,     "src/trams/tlr0600/gfx/tlr0601_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0601_rear_left,     "src/trams/tlr0600/gfx/tlr0601_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0601_rear_rght,     "src/trams/tlr0600/gfx/tlr0601_rght.png") {tmpl_7(1,25)}
+
+            // Left
+            spritegroup spritegroup_tlr0601_rear_left {
+                loaded:  [spriteset_tlr0601_rear_clsd];
+                loading: [spriteset_tlr0601_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0601_rear_rght {
+                loaded:  [spriteset_tlr0601_rear_clsd];
+                loading: [spriteset_tlr0601_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0601_rear, param_side_of_road ) {
+                1:  spritegroup_tlr0601_rear_rght;
+                    spritegroup_tlr0601_rear_left; //default
+            }  
+
+    // TLO0602 Orange
+        // Lead
+            spriteset(spriteset_tlr0602_lead_clsd,     "src/trams/tlr0600/gfx/tlr0602_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0602_lead_left,     "src/trams/tlr0600/gfx/tlr0602_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0602_lead_rght,     "src/trams/tlr0600/gfx/tlr0602_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_tlr0602_lead_left {
+                loaded:  [spriteset_tlr0602_lead_clsd];
+                loading: [spriteset_tlr0602_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0602_lead_rght {
+                loaded:  [spriteset_tlr0602_lead_clsd];
+                loading: [spriteset_tlr0602_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0602_lead, param_side_of_road ) {
+                1:  spritegroup_tlr0602_lead_rght;
+                    spritegroup_tlr0602_lead_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_tlr0602_rear_clsd,     "src/trams/tlr0600/gfx/tlr0602_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0602_rear_left,     "src/trams/tlr0600/gfx/tlr0602_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0602_rear_rght,     "src/trams/tlr0600/gfx/tlr0602_rght.png") {tmpl_7(1,25)}
+
+            // Left
+            spritegroup spritegroup_tlr0602_rear_left {
+                loaded:  [spriteset_tlr0602_rear_clsd];
+                loading: [spriteset_tlr0602_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0602_rear_rght {
+                loaded:  [spriteset_tlr0602_rear_clsd];
+                loading: [spriteset_tlr0602_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0602_rear, param_side_of_road ) {
+                1:  spritegroup_tlr0602_rear_rght;
+                    spritegroup_tlr0602_rear_left; //default
+            }   
+
+    // TLO0603 Yellow
+        // Lead
+            spriteset(spriteset_tlr0603_lead_clsd,     "src/trams/tlr0600/gfx/tlr0603_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0603_lead_left,     "src/trams/tlr0600/gfx/tlr0603_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0603_lead_rght,     "src/trams/tlr0600/gfx/tlr0603_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_tlr0603_lead_left {
+                loaded:  [spriteset_tlr0603_lead_clsd];
+                loading: [spriteset_tlr0603_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0603_lead_rght {
+                loaded:  [spriteset_tlr0603_lead_clsd];
+                loading: [spriteset_tlr0603_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0603_lead, param_side_of_road ) {
+                1:  spritegroup_tlr0603_lead_rght;
+                    spritegroup_tlr0603_lead_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_tlr0603_rear_clsd,     "src/trams/tlr0600/gfx/tlr0603_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0603_rear_left,     "src/trams/tlr0600/gfx/tlr0603_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0603_rear_rght,     "src/trams/tlr0600/gfx/tlr0603_rght.png") {tmpl_7(1,25)}
+
+            // Left
+            spritegroup spritegroup_tlr0603_rear_left {
+                loaded:  [spriteset_tlr0603_rear_clsd];
+                loading: [spriteset_tlr0603_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0603_rear_rght {
+                loaded:  [spriteset_tlr0603_rear_clsd];
+                loading: [spriteset_tlr0603_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0603_rear, param_side_of_road ) {
+                1:  spritegroup_tlr0603_rear_rght;
+                    spritegroup_tlr0603_rear_left; //default
+            }         
+
+    // TLO0604 Pea Green
+        // Lead
+            spriteset(spriteset_tlr0604_lead_clsd,     "src/trams/tlr0600/gfx/tlr0604_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0604_lead_left,     "src/trams/tlr0600/gfx/tlr0604_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0604_lead_rght,     "src/trams/tlr0600/gfx/tlr0604_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_tlr0604_lead_left {
+                loaded:  [spriteset_tlr0604_lead_clsd];
+                loading: [spriteset_tlr0604_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0604_lead_rght {
+                loaded:  [spriteset_tlr0604_lead_clsd];
+                loading: [spriteset_tlr0604_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0604_lead, param_side_of_road ) {
+                1:  spritegroup_tlr0604_lead_rght;
+                    spritegroup_tlr0604_lead_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_tlr0604_rear_clsd,     "src/trams/tlr0600/gfx/tlr0604_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0604_rear_left,     "src/trams/tlr0600/gfx/tlr0604_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0604_rear_rght,     "src/trams/tlr0600/gfx/tlr0604_rght.png") {tmpl_7(1,25)}
+
+            // Left
+            spritegroup spritegroup_tlr0604_rear_left {
+                loaded:  [spriteset_tlr0604_rear_clsd];
+                loading: [spriteset_tlr0604_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0604_rear_rght {
+                loaded:  [spriteset_tlr0604_rear_clsd];
+                loading: [spriteset_tlr0604_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0604_rear, param_side_of_road ) {
+                1:  spritegroup_tlr0604_rear_rght;
+                    spritegroup_tlr0604_rear_left; //default
+            } 
+
+    // TLO0605 Green
+        // Lead
+            spriteset(spriteset_tlr0605_lead_clsd,     "src/trams/tlr0600/gfx/tlr0605_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0605_lead_left,     "src/trams/tlr0600/gfx/tlr0605_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0605_lead_rght,     "src/trams/tlr0600/gfx/tlr0605_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_tlr0605_lead_left {
+                loaded:  [spriteset_tlr0605_lead_clsd];
+                loading: [spriteset_tlr0605_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0605_lead_rght {
+                loaded:  [spriteset_tlr0605_lead_clsd];
+                loading: [spriteset_tlr0605_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0605_lead, param_side_of_road ) {
+                1:  spritegroup_tlr0605_lead_rght;
+                    spritegroup_tlr0605_lead_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_tlr0605_rear_clsd,     "src/trams/tlr0600/gfx/tlr0605_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0605_rear_left,     "src/trams/tlr0600/gfx/tlr0605_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0605_rear_rght,     "src/trams/tlr0600/gfx/tlr0605_rght.png") {tmpl_7(1,25)}
+
+            // Left
+            spritegroup spritegroup_tlr0605_rear_left {
+                loaded:  [spriteset_tlr0605_rear_clsd];
+                loading: [spriteset_tlr0605_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0605_rear_rght {
+                loaded:  [spriteset_tlr0605_rear_clsd];
+                loading: [spriteset_tlr0605_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0605_rear, param_side_of_road ) {
+                1:  spritegroup_tlr0605_rear_rght;
+                    spritegroup_tlr0605_rear_left; //default
+            } 
+
+    // TLO0606 Blue
+        // Lead
+            spriteset(spriteset_tlr0606_lead_clsd,     "src/trams/tlr0600/gfx/tlr0606_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0606_lead_left,     "src/trams/tlr0600/gfx/tlr0606_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0606_lead_rght,     "src/trams/tlr0600/gfx/tlr0606_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_tlr0606_lead_left {
+                loaded:  [spriteset_tlr0606_lead_clsd];
+                loading: [spriteset_tlr0606_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0606_lead_rght {
+                loaded:  [spriteset_tlr0606_lead_clsd];
+                loading: [spriteset_tlr0606_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0606_lead, param_side_of_road ) {
+                1:  spritegroup_tlr0606_lead_rght;
+                    spritegroup_tlr0606_lead_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_tlr0606_rear_clsd,     "src/trams/tlr0600/gfx/tlr0606_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0606_rear_left,     "src/trams/tlr0600/gfx/tlr0606_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0606_rear_rght,     "src/trams/tlr0600/gfx/tlr0606_rght.png") {tmpl_7(1,25)}
+
+            // Left
+            spritegroup spritegroup_tlr0606_rear_left {
+                loaded:  [spriteset_tlr0606_rear_clsd];
+                loading: [spriteset_tlr0606_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0606_rear_rght {
+                loaded:  [spriteset_tlr0606_rear_clsd];
+                loading: [spriteset_tlr0606_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0606_rear, param_side_of_road ) {
+                1:  spritegroup_tlr0606_rear_rght;
+                    spritegroup_tlr0606_rear_left; //default
+            } 
+
+    // TLO0607 Purple
+        // Lead
+            spriteset(spriteset_tlr0607_lead_clsd,     "src/trams/tlr0600/gfx/tlr0607_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0607_lead_left,     "src/trams/tlr0600/gfx/tlr0607_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0607_lead_rght,     "src/trams/tlr0600/gfx/tlr0607_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_tlr0607_lead_left {
+                loaded:  [spriteset_tlr0607_lead_clsd];
+                loading: [spriteset_tlr0607_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0607_lead_rght {
+                loaded:  [spriteset_tlr0607_lead_clsd];
+                loading: [spriteset_tlr0607_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0607_lead, param_side_of_road ) {
+                1:  spritegroup_tlr0607_lead_rght;
+                    spritegroup_tlr0607_lead_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_tlr0607_rear_clsd,     "src/trams/tlr0600/gfx/tlr0607_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0607_rear_left,     "src/trams/tlr0600/gfx/tlr0607_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0607_rear_rght,     "src/trams/tlr0600/gfx/tlr0607_rght.png") {tmpl_7(1,25)}
+
+            // Left
+            spritegroup spritegroup_tlr0607_rear_left {
+                loaded:  [spriteset_tlr0607_rear_clsd];
+                loading: [spriteset_tlr0607_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0607_rear_rght {
+                loaded:  [spriteset_tlr0607_rear_clsd];
+                loading: [spriteset_tlr0607_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0607_rear, param_side_of_road ) {
+                1:  spritegroup_tlr0607_rear_rght;
+                    spritegroup_tlr0607_rear_left; //default
+            } 
+
+    // TLO0608 Silver
+        // Lead
+            spriteset(spriteset_tlr0608_lead_clsd,     "src/trams/tlr0600/gfx/tlr0608_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0608_lead_left,     "src/trams/tlr0600/gfx/tlr0608_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0608_lead_rght,     "src/trams/tlr0600/gfx/tlr0608_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_tlr0608_lead_left {
+                loaded:  [spriteset_tlr0608_lead_clsd];
+                loading: [spriteset_tlr0608_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0608_lead_rght {
+                loaded:  [spriteset_tlr0608_lead_clsd];
+                loading: [spriteset_tlr0608_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0608_lead, param_side_of_road ) {
+                1:  spritegroup_tlr0608_lead_rght;
+                    spritegroup_tlr0608_lead_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_tlr0608_rear_clsd,     "src/trams/tlr0600/gfx/tlr0608_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0608_rear_left,     "src/trams/tlr0600/gfx/tlr0608_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0608_rear_rght,     "src/trams/tlr0600/gfx/tlr0608_rght.png") {tmpl_7(1,25)}
+
+            // Left
+            spritegroup spritegroup_tlr0608_rear_left {
+                loaded:  [spriteset_tlr0608_rear_clsd];
+                loading: [spriteset_tlr0608_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0608_rear_rght {
+                loaded:  [spriteset_tlr0608_rear_clsd];
+                loading: [spriteset_tlr0608_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0608_rear, param_side_of_road ) {
+                1:  spritegroup_tlr0608_rear_rght;
+                    spritegroup_tlr0608_rear_left; //default
+            } 
+
+    // 1cc
+        // Lead
+            spriteset(spriteset_tlr0600_lead_clsd_1cc,     "src/trams/tlr0600/gfx/tlr0600_1cc_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0600_lead_left_1cc,     "src/trams/tlr0600/gfx/tlr0600_1cc_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0600_lead_rght_1cc,     "src/trams/tlr0600/gfx/tlr0600_1cc_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_tlr0600_lead_left_1cc {
+                loaded:  [spriteset_tlr0600_lead_clsd_1cc];
+                loading: [spriteset_tlr0600_lead_left_1cc];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0600_lead_rght_1cc {
+                loaded:  [spriteset_tlr0600_lead_clsd_1cc];
+                loading: [spriteset_tlr0600_lead_rght_1cc];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0600_lead_1cc, param_side_of_road ) {
+                1:  spritegroup_tlr0600_lead_rght_1cc;
+                    spritegroup_tlr0600_lead_left_1cc; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_tlr0600_rear_clsd_1cc,     "src/trams/tlr0600/gfx/tlr0600_1cc_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0600_rear_left_1cc,     "src/trams/tlr0600/gfx/tlr0600_1cc_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0600_rear_rght_1cc,     "src/trams/tlr0600/gfx/tlr0600_1cc_rght.png") {tmpl_7(1,25)}
+
+            // Left
+            spritegroup spritegroup_tlr0600_rear_left_1cc {
+                loaded:  [spriteset_tlr0600_rear_clsd_1cc];
+                loading: [spriteset_tlr0600_rear_left_1cc];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0600_rear_rght_1cc {
+                loaded:  [spriteset_tlr0600_rear_clsd_1cc];
+                loading: [spriteset_tlr0600_rear_rght_1cc];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0600_rear_1cc, param_side_of_road ) {
+                1:  spritegroup_tlr0600_rear_rght_1cc;
+                    spritegroup_tlr0600_rear_left_1cc; //default
+            } 
+
+    // 2cc
+        // Lead
+            spriteset(spriteset_tlr0600_lead_clsd_2cc,     "src/trams/tlr0600/gfx/tlr0600_2cc_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0600_lead_left_2cc,     "src/trams/tlr0600/gfx/tlr0600_2cc_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_tlr0600_lead_rght_2cc,     "src/trams/tlr0600/gfx/tlr0600_2cc_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_tlr0600_lead_left_2cc {
+                loaded:  [spriteset_tlr0600_lead_clsd_2cc];
+                loading: [spriteset_tlr0600_lead_left_2cc];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0600_lead_rght_2cc {
+                loaded:  [spriteset_tlr0600_lead_clsd_2cc];
+                loading: [spriteset_tlr0600_lead_rght_2cc];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0600_lead_2cc, param_side_of_road ) {
+                1:  spritegroup_tlr0600_lead_rght_2cc;
+                    spritegroup_tlr0600_lead_left_2cc; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_tlr0600_rear_clsd_2cc,     "src/trams/tlr0600/gfx/tlr0600_2cc_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0600_rear_left_2cc,     "src/trams/tlr0600/gfx/tlr0600_2cc_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_tlr0600_rear_rght_2cc,     "src/trams/tlr0600/gfx/tlr0600_2cc_rght.png") {tmpl_7(1,25)}
+
+            // Left
+            spritegroup spritegroup_tlr0600_rear_left_2cc {
+                loaded:  [spriteset_tlr0600_rear_clsd_2cc];
+                loading: [spriteset_tlr0600_rear_left_2cc];
+            }
+
+            // Right
+            spritegroup spritegroup_tlr0600_rear_rght_2cc {
+                loaded:  [spriteset_tlr0600_rear_clsd_2cc];
+                loading: [spriteset_tlr0600_rear_rght_2cc];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0600_rear_2cc, param_side_of_road ) {
+                1:  spritegroup_tlr0600_rear_rght_2cc;
+                    spritegroup_tlr0600_rear_left_2cc; //default
+            } 
+
+    switch (FEAT_ROADVEHS, PARENT, sw_tlr0600_lead, cargo_subtype ) {
+        1:  spritegroup_tlr0602_lead;
+        2:  spritegroup_tlr0603_lead;
+        3:  spritegroup_tlr0604_lead;
+        4:  spritegroup_tlr0605_lead;
+        5:  spritegroup_tlr0606_lead;
+        6:  spritegroup_tlr0607_lead;
+        7:  spritegroup_tlr0608_lead;
+        8:  spritegroup_tlr0600_lead_1cc;
+        9:  spritegroup_tlr0600_lead_2cc;
+            spritegroup_tlr0601_lead;
+    }
+
+    switch (FEAT_ROADVEHS, PARENT, sw_tlr0600_rear, cargo_subtype ) {
+        1:  spritegroup_tlr0602_rear;
+        2:  spritegroup_tlr0603_rear;
+        3:  spritegroup_tlr0604_rear;
+        4:  spritegroup_tlr0605_rear;
+        5:  spritegroup_tlr0606_rear;
+        6:  spritegroup_tlr0607_rear;
+        7:  spritegroup_tlr0608_rear;
+        8:  spritegroup_tlr0600_rear_1cc;
+        9:  spritegroup_tlr0600_rear_2cc;
+            spritegroup_tlr0601_rear;
+    }
+
+switch(FEAT_ROADVEHS, SELF, sw_tlr0600_lead_panto, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: sw_tlr0600_lead; 
+            1: sprite_panto01;
+        }
+
+switch (FEAT_ROADVEHS, SELF, sw_tlr0600_graphics, position_in_consist ) {
+    0:  sw_tlr0600_lead_panto;
+        sw_tlr0600_rear; //default
+}
+
+//me4 'F' tram properties
+
+/*
+switch (FEAT_ROADVEHS, SELF, sw_tlr0600_length, position_in_consist ) {
+    1:  return 6;
+    return 7; 
+}
+*/
+switch (FEAT_ROADVEHS, SELF, sw_tlr0600_spark, position_in_consist ) {
+    0:  return VISUAL_EFFECT_DISABLE;
+    1:  return VISUAL_EFFECT_ELECTRIC;
+        return VISUAL_EFFECT_DISABLE; //default
+}
+
+//set number of articulated parts
+switch (FEAT_ROADVEHS, SELF, sw_tlr0600_articulated_part, extra_callback_info1) {
+    0..1:  return item_tlr0600;
+        return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+}
+
+switch (FEAT_ROADVEHS, SELF, sw_tlr0600_cargo_age_period, (param_aging)) {
+    0:  return 240;
+    1:  return 200;
+    2:  return 170;
+    3:  return 140;
+        return 240; //default
+} 
+
+item(FEAT_ROADVEHS, item_tlr0600) {
+    property {
+        name:                           string(STR_TLR0600);
+        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        loading_speed:                  25;
+        cargo_age_period:               240;
+        cost_factor:                    175;
+        running_cost_factor:            80;
+        speed:                          70 km/h;    // Current operates at 40km/h, but capable (with approval) of 70 km/h
+        power:                          135 * 2 hp;
+        cargo_capacity:                 74;
+        introduction_date:              date(2006,04,29);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                   50;
+        reliability_decay:              14;
+        tram_type:                      ELRL;
+        sound_effect:                   SOUND_POWER_STATION;
+        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
+        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
+        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+        refit_cost:                     0; // Refitting is free
+        running_cost_base:              RUNNING_COST_ROADVEH;
+        weight:                         25 ton;
+        }
+    graphics {
+        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(VARIOUS));
+        cargo_subtype_text:             sw_tlr0600_subtype_text;
+        cargo_capacity:                 (param_capacity * 80 / num_vehs_in_consist) / 2;
+        purchase_cargo_capacity:        (param_capacity * 80 / 2) / 2;
+        default:                        sw_tlr0600_graphics;
+        length:                         7;
+        cargo_age_period:               sw_tlr0600_cargo_age_period;
+        running_cost_factor:            88 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+        purchase_running_cost_factor:   88 + ((param_runcost * 30 ) / 2 );
+        articulated_part:               sw_tlr0600_articulated_part;
+        visual_effect:                  sw_tlr0600_spark;
+        purchase:                       sw_tlr0600_purchase;
         cost_factor:                    ((param_buycost*175)/4);
         }
 }
