@@ -1,0 +1,299 @@
+
+// 
+
+switch(FEAT_ROADVEHS, SELF, sw_de9000_subtype_text, cargo_subtype) {
+	    0: return string(LV_DE9001);
+        1: return string(LV_DE9002);
+        2: return string(LV_DE9003);
+        3: return string(LV_1CC);
+        return CB_RESULT_NO_TEXT;
+        }
+
+
+// Graphics
+
+    // Purchase
+    spriteset(spriteset_de9000_purchase,     "src/trams/de9000/gfx/de9000_purchase.png") {tmpl_p()}
+
+    switch(FEAT_ROADVEHS, SELF, sw_de9000_purchase, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: logo_toyama; 
+            1: spriteset_de9000_purchase;
+        }
+
+    // Tram Graphics
+
+    // TLO0601 Red
+        // Lead
+            spriteset(spriteset_de9001_lead_clsd,     "src/trams/de9000/gfx/de9001_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_de9001_lead_left,     "src/trams/de9000/gfx/de9001_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_de9001_lead_rght,     "src/trams/de9000/gfx/de9001_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_de9001_lead_left {
+                loaded:  [spriteset_de9001_lead_clsd];
+                loading: [spriteset_de9001_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_de9001_lead_rght {
+                loaded:  [spriteset_de9001_lead_clsd];
+                loading: [spriteset_de9001_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_de9001_lead, param_side_of_road ) {
+                1:  spritegroup_de9001_lead_rght;
+                    spritegroup_de9001_lead_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_de9001_rear_clsd,     "src/trams/de9000/gfx/de9001_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_de9001_rear_left,     "src/trams/de9000/gfx/de9001_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_de9001_rear_rght,     "src/trams/de9000/gfx/de9001_rght.png") {tmpl_7(1,25)}
+
+            // Left
+            spritegroup spritegroup_de9001_rear_left {
+                loaded:  [spriteset_de9001_rear_clsd];
+                loading: [spriteset_de9001_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_de9001_rear_rght {
+                loaded:  [spriteset_de9001_rear_clsd];
+                loading: [spriteset_de9001_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_de9001_rear, param_side_of_road ) {
+                1:  spritegroup_de9001_rear_rght;
+                    spritegroup_de9001_rear_left; //default
+            }  
+
+    // TLO0602 Orange
+        // Lead
+            spriteset(spriteset_de9002_lead_clsd,     "src/trams/de9000/gfx/de9002_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_de9002_lead_left,     "src/trams/de9000/gfx/de9002_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_de9002_lead_rght,     "src/trams/de9000/gfx/de9002_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_de9002_lead_left {
+                loaded:  [spriteset_de9002_lead_clsd];
+                loading: [spriteset_de9002_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_de9002_lead_rght {
+                loaded:  [spriteset_de9002_lead_clsd];
+                loading: [spriteset_de9002_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_de9002_lead, param_side_of_road ) {
+                1:  spritegroup_de9002_lead_rght;
+                    spritegroup_de9002_lead_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_de9002_rear_clsd,     "src/trams/de9000/gfx/de9002_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_de9002_rear_left,     "src/trams/de9000/gfx/de9002_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_de9002_rear_rght,     "src/trams/de9000/gfx/de9002_rght.png") {tmpl_7(1,25)}
+
+            // Left
+            spritegroup spritegroup_de9002_rear_left {
+                loaded:  [spriteset_de9002_rear_clsd];
+                loading: [spriteset_de9002_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_de9002_rear_rght {
+                loaded:  [spriteset_de9002_rear_clsd];
+                loading: [spriteset_de9002_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_de9002_rear, param_side_of_road ) {
+                1:  spritegroup_de9002_rear_rght;
+                    spritegroup_de9002_rear_left; //default
+            }   
+
+    // TLO0603 Yellow
+        // Lead
+            spriteset(spriteset_de9003_lead_clsd,     "src/trams/de9000/gfx/de9003_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_de9003_lead_left,     "src/trams/de9000/gfx/de9003_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_de9003_lead_rght,     "src/trams/de9000/gfx/de9003_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_de9003_lead_left {
+                loaded:  [spriteset_de9003_lead_clsd];
+                loading: [spriteset_de9003_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_de9003_lead_rght {
+                loaded:  [spriteset_de9003_lead_clsd];
+                loading: [spriteset_de9003_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_de9003_lead, param_side_of_road ) {
+                1:  spritegroup_de9003_lead_rght;
+                    spritegroup_de9003_lead_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_de9003_rear_clsd,     "src/trams/de9000/gfx/de9003_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_de9003_rear_left,     "src/trams/de9000/gfx/de9003_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_de9003_rear_rght,     "src/trams/de9000/gfx/de9003_rght.png") {tmpl_7(1,25)}
+
+            // Left
+            spritegroup spritegroup_de9003_rear_left {
+                loaded:  [spriteset_de9003_rear_clsd];
+                loading: [spriteset_de9003_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_de9003_rear_rght {
+                loaded:  [spriteset_de9003_rear_clsd];
+                loading: [spriteset_de9003_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_de9003_rear, param_side_of_road ) {
+                1:  spritegroup_de9003_rear_rght;
+                    spritegroup_de9003_rear_left; //default
+            }         
+
+    // 1cc
+        // Lead
+            spriteset(spriteset_de9000_lead_clsd_1cc,     "src/trams/de9000/gfx/de9000_1cc_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_de9000_lead_left_1cc,     "src/trams/de9000/gfx/de9000_1cc_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_de9000_lead_rght_1cc,     "src/trams/de9000/gfx/de9000_1cc_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_de9000_lead_left_1cc {
+                loaded:  [spriteset_de9000_lead_clsd_1cc];
+                loading: [spriteset_de9000_lead_left_1cc];
+            }
+
+            // Right
+            spritegroup spritegroup_de9000_lead_rght_1cc {
+                loaded:  [spriteset_de9000_lead_clsd_1cc];
+                loading: [spriteset_de9000_lead_rght_1cc];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_de9000_lead_1cc, param_side_of_road ) {
+                1:  spritegroup_de9000_lead_rght_1cc;
+                    spritegroup_de9000_lead_left_1cc; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_de9000_rear_clsd_1cc,     "src/trams/de9000/gfx/de9000_1cc_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_de9000_rear_left_1cc,     "src/trams/de9000/gfx/de9000_1cc_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_de9000_rear_rght_1cc,     "src/trams/de9000/gfx/de9000_1cc_rght.png") {tmpl_7(1,25)}
+
+            // Left
+            spritegroup spritegroup_de9000_rear_left_1cc {
+                loaded:  [spriteset_de9000_rear_clsd_1cc];
+                loading: [spriteset_de9000_rear_left_1cc];
+            }
+
+            // Right
+            spritegroup spritegroup_de9000_rear_rght_1cc {
+                loaded:  [spriteset_de9000_rear_clsd_1cc];
+                loading: [spriteset_de9000_rear_rght_1cc];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_de9000_rear_1cc, param_side_of_road ) {
+                1:  spritegroup_de9000_rear_rght_1cc;
+                    spritegroup_de9000_rear_left_1cc; //default
+            } 
+
+    switch (FEAT_ROADVEHS, PARENT, sw_de9000_lead, cargo_subtype ) {
+        1:  spritegroup_de9002_lead;
+        2:  spritegroup_de9003_lead;
+        3:  spritegroup_de9000_lead_1cc;
+            spritegroup_de9001_lead;
+    }
+
+    switch (FEAT_ROADVEHS, PARENT, sw_de9000_rear, cargo_subtype ) {
+        1:  spritegroup_de9002_rear;
+        2:  spritegroup_de9003_rear;
+        3:  spritegroup_de9000_rear_1cc;
+            spritegroup_de9001_rear;
+    }
+
+switch(FEAT_ROADVEHS, SELF, sw_de9000_lead_panto, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: sw_de9000_lead; 
+            1: sprite_panto01;
+        }
+
+switch (FEAT_ROADVEHS, SELF, sw_de9000_graphics, position_in_consist ) {
+    0:  sw_de9000_lead_panto;
+        sw_de9000_rear; //default
+}
+
+//me4 'F' tram properties
+
+/*
+switch (FEAT_ROADVEHS, SELF, sw_de9000_length, position_in_consist ) {
+    1:  return 6;
+    return 7; 
+}
+*/
+switch (FEAT_ROADVEHS, SELF, sw_de9000_spark, position_in_consist ) {
+    0:  return VISUAL_EFFECT_DISABLE;
+    1:  return VISUAL_EFFECT_ELECTRIC;
+        return VISUAL_EFFECT_DISABLE; //default
+}
+
+//set number of articulated parts
+switch (FEAT_ROADVEHS, SELF, sw_de9000_articulated_part, extra_callback_info1) {
+    0..1:  return item_de9000;
+        return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+}
+
+switch (FEAT_ROADVEHS, SELF, sw_de9000_cargo_age_period, (param_aging)) {
+    0:  return 240;
+    1:  return 200;
+    2:  return 170;
+    3:  return 140;
+        return 240; //default
+} 
+
+item(FEAT_ROADVEHS, item_de9000) {
+    property {
+        name:                           string(STR_DE9000);
+        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        loading_speed:                  25;
+        cargo_age_period:               240;
+        cost_factor:                    175;
+        running_cost_factor:            80;
+        speed:                          70 km/h;    // Current operates at 40km/h, but capable (with approval) of 70 km/h
+        power:                          135 * 2 hp;
+        cargo_capacity:                 74;
+        introduction_date:              date(2009,12,23);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                   50;
+        reliability_decay:              14;
+        tram_type:                      ELRL;
+        sound_effect:                   SOUND_POWER_STATION;
+        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
+        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
+        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+        refit_cost:                     0; // Refitting is free
+        running_cost_base:              RUNNING_COST_ROADVEH;
+        weight:                         25 ton;
+        }
+    graphics {
+        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(VARIOUS));
+        cargo_subtype_text:             sw_de9000_subtype_text;
+        cargo_capacity:                 (param_capacity * 80 / num_vehs_in_consist) / 2;
+        purchase_cargo_capacity:        (param_capacity * 80 / 2) / 2;
+        default:                        sw_de9000_graphics;
+        length:                         7;
+        cargo_age_period:               sw_de9000_cargo_age_period;
+        running_cost_factor:            89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+        purchase_running_cost_factor:   89 + ((param_runcost * 30 ) / 2 );
+        articulated_part:               sw_de9000_articulated_part;
+        visual_effect:                  sw_de9000_spark;
+        purchase:                       sw_de9000_purchase;
+        cost_factor:                    ((param_buycost*176)/4);
+        }
+}

@@ -56,10 +56,10 @@ STR_PARAM_VALUE_AGE_HARD                        :Sweaty
 STR_PARAM_VALUE_AGE_HARDER                      :Slammed
 
 # Liveries
-LV_IRL                                          : Original Livery
-LV_1CC                                          : 1cc Livery
-LV_2CC                                          : 2cc Livery
-LV_RANDOM                                       : Random Livery
+LV_IRL                                          : {GOLD}Original Livery
+LV_1CC                                          : {GOLD}1cc Livery
+LV_2CC                                          : {GOLD}2cc Livery
+LV_RANDOM                                       : {GOLD}Random Livery
 
 IRL1CC                                          :{GOLD}Original & 1cc
 IRL2CC                                          :{GOLD}Original & 2cc
@@ -99,3 +99,7 @@ LV_TLR0605                                      :{DKGREEN} (TLR0605) Eko-kun
 LV_TLR0606                                      :{BLUE} (TLR0606) Ru—ku-kun
 LV_TLR0607                                      :{PURPLE} (TLR0607) Su—pi—-kun
 LV_TLR0608                                      :{SILVER} (TLR0608)
+STR_DE9000                                      :De9000 Series ("Centram")
+LV_DE9001                                       :{WHITE} de9001 (White)
+LV_DE9002                                       :{SILVER} de9002 (Silver)
+LV_DE9003                                       :{BLACK} de9003 (Black)
