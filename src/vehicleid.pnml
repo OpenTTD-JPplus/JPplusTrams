@@ -8,15 +8,30 @@ item(FEAT_ROADVEHS, item_l,             5  ) {}
 item(FEAT_ROADVEHS, item_0800,          6  ) {}
 item(FEAT_ROADVEHS, item_tlr0600,       7  ) {}
 item(FEAT_ROADVEHS, item_de9000,        8  ) {}
+item(FEAT_ROADVEHS, item_1060,          9  ) {}
 
 // Sort Order in Menu
 sort(FEAT_ROADVEHS, [
-3,  // 2002 9200
-4,  // 2004 mlrv1000
-7,  // 2006 tlr0600
-6,  // 2009 0800
-8,  // 2009 de9000
-2,  // 2013 f1000
-5,  // 2016 l
+// Utsunomiya
 1,  // 2024 hu300
+
+// Toyama
+7,  // 2006 tlr0600
+8,  // 2009 de9000
+
+// Manyosen
+4,  // 2004 mlrv1000
+
+// Fukui
+    // Echizen
+5,  // 2016 l
+    // Fukui
+2,  // 2013 f1000
+
+// Okayama
+3,  // 2002 9200
+
+// Kumamoto
+9,  // 1951 1060
+6,  // 2009 0800
 ]);

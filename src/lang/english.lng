@@ -70,8 +70,8 @@ VARIOUS                                         :{GOLD}Various, see cargo subtyp
 OKAYAMA                                         :{GOLD}Okayama Electric Tramway
 UTSUNOMIYA                                      :{GOLD}Utsunomiya Light Rail
 FUKUI                                           :{GOLD}Fukui Railway
-MANYOSEN                                        :{GOLD}Manyosen
-ECHIZEN                                         :{GOLD}Echizen
+MANYOSEN                                        :{GOLD}Manyosen (Toyama)
+ECHIZEN                                         :{GOLD}Echizen (Fukui)
 KUMAMOTO                                        :{GOLD}Kumamoto City Transportation Bureau
 TOYAMA                                          :{GOLD}Toyama Chihō Railway
 
@@ -90,7 +90,7 @@ STR_L                                           :L Series ("ki-bo")
 STR_0800                                        :0800 Series
 LV_COCORO                                       : "Cocoro"
 DES_0800                                        :{GOLD}Original, Cocoro, 1cc & 2cc
-STR_TLR0600                                     :TLR0600 Series
+STR_TLR0600                                     :TLR0600 Series ("Portram")
 LV_TLR0601                                      :{RED} (TLR0601) Koko-kun
 LV_TLR0602                                      :{ORANGE} (TLR0602) Mogu-kun
 LV_TLR0603                                      :{GOLD} (TLR0603) Hana-chan
@@ -103,3 +103,4 @@ STR_DE9000                                      :De9000 Series ("Centram")
 LV_DE9001                                       :{WHITE} de9001 (White)
 LV_DE9002                                       :{SILVER} de9002 (Silver)
 LV_DE9003                                       :{BLACK} de9003 (Black)
+STR_1060                                        :1060 Series

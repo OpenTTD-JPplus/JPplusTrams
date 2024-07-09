@@ -27,5 +27,10 @@ switch(FEAT_ROADVEHS, SELF, logo_kumamoto, param_hide_logo) {0:sprite_logo_kumam
 spriteset (sprite_logo_toyama,"src/logos/toyama.png") { tmpl_p() }
 switch(FEAT_ROADVEHS, SELF, logo_toyama, param_hide_logo) {0:sprite_logo_toyama;}
 
+// Hiroshima
+spriteset (sprite_logo_hiroshima,"src/logos/hiroshima.png") { tmpl_p() }
+switch(FEAT_ROADVEHS, SELF, logo_hiroshima, param_hide_logo) {0:sprite_logo_hiroshima;}
+
 
 spriteset (sprite_panto01,"src/pantos/panto01.png") {tmpl_7(1,1)}
+spriteset (sprite_panto02,"src/pantos/panto02.png") {tmpl_7(1,1)}

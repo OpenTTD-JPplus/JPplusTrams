@@ -1,0 +1,128 @@
+
+// https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E3%83%A9%E3%82%A4%E3%83%88%E3%83%AC%E3%83%BC%E3%83%AB9200%E5%BD%A2%E9%9B%BB%E8%BB%8A
+
+
+switch(FEAT_ROADVEHS, SELF, sw_1060_subtype_text, cargo_subtype) {
+	    0: return string(LV_IRL);
+        1: return string(LV_1CC);
+        return CB_RESULT_NO_TEXT;
+        }
+
+
+// Graphics
+
+    // Purchase
+    spriteset(spriteset_1060_purchase,     "src/trams/1060/gfx/1060_purchase.png") {tmpl_p()}
+
+    switch(FEAT_ROADVEHS, SELF, sw_1060_purchase, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: logo_kumamoto; 
+            1: spriteset_1060_purchase;
+        }
+
+    // Tram Graphics
+
+    // IRL
+        // Lead
+            spriteset(spriteset_1060_lead_clsd_irl,     "src/trams/1060/gfx/1060_irl_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_1060_lead_left_irl,     "src/trams/1060/gfx/1060_irl_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_1060_lead_rght_irl,     "src/trams/1060/gfx/1060_irl_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_1060_lead_left_irl {
+                loaded:  [spriteset_1060_lead_clsd_irl];
+                loading: [spriteset_1060_lead_left_irl];
+            }
+
+            // Right
+            spritegroup spritegroup_1060_lead_rght_irl {
+                loaded:  [spriteset_1060_lead_clsd_irl];
+                loading: [spriteset_1060_lead_rght_irl];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_1060_lead_irl, param_side_of_road ) {
+                1:  spritegroup_1060_lead_rght_irl;
+                    spritegroup_1060_lead_left_irl; //default
+            } 
+
+    // 1cc
+        // Lead
+            spriteset(spriteset_1060_lead_clsd_1cc,     "src/trams/1060/gfx/1060_1cc_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_1060_lead_left_1cc,     "src/trams/1060/gfx/1060_1cc_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_1060_lead_rght_1cc,     "src/trams/1060/gfx/1060_1cc_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_1060_lead_left_1cc {
+                loaded:  [spriteset_1060_lead_clsd_1cc];
+                loading: [spriteset_1060_lead_left_1cc];
+            }
+
+            // Right
+            spritegroup spritegroup_1060_lead_rght_1cc {
+                loaded:  [spriteset_1060_lead_clsd_1cc];
+                loading: [spriteset_1060_lead_rght_1cc];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_1060_lead_1cc, param_side_of_road ) {
+                1:  spritegroup_1060_lead_rght_1cc;
+                    spritegroup_1060_lead_left_1cc; //default
+            } 
+
+    switch (FEAT_ROADVEHS, PARENT, sw_1060_lead, cargo_subtype ) {
+        1:  spritegroup_1060_lead_1cc;
+            spritegroup_1060_lead_irl;
+    }
+
+    switch(FEAT_ROADVEHS, SELF, sw_1060_graphics, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: sw_1060_lead; 
+            1: sprite_panto02;
+        }
+
+switch (FEAT_ROADVEHS, SELF, sw_1060_cargo_age_period, (param_aging)) {
+    0:  return 240;
+    1:  return 200;
+    2:  return 170;
+    3:  return 140;
+        return 240; //default
+} 
+
+item(FEAT_ROADVEHS, item_1060) {
+    property {
+        name:                           string(STR_1060);
+        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        loading_speed:                  25;
+        cargo_age_period:               240;
+        cost_factor:                    175;
+        running_cost_factor:            80;
+        speed:                          24 km/h;    
+        power:                          51 * 2 hp;  // 38kW per motor, 2 motors
+        cargo_capacity:                 74;
+        introduction_date:              date(1951,01,01);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                   50;
+        reliability_decay:              14;
+        tram_type:                      ELRL;
+        sound_effect:                   SOUND_POWER_STATION;
+        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
+        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
+        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+        refit_cost:                     0; // Refitting is free
+        running_cost_base:              RUNNING_COST_ROADVEH;
+        weight:                         15.25 ton;
+        length:                         7;
+        }
+    graphics {
+        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
+        cargo_subtype_text:             sw_1060_subtype_text;
+        cargo_capacity:                 (param_capacity * 74 ) / 2;
+        purchase_cargo_capacity:        (param_capacity * 74 ) / 2;
+        default:                        sw_1060_graphics;
+        cargo_age_period:               sw_1060_cargo_age_period;
+        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
+        purchase:                       sw_1060_purchase;
+        cost_factor:                    ((param_buycost*90)/4);
+        }
+}

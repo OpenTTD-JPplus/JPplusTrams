@@ -16,3 +16,4 @@
 #include "src/trams/0800/0800.pnml"
 #include "src/trams/tlr0600/tlr0600.pnml"
 #include "src/trams/de9000/de9000.pnml"
+#include "src/trams/1060/1060.pnml"
