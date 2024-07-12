@@ -22,39 +22,69 @@ This is the latest edition to the JP+ Family.
     * Aging
 
 ## Trams in NewGRF
+Listed in a rough north to south ordering (default ordering in game)
 
 ### Utsunomiya Light Rail
-| | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
+| | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
-|![HU300 Series](/src/trams/hu300/gfx/hu300_purchase.png)| HU300 Series| 2024 |
+|![HU300形](/src/trams/utsunomiya/hu300/gfx/hu300_purchase.png)| HU300形| 2024 |
 
 ### Toyama Region Railway
-| | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
+| | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
-|![tlr0600 Series](/src/trams/tlr0600/gfx/tlr0600_purchase.png)| TLR0600 Series | 2006 |
-|![de9000 Series](/src/trams/de9000/gfx/de9000_purchase.png)| de9000 Series | 2009 |
+|![tlr0600形](/src/trams/toyama/tlr0600/gfx/tlr0600_purchase.png)| TLR0600形 | 2006 |
+|![de9000形](/src/trams/toyama/de9000/gfx/de9000_purchase.png)| de9000形 | 2009 |
 
 ### Manyosen
-| | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
+| | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
-|![mlrv1000 Series](/src/trams/mlrv1000/gfx/mlrv1000_purchase.png)| MLRV1000 Series | 2004 |
+|![mlrv1000形](/src/trams/manyosen/mlrv1000/gfx/mlrv1000_purchase.png)| MLRV1000形 | 2004 |
 
-### Echizen Railway & Fukui Railway
-| | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
+### Echizen Railway & Fukui Railway (Fukui)
+| | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
-|![L Series](/src/trams/l/gfx/l_purchase.png)| L Series | 2016 |
-|![F1000 Series](/src/trams/f1000/gfx/f1000_purchase.png)| F1000 Series | 2013 |
+|![L形](/src/trams/fukui/l/gfx/l_purchase.png)| L形 | 2016 |
+|![F1000形](/src/trams/fukui/f1000/gfx/f1000_purchase.png)| F1000形 | 2013 |
 
-### Okayama
-| | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
+### Okayama Electric Tramway
+| | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
-|![9200 Series](/src/trams/9200/gfx/9200_purchase.png)| 9200 Series | 2002 |
+|🚧| 10形 | 1912 |
+|🚧| 100形 | 1928 |
+|🚧| 300形 | 1950 |
+|🚧| 1000形 | 1959 |
+|🚧| 2000形 | 1955 |
+|🚧| 2500形 | 1952 |
+|🚧| 2600形 | 1959 |
+|🚧| 3500形 | 1956 |
+|🚧| 3800形 | 1953 |
+|🚧| 3000形 | 1953 |
+|🚧| 7000形 | 1980 |
+|🚧| 7100形 | 1981 |
+|🚧| 7200形 | 1982 |
+|🚧| 7300形 | 1983 |
+|🚧| 7400形 | 1984 |
+|🚧| 7500形 | 1985 |
+|🚧| 7600形 | 1986 |
+|🚧| 7700形 | 1987 |
+|🚧| 7900形 | 1989 |
+|![9200形](/src/trams/okayama/9200/gfx/9200_purchase.png)| 9200形 | 2002 |
 
 ### Kumamoto City Transportation Bureau
-| | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
-| --- | --- | :---:|
-|![1060 Series](/src/trams/1060/gfx/1060_purchase.png)| 1060 Series | 1951 |
-|![0800 Series](/src/trams/0800/gfx/0800_purchase.png)| 0800 Series | 2009 |
+| | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
+| :---: | --- | :---:|
+|![1060形](/src/trams/kumamoto/1060/gfx/1060_purchase.png)| 1060形 | 1951 |
+|![1080形](src/trams/kumamoto/1080/gfx/1080_purchase.png)| 1080形 | 1954 |
+|🚧| 1090形 | 1955 |
+|🚧| 5000形 | 1957 |
+|🚧| 1200形 | 1958 |
+|🚧| 1350形 | 1960 |
+|🚧| 8200形 | 1982 |
+|🚧| 8500形 | 1985 |
+|🚧| 8800形 | 1988 |
+|🚧| 9200形 | 1992 |
+|🚧| 9700形 | 1997 |
+|![0800形](/src/trams/kumamoto/0800/gfx/0800_purchase.png)| 0800形 | 2009 |
 
 ## Building
 

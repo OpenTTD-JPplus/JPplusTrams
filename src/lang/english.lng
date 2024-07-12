@@ -20,7 +20,7 @@ LIVERIES                                        :{}{BLACK}Liveries:
 # Parameters
 
 # Hide Logos
-STR_PARAM_HIDE_LOGO                             :Hide Logos from the purchase menu
+STR_PARAM_HIDE_LOGO                             :Show Logos in the purchase menu
 
 # Side of Road
 STR_PARAM_NAME_SIDE_OF_ROAD                     :Door side to open
@@ -68,15 +68,17 @@ VARIOUS                                         :{GOLD}Various, see cargo subtyp
 
 # Operators
 OKAYAMA                                         :{GOLD}Okayama Electric Tramway
-UTSUNOMIYA                                      :{GOLD}Utsunomiya Light Rail
 FUKUI                                           :{GOLD}Fukui Railway
 MANYOSEN                                        :{GOLD}Manyosen (Toyama)
 ECHIZEN                                         :{GOLD}Echizen (Fukui)
-KUMAMOTO                                        :{GOLD}Kumamoto City Transportation Bureau
 TOYAMA                                          :{GOLD}Toyama Chihō Railway
 
 # Trams
+
+# Utsunomiya LRT
+UTSUNOMIYA                                      :{GOLD}Utsunomiya Light Rail
 STR_HU300                                       :HU300 Series ("Lightline")
+
 STR_F1000                                       :F1000 Series ("Fukuram")
 LV_F1001                                        :{ORANGE} (F1001)
 LV_F1002                                        :{LTBLUE} (F1002)
@@ -87,9 +89,6 @@ STR_MLRV1000                                    :Manyosen MLRV1000 Series ("AI-T
 LV_DORAEMON                                     :{LTBLUE} Doraemon Livery
 DES_MLRV1000                                    :{GOLD}Original, 1cc & Doraemon
 STR_L                                           :L Series ("ki-bo")
-STR_0800                                        :0800 Series
-LV_COCORO                                       : "Cocoro"
-DES_0800                                        :{GOLD}Original, Cocoro, 1cc & 2cc
 STR_TLR0600                                     :TLR0600 Series ("Portram")
 LV_TLR0601                                      :{RED} (TLR0601) Koko-kun
 LV_TLR0602                                      :{ORANGE} (TLR0602) Mogu-kun
@@ -103,4 +102,13 @@ STR_DE9000                                      :De9000 Series ("Centram")
 LV_DE9001                                       :{WHITE} de9001 (White)
 LV_DE9002                                       :{SILVER} de9002 (Silver)
 LV_DE9003                                       :{BLACK} de9003 (Black)
+
+# Kumamoto
+KUMAMOTO                                        :{GOLD}Kumamoto City Transportation Bureau
 STR_1060                                        :1060 Series
+
+STR_0800                                        :0800 Series
+LV_COCORO                                       : "Cocoro"
+DES_0800                                        :{GOLD}Original, Cocoro, 1cc & 2cc
+
+STR_1080                                        :1080 Series

@@ -9,6 +9,7 @@ item(FEAT_ROADVEHS, item_0800,          6  ) {}
 item(FEAT_ROADVEHS, item_tlr0600,       7  ) {}
 item(FEAT_ROADVEHS, item_de9000,        8  ) {}
 item(FEAT_ROADVEHS, item_1060,          9  ) {}
+item(FEAT_ROADVEHS, item_1080,          10 ) {}
 
 // Sort Order in Menu
 sort(FEAT_ROADVEHS, [
@@ -33,5 +34,6 @@ sort(FEAT_ROADVEHS, [
 
 // Kumamoto
 9,  // 1951 1060
+10, // 1954 1080
 6,  // 2009 0800
 ]);

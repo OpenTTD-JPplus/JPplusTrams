@@ -1,0 +1,493 @@
+
+// https://ja.m.wikipedia.org/wiki/%E7%A6%8F%E4%BA%95%E9%89%84%E9%81%93F1000%E5%BD%A2%E9%9B%BB%E8%BB%8A
+
+switch(FEAT_ROADVEHS, SELF, sw_f1000_subtype_text, cargo_subtype) {
+	    0: return string(LV_RANDOM);
+        1: return string(LV_F1001);
+        2: return string(LV_F1002);
+        3: return string(LV_F1003);
+        4: return string(LV_F1004);
+        5: return string(LV_1CC);
+        return CB_RESULT_NO_TEXT;
+        }
+
+// Graphics
+
+    // Purchase
+    spriteset(spriteset_f1000_purchase,     "src/trams/fukui/f1000/gfx/f1000_purchase.png") {tmpl_p()}
+
+    switch(FEAT_ROADVEHS, SELF, sw_f1000_purchase, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: logo_fukui; 
+            1: spriteset_f1000_purchase;
+        }
+
+    // Tram Graphics
+
+    // F1001 Orange
+        // Lead
+            spriteset(spriteset_f1001_lead_clsd,            "src/trams/fukui/f1000/gfx/f1001_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1001_lead_left,            "src/trams/fukui/f1000/gfx/f1001_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1001_lead_rght,            "src/trams/fukui/f1000/gfx/f1001_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_f1001_lead_left {
+                loaded:  [spriteset_f1001_lead_clsd];
+                loading: [spriteset_f1001_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1001_lead_rght {
+                loaded:  [spriteset_f1001_lead_clsd];
+                loading: [spriteset_f1001_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1001_lead, param_side_of_road ) {
+                1:  spritegroup_f1001_lead_rght;
+                    spritegroup_f1001_lead_left; //default
+            } 
+
+        // Mid
+            spriteset(spriteset_f1001_mid_clsd,             "src/trams/fukui/f1000/gfx/f1001_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1001_mid_left,             "src/trams/fukui/f1000/gfx/f1001_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1001_mid_rght,             "src/trams/fukui/f1000/gfx/f1001_rght.png") {tmpl_7(1,25)}
+            
+            // Left
+            spritegroup spritegroup_f1001_mid_left {
+                loaded:  [spriteset_f1001_mid_clsd];
+                loading: [spriteset_f1001_mid_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1001_mid_rght {
+                loaded:  [spriteset_f1001_mid_clsd];
+                loading: [spriteset_f1001_mid_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1001_mid, param_side_of_road ) {
+                1:  spritegroup_f1001_mid_rght;
+                    spritegroup_f1001_mid_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_f1001_rear_clsd,            "src/trams/fukui/f1000/gfx/f1001_clsd.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1001_rear_left,            "src/trams/fukui/f1000/gfx/f1001_left.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1001_rear_rght,            "src/trams/fukui/f1000/gfx/f1001_rght.png") {tmpl_7(1,49)}
+
+            // Left
+            spritegroup spritegroup_f1001_rear_left {
+                loaded:  [spriteset_f1001_rear_clsd];
+                loading: [spriteset_f1001_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1001_rear_rght {
+                loaded:  [spriteset_f1001_rear_clsd];
+                loading: [spriteset_f1001_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1001_rear, param_side_of_road ) {
+                1:  spritegroup_f1001_rear_rght;
+                    spritegroup_f1001_rear_left; //default
+            } 
+
+    // F1002 Blue
+        // Lead
+            spriteset(spriteset_f1002_lead_clsd,            "src/trams/fukui/f1000/gfx/f1002_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1002_lead_left,            "src/trams/fukui/f1000/gfx/f1002_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1002_lead_rght,            "src/trams/fukui/f1000/gfx/f1002_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_f1002_lead_left {
+                loaded:  [spriteset_f1002_lead_clsd];
+                loading: [spriteset_f1002_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1002_lead_rght {
+                loaded:  [spriteset_f1002_lead_clsd];
+                loading: [spriteset_f1002_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1002_lead, param_side_of_road ) {
+                1:  spritegroup_f1002_lead_rght;
+                    spritegroup_f1002_lead_left; //default
+            } 
+
+        // Mid
+            spriteset(spriteset_f1002_mid_clsd,             "src/trams/fukui/f1000/gfx/f1002_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1002_mid_left,             "src/trams/fukui/f1000/gfx/f1002_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1002_mid_rght,             "src/trams/fukui/f1000/gfx/f1002_rght.png") {tmpl_7(1,25)}
+            
+            // Left
+            spritegroup spritegroup_f1002_mid_left {
+                loaded:  [spriteset_f1002_mid_clsd];
+                loading: [spriteset_f1002_mid_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1002_mid_rght {
+                loaded:  [spriteset_f1002_mid_clsd];
+                loading: [spriteset_f1002_mid_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1002_mid, param_side_of_road ) {
+                1:  spritegroup_f1002_mid_rght;
+                    spritegroup_f1002_mid_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_f1002_rear_clsd,            "src/trams/fukui/f1000/gfx/f1002_clsd.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1002_rear_left,            "src/trams/fukui/f1000/gfx/f1002_left.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1002_rear_rght,            "src/trams/fukui/f1000/gfx/f1002_rght.png") {tmpl_7(1,49)}
+
+            // Left
+            spritegroup spritegroup_f1002_rear_left {
+                loaded:  [spriteset_f1002_rear_clsd];
+                loading: [spriteset_f1002_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1002_rear_rght {
+                loaded:  [spriteset_f1002_rear_clsd];
+                loading: [spriteset_f1002_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1002_rear, param_side_of_road ) {
+                1:  spritegroup_f1002_rear_rght;
+                    spritegroup_f1002_rear_left; //default
+            } 
+
+    // F1003 Green
+        // Lead
+            spriteset(spriteset_f1003_lead_clsd,            "src/trams/fukui/f1000/gfx/f1003_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1003_lead_left,            "src/trams/fukui/f1000/gfx/f1003_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1003_lead_rght,            "src/trams/fukui/f1000/gfx/f1003_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_f1003_lead_left {
+                loaded:  [spriteset_f1003_lead_clsd];
+                loading: [spriteset_f1003_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1003_lead_rght {
+                loaded:  [spriteset_f1003_lead_clsd];
+                loading: [spriteset_f1003_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1003_lead, param_side_of_road ) {
+                1:  spritegroup_f1003_lead_rght;
+                    spritegroup_f1003_lead_left; //default
+            } 
+
+        // Mid
+            spriteset(spriteset_f1003_mid_clsd,             "src/trams/fukui/f1000/gfx/f1003_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1003_mid_left,             "src/trams/fukui/f1000/gfx/f1003_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1003_mid_rght,             "src/trams/fukui/f1000/gfx/f1003_rght.png") {tmpl_7(1,25)}
+            
+            // Left
+            spritegroup spritegroup_f1003_mid_left {
+                loaded:  [spriteset_f1003_mid_clsd];
+                loading: [spriteset_f1003_mid_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1003_mid_rght {
+                loaded:  [spriteset_f1003_mid_clsd];
+                loading: [spriteset_f1003_mid_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1003_mid, param_side_of_road ) {
+                1:  spritegroup_f1003_mid_rght;
+                    spritegroup_f1003_mid_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_f1003_rear_clsd,            "src/trams/fukui/f1000/gfx/f1003_clsd.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1003_rear_left,            "src/trams/fukui/f1000/gfx/f1003_left.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1003_rear_rght,            "src/trams/fukui/f1000/gfx/f1003_rght.png") {tmpl_7(1,49)}
+
+            // Left
+            spritegroup spritegroup_f1003_rear_left {
+                loaded:  [spriteset_f1003_rear_clsd];
+                loading: [spriteset_f1003_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1003_rear_rght {
+                loaded:  [spriteset_f1003_rear_clsd];
+                loading: [spriteset_f1003_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1003_rear, param_side_of_road ) {
+                1:  spritegroup_f1003_rear_rght;
+                    spritegroup_f1003_rear_left; //default
+            } 
+
+    // F1004 Pink
+        // Lead
+            spriteset(spriteset_f1004_lead_clsd,            "src/trams/fukui/f1000/gfx/f1004_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1004_lead_left,            "src/trams/fukui/f1000/gfx/f1004_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1004_lead_rght,            "src/trams/fukui/f1000/gfx/f1004_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_f1004_lead_left {
+                loaded:  [spriteset_f1004_lead_clsd];
+                loading: [spriteset_f1004_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1004_lead_rght {
+                loaded:  [spriteset_f1004_lead_clsd];
+                loading: [spriteset_f1004_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1004_lead, param_side_of_road ) {
+                1:  spritegroup_f1004_lead_rght;
+                    spritegroup_f1004_lead_left; //default
+            } 
+
+        // Mid
+            spriteset(spriteset_f1004_mid_clsd,             "src/trams/fukui/f1000/gfx/f1004_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1004_mid_left,             "src/trams/fukui/f1000/gfx/f1004_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1004_mid_rght,             "src/trams/fukui/f1000/gfx/f1004_rght.png") {tmpl_7(1,25)}
+            
+            // Left
+            spritegroup spritegroup_f1004_mid_left {
+                loaded:  [spriteset_f1004_mid_clsd];
+                loading: [spriteset_f1004_mid_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1004_mid_rght {
+                loaded:  [spriteset_f1004_mid_clsd];
+                loading: [spriteset_f1004_mid_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1004_mid, param_side_of_road ) {
+                1:  spritegroup_f1004_mid_rght;
+                    spritegroup_f1004_mid_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_f1004_rear_clsd,            "src/trams/fukui/f1000/gfx/f1004_clsd.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1004_rear_left,            "src/trams/fukui/f1000/gfx/f1004_left.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1004_rear_rght,            "src/trams/fukui/f1000/gfx/f1004_rght.png") {tmpl_7(1,49)}
+
+            // Left
+            spritegroup spritegroup_f1004_rear_left {
+                loaded:  [spriteset_f1004_rear_clsd];
+                loading: [spriteset_f1004_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1004_rear_rght {
+                loaded:  [spriteset_f1004_rear_clsd];
+                loading: [spriteset_f1004_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1004_rear, param_side_of_road ) {
+                1:  spritegroup_f1004_rear_rght;
+                    spritegroup_f1004_rear_left; //default
+            } 
+
+    // 1cc
+        // Lead
+            spriteset(spriteset_f1000_1cc_lead_clsd,            "src/trams/fukui/f1000/gfx/f1000_1cc_clsd.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1000_1cc_lead_left,            "src/trams/fukui/f1000/gfx/f1000_1cc_left.png") {tmpl_7(1,1)}
+            spriteset(spriteset_f1000_1cc_lead_rght,            "src/trams/fukui/f1000/gfx/f1000_1cc_rght.png") {tmpl_7(1,1)}
+            
+            // Left
+            spritegroup spritegroup_f1000_1cc_lead_left {
+                loaded:  [spriteset_f1000_1cc_lead_clsd];
+                loading: [spriteset_f1000_1cc_lead_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1000_1cc_lead_rght {
+                loaded:  [spriteset_f1000_1cc_lead_clsd];
+                loading: [spriteset_f1000_1cc_lead_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1000_1cc_lead, param_side_of_road ) {
+                1:  spritegroup_f1000_1cc_lead_rght;
+                    spritegroup_f1000_1cc_lead_left; //default
+            } 
+
+        // Mid
+            spriteset(spriteset_f1000_1cc_mid_clsd,             "src/trams/fukui/f1000/gfx/f1000_1cc_clsd.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1000_1cc_mid_left,             "src/trams/fukui/f1000/gfx/f1000_1cc_left.png") {tmpl_7(1,25)}
+            spriteset(spriteset_f1000_1cc_mid_rght,             "src/trams/fukui/f1000/gfx/f1000_1cc_rght.png") {tmpl_7(1,25)}
+            
+            // Left
+            spritegroup spritegroup_f1000_1cc_mid_left {
+                loaded:  [spriteset_f1000_1cc_mid_clsd];
+                loading: [spriteset_f1000_1cc_mid_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1000_1cc_mid_rght {
+                loaded:  [spriteset_f1000_1cc_mid_clsd];
+                loading: [spriteset_f1000_1cc_mid_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1000_1cc_mid, param_side_of_road ) {
+                1:  spritegroup_f1000_1cc_mid_rght;
+                    spritegroup_f1000_1cc_mid_left; //default
+            } 
+
+        // Rear
+            spriteset(spriteset_f1000_1cc_rear_clsd,            "src/trams/fukui/f1000/gfx/f1000_1cc_clsd.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1000_1cc_rear_left,            "src/trams/fukui/f1000/gfx/f1000_1cc_left.png") {tmpl_7(1,49)}
+            spriteset(spriteset_f1000_1cc_rear_rght,            "src/trams/fukui/f1000/gfx/f1000_1cc_rght.png") {tmpl_7(1,49)}
+
+            // Left
+            spritegroup spritegroup_f1000_1cc_rear_left {
+                loaded:  [spriteset_f1000_1cc_rear_clsd];
+                loading: [spriteset_f1000_1cc_rear_left];
+            }
+
+            // Right
+            spritegroup spritegroup_f1000_1cc_rear_rght {
+                loaded:  [spriteset_f1000_1cc_rear_clsd];
+                loading: [spriteset_f1000_1cc_rear_rght];
+            }
+
+            switch (FEAT_ROADVEHS, SELF, spritegroup_f1000_1cc_rear, param_side_of_road ) {
+                1:  spritegroup_f1000_1cc_rear_rght;
+                    spritegroup_f1000_1cc_rear_left; //default
+            } 
+
+    // Lead
+    switch (FEAT_ROADVEHS, PARENT, sw_f1000_lead_random, random_bits % 4) {
+        0:  spritegroup_f1001_lead;
+        1:  spritegroup_f1002_lead;
+        2:  spritegroup_f1003_lead;
+        3:  spritegroup_f1004_lead;
+    }
+    
+    switch (FEAT_ROADVEHS, PARENT, sw_f1000_lead, cargo_subtype ) {
+        0:  sw_f1000_lead_random;
+        1:  spritegroup_f1001_lead;
+        2:  spritegroup_f1002_lead;
+        3:  spritegroup_f1003_lead;
+        4:  spritegroup_f1004_lead;
+            spritegroup_f1000_1cc_lead;
+    }
+
+    // Mid
+    switch (FEAT_ROADVEHS, PARENT, sw_f1000_mid_random, random_bits % 4) {
+        0:  spritegroup_f1001_mid;
+        1:  spritegroup_f1002_mid;
+        2:  spritegroup_f1003_mid;
+        3:  spritegroup_f1004_mid;
+    }
+    
+    switch (FEAT_ROADVEHS, PARENT, sw_f1000_mid, cargo_subtype ) {
+        0:  sw_f1000_mid_random;
+        1:  spritegroup_f1001_mid;
+        2:  spritegroup_f1002_mid;
+        3:  spritegroup_f1003_mid;
+        4:  spritegroup_f1004_mid;
+            spritegroup_f1000_1cc_mid;
+    }
+
+    // Rear
+    switch (FEAT_ROADVEHS, PARENT, sw_f1000_rear_random, random_bits % 4) {
+        0:  spritegroup_f1001_rear;
+        1:  spritegroup_f1002_rear;
+        2:  spritegroup_f1003_rear;
+        3:  spritegroup_f1004_rear;
+    }
+    
+    switch (FEAT_ROADVEHS, PARENT, sw_f1000_rear, cargo_subtype ) {
+        0:  sw_f1000_rear_random;
+        1:  spritegroup_f1001_rear;
+        2:  spritegroup_f1002_rear;
+        3:  spritegroup_f1003_rear;
+        4:  spritegroup_f1004_rear;
+            spritegroup_f1000_1cc_rear;
+    }
+
+    switch (FEAT_ROADVEHS, SELF, sw_f1000_graphics, position_in_consist ) {
+        0:  sw_f1000_lead;
+        1:  sw_f1000_mid;
+            sw_f1000_rear; //default
+    }
+
+//Tram Properties
+    switch (FEAT_ROADVEHS, SELF, sw_f1000_capacity, position_in_consist ) {
+        0:  return ((param_capacity*75)/2);
+        1:  return ((param_capacity*75)/2);
+        2:  return ((param_capacity*75)/2);
+            return ((param_capacity*75)/2); //default
+    }
+
+    switch (FEAT_ROADVEHS, SELF, sw_f1000_length, position_in_consist ) {
+        1:  return 6;
+        return 7; 
+    }
+
+    switch (FEAT_ROADVEHS, SELF, sw_f1000_spark, position_in_consist ) {
+        0:  return VISUAL_EFFECT_DISABLE;
+        1:  return VISUAL_EFFECT_ELECTRIC;
+        2:  return VISUAL_EFFECT_DISABLE;
+            return VISUAL_EFFECT_DISABLE; //default
+    }
+
+//set number of articulated parts
+switch (FEAT_ROADVEHS, SELF, sw_f1000_articulated_part, extra_callback_info1) {
+    0..2:  return item_f1000;
+        return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+}
+
+switch (FEAT_ROADVEHS, SELF, sw_f1000_cargo_age_period, (param_aging)) {
+    0:  return 240;
+    1:  return 200;
+    2:  return 170;
+    3:  return 140;
+        return 240; //default
+} 
+
+item(FEAT_ROADVEHS, item_f1000) {
+    property {
+        name:                           string(STR_F1000);
+        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        loading_speed:                  25;
+        cargo_age_period:               240;
+        cost_factor:                    175;
+        running_cost_factor:            80;
+        speed:                          70 km/h;    // Current operates at 40km/h, but capable (with approval) of 70 km/h
+        power:                          135 * 3 hp;
+        cargo_capacity:                 155;
+        introduction_date:              date(2013,03,31);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                   50;
+        reliability_decay:              14;
+        tram_type:                      ELRL;
+        sound_effect:                   SOUND_POWER_STATION;
+        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
+        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
+        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+        refit_cost:                     0; // Refitting is free
+        running_cost_base:              RUNNING_COST_ROADVEH;
+        weight:                         37 ton;
+        }
+    graphics {
+        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(FUKUI),string(LIVERIES),string(VARIOUS));
+        cargo_subtype_text:             sw_f1000_subtype_text;
+        cargo_capacity:                 sw_f1000_capacity;
+        purchase_cargo_capacity:        ((param_capacity*155)/2)/3;
+        default:                        sw_f1000_graphics;
+        length:                         sw_f1000_length;
+        cargo_age_period:               sw_f1000_cargo_age_period;
+        running_cost_factor:            130 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+        purchase_running_cost_factor:   130 + ((param_runcost * 30 ) / 2 );
+        articulated_part:               sw_f1000_articulated_part;
+        visual_effect:                  sw_f1000_spark;
+        purchase:                       sw_f1000_purchase;
+        cost_factor:                    ((param_buycost * 167 ) / 4);
+        }
+}

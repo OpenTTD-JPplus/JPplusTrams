@@ -17,7 +17,7 @@ grf {
             name: string(STR_PARAM_HIDE_LOGO);
             desc: string(STR_PARAM_HIDE_LOGO);
             bit: 0;
-            def_value: 0;
+            def_value: 1;
             }
         }
 
