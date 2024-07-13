@@ -8,7 +8,6 @@ switch(FEAT_ROADVEHS, SELF, sw_1060_subtype_text, cargo_subtype) {
         return CB_RESULT_NO_TEXT;
         }
 
-
 // Graphics
 
     // Purchase
@@ -22,18 +21,15 @@ switch(FEAT_ROADVEHS, SELF, sw_1060_subtype_text, cargo_subtype) {
 
     // Tram Graphics
     spriteset(spriteset_1060_lead_irl,          ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1060/1060_irl.png") {tmpl_7(1,1)}
-    
-    
     spriteset(spriteset_1060_lead_1cc,          "src/trams/kumamoto/1060/1060_1cc.png") {tmpl_7(1,1)}
     switch(FEAT_ROADVEHS, PARENT, sw_1060_lead_1cc, cargo_subtype) {1:spriteset_1080_lead_1cc;}
-
 
     switch(FEAT_ROADVEHS, SELF, sw_1060_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_1060_lead_irl; // Base
             1: sw_1060_lead_1cc;        // 1cc mask
             2: sprite_panto02;          // Pantos
-            3: sw_door01;               // Doors
+            3: door01;                  // Doors
         }
 
 switch (FEAT_ROADVEHS, SELF, sw_1060_cargo_age_period, (param_aging)) {

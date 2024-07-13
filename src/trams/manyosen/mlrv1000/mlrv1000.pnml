@@ -9,11 +9,10 @@ switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_subtype_text, cargo_subtype) {
         return CB_RESULT_NO_TEXT;
         }
 
-
 // Graphics
 
     // Purchase
-    spriteset(spriteset_mlrv1000_purchase,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_purchase.png") {tmpl_p()}
+    spriteset(spriteset_mlrv1000_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_purchase.png") {tmpl_p()}
 
     switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_purchase, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
@@ -23,167 +22,46 @@ switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_subtype_text, cargo_subtype) {
 
     // Tram Graphics
 
-    // Red
-        // Lead
-            spriteset(spriteset_mlrv1000_lead_clsd_irl,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_irl_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_mlrv1000_lead_left_irl,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_irl_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_mlrv1000_lead_rght_irl,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_irl_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_mlrv1000_lead_left_irl {
-                loaded:  [spriteset_mlrv1000_lead_clsd_irl];
-                loading: [spriteset_mlrv1000_lead_left_irl];
-            }
+    // Base
+    spriteset(spriteset_mlrv1000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_irl.png") {tmpl_7(1,1 )}
+    spriteset(spriteset_mlrv1000_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_irl.png") {tmpl_7(1,25)}
 
-            // Right
-            spritegroup spritegroup_mlrv1000_lead_rght_irl {
-                loaded:  [spriteset_mlrv1000_lead_clsd_irl];
-                loading: [spriteset_mlrv1000_lead_rght_irl];
-            }
+    // Liveries
+    spriteset(spriteset_mlrv1000_lead_doraemon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doraemon.png") {tmpl_7(1,1 )}
+    spriteset(spriteset_mlrv1000_rear_doraemon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doraemon.png") {tmpl_7(1,25)}
 
-            switch (FEAT_ROADVEHS, SELF, spritegroup_mlrv1000_lead_irl, param_side_of_road ) {
-                1:  spritegroup_mlrv1000_lead_rght_irl;
-                    spritegroup_mlrv1000_lead_left_irl; //default
-            } 
+    spriteset(spriteset_mlrv1000_lead_1cc, "src/trams/manyosen/mlrv1000/mlrv1000_1cc.png") {tmpl_7(1,1 )}
+    spriteset(spriteset_mlrv1000_rear_1cc, "src/trams/manyosen/mlrv1000/mlrv1000_1cc.png") {tmpl_7(1,25)}
 
-        // Rear
-            spriteset(spriteset_mlrv1000_rear_clsd_irl,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_irl_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_mlrv1000_rear_left_irl,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_irl_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_mlrv1000_rear_rght_irl,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_irl_rght.png") {tmpl_7(1,25)}
+    // Mask Selection
+    switch(FEAT_ROADVEHS, PARENT, sw_mlrv1000_lead_mask, cargo_subtype) {1:spriteset_mlrv1000_lead_doraemon; 2:spriteset_mlrv1000_lead_1cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_mlrv1000_rear_mask, cargo_subtype) {1:spriteset_mlrv1000_rear_doraemon; 2:spriteset_mlrv1000_rear_1cc;}
 
-            // Left
-            spritegroup spritegroup_mlrv1000_rear_left_irl {
-                loaded:  [spriteset_mlrv1000_rear_clsd_irl];
-                loading: [spriteset_mlrv1000_rear_left_irl];
-            }
+    switch(FEAT_ROADVEHS, PARENT, sw_door_mlrv1000_lead_doraemon_check, cargo_subtype) {1:door_doraemon_lead;}
+    switch(FEAT_ROADVEHS, PARENT, sw_door_mlrv1000_rear_doraemon_check, cargo_subtype) {1:door_doraemon_rear;}
 
-            // Right
-            spritegroup spritegroup_mlrv1000_rear_rght_irl {
-                loaded:  [spriteset_mlrv1000_rear_clsd_irl];
-                loading: [spriteset_mlrv1000_rear_rght_irl];
-            }
+    switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_lead_stack, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: spriteset_mlrv1000_lead_irl;             // Base
+            1: sw_mlrv1000_lead_mask;                   // Mask
+            2: door02_lead;                             // Doors (base)
+            3: sw_door_mlrv1000_lead_doraemon_check;    // Doors (extra layer for Doraemon)
+            4: sprite_panto01;                          // Pantos
+        }
 
-            switch (FEAT_ROADVEHS, SELF, spritegroup_mlrv1000_rear_irl, param_side_of_road ) {
-                1:  spritegroup_mlrv1000_rear_rght_irl;
-                    spritegroup_mlrv1000_rear_left_irl; //default
-            } 
+    switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_rear_stack, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: spriteset_mlrv1000_rear_irl;             // Base
+            1: sw_mlrv1000_rear_mask;                   // Mask
+            2: door02_rear;                             // Doors (base)
+            3: sw_door_mlrv1000_rear_doraemon_check;    // Doors (extra layer for Doraemon)
+        }
 
-    // Doraemon
-        // Lead
-            spriteset(spriteset_mlrv1000_lead_clsd_doraemon,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_doraemon_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_mlrv1000_lead_left_doraemon,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_doraemon_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_mlrv1000_lead_rght_doraemon,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_doraemon_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_mlrv1000_lead_left_doraemon {
-                loaded:  [spriteset_mlrv1000_lead_clsd_doraemon];
-                loading: [spriteset_mlrv1000_lead_left_doraemon];
-            }
+        switch (FEAT_ROADVEHS, SELF, sw_mlrv1000_stack, position_in_consist ) {
+            0:  sw_mlrv1000_lead_stack;
+            sw_mlrv1000_rear_stack;                      //default
+        }
 
-            // Right
-            spritegroup spritegroup_mlrv1000_lead_rght_doraemon {
-                loaded:  [spriteset_mlrv1000_lead_clsd_doraemon];
-                loading: [spriteset_mlrv1000_lead_rght_doraemon];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_mlrv1000_lead_doraemon, param_side_of_road ) {
-                1:  spritegroup_mlrv1000_lead_rght_doraemon;
-                    spritegroup_mlrv1000_lead_left_doraemon; //default
-            } 
-
-        // Rear
-            spriteset(spriteset_mlrv1000_rear_clsd_doraemon,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_doraemon_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_mlrv1000_rear_left_doraemon,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_doraemon_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_mlrv1000_rear_rght_doraemon,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_doraemon_rght.png") {tmpl_7(1,25)}
-
-            // Left
-            spritegroup spritegroup_mlrv1000_rear_left_doraemon {
-                loaded:  [spriteset_mlrv1000_rear_clsd_doraemon];
-                loading: [spriteset_mlrv1000_rear_left_doraemon];
-            }
-
-            // Right
-            spritegroup spritegroup_mlrv1000_rear_rght_doraemon {
-                loaded:  [spriteset_mlrv1000_rear_clsd_doraemon];
-                loading: [spriteset_mlrv1000_rear_rght_doraemon];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_mlrv1000_rear_doraemon, param_side_of_road ) {
-                1:  spritegroup_mlrv1000_rear_rght_doraemon;
-                    spritegroup_mlrv1000_rear_left_doraemon; //default
-            } 
-
-    // 1cc
-        // Lead
-            spriteset(spriteset_mlrv1000_lead_clsd_1cc,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_1cc_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_mlrv1000_lead_left_1cc,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_1cc_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_mlrv1000_lead_rght_1cc,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_1cc_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_mlrv1000_lead_left_1cc {
-                loaded:  [spriteset_mlrv1000_lead_clsd_1cc];
-                loading: [spriteset_mlrv1000_lead_left_1cc];
-            }
-
-            // Right
-            spritegroup spritegroup_mlrv1000_lead_rght_1cc {
-                loaded:  [spriteset_mlrv1000_lead_clsd_1cc];
-                loading: [spriteset_mlrv1000_lead_rght_1cc];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_mlrv1000_lead_1cc, param_side_of_road ) {
-                1:  spritegroup_mlrv1000_lead_rght_1cc;
-                    spritegroup_mlrv1000_lead_left_1cc; //default
-            } 
-
-        // Rear
-            spriteset(spriteset_mlrv1000_rear_clsd_1cc,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_1cc_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_mlrv1000_rear_left_1cc,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_1cc_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_mlrv1000_rear_rght_1cc,     "src/trams/manyosen/mlrv1000/gfx/mlrv1000_1cc_rght.png") {tmpl_7(1,25)}
-
-            // Left
-            spritegroup spritegroup_mlrv1000_rear_left_1cc {
-                loaded:  [spriteset_mlrv1000_rear_clsd_1cc];
-                loading: [spriteset_mlrv1000_rear_left_1cc];
-            }
-
-            // Right
-            spritegroup spritegroup_mlrv1000_rear_rght_1cc {
-                loaded:  [spriteset_mlrv1000_rear_clsd_1cc];
-                loading: [spriteset_mlrv1000_rear_rght_1cc];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_mlrv1000_rear_1cc, param_side_of_road ) {
-                1:  spritegroup_mlrv1000_rear_rght_1cc;
-                    spritegroup_mlrv1000_rear_left_1cc; //default
-            } 
-
-
-    switch (FEAT_ROADVEHS, PARENT, sw_mlrv1000_lead, cargo_subtype ) {
-        1:  spritegroup_mlrv1000_lead_doraemon;
-        2:  spritegroup_mlrv1000_lead_1cc;
-            spritegroup_mlrv1000_lead_irl;
-    }
-
-    switch (FEAT_ROADVEHS, PARENT, sw_mlrv1000_rear, cargo_subtype ) {
-        1:  spritegroup_mlrv1000_rear_doraemon;
-        2:  spritegroup_mlrv1000_rear_1cc;
-            spritegroup_mlrv1000_rear_irl;
-    }
-
-switch (FEAT_ROADVEHS, SELF, sw_mlrv1000_graphics, position_in_consist ) {
-    0:  sw_mlrv1000_lead;
-        sw_mlrv1000_rear; //default
-}
-
-//me4 'F' tram properties
-
-/*
-switch (FEAT_ROADVEHS, SELF, sw_mlrv1000_length, position_in_consist ) {
-    1:  return 6;
-    return 7; 
-}
-*/
 switch (FEAT_ROADVEHS, SELF, sw_mlrv1000_spark, position_in_consist ) {
     0:  return VISUAL_EFFECT_DISABLE;
     1:  return VISUAL_EFFECT_ELECTRIC;
@@ -234,7 +112,7 @@ item(FEAT_ROADVEHS, item_mlrv1000) {
         cargo_subtype_text:             sw_mlrv1000_subtype_text;
         cargo_capacity:                 (param_capacity * 80 / num_vehs_in_consist) / 2;
         purchase_cargo_capacity:        (param_capacity * 80 / 2) / 2;
-        default:                        sw_mlrv1000_graphics;
+        default:                        sw_mlrv1000_stack;
         length:                         7;
         cargo_age_period:               sw_mlrv1000_cargo_age_period;
         running_cost_factor:            88 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();

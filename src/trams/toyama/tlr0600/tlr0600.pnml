@@ -1,7 +1,6 @@
 
 // https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E3%83%A9%E3%82%A4%E3%83%88%E3%83%AC%E3%83%BC%E3%83%AB9200%E5%BD%A2%E9%9B%BB%E8%BB%8A
 
-
 switch(FEAT_ROADVEHS, SELF, sw_tlr0600_subtype_text, cargo_subtype) {
 	    0: return string(LV_TLR0601);
         1: return string(LV_TLR0602);
@@ -16,11 +15,10 @@ switch(FEAT_ROADVEHS, SELF, sw_tlr0600_subtype_text, cargo_subtype) {
         return CB_RESULT_NO_TEXT;
         }
 
-
 // Graphics
 
     // Purchase
-    spriteset(spriteset_tlr0600_purchase,     "src/trams/toyama/tlr0600/gfx/tlr0600_purchase.png") {tmpl_p()}
+    spriteset(spriteset_tlr0600_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0600_purchase.png") {tmpl_p()}
 
     switch(FEAT_ROADVEHS, SELF, sw_tlr0600_purchase, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
@@ -30,501 +28,67 @@ switch(FEAT_ROADVEHS, SELF, sw_tlr0600_subtype_text, cargo_subtype) {
 
     // Tram Graphics
 
-    // TLO0601 Red
-        // Lead
-            spriteset(spriteset_tlr0601_lead_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0601_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0601_lead_left,     "src/trams/toyama/tlr0600/gfx/tlr0601_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0601_lead_rght,     "src/trams/toyama/tlr0600/gfx/tlr0601_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_tlr0601_lead_left {
-                loaded:  [spriteset_tlr0601_lead_clsd];
-                loading: [spriteset_tlr0601_lead_left];
-            }
+    // Base
+    spriteset(ss_tlr0601_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0601.png") {tmpl_7(1,1 )}
+    spriteset(ss_tlr0601_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0601.png") {tmpl_7(1,25)}
 
-            // Right
-            spritegroup spritegroup_tlr0601_lead_rght {
-                loaded:  [spriteset_tlr0601_lead_clsd];
-                loading: [spriteset_tlr0601_lead_rght];
-            }
+    // Liveries
+    spriteset(ss_tlr0602_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0602.png") {tmpl_7(1,1 )}
+    spriteset(ss_tlr0602_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0602.png") {tmpl_7(1,25)}
 
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0601_lead, param_side_of_road ) {
-                1:  spritegroup_tlr0601_lead_rght;
-                    spritegroup_tlr0601_lead_left; //default
-            } 
+    spriteset(ss_tlr0603_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0603.png") {tmpl_7(1,1 )}
+    spriteset(ss_tlr0603_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0603.png") {tmpl_7(1,25)}
 
-        // Rear
-            spriteset(spriteset_tlr0601_rear_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0601_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0601_rear_left,     "src/trams/toyama/tlr0600/gfx/tlr0601_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0601_rear_rght,     "src/trams/toyama/tlr0600/gfx/tlr0601_rght.png") {tmpl_7(1,25)}
+    spriteset(ss_tlr0604_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0604.png") {tmpl_7(1,1 )}
+    spriteset(ss_tlr0604_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0604.png") {tmpl_7(1,25)}
 
-            // Left
-            spritegroup spritegroup_tlr0601_rear_left {
-                loaded:  [spriteset_tlr0601_rear_clsd];
-                loading: [spriteset_tlr0601_rear_left];
-            }
+    spriteset(ss_tlr0605_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0605.png") {tmpl_7(1,1 )}
+    spriteset(ss_tlr0605_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0605.png") {tmpl_7(1,25)}
 
-            // Right
-            spritegroup spritegroup_tlr0601_rear_rght {
-                loaded:  [spriteset_tlr0601_rear_clsd];
-                loading: [spriteset_tlr0601_rear_rght];
-            }
+    spriteset(ss_tlr0606_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0606.png") {tmpl_7(1,1 )}
+    spriteset(ss_tlr0606_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0606.png") {tmpl_7(1,25)}
 
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0601_rear, param_side_of_road ) {
-                1:  spritegroup_tlr0601_rear_rght;
-                    spritegroup_tlr0601_rear_left; //default
-            }  
+    spriteset(ss_tlr0607_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0607.png") {tmpl_7(1,1 )}
+    spriteset(ss_tlr0607_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0607.png") {tmpl_7(1,25)}
 
-    // TLO0602 Orange
-        // Lead
-            spriteset(spriteset_tlr0602_lead_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0602_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0602_lead_left,     "src/trams/toyama/tlr0600/gfx/tlr0602_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0602_lead_rght,     "src/trams/toyama/tlr0600/gfx/tlr0602_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_tlr0602_lead_left {
-                loaded:  [spriteset_tlr0602_lead_clsd];
-                loading: [spriteset_tlr0602_lead_left];
-            }
+    spriteset(ss_tlr0608_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0608.png") {tmpl_7(1,1 )}
+    spriteset(ss_tlr0608_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0608.png") {tmpl_7(1,25)}
 
-            // Right
-            spritegroup spritegroup_tlr0602_lead_rght {
-                loaded:  [spriteset_tlr0602_lead_clsd];
-                loading: [spriteset_tlr0602_lead_rght];
-            }
+    spriteset(ss_tlr0600_lead_1cc, "src/trams/toyama/tlr0600/tlr0600_1cc.png") {tmpl_7(1,1 )}
+    spriteset(ss_tlr0600_rear_1cc, "src/trams/toyama/tlr0600/tlr0600_1cc.png") {tmpl_7(1,25)}
 
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0602_lead, param_side_of_road ) {
-                1:  spritegroup_tlr0602_lead_rght;
-                    spritegroup_tlr0602_lead_left; //default
-            } 
+    spriteset(ss_tlr0600_lead_2cc, "src/trams/toyama/tlr0600/tlr0600_2cc.png") {tmpl_7(1,1 )}
+    spriteset(ss_tlr0600_rear_2cc, "src/trams/toyama/tlr0600/tlr0600_2cc.png") {tmpl_7(1,25)}
 
-        // Rear
-            spriteset(spriteset_tlr0602_rear_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0602_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0602_rear_left,     "src/trams/toyama/tlr0600/gfx/tlr0602_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0602_rear_rght,     "src/trams/toyama/tlr0600/gfx/tlr0602_rght.png") {tmpl_7(1,25)}
+    // Mask Selection
+    switch(FEAT_ROADVEHS, PARENT, sw_tlr0600_lead_mask, cargo_subtype) {1:ss_tlr0602_lead; 2:ss_tlr0603_lead; 3:ss_tlr0604_lead; 4:ss_tlr0605_lead; 5:ss_tlr0606_lead; 6:ss_tlr0607_lead; 7:ss_tlr0608_lead; 8:ss_tlr0600_lead_1cc; 9:ss_tlr0600_lead_2cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_tlr0600_rear_mask, cargo_subtype) {1:ss_tlr0602_rear; 2:ss_tlr0603_rear; 3:ss_tlr0604_rear; 4:ss_tlr0605_rear; 5:ss_tlr0606_rear; 6:ss_tlr0607_rear; 7:ss_tlr0608_rear; 8:ss_tlr0600_rear_1cc; 9:ss_tlr0600_rear_2cc;}
 
-            // Left
-            spritegroup spritegroup_tlr0602_rear_left {
-                loaded:  [spriteset_tlr0602_rear_clsd];
-                loading: [spriteset_tlr0602_rear_left];
-            }
+    switch(FEAT_ROADVEHS, PARENT, sw_door_tlr0600_1cc_lead_check, cargo_subtype) {1:door_tlr0600_1cc_lead;}
+    switch(FEAT_ROADVEHS, PARENT, sw_door_tlr0600_1cc_rear_check, cargo_subtype) {1:door_tlr0600_1cc_rear;}
 
-            // Right
-            spritegroup spritegroup_tlr0602_rear_rght {
-                loaded:  [spriteset_tlr0602_rear_clsd];
-                loading: [spriteset_tlr0602_rear_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0602_rear, param_side_of_road ) {
-                1:  spritegroup_tlr0602_rear_rght;
-                    spritegroup_tlr0602_rear_left; //default
-            }   
-
-    // TLO0603 Yellow
-        // Lead
-            spriteset(spriteset_tlr0603_lead_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0603_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0603_lead_left,     "src/trams/toyama/tlr0600/gfx/tlr0603_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0603_lead_rght,     "src/trams/toyama/tlr0600/gfx/tlr0603_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_tlr0603_lead_left {
-                loaded:  [spriteset_tlr0603_lead_clsd];
-                loading: [spriteset_tlr0603_lead_left];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0603_lead_rght {
-                loaded:  [spriteset_tlr0603_lead_clsd];
-                loading: [spriteset_tlr0603_lead_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0603_lead, param_side_of_road ) {
-                1:  spritegroup_tlr0603_lead_rght;
-                    spritegroup_tlr0603_lead_left; //default
-            } 
-
-        // Rear
-            spriteset(spriteset_tlr0603_rear_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0603_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0603_rear_left,     "src/trams/toyama/tlr0600/gfx/tlr0603_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0603_rear_rght,     "src/trams/toyama/tlr0600/gfx/tlr0603_rght.png") {tmpl_7(1,25)}
-
-            // Left
-            spritegroup spritegroup_tlr0603_rear_left {
-                loaded:  [spriteset_tlr0603_rear_clsd];
-                loading: [spriteset_tlr0603_rear_left];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0603_rear_rght {
-                loaded:  [spriteset_tlr0603_rear_clsd];
-                loading: [spriteset_tlr0603_rear_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0603_rear, param_side_of_road ) {
-                1:  spritegroup_tlr0603_rear_rght;
-                    spritegroup_tlr0603_rear_left; //default
-            }         
-
-    // TLO0604 Pea Green
-        // Lead
-            spriteset(spriteset_tlr0604_lead_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0604_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0604_lead_left,     "src/trams/toyama/tlr0600/gfx/tlr0604_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0604_lead_rght,     "src/trams/toyama/tlr0600/gfx/tlr0604_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_tlr0604_lead_left {
-                loaded:  [spriteset_tlr0604_lead_clsd];
-                loading: [spriteset_tlr0604_lead_left];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0604_lead_rght {
-                loaded:  [spriteset_tlr0604_lead_clsd];
-                loading: [spriteset_tlr0604_lead_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0604_lead, param_side_of_road ) {
-                1:  spritegroup_tlr0604_lead_rght;
-                    spritegroup_tlr0604_lead_left; //default
-            } 
-
-        // Rear
-            spriteset(spriteset_tlr0604_rear_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0604_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0604_rear_left,     "src/trams/toyama/tlr0600/gfx/tlr0604_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0604_rear_rght,     "src/trams/toyama/tlr0600/gfx/tlr0604_rght.png") {tmpl_7(1,25)}
-
-            // Left
-            spritegroup spritegroup_tlr0604_rear_left {
-                loaded:  [spriteset_tlr0604_rear_clsd];
-                loading: [spriteset_tlr0604_rear_left];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0604_rear_rght {
-                loaded:  [spriteset_tlr0604_rear_clsd];
-                loading: [spriteset_tlr0604_rear_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0604_rear, param_side_of_road ) {
-                1:  spritegroup_tlr0604_rear_rght;
-                    spritegroup_tlr0604_rear_left; //default
-            } 
-
-    // TLO0605 Green
-        // Lead
-            spriteset(spriteset_tlr0605_lead_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0605_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0605_lead_left,     "src/trams/toyama/tlr0600/gfx/tlr0605_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0605_lead_rght,     "src/trams/toyama/tlr0600/gfx/tlr0605_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_tlr0605_lead_left {
-                loaded:  [spriteset_tlr0605_lead_clsd];
-                loading: [spriteset_tlr0605_lead_left];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0605_lead_rght {
-                loaded:  [spriteset_tlr0605_lead_clsd];
-                loading: [spriteset_tlr0605_lead_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0605_lead, param_side_of_road ) {
-                1:  spritegroup_tlr0605_lead_rght;
-                    spritegroup_tlr0605_lead_left; //default
-            } 
-
-        // Rear
-            spriteset(spriteset_tlr0605_rear_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0605_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0605_rear_left,     "src/trams/toyama/tlr0600/gfx/tlr0605_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0605_rear_rght,     "src/trams/toyama/tlr0600/gfx/tlr0605_rght.png") {tmpl_7(1,25)}
-
-            // Left
-            spritegroup spritegroup_tlr0605_rear_left {
-                loaded:  [spriteset_tlr0605_rear_clsd];
-                loading: [spriteset_tlr0605_rear_left];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0605_rear_rght {
-                loaded:  [spriteset_tlr0605_rear_clsd];
-                loading: [spriteset_tlr0605_rear_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0605_rear, param_side_of_road ) {
-                1:  spritegroup_tlr0605_rear_rght;
-                    spritegroup_tlr0605_rear_left; //default
-            } 
-
-    // TLO0606 Blue
-        // Lead
-            spriteset(spriteset_tlr0606_lead_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0606_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0606_lead_left,     "src/trams/toyama/tlr0600/gfx/tlr0606_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0606_lead_rght,     "src/trams/toyama/tlr0600/gfx/tlr0606_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_tlr0606_lead_left {
-                loaded:  [spriteset_tlr0606_lead_clsd];
-                loading: [spriteset_tlr0606_lead_left];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0606_lead_rght {
-                loaded:  [spriteset_tlr0606_lead_clsd];
-                loading: [spriteset_tlr0606_lead_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0606_lead, param_side_of_road ) {
-                1:  spritegroup_tlr0606_lead_rght;
-                    spritegroup_tlr0606_lead_left; //default
-            } 
-
-        // Rear
-            spriteset(spriteset_tlr0606_rear_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0606_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0606_rear_left,     "src/trams/toyama/tlr0600/gfx/tlr0606_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0606_rear_rght,     "src/trams/toyama/tlr0600/gfx/tlr0606_rght.png") {tmpl_7(1,25)}
-
-            // Left
-            spritegroup spritegroup_tlr0606_rear_left {
-                loaded:  [spriteset_tlr0606_rear_clsd];
-                loading: [spriteset_tlr0606_rear_left];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0606_rear_rght {
-                loaded:  [spriteset_tlr0606_rear_clsd];
-                loading: [spriteset_tlr0606_rear_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0606_rear, param_side_of_road ) {
-                1:  spritegroup_tlr0606_rear_rght;
-                    spritegroup_tlr0606_rear_left; //default
-            } 
-
-    // TLO0607 Purple
-        // Lead
-            spriteset(spriteset_tlr0607_lead_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0607_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0607_lead_left,     "src/trams/toyama/tlr0600/gfx/tlr0607_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0607_lead_rght,     "src/trams/toyama/tlr0600/gfx/tlr0607_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_tlr0607_lead_left {
-                loaded:  [spriteset_tlr0607_lead_clsd];
-                loading: [spriteset_tlr0607_lead_left];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0607_lead_rght {
-                loaded:  [spriteset_tlr0607_lead_clsd];
-                loading: [spriteset_tlr0607_lead_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0607_lead, param_side_of_road ) {
-                1:  spritegroup_tlr0607_lead_rght;
-                    spritegroup_tlr0607_lead_left; //default
-            } 
-
-        // Rear
-            spriteset(spriteset_tlr0607_rear_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0607_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0607_rear_left,     "src/trams/toyama/tlr0600/gfx/tlr0607_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0607_rear_rght,     "src/trams/toyama/tlr0600/gfx/tlr0607_rght.png") {tmpl_7(1,25)}
-
-            // Left
-            spritegroup spritegroup_tlr0607_rear_left {
-                loaded:  [spriteset_tlr0607_rear_clsd];
-                loading: [spriteset_tlr0607_rear_left];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0607_rear_rght {
-                loaded:  [spriteset_tlr0607_rear_clsd];
-                loading: [spriteset_tlr0607_rear_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0607_rear, param_side_of_road ) {
-                1:  spritegroup_tlr0607_rear_rght;
-                    spritegroup_tlr0607_rear_left; //default
-            } 
-
-    // TLO0608 Silver
-        // Lead
-            spriteset(spriteset_tlr0608_lead_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0608_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0608_lead_left,     "src/trams/toyama/tlr0600/gfx/tlr0608_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0608_lead_rght,     "src/trams/toyama/tlr0600/gfx/tlr0608_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_tlr0608_lead_left {
-                loaded:  [spriteset_tlr0608_lead_clsd];
-                loading: [spriteset_tlr0608_lead_left];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0608_lead_rght {
-                loaded:  [spriteset_tlr0608_lead_clsd];
-                loading: [spriteset_tlr0608_lead_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0608_lead, param_side_of_road ) {
-                1:  spritegroup_tlr0608_lead_rght;
-                    spritegroup_tlr0608_lead_left; //default
-            } 
-
-        // Rear
-            spriteset(spriteset_tlr0608_rear_clsd,     "src/trams/toyama/tlr0600/gfx/tlr0608_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0608_rear_left,     "src/trams/toyama/tlr0600/gfx/tlr0608_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0608_rear_rght,     "src/trams/toyama/tlr0600/gfx/tlr0608_rght.png") {tmpl_7(1,25)}
-
-            // Left
-            spritegroup spritegroup_tlr0608_rear_left {
-                loaded:  [spriteset_tlr0608_rear_clsd];
-                loading: [spriteset_tlr0608_rear_left];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0608_rear_rght {
-                loaded:  [spriteset_tlr0608_rear_clsd];
-                loading: [spriteset_tlr0608_rear_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0608_rear, param_side_of_road ) {
-                1:  spritegroup_tlr0608_rear_rght;
-                    spritegroup_tlr0608_rear_left; //default
-            } 
-
-    // 1cc
-        // Lead
-            spriteset(spriteset_tlr0600_lead_clsd_1cc,     "src/trams/toyama/tlr0600/gfx/tlr0600_1cc_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0600_lead_left_1cc,     "src/trams/toyama/tlr0600/gfx/tlr0600_1cc_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0600_lead_rght_1cc,     "src/trams/toyama/tlr0600/gfx/tlr0600_1cc_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_tlr0600_lead_left_1cc {
-                loaded:  [spriteset_tlr0600_lead_clsd_1cc];
-                loading: [spriteset_tlr0600_lead_left_1cc];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0600_lead_rght_1cc {
-                loaded:  [spriteset_tlr0600_lead_clsd_1cc];
-                loading: [spriteset_tlr0600_lead_rght_1cc];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0600_lead_1cc, param_side_of_road ) {
-                1:  spritegroup_tlr0600_lead_rght_1cc;
-                    spritegroup_tlr0600_lead_left_1cc; //default
-            } 
-
-        // Rear
-            spriteset(spriteset_tlr0600_rear_clsd_1cc,     "src/trams/toyama/tlr0600/gfx/tlr0600_1cc_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0600_rear_left_1cc,     "src/trams/toyama/tlr0600/gfx/tlr0600_1cc_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0600_rear_rght_1cc,     "src/trams/toyama/tlr0600/gfx/tlr0600_1cc_rght.png") {tmpl_7(1,25)}
-
-            // Left
-            spritegroup spritegroup_tlr0600_rear_left_1cc {
-                loaded:  [spriteset_tlr0600_rear_clsd_1cc];
-                loading: [spriteset_tlr0600_rear_left_1cc];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0600_rear_rght_1cc {
-                loaded:  [spriteset_tlr0600_rear_clsd_1cc];
-                loading: [spriteset_tlr0600_rear_rght_1cc];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0600_rear_1cc, param_side_of_road ) {
-                1:  spritegroup_tlr0600_rear_rght_1cc;
-                    spritegroup_tlr0600_rear_left_1cc; //default
-            } 
-
-    // 2cc
-        // Lead
-            spriteset(spriteset_tlr0600_lead_clsd_2cc,     "src/trams/toyama/tlr0600/gfx/tlr0600_2cc_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0600_lead_left_2cc,     "src/trams/toyama/tlr0600/gfx/tlr0600_2cc_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_tlr0600_lead_rght_2cc,     "src/trams/toyama/tlr0600/gfx/tlr0600_2cc_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_tlr0600_lead_left_2cc {
-                loaded:  [spriteset_tlr0600_lead_clsd_2cc];
-                loading: [spriteset_tlr0600_lead_left_2cc];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0600_lead_rght_2cc {
-                loaded:  [spriteset_tlr0600_lead_clsd_2cc];
-                loading: [spriteset_tlr0600_lead_rght_2cc];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0600_lead_2cc, param_side_of_road ) {
-                1:  spritegroup_tlr0600_lead_rght_2cc;
-                    spritegroup_tlr0600_lead_left_2cc; //default
-            } 
-
-        // Rear
-            spriteset(spriteset_tlr0600_rear_clsd_2cc,     "src/trams/toyama/tlr0600/gfx/tlr0600_2cc_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0600_rear_left_2cc,     "src/trams/toyama/tlr0600/gfx/tlr0600_2cc_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_tlr0600_rear_rght_2cc,     "src/trams/toyama/tlr0600/gfx/tlr0600_2cc_rght.png") {tmpl_7(1,25)}
-
-            // Left
-            spritegroup spritegroup_tlr0600_rear_left_2cc {
-                loaded:  [spriteset_tlr0600_rear_clsd_2cc];
-                loading: [spriteset_tlr0600_rear_left_2cc];
-            }
-
-            // Right
-            spritegroup spritegroup_tlr0600_rear_rght_2cc {
-                loaded:  [spriteset_tlr0600_rear_clsd_2cc];
-                loading: [spriteset_tlr0600_rear_rght_2cc];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_tlr0600_rear_2cc, param_side_of_road ) {
-                1:  spritegroup_tlr0600_rear_rght_2cc;
-                    spritegroup_tlr0600_rear_left_2cc; //default
-            } 
-
-    switch (FEAT_ROADVEHS, PARENT, sw_tlr0600_lead, cargo_subtype ) {
-        1:  spritegroup_tlr0602_lead;
-        2:  spritegroup_tlr0603_lead;
-        3:  spritegroup_tlr0604_lead;
-        4:  spritegroup_tlr0605_lead;
-        5:  spritegroup_tlr0606_lead;
-        6:  spritegroup_tlr0607_lead;
-        7:  spritegroup_tlr0608_lead;
-        8:  spritegroup_tlr0600_lead_1cc;
-        9:  spritegroup_tlr0600_lead_2cc;
-            spritegroup_tlr0601_lead;
-    }
-
-    switch (FEAT_ROADVEHS, PARENT, sw_tlr0600_rear, cargo_subtype ) {
-        1:  spritegroup_tlr0602_rear;
-        2:  spritegroup_tlr0603_rear;
-        3:  spritegroup_tlr0604_rear;
-        4:  spritegroup_tlr0605_rear;
-        5:  spritegroup_tlr0606_rear;
-        6:  spritegroup_tlr0607_rear;
-        7:  spritegroup_tlr0608_rear;
-        8:  spritegroup_tlr0600_rear_1cc;
-        9:  spritegroup_tlr0600_rear_2cc;
-            spritegroup_tlr0601_rear;
-    }
-
-switch(FEAT_ROADVEHS, SELF, sw_tlr0600_lead_panto, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_tlr0600_lead_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: sw_tlr0600_lead; 
-            1: sprite_panto01;
+            0: ss_tlr0601_lead;                         // Base
+            1: sw_tlr0600_lead_mask;                    // Mask
+            2: door02_lead;                             // Doors (base)
+            3: sw_door_tlr0600_1cc_lead_check;          // Doors (extra layer for Doraemon)
+            4: sprite_panto01;                          // Pantos
         }
 
-switch (FEAT_ROADVEHS, SELF, sw_tlr0600_graphics, position_in_consist ) {
-    0:  sw_tlr0600_lead_panto;
-        sw_tlr0600_rear; //default
-}
+    switch(FEAT_ROADVEHS, SELF, sw_tlr0600_rear_stack, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: ss_tlr0601_rear;                         // Base
+            1: sw_tlr0600_rear_mask;                    // Mask
+            2: door02_rear;                             // Doors (base)
+            3: sw_door_tlr0600_1cc_rear_check;          // Doors (extra layer for Doraemon)
+        }
 
-//me4 'F' tram properties
+    switch (FEAT_ROADVEHS, SELF, sw_tlr0600_stack, position_in_consist ) {
+            0:  sw_tlr0600_lead_stack;
+                sw_tlr0600_rear_stack;                  //default
+        }
 
-/*
-switch (FEAT_ROADVEHS, SELF, sw_tlr0600_length, position_in_consist ) {
-    1:  return 6;
-    return 7; 
-}
-*/
 switch (FEAT_ROADVEHS, SELF, sw_tlr0600_spark, position_in_consist ) {
     0:  return VISUAL_EFFECT_DISABLE;
     1:  return VISUAL_EFFECT_ELECTRIC;
@@ -575,7 +139,7 @@ item(FEAT_ROADVEHS, item_tlr0600) {
         cargo_subtype_text:             sw_tlr0600_subtype_text;
         cargo_capacity:                 (param_capacity * 80 / num_vehs_in_consist) / 2;
         purchase_cargo_capacity:        (param_capacity * 80 / 2) / 2;
-        default:                        sw_tlr0600_graphics;
+        default:                        sw_tlr0600_stack;
         length:                         7;
         cargo_age_period:               sw_tlr0600_cargo_age_period;
         running_cost_factor:            88 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();

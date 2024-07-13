@@ -27,18 +27,18 @@ Listed in a rough north to south ordering (default ordering in game)
 ### Utsunomiya Light Rail
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
-|![HU300形](/src/trams/utsunomiya/hu300/gfx/hu300_purchase.png)| HU300形| 2024 |
+|![HU300形](/src/trams/utsunomiya/hu300/hu300_purchase.png)| HU300形| 2024 |
 
 ### Toyama Region Railway
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
-|![tlr0600形](/src/trams/toyama/tlr0600/gfx/tlr0600_purchase.png)| TLR0600形 | 2006 |
+|![tlr0600形](/src/trams/toyama/tlr0600/tlr0600_purchase.png)| TLR0600形 | 2006 |
 |![de9000形](/src/trams/toyama/de9000/gfx/de9000_purchase.png)| de9000形 | 2009 |
 
 ### Manyosen
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
-|![mlrv1000形](/src/trams/manyosen/mlrv1000/gfx/mlrv1000_purchase.png)| MLRV1000形 | 2004 |
+|![mlrv1000形](/src/trams/manyosen/mlrv1000/mlrv1000_purchase.png)| MLRV1000形 | 2004 |
 
 ### Echizen Railway & Fukui Railway (Fukui)
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
@@ -73,8 +73,8 @@ Listed in a rough north to south ordering (default ordering in game)
 ### Kumamoto City Transportation Bureau
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | :---: | --- | :---:|
-|![1060形](/src/trams/kumamoto/1060/gfx/1060_purchase.png)| 1060形 | 1951 |
-|![1080形](src/trams/kumamoto/1080/gfx/1080_purchase.png)| 1080形 | 1954 |
+|![1060形](/src/trams/kumamoto/1060/1060_purchase.png)| 1060形 | 1951 |
+|![1080形](src/trams/kumamoto/1080/1080_purchase.png)| 1080形 | 1954 |
 |🚧| 1090形 | 1955 |
 |🚧| 5000形 | 1957 |
 |🚧| 1200形 | 1958 |
@@ -84,7 +84,7 @@ Listed in a rough north to south ordering (default ordering in game)
 |🚧| 8800形 | 1988 |
 |🚧| 9200形 | 1992 |
 |🚧| 9700形 | 1997 |
-|![0800形](/src/trams/kumamoto/0800/gfx/0800_purchase.png)| 0800形 | 2009 |
+|![0800形](/src/trams/kumamoto/0800/0800_purchase.png)| 0800形 | 2009 |
 
 ## Building
 
