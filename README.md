@@ -22,7 +22,7 @@ This is the latest edition to the JP+ Family.
     * Aging
 
 ## Trams in NewGRF
-Listed in a rough north to south ordering (default ordering in game)
+Sorted in a rough north to south ordering
 
 ### Utsunomiya Light Rail
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
@@ -33,7 +33,7 @@ Listed in a rough north to south ordering (default ordering in game)
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
 |![tlr0600形](/src/trams/toyama/tlr0600/tlr0600_purchase.png)| TLR0600形 | 2006 |
-|![de9000形](/src/trams/toyama/de9000/gfx/de9000_purchase.png)| de9000形 | 2009 |
+|![de9000形](/src/trams/toyama/de9000/de9000_purchase.png)| de9000形 | 2009 |
 
 ### Manyosen
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
@@ -49,6 +49,8 @@ Listed in a rough north to south ordering (default ordering in game)
 ### Okayama Electric Tramway
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
+|![9200形](/src/trams/okayama/9200/gfx/9200_purchase.png)| 9200形 | 2002 |
+<!---
 |🚧| 10形 | 1912 |
 |🚧| 100形 | 1928 |
 |🚧| 300形 | 1950 |
@@ -68,13 +70,15 @@ Listed in a rough north to south ordering (default ordering in game)
 |🚧| 7600形 | 1986 |
 |🚧| 7700形 | 1987 |
 |🚧| 7900形 | 1989 |
-|![9200形](/src/trams/okayama/9200/gfx/9200_purchase.png)| 9200形 | 2002 |
+-->
 
 ### Kumamoto City Transportation Bureau
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | :---: | --- | :---:|
 |![1060形](/src/trams/kumamoto/1060/1060_purchase.png)| 1060形 | 1951 |
 |![1080形](src/trams/kumamoto/1080/1080_purchase.png)| 1080形 | 1954 |
+|![0800形](/src/trams/kumamoto/0800/0800_purchase.png)| 0800形 | 2009 |
+<!---
 |🚧| 1090形 | 1955 |
 |🚧| 5000形 | 1957 |
 |🚧| 1200形 | 1958 |
@@ -84,7 +88,7 @@ Listed in a rough north to south ordering (default ordering in game)
 |🚧| 8800形 | 1988 |
 |🚧| 9200形 | 1992 |
 |🚧| 9700形 | 1997 |
-|![0800形](/src/trams/kumamoto/0800/0800_purchase.png)| 0800形 | 2009 |
+-->
 
 ## Building
 

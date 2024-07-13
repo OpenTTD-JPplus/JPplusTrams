@@ -9,11 +9,10 @@ switch(FEAT_ROADVEHS, SELF, sw_de9000_subtype_text, cargo_subtype) {
         return CB_RESULT_NO_TEXT;
         }
 
-
 // Graphics
 
     // Purchase
-    spriteset(spriteset_de9000_purchase,     "src/trams/toyama/de9000/gfx/de9000_purchase.png") {tmpl_p()}
+    spriteset(spriteset_de9000_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de9000/de9000_purchase.png") {tmpl_p()}
 
     switch(FEAT_ROADVEHS, SELF, sw_de9000_purchase, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
@@ -22,220 +21,43 @@ switch(FEAT_ROADVEHS, SELF, sw_de9000_subtype_text, cargo_subtype) {
         }
 
     // Tram Graphics
+    // Base
+    spriteset(ss_de9001_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de9000/de9001.png") {tmpl_7(1,1 )}
+    spriteset(ss_de9001_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de9000/de9001.png") {tmpl_7(1,25)}
 
-    // TLO0601 Red
-        // Lead
-            spriteset(spriteset_de9001_lead_clsd,     "src/trams/toyama/de9000/gfx/de9001_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_de9001_lead_left,     "src/trams/toyama/de9000/gfx/de9001_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_de9001_lead_rght,     "src/trams/toyama/de9000/gfx/de9001_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_de9001_lead_left {
-                loaded:  [spriteset_de9001_lead_clsd];
-                loading: [spriteset_de9001_lead_left];
-            }
+    // Liveries
+    spriteset(ss_de9002_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de9000/de9002.png") {tmpl_7(1,1 )}
+    spriteset(ss_de9002_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de9000/de9002.png") {tmpl_7(1,25)}
 
-            // Right
-            spritegroup spritegroup_de9001_lead_rght {
-                loaded:  [spriteset_de9001_lead_clsd];
-                loading: [spriteset_de9001_lead_rght];
-            }
+    spriteset(ss_de9003_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de9000/de9003.png") {tmpl_7(1,1 )}
+    spriteset(ss_de9003_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de9000/de9003.png") {tmpl_7(1,25)}
 
-            switch (FEAT_ROADVEHS, SELF, spritegroup_de9001_lead, param_side_of_road ) {
-                1:  spritegroup_de9001_lead_rght;
-                    spritegroup_de9001_lead_left; //default
-            } 
+    spriteset(ss_de9000_lead_1cc, "src/trams/toyama/de9000/de9000_1cc.png") {tmpl_7(1,1 )}
+    spriteset(ss_de9000_rear_1cc, "src/trams/toyama/de9000/de9000_1cc.png") {tmpl_7(1,25)}
 
-        // Rear
-            spriteset(spriteset_de9001_rear_clsd,     "src/trams/toyama/de9000/gfx/de9001_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_de9001_rear_left,     "src/trams/toyama/de9000/gfx/de9001_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_de9001_rear_rght,     "src/trams/toyama/de9000/gfx/de9001_rght.png") {tmpl_7(1,25)}
+    switch(FEAT_ROADVEHS, PARENT, sw_de9000_lead_mask, cargo_subtype) {1:ss_de9002_lead; 2:ss_de9003_lead; 3:ss_de9000_lead_1cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_de9000_rear_mask, cargo_subtype) {1:ss_de9002_rear; 2:ss_de9003_rear; 3:ss_de9000_rear_1cc;}
 
-            // Left
-            spritegroup spritegroup_de9001_rear_left {
-                loaded:  [spriteset_de9001_rear_clsd];
-                loading: [spriteset_de9001_rear_left];
-            }
-
-            // Right
-            spritegroup spritegroup_de9001_rear_rght {
-                loaded:  [spriteset_de9001_rear_clsd];
-                loading: [spriteset_de9001_rear_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_de9001_rear, param_side_of_road ) {
-                1:  spritegroup_de9001_rear_rght;
-                    spritegroup_de9001_rear_left; //default
-            }  
-
-    // TLO0602 Orange
-        // Lead
-            spriteset(spriteset_de9002_lead_clsd,     "src/trams/toyama/de9000/gfx/de9002_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_de9002_lead_left,     "src/trams/toyama/de9000/gfx/de9002_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_de9002_lead_rght,     "src/trams/toyama/de9000/gfx/de9002_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_de9002_lead_left {
-                loaded:  [spriteset_de9002_lead_clsd];
-                loading: [spriteset_de9002_lead_left];
-            }
-
-            // Right
-            spritegroup spritegroup_de9002_lead_rght {
-                loaded:  [spriteset_de9002_lead_clsd];
-                loading: [spriteset_de9002_lead_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_de9002_lead, param_side_of_road ) {
-                1:  spritegroup_de9002_lead_rght;
-                    spritegroup_de9002_lead_left; //default
-            } 
-
-        // Rear
-            spriteset(spriteset_de9002_rear_clsd,     "src/trams/toyama/de9000/gfx/de9002_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_de9002_rear_left,     "src/trams/toyama/de9000/gfx/de9002_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_de9002_rear_rght,     "src/trams/toyama/de9000/gfx/de9002_rght.png") {tmpl_7(1,25)}
-
-            // Left
-            spritegroup spritegroup_de9002_rear_left {
-                loaded:  [spriteset_de9002_rear_clsd];
-                loading: [spriteset_de9002_rear_left];
-            }
-
-            // Right
-            spritegroup spritegroup_de9002_rear_rght {
-                loaded:  [spriteset_de9002_rear_clsd];
-                loading: [spriteset_de9002_rear_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_de9002_rear, param_side_of_road ) {
-                1:  spritegroup_de9002_rear_rght;
-                    spritegroup_de9002_rear_left; //default
-            }   
-
-    // TLO0603 Yellow
-        // Lead
-            spriteset(spriteset_de9003_lead_clsd,     "src/trams/toyama/de9000/gfx/de9003_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_de9003_lead_left,     "src/trams/toyama/de9000/gfx/de9003_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_de9003_lead_rght,     "src/trams/toyama/de9000/gfx/de9003_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_de9003_lead_left {
-                loaded:  [spriteset_de9003_lead_clsd];
-                loading: [spriteset_de9003_lead_left];
-            }
-
-            // Right
-            spritegroup spritegroup_de9003_lead_rght {
-                loaded:  [spriteset_de9003_lead_clsd];
-                loading: [spriteset_de9003_lead_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_de9003_lead, param_side_of_road ) {
-                1:  spritegroup_de9003_lead_rght;
-                    spritegroup_de9003_lead_left; //default
-            } 
-
-        // Rear
-            spriteset(spriteset_de9003_rear_clsd,     "src/trams/toyama/de9000/gfx/de9003_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_de9003_rear_left,     "src/trams/toyama/de9000/gfx/de9003_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_de9003_rear_rght,     "src/trams/toyama/de9000/gfx/de9003_rght.png") {tmpl_7(1,25)}
-
-            // Left
-            spritegroup spritegroup_de9003_rear_left {
-                loaded:  [spriteset_de9003_rear_clsd];
-                loading: [spriteset_de9003_rear_left];
-            }
-
-            // Right
-            spritegroup spritegroup_de9003_rear_rght {
-                loaded:  [spriteset_de9003_rear_clsd];
-                loading: [spriteset_de9003_rear_rght];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_de9003_rear, param_side_of_road ) {
-                1:  spritegroup_de9003_rear_rght;
-                    spritegroup_de9003_rear_left; //default
-            }         
-
-    // 1cc
-        // Lead
-            spriteset(spriteset_de9000_lead_clsd_1cc,     "src/trams/toyama/de9000/gfx/de9000_1cc_clsd.png") {tmpl_7(1,1)}
-            spriteset(spriteset_de9000_lead_left_1cc,     "src/trams/toyama/de9000/gfx/de9000_1cc_left.png") {tmpl_7(1,1)}
-            spriteset(spriteset_de9000_lead_rght_1cc,     "src/trams/toyama/de9000/gfx/de9000_1cc_rght.png") {tmpl_7(1,1)}
-            
-            // Left
-            spritegroup spritegroup_de9000_lead_left_1cc {
-                loaded:  [spriteset_de9000_lead_clsd_1cc];
-                loading: [spriteset_de9000_lead_left_1cc];
-            }
-
-            // Right
-            spritegroup spritegroup_de9000_lead_rght_1cc {
-                loaded:  [spriteset_de9000_lead_clsd_1cc];
-                loading: [spriteset_de9000_lead_rght_1cc];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_de9000_lead_1cc, param_side_of_road ) {
-                1:  spritegroup_de9000_lead_rght_1cc;
-                    spritegroup_de9000_lead_left_1cc; //default
-            } 
-
-        // Rear
-            spriteset(spriteset_de9000_rear_clsd_1cc,     "src/trams/toyama/de9000/gfx/de9000_1cc_clsd.png") {tmpl_7(1,25)}
-            spriteset(spriteset_de9000_rear_left_1cc,     "src/trams/toyama/de9000/gfx/de9000_1cc_left.png") {tmpl_7(1,25)}
-            spriteset(spriteset_de9000_rear_rght_1cc,     "src/trams/toyama/de9000/gfx/de9000_1cc_rght.png") {tmpl_7(1,25)}
-
-            // Left
-            spritegroup spritegroup_de9000_rear_left_1cc {
-                loaded:  [spriteset_de9000_rear_clsd_1cc];
-                loading: [spriteset_de9000_rear_left_1cc];
-            }
-
-            // Right
-            spritegroup spritegroup_de9000_rear_rght_1cc {
-                loaded:  [spriteset_de9000_rear_clsd_1cc];
-                loading: [spriteset_de9000_rear_rght_1cc];
-            }
-
-            switch (FEAT_ROADVEHS, SELF, spritegroup_de9000_rear_1cc, param_side_of_road ) {
-                1:  spritegroup_de9000_rear_rght_1cc;
-                    spritegroup_de9000_rear_left_1cc; //default
-            } 
-
-    switch (FEAT_ROADVEHS, PARENT, sw_de9000_lead, cargo_subtype ) {
-        1:  spritegroup_de9002_lead;
-        2:  spritegroup_de9003_lead;
-        3:  spritegroup_de9000_lead_1cc;
-            spritegroup_de9001_lead;
-    }
-
-    switch (FEAT_ROADVEHS, PARENT, sw_de9000_rear, cargo_subtype ) {
-        1:  spritegroup_de9002_rear;
-        2:  spritegroup_de9003_rear;
-        3:  spritegroup_de9000_rear_1cc;
-            spritegroup_de9001_rear;
-    }
-
-switch(FEAT_ROADVEHS, SELF, sw_de9000_lead_panto, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_de9000_lead_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: sw_de9000_lead; 
-            1: sprite_panto01;
+            0: ss_de9001_lead;                          // Base
+            1: sw_de9000_lead_mask;                     // Mask
+            2: door02_lead;                             // Doors
+            3: sprite_panto01;                          // Pantos
         }
 
-switch (FEAT_ROADVEHS, SELF, sw_de9000_graphics, position_in_consist ) {
-    0:  sw_de9000_lead_panto;
-        sw_de9000_rear; //default
-}
+    switch(FEAT_ROADVEHS, SELF, sw_de9000_rear_stack, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: ss_de9001_rear;                          // Base
+            1: sw_de9000_rear_mask;                     // Mask
+            2: door02_rear;                             // Doors
+        }
+    
+    switch (FEAT_ROADVEHS, SELF, sw_de9000_stack, position_in_consist ) {
+            0:  sw_de9000_lead_stack;
+                sw_de9000_rear_stack;                   //default
+        }
 
-//me4 'F' tram properties
-
-/*
-switch (FEAT_ROADVEHS, SELF, sw_de9000_length, position_in_consist ) {
-    1:  return 6;
-    return 7; 
-}
-*/
 switch (FEAT_ROADVEHS, SELF, sw_de9000_spark, position_in_consist ) {
     0:  return VISUAL_EFFECT_DISABLE;
     1:  return VISUAL_EFFECT_ELECTRIC;
@@ -286,7 +108,7 @@ item(FEAT_ROADVEHS, item_de9000) {
         cargo_subtype_text:             sw_de9000_subtype_text;
         cargo_capacity:                 (param_capacity * 80 / num_vehs_in_consist) / 2;
         purchase_cargo_capacity:        (param_capacity * 80 / 2) / 2;
-        default:                        sw_de9000_graphics;
+        default:                        sw_de9000_stack;
         length:                         7;
         cargo_age_period:               sw_de9000_cargo_age_period;
         running_cost_factor:            89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
