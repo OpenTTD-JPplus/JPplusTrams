@@ -43,15 +43,15 @@ switch(FEAT_ROADVEHS, SELF, sw_hu300_subtype_text, cargo_subtype) {
         switch(FEAT_ROADVEHS, PARENT, sw_hu300_rear_mask, cargo_subtype) {1:spriteset_hu300_rear_1cc; 2:spriteset_hu300_rear_2cc;}
 
         // Doors
-        switch(FEAT_ROADVEHS, PARENT, sw_door_hu300_lead_2cc_check, cargo_subtype) {2:door_hu300_lead_2cc;}
-        switch(FEAT_ROADVEHS, PARENT, sw_door_hu300_cntr_2cc_check, cargo_subtype) {2:door_hu300_cntr_2cc;}
-        switch(FEAT_ROADVEHS, PARENT, sw_door_hu300_rear_2cc_check, cargo_subtype) {2:door_hu300_rear_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_door_hu300_lead_2cc_check, cargo_subtype) {2:door_niigata03_lead_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_door_hu300_cntr_2cc_check, cargo_subtype) {2:door_niigata03_cntr_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_door_hu300_rear_2cc_check, cargo_subtype) {2:door_niigata03_rear_2cc;}
 
         switch(FEAT_ROADVEHS, SELF, sw_hu300_lead_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_hu300_lead_irl;        // Base
             1: sw_hu300_lead_mask;              // Mask
-            2: door_hu300_lead_irl;             // Doors (base)
+            2: door_niigata03_lead_irl;         // Doors (base)
             3: sw_door_hu300_lead_2cc_check;    // Doors (extra layer for 2cc)
             4: sprite_panto01;                  // Pantos
         }
@@ -60,7 +60,7 @@ switch(FEAT_ROADVEHS, SELF, sw_hu300_subtype_text, cargo_subtype) {
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_hu300_cntr_irl;        // Base
             1: sw_hu300_cntr_mask;              // Mask
-            2: door_hu300_cntr_irl;             // Doors (base)
+            2: door_niigata03_cntr_irl;         // Doors (base)
             3: sw_door_hu300_cntr_2cc_check;    // Doors (extra layer for 2cc)
         }
 
@@ -68,7 +68,7 @@ switch(FEAT_ROADVEHS, SELF, sw_hu300_subtype_text, cargo_subtype) {
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_hu300_rear_irl;        // Base
             1: sw_hu300_rear_mask;              // Mask
-            2: door_hu300_rear_irl;             // Doors (base)
+            2: door_niigata03_rear_irl;         // Doors (base)
             3: sw_door_hu300_rear_2cc_check;    // Doors (extra layer for 2cc)
         }
 

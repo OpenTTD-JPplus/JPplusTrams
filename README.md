@@ -24,7 +24,7 @@ This is the latest edition to the JP+ Family.
 ## Trams in NewGRF
 Sorted in a rough north to south ordering
 
-### Utsunomiya Light Rail
+### Utsunomiya Light Rail (Tochigi)
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
 |![HU300形](/src/trams/utsunomiya/hu300/hu300_purchase.png)| HU300形| 2024 |
@@ -35,7 +35,7 @@ Sorted in a rough north to south ordering
 |![tlr0600形](/src/trams/toyama/tlr0600/tlr0600_purchase.png)| TLR0600形 | 2006 |
 |![de9000形](/src/trams/toyama/de9000/de9000_purchase.png)| de9000形 | 2009 |
 
-### Manyosen
+### Manyosen (Toyama)
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
 |![mlrv1000形](/src/trams/manyosen/mlrv1000/mlrv1000_purchase.png)| MLRV1000形 | 2004 |
@@ -43,13 +43,13 @@ Sorted in a rough north to south ordering
 ### Echizen Railway & Fukui Railway (Fukui)
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
-|![L形](/src/trams/fukui/l/gfx/l_purchase.png)| L形 | 2016 |
-|![F1000形](/src/trams/fukui/f1000/gfx/f1000_purchase.png)| F1000形 | 2013 |
+|![L形](/src/trams/fukui/l/l_purchase.png)| L形 | 2016 |
+|![F1000形](/src/trams/fukui/f1000/f1000_purchase.png)| F1000形 | 2013 |
 
 ### Okayama Electric Tramway
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
-|![9200形](/src/trams/okayama/9200/gfx/9200_purchase.png)| 9200形 | 2002 |
+|![9200形](/src/trams/okayama/9200/9200_purchase.png)| 9200形 | 2002 |
 <!---
 |🚧| 10形 | 1912 |
 |🚧| 100形 | 1928 |
