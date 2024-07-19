@@ -112,3 +112,8 @@ LV_COCORO                                       : "Cocoro"
 DES_0800                                        :{GOLD}Original, Cocoro, 1cc & 2cc
 
 STR_1080                                        :1080 Series
+STR_5000                                        :5000 Series
+
+STR_9700                                        :9700 Series
+LV_BLU                                          :{BLUE} Blue Stripe
+DES_9700                                        :{GOLD}Original, Blue Stripe & 1cc 

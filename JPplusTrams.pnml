@@ -19,3 +19,5 @@
 #include "src/trams/toyama/de9000/de9000.pnml"
 #include "src/trams/kumamoto/1060/1060.pnml"
 #include "src/trams/kumamoto/1080/1080.pnml"
+#include "src/trams/kumamoto/5000/5000.pnml"
+#include "src/trams/kumamoto/9700/9700.pnml"
