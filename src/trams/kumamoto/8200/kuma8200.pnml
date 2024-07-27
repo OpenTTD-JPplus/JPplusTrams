@@ -1,8 +1,7 @@
 
-// https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E3%83%A9%E3%82%A4%E3%83%88%E3%83%AC%E3%83%BC%E3%83%AB9200%E5%BD%A2%E9%9B%BB%E8%BB%8A
+// Cargo Subtypes
 
-
-switch(FEAT_ROADVEHS, SELF, sw_1080_subtype_text, cargo_subtype) {
+switch(FEAT_ROADVEHS, SELF, sw_kuma8200_subtype_text, cargo_subtype) {
 	    0: return string(LV_IRL);
         1: return string(LV_1CC);
         return CB_RESULT_NO_TEXT;
@@ -11,40 +10,40 @@ switch(FEAT_ROADVEHS, SELF, sw_1080_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(spriteset_1080_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1080/1080_purchase.png") {tmpl_p()}
+    spriteset(spriteset_kuma8200_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8200/kuma8200_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_1080_purchase, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma8200_purchase, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: logo_kumamoto; 
-            1: spriteset_1080_purchase;
+            1: spriteset_kuma8200_purchase;
         }
 
     // Tram Graphics
-    spriteset(spriteset_1080_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1080/1080_irl.png") {tmpl_7(1,1)}
-    spriteset(spriteset_1080_lead_1cc, "src/trams/kumamoto/1080/1080_1cc.png") {tmpl_7(1,1)}
-    switch(FEAT_ROADVEHS, PARENT, sw_1080_lead_1cc, cargo_subtype) {1:spriteset_1080_lead_1cc;}
+    spriteset(spriteset_kuma8200_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8200/kuma8200_irl.png") {tmpl_7(1,1)}
+    spriteset(spriteset_kuma8200_lead_1cc, "src/trams/kumamoto/8200/kuma8200_1cc.png") {tmpl_7(1,1)}
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma8200_lead_1cc, cargo_subtype) {1:spriteset_kuma8200_lead_1cc;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_1080_stack, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma8200_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: spriteset_1080_lead_irl; // Base
-            1: sw_1080_lead_1cc;        // 1cc mask
-            2: sprite_panto02;          // Pantos
-            3: door01;                  // Doors
+            0: spriteset_kuma8200_lead_irl; // Base
+            1: sw_kuma8200_lead_1cc;        // Mask
+            2: sprite_panto03;              // Pantos
+            3: door01;                      // Doors
         }
 
-item(FEAT_ROADVEHS, item_1080) {
+item(FEAT_ROADVEHS, item_kuma8200) {
     property {
-        name:                           string(STR_1080);
+        name:                           string(STR_KUMA8200);
         climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
         refittable_cargo_classes:       bitmask(CC_PASSENGERS);
         loading_speed:                  25;
         cargo_age_period:               240;
         cost_factor:                    175;
         running_cost_factor:            80;
-        speed:                          24 km/h;    
-        power:                          51 * 2 hp;  // 38kW per motor, 2 motors
-        cargo_capacity:                 74;
-        introduction_date:              date(1954,01,01);
+        speed:                          40 km/h;    
+        power:                          162 hp;  // 120kW per motor, 1 motor
+        cargo_capacity:                 70;
+        introduction_date:              date(1982,02,08);
         model_life:                     VEHICLE_NEVER_EXPIRES;
         vehicle_life:                   50;
         reliability_decay:              14;
@@ -55,19 +54,19 @@ item(FEAT_ROADVEHS, item_1080) {
         misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
         refit_cost:                     0; // Refitting is free
         running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         15.25 ton;
+        weight:                         19 ton;
         length:                         7;
         }
     graphics {
         additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
-        cargo_subtype_text:             sw_1080_subtype_text;
-        cargo_capacity:                 (param_capacity * 74 ) / 2;
-        purchase_cargo_capacity:        (param_capacity * 74 ) / 2;
-        default:                        sw_1080_stack;
+        cargo_subtype_text:             sw_kuma8200_subtype_text;
+        cargo_capacity:                 (param_capacity * 70 ) / 2;
+        purchase_cargo_capacity:        (param_capacity * 70 ) / 2;
+        default:                        sw_kuma8200_stack;
         cargo_age_period:               sw_cargo_age_period_01;
         running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
         purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
-        purchase:                       sw_1080_purchase;
+        purchase:                       sw_kuma8200_purchase;
         cost_factor:                    ((param_buycost*90)/4);
         }
 }

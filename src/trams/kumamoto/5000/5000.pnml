@@ -53,14 +53,6 @@ switch(FEAT_ROADVEHS, SELF, sw_5000_subtype_text, cargo_subtype) {
                 sw_5000_rear_stack;     //default
         } 
 
-switch (FEAT_ROADVEHS, SELF, sw_5000_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
-
 switch (FEAT_ROADVEHS, SELF, sw_5000_articulated_part, extra_callback_info1) {
     0..1:  return item_5000;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
@@ -84,7 +76,6 @@ item(FEAT_ROADVEHS, item_5000) {
         reliability_decay:              14;
         tram_type:                      ELRL;
         sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
         sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
         misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
         refit_cost:                     0; // Refitting is free
@@ -99,9 +90,10 @@ item(FEAT_ROADVEHS, item_5000) {
         purchase_cargo_capacity:        (param_capacity * 130 / 2) / 2;
         articulated_part:               sw_5000_articulated_part;
         default:                        sw_5000_stack;
-        cargo_age_period:               sw_5000_cargo_age_period;
+        cargo_age_period:               sw_cargo_age_period_01;
         running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
         purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
+        visual_effect:                  sw_spark_1st_only;
         purchase:                       sw_5000_purchase;
         cost_factor:                    ((param_buycost*90)/4);
         }

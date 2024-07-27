@@ -49,7 +49,7 @@ Sorted in a rough north to south ordering
 ### Okayama Electric Tramway
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
-|![9200形](/src/trams/okayama/9200/9200_purchase.png)| 9200形 | 2002 |
+|![9200形](/src/trams/okayama/9200/oka9200_purchase.png)| 9200形 | 2002 |
 <!---
 |🚧| 10形 | 1912 |
 |🚧| 100形 | 1928 |
@@ -78,16 +78,16 @@ Sorted in a rough north to south ordering
 |![1060形](/src/trams/kumamoto/1060/1060_purchase.png)| 1060形 | 1951 |
 |![1080形](src/trams/kumamoto/1080/1080_purchase.png)| 1080形 | 1954 |
 |![1080形](src/trams/kumamoto/5000/5000_purchase.png)| 5000形 | 1976 |
+|![8200形](src/trams/kumamoto/8200/kuma8200_purchase.png)| 8200形 | 1982 |
+|![9200形](src/trams/kumamoto/9200/kuma9200_purchase.png)| 9200形 | 1992 |
 |![9700形](src/trams/kumamoto/9700/9700_purchase.png)| 9700形 | 1997 |
 |![0800形](/src/trams/kumamoto/0800/0800_purchase.png)| 0800形 | 2009 |
 <!---
 |🚧| 1090形 | 1955 |
 |🚧| 1200形 | 1958 |
 |🚧| 1350形 | 1960 |
-|🚧| 8200形 | 1982 |
 |🚧| 8500形 | 1985 |
 |🚧| 8800形 | 1988 |
-|🚧| 9200形 | 1992 |
 
 -->
 

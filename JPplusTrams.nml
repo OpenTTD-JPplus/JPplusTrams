@@ -147,7 +147,7 @@ template tmpl_7(x,y) {
 // Order of creation
 item(FEAT_ROADVEHS, item_hu300,         1  ) {}
 item(FEAT_ROADVEHS, item_f1000,         2  ) {}
-item(FEAT_ROADVEHS, item_9200,          3  ) {}
+item(FEAT_ROADVEHS, item_oka9200,       3  ) {}
 item(FEAT_ROADVEHS, item_mlrv1000,      4  ) {}
 item(FEAT_ROADVEHS, item_l,             5  ) {}
 item(FEAT_ROADVEHS, item_0800,          6  ) {}
@@ -157,6 +157,9 @@ item(FEAT_ROADVEHS, item_1060,          9  ) {}
 item(FEAT_ROADVEHS, item_1080,          10 ) {}
 item(FEAT_ROADVEHS, item_5000,          11 ) {}
 item(FEAT_ROADVEHS, item_9700,          12 ) {}
+item(FEAT_ROADVEHS, item_kuma9200,      13 ) {}
+item(FEAT_ROADVEHS, item_kuma8200,      14 ) {}
+
 
 // Sort Order in Menu
 sort(FEAT_ROADVEHS, [
@@ -183,6 +186,8 @@ sort(FEAT_ROADVEHS, [
 9,  // 1951 1060
 10, // 1954 1080
 11, // 1976 5000
+14, // 1982 8200
+13, // 1992 9200
 12, // 1997 9700
 6,  // 2009 0800
 ]);
@@ -205,6 +210,30 @@ switch (FEAT_ROADVEHS, SELF, OpenDoors,
     (param_hide_logo == 0 && ( direction == DIRECTION_SOUTHEAST || direction == DIRECTION_EAST || direction == DIRECTION_NORTHEAST))
 
     ) {return;}
+# 1 "JPplusTrams.pnml" 4
+# 1 "src/stats.pnml" 1
+
+// Cargo Age period
+
+    switch (FEAT_ROADVEHS, SELF, sw_cargo_age_period_01, (param_aging)) {
+        0:  return 240;
+        1:  return 200;
+        2:  return 170;
+        3:  return 140;
+            return 240; //default
+    } 
+
+// Spark
+
+    switch (FEAT_ROADVEHS, SELF, sw_spark_1st_only, position_in_consist ) {
+        0:  return VISUAL_EFFECT_ELECTRIC;
+            return VISUAL_EFFECT_DISABLE; //default
+    }
+
+    switch (FEAT_ROADVEHS, SELF, sw_spark_2nd_only, position_in_consist ) {
+        1:  return VISUAL_EFFECT_ELECTRIC;
+            return VISUAL_EFFECT_DISABLE; //default
+    }
 # 1 "JPplusTrams.pnml" 4
 # 1 "src/logos/logos.pnml" 1
 
@@ -237,8 +266,8 @@ spriteset (sprite_logo_toyama,"src/logos/toyama.png") { tmpl_p() }
 switch(FEAT_ROADVEHS, SELF, logo_toyama, param_hide_logo) {1:sprite_logo_toyama;}
 
 // Hiroshima
-spriteset (sprite_logo_hiroshima,"src/logos/hiroshima.png") { tmpl_p() }
-switch(FEAT_ROADVEHS, SELF, logo_hiroshima, param_hide_logo) {1:sprite_logo_hiroshima;}
+//spriteset (sprite_logo_hiroshima,"src/logos/hiroshima.png") { tmpl_p() }
+//switch(FEAT_ROADVEHS, SELF, logo_hiroshima, param_hide_logo) {1:sprite_logo_hiroshima;}
 # 1 "JPplusTrams.pnml" 4
 # 1 "src/parts/parts.pnml" 1
 
@@ -413,6 +442,7 @@ switch(FEAT_ROADVEHS, SELF, logo_hiroshima, param_hide_logo) {1:sprite_logo_hiro
 // Pantos
     spriteset (sprite_panto01,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto01.png") {tmpl_7(1,1)}
     spriteset (sprite_panto02,"src/parts/pantos/panto02.png") {tmpl_7(1,1)}
+    spriteset (sprite_panto03,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto03.png") {tmpl_7(1,1)}
 # 1 "JPplusTrams.pnml" 4
 
 // Trams
@@ -679,83 +709,10 @@ switch(FEAT_ROADVEHS, SELF, sw_f1000_subtype_text, cargo_subtype) {
                 sw_f1000_rear_stack;                     //default
         }
 
-/*
-
-    // Lead
-    switch (FEAT_ROADVEHS, PARENT, sw_f1000_lead_random, random_bits % 4) {
-        0:  spritegroup_f1001_lead;
-        1:  spritegroup_f1002_lead;
-        2:  spritegroup_f1003_lead;
-        3:  spritegroup_f1004_lead;
-    }
-    
-    switch (FEAT_ROADVEHS, PARENT, sw_f1000_lead, cargo_subtype ) {
-        0:  sw_f1000_lead_random;
-        1:  spritegroup_f1001_lead;
-        2:  spritegroup_f1002_lead;
-        3:  spritegroup_f1003_lead;
-        4:  spritegroup_f1004_lead;
-            spritegroup_f1000_1cc_lead;
-    }
-
-    // Mid
-    switch (FEAT_ROADVEHS, PARENT, sw_f1000_mid_random, random_bits % 4) {
-        0:  spritegroup_f1001_mid;
-        1:  spritegroup_f1002_mid;
-        2:  spritegroup_f1003_mid;
-        3:  spritegroup_f1004_mid;
-    }
-    
-    switch (FEAT_ROADVEHS, PARENT, sw_f1000_mid, cargo_subtype ) {
-        0:  sw_f1000_mid_random;
-        1:  spritegroup_f1001_mid;
-        2:  spritegroup_f1002_mid;
-        3:  spritegroup_f1003_mid;
-        4:  spritegroup_f1004_mid;
-            spritegroup_f1000_1cc_mid;
-    }
-
-    // Rear
-    switch (FEAT_ROADVEHS, PARENT, sw_f1000_rear_random, random_bits % 4) {
-        0:  spritegroup_f1001_rear;
-        1:  spritegroup_f1002_rear;
-        2:  spritegroup_f1003_rear;
-        3:  spritegroup_f1004_rear;
-    }
-    
-    switch (FEAT_ROADVEHS, PARENT, sw_f1000_rear, cargo_subtype ) {
-        0:  sw_f1000_rear_random;
-        1:  spritegroup_f1001_rear;
-        2:  spritegroup_f1002_rear;
-        3:  spritegroup_f1003_rear;
-        4:  spritegroup_f1004_rear;
-            spritegroup_f1000_1cc_rear;
-    }
-
-    switch (FEAT_ROADVEHS, SELF, sw_f1000_graphics, position_in_consist ) {
-        0:  sw_f1000_lead;
-        1:  sw_f1000_mid;
-            sw_f1000_rear; //default
-    }
-*/
 //Tram Properties
-    switch (FEAT_ROADVEHS, SELF, sw_f1000_capacity, position_in_consist ) {
-        0:  return ((param_capacity*75)/2);
-        1:  return ((param_capacity*75)/2);
-        2:  return ((param_capacity*75)/2);
-            return ((param_capacity*75)/2); //default
-    }
-
     switch (FEAT_ROADVEHS, SELF, sw_f1000_length, position_in_consist ) {
         1:  return 6;
         return 7; 
-    }
-
-    switch (FEAT_ROADVEHS, SELF, sw_f1000_spark, position_in_consist ) {
-        0:  return VISUAL_EFFECT_DISABLE;
-        1:  return VISUAL_EFFECT_ELECTRIC;
-        2:  return VISUAL_EFFECT_DISABLE;
-            return VISUAL_EFFECT_DISABLE; //default
     }
 
 //set number of articulated parts
@@ -763,14 +720,6 @@ switch (FEAT_ROADVEHS, SELF, sw_f1000_articulated_part, extra_callback_info1) {
     0..2:  return item_f1000;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
 }
-
-switch (FEAT_ROADVEHS, SELF, sw_f1000_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
 
 item(FEAT_ROADVEHS, item_f1000) {
     property {
@@ -800,26 +749,25 @@ item(FEAT_ROADVEHS, item_f1000) {
     graphics {
         additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(FUKUI),string(LIVERIES),string(VARIOUS));
         cargo_subtype_text:             sw_f1000_subtype_text;
-        cargo_capacity:                 sw_f1000_capacity;
-        purchase_cargo_capacity:        ((param_capacity*155)/2)/3;
+        cargo_capacity:                 ((param_capacity*  155) / num_vehs_in_consist) / 2;
+        purchase_cargo_capacity:        ((param_capacity * 155) / 3 ) / 2;
         default:                        sw_f1001_stack;
         length:                         sw_f1000_length;
-        cargo_age_period:               sw_f1000_cargo_age_period;
+        cargo_age_period:               sw_cargo_age_period_01;
         running_cost_factor:            130 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
         purchase_running_cost_factor:   130 + ((param_runcost * 30 ) / 2 );
         articulated_part:               sw_f1000_articulated_part;
-        visual_effect:                  sw_f1000_spark;
+        visual_effect:                  sw_spark_2nd_only;
         purchase:                       sw_f1000_purchase;
         cost_factor:                    ((param_buycost * 167 ) / 4);
         }
 }
 # 1 "JPplusTrams.pnml" 4
-# 1 "src/trams/okayama/9200/9200.pnml" 1
+# 1 "src/trams/okayama/9200/oka9200.pnml" 1
 
-// https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E3%83%A9%E3%82%A4%E3%83%88%E3%83%AC%E3%83%BC%E3%83%AB9200%E5%BD%A2%E9%9B%BB%E8%BB%8A
+// Cargo Subtypes
 
-
-switch(FEAT_ROADVEHS, SELF, sw_9200_subtype_text, cargo_subtype) {
+switch(FEAT_ROADVEHS, SELF, sw_oka9200_subtype_text, cargo_subtype) {
 	    0: return string(LV_IRL);
         1: return string(LV_1CC);
         2: return string(LV_2CC);
@@ -829,63 +777,63 @@ switch(FEAT_ROADVEHS, SELF, sw_9200_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(spriteset_9200_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/9200_purchase.png") {tmpl_p()}
+    spriteset(spriteset_oka9200_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_9200_purchase, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_oka9200_purchase, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: logo_okayama; 
-            1: spriteset_9200_purchase;
+            1: spriteset_oka9200_purchase;
         }
 
     // Tram Graphics
 
     // Base
-    spriteset(ss_9200_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/9200_irl.png") {tmpl_7(1,1 )}
-    spriteset(ss_9200_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/9200_irl.png") {tmpl_7(1,25)}
+    spriteset(ss_oka9200_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_irl.png") {tmpl_7(1,1 )}
+    spriteset(ss_oka9200_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_irl.png") {tmpl_7(1,25)}
 
     // Liveries
-    spriteset(ss_9200_lead_1cc, "src/trams/okayama/9200/9200_1cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_9200_rear_1cc, "src/trams/okayama/9200/9200_1cc.png") {tmpl_7(1,25)}
+    spriteset(ss_oka9200_lead_1cc, "src/trams/okayama/9200/oka9200_1cc.png") {tmpl_7(1,1 )}
+    spriteset(ss_oka9200_rear_1cc, "src/trams/okayama/9200/oka9200_1cc.png") {tmpl_7(1,25)}
 
-    spriteset(ss_9200_lead_2cc, "src/trams/okayama/9200/9200_2cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_9200_rear_2cc, "src/trams/okayama/9200/9200_2cc.png") {tmpl_7(1,25)}
+    spriteset(ss_oka9200_lead_2cc, "src/trams/okayama/9200/oka9200_2cc.png") {tmpl_7(1,1 )}
+    spriteset(ss_oka9200_rear_2cc, "src/trams/okayama/9200/oka9200_2cc.png") {tmpl_7(1,25)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_9200_lead_mask, cargo_subtype) {1:ss_9200_lead_1cc; 2:ss_9200_lead_2cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_9200_rear_mask, cargo_subtype) {1:ss_9200_rear_1cc; 2:ss_9200_rear_2cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_oka9200_lead_mask, cargo_subtype) {1:ss_oka9200_lead_1cc; 2:ss_oka9200_lead_2cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_oka9200_rear_mask, cargo_subtype) {1:ss_oka9200_rear_1cc; 2:ss_oka9200_rear_2cc;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_9200_lead_stack, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_oka9200_lead_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_9200_lead_irl;                        // Base
-            1: sw_9200_lead_mask;                       // Mask
+            0: ss_oka9200_lead_irl;                        // Base
+            1: sw_oka9200_lead_mask;                       // Mask
             2: door03_lead;                             // Doors
             3: sprite_panto01;                          // Pantos
         }
 
-    switch(FEAT_ROADVEHS, SELF, sw_9200_rear_stack, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_oka9200_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_9200_rear_irl;                        // Base
-            1: sw_9200_rear_mask;                       // Mask
+            0: ss_oka9200_rear_irl;                        // Base
+            1: sw_oka9200_rear_mask;                       // Mask
             2: door03_rear;                             // Doors
         }    
 
-    switch (FEAT_ROADVEHS, SELF, sw_9200_stack, position_in_consist ) {
-            0:  sw_9200_lead_stack;
-                sw_9200_rear_stack;                     //default
+    switch (FEAT_ROADVEHS, SELF, sw_oka9200_stack, position_in_consist ) {
+            0:  sw_oka9200_lead_stack;
+                sw_oka9200_rear_stack;                     //default
         }
 
-switch (FEAT_ROADVEHS, SELF, sw_9200_spark, position_in_consist ) {
+switch (FEAT_ROADVEHS, SELF, sw_oka9200_spark, position_in_consist ) {
     0:  return VISUAL_EFFECT_DISABLE;
     1:  return VISUAL_EFFECT_ELECTRIC;
         return VISUAL_EFFECT_DISABLE; //default
 }
 
 //set number of articulated parts
-switch (FEAT_ROADVEHS, SELF, sw_9200_articulated_part, extra_callback_info1) {
-    0..1:  return item_9200;
+switch (FEAT_ROADVEHS, SELF, sw_oka9200_articulated_part, extra_callback_info1) {
+    0..1:  return item_oka9200;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
 }
 
-switch (FEAT_ROADVEHS, SELF, sw_9200_cargo_age_period, (param_aging)) {
+switch (FEAT_ROADVEHS, SELF, sw_oka9200_cargo_age_period, (param_aging)) {
     0:  return 240;
     1:  return 200;
     2:  return 170;
@@ -893,7 +841,7 @@ switch (FEAT_ROADVEHS, SELF, sw_9200_cargo_age_period, (param_aging)) {
         return 240; //default
 } 
 
-item(FEAT_ROADVEHS, item_9200) {
+item(FEAT_ROADVEHS, item_oka9200) {
     property {
         name:                           string(STR_9200);
         climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
@@ -920,17 +868,17 @@ item(FEAT_ROADVEHS, item_9200) {
         }
     graphics {
         additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(OKAYAMA),string(LIVERIES),string(IRL1CC2CC));
-        cargo_subtype_text:             sw_9200_subtype_text;
+        cargo_subtype_text:             sw_oka9200_subtype_text;
         cargo_capacity:                 (param_capacity * 74 / num_vehs_in_consist) / 2;
         purchase_cargo_capacity:        (param_capacity * 74 / 2) / 2;
-        default:                        sw_9200_stack;
+        default:                        sw_oka9200_stack;
         length:                         7;
-        cargo_age_period:               sw_9200_cargo_age_period;
+        cargo_age_period:               sw_oka9200_cargo_age_period;
         running_cost_factor:            89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
         purchase_running_cost_factor:   89 + ((param_runcost * 30 ) / 2 );
-        articulated_part:               sw_9200_articulated_part;
-        visual_effect:                  sw_9200_spark;
-        purchase:                       sw_9200_purchase;
+        articulated_part:               sw_oka9200_articulated_part;
+        visual_effect:                  sw_oka9200_spark;
+        purchase:                       sw_oka9200_purchase;
         cost_factor:                    ((param_buycost * 122 ) / 4);
         }
 }
@@ -1243,25 +1191,11 @@ switch(FEAT_ROADVEHS, SELF, sw_0800_subtype_text, cargo_subtype) {
         sw_0800_rear_stack; //default
 }
 
-switch (FEAT_ROADVEHS, SELF, sw_0800_spark, position_in_consist ) {
-    0:  return VISUAL_EFFECT_DISABLE;
-    1:  return VISUAL_EFFECT_ELECTRIC;
-        return VISUAL_EFFECT_DISABLE; //default
-}
-
 //set number of articulated parts
 switch (FEAT_ROADVEHS, SELF, sw_0800_articulated_part, extra_callback_info1) {
     0..1:  return item_0800;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
 }
-
-switch (FEAT_ROADVEHS, SELF, sw_0800_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
 
 item(FEAT_ROADVEHS, item_0800) {
     property {
@@ -1295,11 +1229,11 @@ item(FEAT_ROADVEHS, item_0800) {
         purchase_cargo_capacity:        (param_capacity * 82 / 2) / 2;
         default:                        sw_0800_stack;
         length:                         7;
-        cargo_age_period:               sw_0800_cargo_age_period;
+        cargo_age_period:               sw_cargo_age_period_01;
         running_cost_factor:            90 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
         purchase_running_cost_factor:   90 + ((param_runcost * 30 ) / 2 );
         articulated_part:               sw_0800_articulated_part;
-        visual_effect:                  sw_0800_spark;
+        visual_effect:                  sw_spark_2nd_only;
         purchase:                       sw_0800_purchase;
         cost_factor:                    ((param_buycost*175)/4);
         }
@@ -1617,14 +1551,6 @@ switch(FEAT_ROADVEHS, SELF, sw_1060_subtype_text, cargo_subtype) {
             3: door01;                  // Doors
         }
 
-switch (FEAT_ROADVEHS, SELF, sw_1060_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
-
 item(FEAT_ROADVEHS, item_1060) {
     property {
         name:                           string(STR_1060);
@@ -1657,7 +1583,7 @@ item(FEAT_ROADVEHS, item_1060) {
         cargo_capacity:                 (param_capacity * 74 ) / 2;
         purchase_cargo_capacity:        (param_capacity * 74 ) / 2;
         default:                        sw_1060_stack;
-        cargo_age_period:               sw_1060_cargo_age_period;
+        cargo_age_period:               sw_cargo_age_period_01;
         running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
         purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
         purchase:                       sw_1060_purchase;
@@ -1700,14 +1626,6 @@ switch(FEAT_ROADVEHS, SELF, sw_1080_subtype_text, cargo_subtype) {
             3: door01;                  // Doors
         }
 
-switch (FEAT_ROADVEHS, SELF, sw_1080_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
-
 item(FEAT_ROADVEHS, item_1080) {
     property {
         name:                           string(STR_1080);
@@ -1740,7 +1658,7 @@ item(FEAT_ROADVEHS, item_1080) {
         cargo_capacity:                 (param_capacity * 74 ) / 2;
         purchase_cargo_capacity:        (param_capacity * 74 ) / 2;
         default:                        sw_1080_stack;
-        cargo_age_period:               sw_1080_cargo_age_period;
+        cargo_age_period:               sw_cargo_age_period_01;
         running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
         purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
         purchase:                       sw_1080_purchase;
@@ -1804,14 +1722,6 @@ switch(FEAT_ROADVEHS, SELF, sw_5000_subtype_text, cargo_subtype) {
                 sw_5000_rear_stack;     //default
         } 
 
-switch (FEAT_ROADVEHS, SELF, sw_5000_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
-
 switch (FEAT_ROADVEHS, SELF, sw_5000_articulated_part, extra_callback_info1) {
     0..1:  return item_5000;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
@@ -1850,9 +1760,10 @@ item(FEAT_ROADVEHS, item_5000) {
         purchase_cargo_capacity:        (param_capacity * 130 / 2) / 2;
         articulated_part:               sw_5000_articulated_part;
         default:                        sw_5000_stack;
-        cargo_age_period:               sw_5000_cargo_age_period;
+        cargo_age_period:               sw_cargo_age_period_01;
         running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
         purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
+        visual_effect:                  sw_spark_1st_only;
         purchase:                       sw_5000_purchase;
         cost_factor:                    ((param_buycost*90)/4);
         }
@@ -1891,7 +1802,6 @@ switch(FEAT_ROADVEHS, SELF, sw_9700_subtype_text, cargo_subtype) {
     spriteset(ss_9700_lead_1cc, "src/trams/kumamoto/9700/9700_1cc.png") {tmpl_7(1,1 )}
     spriteset(ss_9700_rear_1cc, "src/trams/kumamoto/9700/9700_1cc.png") {tmpl_7(1,25)}
 
-
     switch(FEAT_ROADVEHS, PARENT, sw_9700_lead_msk, cargo_subtype) {1:ss_9700_lead_blu; 2:ss_9700_lead_1cc;}
     switch(FEAT_ROADVEHS, PARENT, sw_9700_rear_msk, cargo_subtype) {1:ss_9700_rear_blu; 2:ss_9700_rear_1cc;}
 
@@ -1914,14 +1824,6 @@ switch(FEAT_ROADVEHS, SELF, sw_9700_subtype_text, cargo_subtype) {
             0:  sw_9700_lead_stack;
                 sw_9700_rear_stack;     //default
         } 
-
-switch (FEAT_ROADVEHS, SELF, sw_9700_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
 
 switch (FEAT_ROADVEHS, SELF, sw_9700_articulated_part, extra_callback_info1) {
     0..1:  return item_9700;
@@ -1954,17 +1856,201 @@ item(FEAT_ROADVEHS, item_9700) {
         weight:                         21 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
+        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_9700));
         cargo_subtype_text:             sw_9700_subtype_text;
         length:                         7;
         cargo_capacity:                 (param_capacity * 76 / 2) / 2;
         purchase_cargo_capacity:        (param_capacity * 76 / 2) / 2;
         articulated_part:               sw_9700_articulated_part;
         default:                        sw_9700_stack;
-        cargo_age_period:               sw_9700_cargo_age_period;
+        cargo_age_period:               sw_cargo_age_period_01;
         running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
         purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
         purchase:                       sw_9700_purchase;
+        cost_factor:                    ((param_buycost*90)/4);
+        }
+}
+# 1 "JPplusTrams.pnml" 4
+# 1 "src/trams/kumamoto/9200/kuma9200.pnml" 1
+
+// Cargo Subtypes
+
+switch(FEAT_ROADVEHS, SELF, sw_kuma9200_subtype_text, cargo_subtype) {
+	    0: return string(LV_RANDOM);
+        1: return string(LV_RED);
+        2: return string(LV_WBG);
+        3: return string(LV_HEI);
+        4: return string(LV_YELLOW);
+        5: return string(LV_CYAN);
+        6: return string(LV_CYANRED);
+        7: return string(LV_YELLOWORANGE);
+        8: return string(LV_2CC);
+        return CB_RESULT_NO_TEXT;
+        }
+
+// Graphics
+
+    // Purchase
+    spriteset(ss_kuma9200_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_purchase.png") {tmpl_p()}
+
+    switch(FEAT_ROADVEHS, SELF, sw_kuma9200_purchase, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: logo_kumamoto; 
+            1: ss_kuma9200_purchase;
+        }
+
+    // Tram Graphics
+    spriteset(ss_kuma9200_lead_bse, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_bse.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma9200_lead_red, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_red.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma9200_lead_wbg, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_wbg.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma9200_lead_hei, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_hei.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma9200_lead_yel, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_yel.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma9200_lead_cya, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_cya.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma9200_lead_cwr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_cwr.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma9200_lead_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_yao.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma9200_lead_2cc, "src/trams/kumamoto/9200/kuma9200_2cc.png") {tmpl_7(1,1)}
+    //spriteset(ss_kuma9200_lead_1cc, "src/trams/kumamoto/9200/kuma9200_1cc.png") {tmpl_7(1,1)}
+    
+    switch (FEAT_ROADVEHS, PARENT, sw_kuma9200_lead_rdm, random_bits % 7 ) {
+            0:  ss_kuma9200_lead_red;
+            1:  ss_kuma9200_lead_wbg;
+            2:  ss_kuma9200_lead_hei;
+            3:  ss_kuma9200_lead_yel;
+            4:  ss_kuma9200_lead_cya;
+            5:  ss_kuma9200_lead_cwr;
+            6:  ss_kuma9200_lead_yao;
+        }
+    
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma9200_lead_msk, cargo_subtype) {
+        0:sw_kuma9200_lead_rdm; 
+        1:ss_kuma9200_lead_red; 
+        2:ss_kuma9200_lead_wbg; 
+        3:ss_kuma9200_lead_hei; 
+        4:ss_kuma9200_lead_yel; 
+        5:ss_kuma9200_lead_cya;
+        6:ss_kuma9200_lead_cwr;
+        7:ss_kuma9200_lead_yao;
+        8:ss_kuma9200_lead_2cc;
+        }
+
+    switch(FEAT_ROADVEHS, SELF, sw_kuma9200_stack, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: ss_kuma9200_lead_bse;        // Base
+            1: sw_kuma9200_lead_msk;        // Mask
+            2: sprite_panto03;              // Pantos
+            3: door01;                      // Doors
+        }
+
+item(FEAT_ROADVEHS, item_kuma9200) {
+    property {
+        name:                           string(STR_KUMA9200);
+        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        loading_speed:                  25;
+        cargo_age_period:               240;
+        cost_factor:                    175;
+        running_cost_factor:            80;
+        speed:                          50 km/h;    // Unknown
+        power:                          67 * 2 hp;  // 50kW per motor, 2 motors
+        cargo_capacity:                 74;
+        introduction_date:              date(1992,04,02);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                   50;
+        reliability_decay:              14;
+        tram_type:                      ELRL;
+        sound_effect:                   SOUND_POWER_STATION;
+        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
+        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
+        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+        refit_cost:                     0; // Refitting is free
+        running_cost_base:              RUNNING_COST_ROADVEH;
+        weight:                         19 ton;
+        length:                         7;
+        }
+    graphics {
+        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA9200));
+        cargo_subtype_text:             sw_kuma9200_subtype_text;
+        cargo_capacity:                 (param_capacity * 72 ) / 2;
+        purchase_cargo_capacity:        (param_capacity * 72 ) / 2;
+        default:                        sw_kuma9200_stack;
+        cargo_age_period:               sw_cargo_age_period_01;
+        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
+        purchase:                       sw_kuma9200_purchase;
+        cost_factor:                    ((param_buycost*90)/4);
+        }
+}
+# 1 "JPplusTrams.pnml" 4
+# 1 "src/trams/kumamoto/8200/kuma8200.pnml" 1
+
+// Cargo Subtypes
+
+switch(FEAT_ROADVEHS, SELF, sw_kuma8200_subtype_text, cargo_subtype) {
+	    0: return string(LV_IRL);
+        1: return string(LV_1CC);
+        return CB_RESULT_NO_TEXT;
+        }
+
+// Graphics
+
+    // Purchase
+    spriteset(spriteset_kuma8200_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8200/kuma8200_purchase.png") {tmpl_p()}
+
+    switch(FEAT_ROADVEHS, SELF, sw_kuma8200_purchase, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: logo_kumamoto; 
+            1: spriteset_kuma8200_purchase;
+        }
+
+    // Tram Graphics
+    spriteset(spriteset_kuma8200_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8200/kuma8200_irl.png") {tmpl_7(1,1)}
+    spriteset(spriteset_kuma8200_lead_1cc, "src/trams/kumamoto/8200/kuma8200_1cc.png") {tmpl_7(1,1)}
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma8200_lead_1cc, cargo_subtype) {1:spriteset_kuma8200_lead_1cc;}
+
+    switch(FEAT_ROADVEHS, SELF, sw_kuma8200_stack, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: spriteset_kuma8200_lead_irl; // Base
+            1: sw_kuma8200_lead_1cc;        // Mask
+            2: sprite_panto03;              // Pantos
+            3: door01;                      // Doors
+        }
+
+item(FEAT_ROADVEHS, item_kuma8200) {
+    property {
+        name:                           string(STR_KUMA8200);
+        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        loading_speed:                  25;
+        cargo_age_period:               240;
+        cost_factor:                    175;
+        running_cost_factor:            80;
+        speed:                          40 km/h;    
+        power:                          162 hp;  // 120kW per motor, 1 motor
+        cargo_capacity:                 70;
+        introduction_date:              date(1982,02,08);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                   50;
+        reliability_decay:              14;
+        tram_type:                      ELRL;
+        sound_effect:                   SOUND_POWER_STATION;
+        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
+        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
+        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+        refit_cost:                     0; // Refitting is free
+        running_cost_base:              RUNNING_COST_ROADVEH;
+        weight:                         19 ton;
+        length:                         7;
+        }
+    graphics {
+        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
+        cargo_subtype_text:             sw_kuma8200_subtype_text;
+        cargo_capacity:                 (param_capacity * 70 ) / 2;
+        purchase_cargo_capacity:        (param_capacity * 70 ) / 2;
+        default:                        sw_kuma8200_stack;
+        cargo_age_period:               sw_cargo_age_period_01;
+        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
+        purchase:                       sw_kuma8200_purchase;
         cost_factor:                    ((param_buycost*90)/4);
         }
 }

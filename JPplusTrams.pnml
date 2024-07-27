@@ -5,13 +5,14 @@
 #include "src/template.pnml"
 #include "src/vehicleid.pnml"
 #include "src/functions.pnml"
+#include "src/stats.pnml"
 #include "src/logos/logos.pnml"
 #include "src/parts/parts.pnml"
 
 // Trams
 #include "src/trams/utsunomiya/hu300/hu300.pnml"
 #include "src/trams/fukui/f1000/f1000.pnml"
-#include "src/trams/okayama/9200/9200.pnml"
+#include "src/trams/okayama/9200/oka9200.pnml"
 #include "src/trams/manyosen/mlrv1000/mlrv1000.pnml"
 #include "src/trams/fukui/l/l.pnml"
 #include "src/trams/kumamoto/0800/0800.pnml"
@@ -21,3 +22,5 @@
 #include "src/trams/kumamoto/1080/1080.pnml"
 #include "src/trams/kumamoto/5000/5000.pnml"
 #include "src/trams/kumamoto/9700/9700.pnml"
+#include "src/trams/kumamoto/9200/kuma9200.pnml"
+#include "src/trams/kumamoto/8200/kuma8200.pnml"

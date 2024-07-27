@@ -2,7 +2,7 @@
 // Order of creation
 item(FEAT_ROADVEHS, item_hu300,         1  ) {}
 item(FEAT_ROADVEHS, item_f1000,         2  ) {}
-item(FEAT_ROADVEHS, item_9200,          3  ) {}
+item(FEAT_ROADVEHS, item_oka9200,       3  ) {}
 item(FEAT_ROADVEHS, item_mlrv1000,      4  ) {}
 item(FEAT_ROADVEHS, item_l,             5  ) {}
 item(FEAT_ROADVEHS, item_0800,          6  ) {}
@@ -12,6 +12,9 @@ item(FEAT_ROADVEHS, item_1060,          9  ) {}
 item(FEAT_ROADVEHS, item_1080,          10 ) {}
 item(FEAT_ROADVEHS, item_5000,          11 ) {}
 item(FEAT_ROADVEHS, item_9700,          12 ) {}
+item(FEAT_ROADVEHS, item_kuma9200,      13 ) {}
+item(FEAT_ROADVEHS, item_kuma8200,      14 ) {}
+
 
 // Sort Order in Menu
 sort(FEAT_ROADVEHS, [
@@ -38,6 +41,8 @@ sort(FEAT_ROADVEHS, [
 9,  // 1951 1060
 10, // 1954 1080
 11, // 1976 5000
+14, // 1982 8200
+13, // 1992 9200
 12, // 1997 9700
 6,  // 2009 0800
 ]);

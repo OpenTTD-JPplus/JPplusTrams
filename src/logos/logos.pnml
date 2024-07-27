@@ -28,5 +28,5 @@ spriteset (sprite_logo_toyama,"src/logos/toyama.png") { tmpl_p() }
 switch(FEAT_ROADVEHS, SELF, logo_toyama, param_hide_logo) {1:sprite_logo_toyama;}
 
 // Hiroshima
-spriteset (sprite_logo_hiroshima,"src/logos/hiroshima.png") { tmpl_p() }
-switch(FEAT_ROADVEHS, SELF, logo_hiroshima, param_hide_logo) {1:sprite_logo_hiroshima;}
+//spriteset (sprite_logo_hiroshima,"src/logos/hiroshima.png") { tmpl_p() }
+//switch(FEAT_ROADVEHS, SELF, logo_hiroshima, param_hide_logo) {1:sprite_logo_hiroshima;}
