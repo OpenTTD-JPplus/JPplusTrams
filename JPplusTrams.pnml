@@ -3,7 +3,9 @@
 // Define the GRF
 #include "src/header.pnml"
 #include "src/template.pnml"
+#include "src/recolour.pnml"
 #include "src/vehicleid.pnml"
+#include "src/roadstopid.pnml"
 #include "src/functions.pnml"
 #include "src/stats.pnml"
 #include "src/logos/logos.pnml"
@@ -24,3 +26,16 @@
 #include "src/trams/kumamoto/9700/9700.pnml"
 #include "src/trams/kumamoto/9200/kuma9200.pnml"
 #include "src/trams/kumamoto/8200/kuma8200.pnml"
+#include "src/trams/kumamoto/8500/kuma8500.pnml"
+
+// Roadstops
+#include "src/stops/all/platform_base.pnml"
+#include "src/stops/kumamoto/kumamoto01.pnml"
+#include "src/stops/overpass/overpass_2sides_north_platform.pnml"
+#include "src/stops/overpass/overpass_2sides_north_noplatform.pnml"
+#include "src/stops/overpass/overpass_1side_top_north_platform.pnml"
+#include "src/stops/overpass/overpass_1side_top_north_noplatform.pnml"
+#include "src/stops/overpass/overpass_1side_btm_north_platform.pnml"
+#include "src/stops/overpass/overpass_1side_btm_north_noplatform.pnml"
+#include "src/stops/overpass/overpass_nostairs_platform.pnml"
+#include "src/stops/overpass/overpass_nostairs_noplatform.pnml"

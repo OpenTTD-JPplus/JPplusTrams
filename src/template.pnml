@@ -1,19 +1,28 @@
 
-/* Sprite template for purchase menu */
-template tmpl_p() {
-    //left_x, upper_y, width, height, offset_x, offset_y
-    [ 0,      0,       76,    16,     -16,      -10]
-}
+/* TRAMS */
 
-/* Sprite template for a 7/8 length tram */
-template tmpl_7(x,y) {
-    //left_x, upper_y, width, height, offset_x, offset_y
-    [ x,        y,        8,    22,      -3,       -14]
-    [ x+16,     y,       20,    20,     -14,       -11]
-    [ x+48,     y,       28,    16,     -14,       -10]
-    [ x+96,     y,       20,    20,      -6,       -11]
-    [ x+128,    y,        8,    22,      -3,       -14]
-    [ x+144,    y,       20,    20,     -14,       -11]
-    [ x+176,    y,       28,    16,     -14,       -10]
-    [ x+224,    y,       20,    20,      -6,       -11]
-}
+    /* Sprite template for purchase menu */
+    template tmpl_p() {
+        //left_x, upper_y, width, height, offset_x, offset_y
+        [ 0,      0,       76,    16,     -16,      -10]
+    }
+
+    /* Sprite template for a 7/8 length tram */
+    template tmpl_7(x,y) {
+        //left_x, upper_y, width, height, offset_x, offset_y
+        [ x,        y,        8,    22,      -3,       -14]
+        [ x+16,     y,       20,    20,     -14,       -11]
+        [ x+48,     y,       28,    16,     -14,       -10]
+        [ x+96,     y,       20,    20,      -6,       -11]
+        [ x+128,    y,        8,    22,      -3,       -14]
+        [ x+144,    y,       20,    20,     -14,       -11]
+        [ x+176,    y,       28,    16,     -14,       -10]
+        [ x+224,    y,       20,    20,      -6,       -11]
+    }
+
+/* ROADSTOPS */
+
+    template tmpl_roadstop(x,y,xo,yo) {
+        //left_x, upper_y, width, height, offset_x, offset_y
+        [1+x*65, 1+y*65, 64, 64, xo, yo]
+    }

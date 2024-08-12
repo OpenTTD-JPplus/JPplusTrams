@@ -3,29 +3,32 @@
 
 switch(FEAT_ROADVEHS, SELF, sw_kuma8200_subtype_text, cargo_subtype) {
 	    0: return string(LV_IRL);
-        1: return string(LV_1CC);
+        1: return string(LV_TURQ);
+        2: return string(LV_1CC);
         return CB_RESULT_NO_TEXT;
         }
 
 // Graphics
 
     // Purchase
-    spriteset(spriteset_kuma8200_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8200/kuma8200_purchase.png") {tmpl_p()}
+    spriteset(ss_kuma8200_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8200/kuma8200_purchase.png") {tmpl_p()}
 
     switch(FEAT_ROADVEHS, SELF, sw_kuma8200_purchase, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: logo_kumamoto; 
-            1: spriteset_kuma8200_purchase;
+            1: ss_kuma8200_purchase;
         }
 
     // Tram Graphics
-    spriteset(spriteset_kuma8200_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8200/kuma8200_irl.png") {tmpl_7(1,1)}
-    spriteset(spriteset_kuma8200_lead_1cc, "src/trams/kumamoto/8200/kuma8200_1cc.png") {tmpl_7(1,1)}
-    switch(FEAT_ROADVEHS, PARENT, sw_kuma8200_lead_1cc, cargo_subtype) {1:spriteset_kuma8200_lead_1cc;}
+    spriteset(ss_kuma8200_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8200/kuma8200_irl.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8200_lead_trq, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8200/kuma8200_trq.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8200_lead_1cc, "src/trams/kumamoto/8200/kuma8200_1cc.png") {tmpl_7(1,1)}
+
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma8200_lead_1cc, cargo_subtype) {1:ss_kuma8200_lead_trq; 2:ss_kuma8200_lead_1cc;}
 
     switch(FEAT_ROADVEHS, SELF, sw_kuma8200_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: spriteset_kuma8200_lead_irl; // Base
+            0: ss_kuma8200_lead_irl; // Base
             1: sw_kuma8200_lead_1cc;        // Mask
             2: sprite_panto03;              // Pantos
             3: door01;                      // Doors

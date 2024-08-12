@@ -1,0 +1,38 @@
+
+// All
+item(FEAT_ROADSTOPS, platform_base,                             1  ) {}
+
+// Overpass
+item(FEAT_ROADSTOPS, overpass_2sides_north_platform_green,      2  ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_north_platform_brown,      3  ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_north_platform_black,      4  ) {}
+
+item(FEAT_ROADSTOPS, overpass_2sides_north_noplatform_green,    5  ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_north_noplatform_brown,    6  ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_north_noplatform_black,    7  ) {}
+
+item(FEAT_ROADSTOPS, overpass_1side_top_north_platform_green,   11 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_top_north_platform_brown,   12 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_top_north_platform_black,   13 ) {}
+
+item(FEAT_ROADSTOPS, overpass_1side_top_north_noplatform_green, 14 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_top_north_noplatform_brown, 15 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_top_north_noplatform_black, 16 ) {}
+
+item(FEAT_ROADSTOPS, overpass_1side_btm_north_platform_green,   17 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_btm_north_platform_brown,   18 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_btm_north_platform_black,   19 ) {}
+
+item(FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_green, 20 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_brown, 21 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_black, 22 ) {}
+
+item(FEAT_ROADSTOPS, overpass_nostairs_platform_green,          23 ) {}
+item(FEAT_ROADSTOPS, overpass_nostairs_platform_brown,          24 ) {}
+item(FEAT_ROADSTOPS, overpass_nostairs_platform_black,          25 ) {}
+
+item(FEAT_ROADSTOPS, overpass_nostairs_noplatform_green,        8  ) {}
+item(FEAT_ROADSTOPS, overpass_nostairs_noplatform_brown,        9  ) {}
+item(FEAT_ROADSTOPS, overpass_nostairs_noplatform_black,        10 ) {}
+
+// Kumamoto

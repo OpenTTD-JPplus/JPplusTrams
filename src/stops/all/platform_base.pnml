@@ -1,0 +1,78 @@
+
+
+
+spriteset (ss_platform_base_thru_1, "src/stops/all/platform_base.png") {tmpl_roadstop(0,0,-31,-33)}
+spriteset (ss_platform_base_thru_2, "src/stops/all/platform_base.png") {tmpl_roadstop(1,0,-57,-46)}
+spriteset (ss_platform_base_thru_3, "src/stops/all/platform_base.png") {tmpl_roadstop(2,0,-5,-46)}
+spriteset (ss_platform_base_thru_4, "src/stops/all/platform_base.png") {tmpl_roadstop(3,0,-31,-33)}
+
+spritelayout spritelayout_platform_base_x_city {
+    ground {
+        sprite: 1314;
+    }
+    building {
+        sprite: ss_platform_base_thru_1;
+        recolour_mode: RECOLOUR_REMAP;
+        palette: PALETTE_USE_DEFAULT;
+        xextent: 16;
+        yextent: 3;
+        zextent: 3;
+        xoffset: 0;
+        yoffset: 0;
+    }
+    building {
+        sprite: ss_platform_base_thru_2;
+        recolour_mode: RECOLOUR_REMAP;
+        palette: PALETTE_USE_DEFAULT;
+        xextent: 16;
+        yextent: 3;
+        zextent: 3;
+        xoffset: 0;
+        yoffset: 13;
+    }
+}
+
+spritelayout spritelayout_platform_base_y_city {
+    ground {
+        sprite: 1313;
+    }
+    building {
+        sprite: ss_platform_base_thru_4;
+        recolour_mode: RECOLOUR_REMAP;
+        palette: PALETTE_USE_DEFAULT;
+        xextent: 3;
+        yextent: 16;
+        zextent: 3;
+        xoffset: 0;
+        yoffset: 0;
+    }
+    building {
+        sprite: ss_platform_base_thru_3;
+        recolour_mode: RECOLOUR_REMAP;
+        palette: PALETTE_USE_DEFAULT;
+        xextent: 3;
+        yextent: 16;
+        zextent: 3;
+        xoffset: 13;
+        yoffset: 0;
+    }
+}
+
+switch (FEAT_ROADSTOPS, SELF, switch_platform_base_city_view, view) {
+    RST_VIEW_DRIVE_THROUGH_X: spritelayout_platform_base_x_city;
+    RST_VIEW_DRIVE_THROUGH_Y: spritelayout_platform_base_y_city;
+}
+
+item (FEAT_ROADSTOPS, platform_base,) {
+    property {
+        class:                  "JPPF";
+        classname:              string(STR_CAT_PLATFORMS);
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_BASE);
+    }
+    graphics {
+        default:                switch_platform_base_city_view;
+    }
+}

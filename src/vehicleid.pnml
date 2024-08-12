@@ -14,7 +14,7 @@ item(FEAT_ROADVEHS, item_5000,          11 ) {}
 item(FEAT_ROADVEHS, item_9700,          12 ) {}
 item(FEAT_ROADVEHS, item_kuma9200,      13 ) {}
 item(FEAT_ROADVEHS, item_kuma8200,      14 ) {}
-
+item(FEAT_ROADVEHS, item_kuma8500,      15 ) {}
 
 // Sort Order in Menu
 sort(FEAT_ROADVEHS, [
@@ -42,6 +42,7 @@ sort(FEAT_ROADVEHS, [
 10, // 1954 1080
 11, // 1976 5000
 14, // 1982 8200
+15, // 1985 8500
 13, // 1992 9200
 12, // 1997 9700
 6,  // 2009 0800

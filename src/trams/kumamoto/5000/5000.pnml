@@ -4,8 +4,9 @@
 
 switch(FEAT_ROADVEHS, SELF, sw_5000_subtype_text, cargo_subtype) {
 	    0: return string(LV_IRL);
-        1: return string(LV_1CC);
-        2: return string(LV_2CC);
+        1: return string(LV_REDORANGE);
+        2: return string(LV_1CC);
+        3: return string(LV_2CC);
         return CB_RESULT_NO_TEXT;
         }
 
@@ -24,14 +25,17 @@ switch(FEAT_ROADVEHS, SELF, sw_5000_subtype_text, cargo_subtype) {
     spriteset(ss_5000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/5000_irl.png") {tmpl_7(1,1 )}
     spriteset(ss_5000_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/5000_irl.png") {tmpl_7(1,25)}
 
+    spriteset(ss_5000_lead_rao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/5000_rao.png") {tmpl_7(1,1 )}
+    spriteset(ss_5000_rear_rao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/5000_rao.png") {tmpl_7(1,25)}
+
     spriteset(ss_5000_lead_1cc, "src/trams/kumamoto/5000/5000_1cc.png") {tmpl_7(1,1 )}
     spriteset(ss_5000_rear_1cc, "src/trams/kumamoto/5000/5000_1cc.png") {tmpl_7(1,25)}
 
     spriteset(ss_5000_lead_2cc, "src/trams/kumamoto/5000/5000_2cc.png") {tmpl_7(1,1 )}
     spriteset(ss_5000_rear_2cc, "src/trams/kumamoto/5000/5000_2cc.png") {tmpl_7(1,25)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_5000_lead_1cc, cargo_subtype) {1:ss_5000_lead_1cc; 2:ss_5000_lead_2cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_5000_rear_1cc, cargo_subtype) {1:ss_5000_rear_1cc; 2:ss_5000_rear_2cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_5000_lead_1cc, cargo_subtype) {1:ss_5000_lead_rao; 2:ss_5000_lead_1cc; 3:ss_5000_lead_2cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_5000_rear_1cc, cargo_subtype) {1:ss_5000_rear_rao; 2:ss_5000_rear_1cc; 3:ss_5000_rear_2cc;}
 
     switch(FEAT_ROADVEHS, SELF, sw_5000_lead_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
