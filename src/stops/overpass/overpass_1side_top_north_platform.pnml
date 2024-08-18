@@ -29,7 +29,7 @@
                     palette: recolour_remap + 0;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
                 }
@@ -55,7 +55,7 @@
                     palette: recolour_remap + 0;
                     xextent: 3;
                     yextent: 16;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 13;
                     yoffset: 0;
                 }
@@ -87,7 +87,7 @@
                     palette: recolour_remap + 1;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
             }
@@ -113,7 +113,7 @@
                 palette: recolour_remap + 1;
                 xextent: 3;
                 yextent: 16;
-                zextent: 3;
+                zextent: 24;
                 xoffset: 13;
                 yoffset: 0;
             }
@@ -145,7 +145,7 @@
                     palette: recolour_remap + 2;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
             }
@@ -171,7 +171,7 @@
                 palette: recolour_remap + 2;
                 xextent: 3;
                 yextent: 16;
-                zextent: 3;
+                zextent: 24;
                 xoffset: 13;
                 yoffset: 0;
             }
@@ -189,8 +189,8 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_platform_green,) {
         classname:              string(STR_CAT_OVERPASS);
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_GREEN),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(GREEN),string(FAR_SIDE),string(SOUTH_EXIT),string(PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_top_north_platform_green_city_view;
@@ -202,8 +202,8 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_platform_brown,) {
         class:                  "JPOP";
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_BROWN),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BROWN),string(FAR_SIDE),string(SOUTH_EXIT),string(PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_top_north_platform_brown_city_view;
@@ -215,8 +215,8 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_platform_black,) {
         class:                  "JPOP";
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_BLACK),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BLACK),string(FAR_SIDE),string(SOUTH_EXIT),string(PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_top_north_platform_black_city_view;

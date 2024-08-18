@@ -11,6 +11,14 @@ item(FEAT_ROADSTOPS, overpass_2sides_north_noplatform_green,    5  ) {}
 item(FEAT_ROADSTOPS, overpass_2sides_north_noplatform_brown,    6  ) {}
 item(FEAT_ROADSTOPS, overpass_2sides_north_noplatform_black,    7  ) {}
 
+item(FEAT_ROADSTOPS, overpass_2sides_both_platform_green,       26 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_both_platform_brown,       27 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_both_platform_black,       28 ) {}
+
+item(FEAT_ROADSTOPS, overpass_2sides_both_noplatform_green,     29 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_both_noplatform_brown,     30 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_both_noplatform_black,     31 ) {}
+
 item(FEAT_ROADSTOPS, overpass_1side_top_north_platform_green,   11 ) {}
 item(FEAT_ROADSTOPS, overpass_1side_top_north_platform_brown,   12 ) {}
 item(FEAT_ROADSTOPS, overpass_1side_top_north_platform_black,   13 ) {}
@@ -23,6 +31,14 @@ item(FEAT_ROADSTOPS, overpass_1side_btm_north_platform_green,   17 ) {}
 item(FEAT_ROADSTOPS, overpass_1side_btm_north_platform_brown,   18 ) {}
 item(FEAT_ROADSTOPS, overpass_1side_btm_north_platform_black,   19 ) {}
 
+item(FEAT_ROADSTOPS, overpass_1side_btm_both_platform_green,    32 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_btm_both_platform_brown,    33 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_btm_both_platform_black,    34 ) {}
+
+item(FEAT_ROADSTOPS, overpass_1side_btm_both_noplatform_green,  35 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_btm_both_noplatform_brown,  36 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_btm_both_noplatform_black,  37 ) {}
+
 item(FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_green, 20 ) {}
 item(FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_brown, 21 ) {}
 item(FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_black, 22 ) {}
@@ -34,5 +50,13 @@ item(FEAT_ROADSTOPS, overpass_nostairs_platform_black,          25 ) {}
 item(FEAT_ROADSTOPS, overpass_nostairs_noplatform_green,        8  ) {}
 item(FEAT_ROADSTOPS, overpass_nostairs_noplatform_brown,        9  ) {}
 item(FEAT_ROADSTOPS, overpass_nostairs_noplatform_black,        10 ) {}
+
+item(FEAT_ROADSTOPS, overpass_2sides_south_platform_green,      38 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_south_platform_brown,      39 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_south_platform_black,      40 ) {}
+
+item(FEAT_ROADSTOPS, overpass_2sides_south_noplatform_green,    41 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_south_noplatform_brown,    42 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_south_noplatform_black,    43 ) {}
 
 // Kumamoto

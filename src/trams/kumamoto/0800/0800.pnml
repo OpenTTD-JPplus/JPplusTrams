@@ -28,8 +28,8 @@ switch(FEAT_ROADVEHS, SELF, sw_0800_subtype_text, cargo_subtype) {
     spriteset(spriteset_0800_rear_irl,          ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/0800_irl.png") {tmpl_7(1,25)}
     
     // Liveries
-    spriteset(spriteset_0800_lead_cocoro,       "src/trams/kumamoto/0800/0800_cocoro.png") {tmpl_7(1,1)}
-    spriteset(spriteset_0800_rear_cocoro,       "src/trams/kumamoto/0800/0800_cocoro.png") {tmpl_7(1,25)}
+    spriteset(spriteset_0800_lead_cocoro,       ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/0800_cocoro.png") {tmpl_7(1,1)}
+    spriteset(spriteset_0800_rear_cocoro,       ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/0800_cocoro.png") {tmpl_7(1,25)}
     
     spriteset(spriteset_0800_lead_1cc,          "src/trams/kumamoto/0800/0800_1cc.png") {tmpl_7(1,1)}
     spriteset(spriteset_0800_rear_1cc,          "src/trams/kumamoto/0800/0800_1cc.png") {tmpl_7(1,25)}

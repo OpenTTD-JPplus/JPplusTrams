@@ -187,7 +187,7 @@ item (FEAT_ROADSTOPS, kumamoto01_all,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_KUMAMOTO),string(STR_BOTH_SIDES));
+        name:                   string(STR_CONCAT_2, string(STR_KUMAMOTO),string(DUAL_SIDES));
     }
     graphics {
         default:                switch_kumamoto01_all_city_view;
@@ -200,7 +200,7 @@ item (FEAT_ROADSTOPS, kumamoto01_top,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_KUMAMOTO),string(STR_TOP_SIDE));
+        name:                   string(STR_CONCAT_2, string(STR_KUMAMOTO),string(FAR_SIDE));
     }
     graphics {
         default:                switch_kumamoto01_top_city_view;
@@ -213,7 +213,7 @@ item (FEAT_ROADSTOPS, kumamoto01_btm,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_KUMAMOTO),string(STR_BOTTOM_SIDE));
+        name:                   string(STR_CONCAT_2, string(STR_KUMAMOTO),string(NEAR_SIDE));
     }
     graphics {
         default:                switch_kumamoto01_btm_city_view;

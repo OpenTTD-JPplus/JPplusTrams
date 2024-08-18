@@ -27,7 +27,7 @@
             palette: recolour_remap + 0;
             xextent: 16;
             yextent: 3;
-            zextent: 3;
+            zextent: 24;
             xoffset: 0;
             yoffset: 13;
         }
@@ -51,9 +51,9 @@
             sprite: ss_overpass_nostairs_platform_thru_3;
             recolour_mode: RECOLOUR_REMAP;
             palette: recolour_remap + 0;
-            xextent: 3;
-            yextent: 16;
-            zextent: 3;
+            xextent: 16;
+            yextent: 6;
+            zextent: 24;
             xoffset: 13;
             yoffset: 0;
         }
@@ -85,7 +85,7 @@
             palette: recolour_remap + 1;
             xextent: 16;
             yextent: 3;
-            zextent: 3;
+            zextent: 24;
             xoffset: 0;
             yoffset: 13;
         }
@@ -111,7 +111,7 @@
             palette: recolour_remap + 1;
             xextent: 3;
             yextent: 16;
-            zextent: 3;
+            zextent: 24;
             xoffset: 13;
             yoffset: 0;
         }
@@ -143,7 +143,7 @@
             palette: recolour_remap + 2;
             xextent: 16;
             yextent: 3;
-            zextent: 3;
+            zextent: 24;
             xoffset: 0;
             yoffset: 13;
         }
@@ -169,7 +169,7 @@
             palette: recolour_remap + 2;
             xextent: 3;
             yextent: 16;
-            zextent: 3;
+            zextent: 24;
             xoffset: 13;
             yoffset: 0;
         }
@@ -186,7 +186,7 @@ item (FEAT_ROADSTOPS, overpass_nostairs_platform_green,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_GREEN),string(OVERPASS_NOSTAIRS));
+        name:                   string(STR_CONCAT_3, string(GREEN),string(NO_EXITS),string(PLATFORM));
     }
     graphics {
         default:                switch_overpass_nostairs_platform_green_city_view;
@@ -199,7 +199,7 @@ item (FEAT_ROADSTOPS, overpass_nostairs_platform_brown,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_BROWN),string(OVERPASS_NOSTAIRS));
+        name:                   string(STR_CONCAT_3, string(BROWN),string(NO_EXITS),string(PLATFORM));
     }
     graphics {
         default:                switch_overpass_nostairs_platform_brown_city_view;
@@ -212,7 +212,7 @@ item (FEAT_ROADSTOPS, overpass_nostairs_platform_black,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_BLACK),string(OVERPASS_NOSTAIRS));
+        name:                   string(STR_CONCAT_3, string(BLACK),string(NO_EXITS),string(PLATFORM));
     }
     graphics {
         default:                switch_overpass_nostairs_platform_black_city_view;

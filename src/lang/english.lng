@@ -80,9 +80,12 @@ LV_REDORANGE                                    :{RED} Red{BLACK} & {ORANGE} Ora
 LV_WBG                                          :{BLUE} Blue {BLACK}& {GREEN}Green
 LV_ORANGEWHITE                                  :{ORANGE} Orange {BLACK} &{WHITE}White
 LV_BLUEWHITE                                    :{LTBLUE} Blue {BLACK} &{WHITE}White
+LV_REDWHITE                                     :{RED} Red{BLACK} &{WHITE}White
+LV_PINKWHITE                                    :{CREAM} Pink{BLACK} &{WHITE}White
 LV_MAROONBROWN                                  :{RED} Maroon {BLACK} &{BROWN}Brown
 LV_WHITEBLUERED                                 :{WHITE} White {BLACK}, {BLUE}Blue{BLACK}& {RED}Red
 LV_BLUEPURPLERED                                :{BLUE} Blue {BLACK}, {PURPLE}Purple{BLACK}& {RED}Red
+LV_PINKSTRIPE                                   :{CREAM} Pink {BLACK}Stripe
 
 IRL1CC                                          :{GOLD}Original & 1cc
 IRL2CC                                          :{GOLD}Original & 2cc
@@ -140,11 +143,12 @@ STR_5000                                        :5000 Series
 STR_9700                                        :9700 Series
 DES_9700                                        :{GOLD}Original, Blue Stripe & 1cc 
 LV_BLU                                          :{BLUE} Blue Stripe
+LV_BLA                                          :{BLACK} Black Stripe
 
 STR_KUMA9200                                    :9200 Series
 DES_KUMA9200                                    :{GOLD}Red, Blue&Green, Heidelberg, Yellow, Cyan, Cyan&Red, Yellow&Orange, White&Blue, Brown&White, Blues, Brown&Yellow, Greens and 2cc
 LV_HEI                                          :{BROWN} Heidelberg
-
+LV_JAL                                          :{RED} JAL Livery
 
 STR_KUMA8200                                    :8200 Series
 DES_KUMA8200                                    :{GOLD}Original, Turquoise and IRL
@@ -152,19 +156,45 @@ DES_KUMA8200                                    :{GOLD}Original, Turquoise and I
 STR_KUMA8500                                    :8500 Series
 DES_KUMA8500                                    :{GOLD}Original, Red, Peach, Orange, Orange&White, Maroon, WhiteBlueRed, BluePurpleRed, Green, Blue&White, Green, Green&Orange 
 
+STR_KUMA8800                                    :8800 Series
+DES_KUMA8800                                    :{GOLD}Green Stripes & Green & Yellow Strips
+LV_KUMA8801                                     :{GREEN} Green{BLACK} Stripe
+LV_KUMA8802                                     :{GREEN} Green{BLACK} &{YELLOW} Yellow{BLACK} Stripe
+STR_KUMA8800_101                                :8800 Series 101
+DES_KUMA8800_101                                :{GOLD}101 Retro Livery
+
+
+# ######### #
+# Roadstops #
+# ######### #
+
 STR_CAT_TEST                                    :JP+ Roadstops
 STR_NAME_TEST                                   :Roadstop JP
 
 STR_CAT_OVERPASS                                :JP+ Overpasses
 STR_CAT_PLATFORMS                               :JP+ Platforms
 
-STR_GREEN                                       :Green 
-STR_BROWN                                       :Brown 
-STR_BLACK                                       :Black 
+# Colours
+GREEN                                           :Green
+BROWN                                           :Brown
+BLACK                                           :Black
 
-STR_BOTH_SIDES                                  : (Both sides)
-STR_TOP_SIDE                                    : (Top side)
-STR_BOTTOM_SIDE                                 : (Bottom side)
+# Side of road
+FAR_SIDE                                        :, Far side
+NEAR_SIDE                                       :, Near side
+DUAL_SIDES                                      :, Dual sides
+
+# Number of exits
+SOUTH_EXIT                                      :, South exit
+NORTH_EXIT                                      :, North exit
+SOUTH_EXITS                                     :, South exits
+NORTH_EXITS                                     :, North exits
+DUAL_EXITS                                      :, Dual exits
+NO_EXITS                                        :, No exits
+
+# Platforms
+PLATFORM                                        :, Platform
+NO_PLATFORM                                     :, No platform
 
 STR_BASE                                        :Platform
 
@@ -172,5 +202,7 @@ OVERPASS_2SIDES_NORTH                           :Double Stairs Far-end
 OVERPASS_NOSTAIRS                               :No stairs
 OVERPASS_1SIDE_TOP_NORTH                        :Stairs at top
 OVERPASS_1SIDE_BOTTOM_NORTH                     :Stairs at bottom
+OVERPASS_2SIDES_BOTH                            :Stairs in both sides & directions
+OVERPASS_1SIDE_BOTTOM_BOTH                      :Stairs at bottom, both sides
 
 STR_KUMAMOTO                                    :Kumamoto Platform

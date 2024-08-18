@@ -2,19 +2,25 @@
 // Cargo Subtypes
 
 switch(FEAT_ROADVEHS, SELF, sw_kuma8500_subtype_text, cargo_subtype) {
-	    0: return string(LV_IRL);
-        1: return string(LV_RED);
-        2: return string(LV_PEACH);
-        3: return string(LV_ORANGE);
-        4: return string(LV_ORANGEWHITE);
-        5: return string(LV_MAROONBROWN);
-        6: return string(LV_WHITEBLUERED);
-        7: return string(LV_BLUEPURPLERED);
-        8: return string(LV_GREEN);
-        9: return string(LV_BLUEWHITE);
-        10:return string(LV_GREENORANGE);
-        11:return string(LV_CYANRED);
-        12:return string(LV_PINKYELLOW);
+	    0: return string(LV_RANDOM);
+        1: return string(LV_IRL);
+        2: return string(LV_RED);
+        3: return string(LV_PEACH);
+        4: return string(LV_ORANGE);
+        5: return string(LV_ORANGEWHITE);
+        6: return string(LV_MAROONBROWN);
+        7: return string(LV_WHITEBLUERED);
+        8: return string(LV_BLUEPURPLERED);
+        9: return string(LV_GREEN);
+        10:return string(LV_BLUEWHITE);
+        11:return string(LV_GREENORANGE);
+        12:return string(LV_CYANRED);
+        13:return string(LV_PINKYELLOW);
+        14:return string(LV_JAL);
+        15:return string(LV_REDWHITE);
+        16:return string(LV_PINKWHITE);
+        17:return string(LV_PINKSTRIPE);
+        18:return string(LV_YELLOW);
         //2: return string(LV_1CC);
         return CB_RESULT_NO_TEXT;
         }
@@ -32,7 +38,6 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma8500_subtype_text, cargo_subtype) {
 
     // Tram Graphics
     spriteset(ss_kuma8500_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_irl.png") {tmpl_7(1,1)}
-
     spriteset(ss_kuma8500_lead_gha, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_gha.png") {tmpl_7(1,1)}
     spriteset(ss_kuma8500_lead_pch, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_pch.png") {tmpl_7(1,1)}
     spriteset(ss_kuma8500_lead_ora, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_ora.png") {tmpl_7(1,1)}
@@ -45,38 +50,54 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma8500_subtype_text, cargo_subtype) {
     spriteset(ss_kuma8500_lead_gao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_gao.png") {tmpl_7(1,1)}
     spriteset(ss_kuma8500_lead_cwr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_cwr.png") {tmpl_7(1,1)}
     spriteset(ss_kuma8500_lead_pay, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_pay.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8500_lead_jal, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_jal.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8500_lead_raw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_raw.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8500_lead_paw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_paw.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8500_lead_pst, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_pst.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8500_lead_yel, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_yel.png") {tmpl_7(1,1)}
     //spriteset(ss_kuma8500_lead_1cc, "src/trams/kumamoto/8500/kuma8500_1cc.png") {tmpl_7(1,1)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_kuma8500_lead_rdm, random_bits % 14) {
-        2: ss_kuma8500_lead_pch;
-        3: ss_kuma8500_lead_ora;
-        4: ss_kuma8500_lead_oaw;
-        5: ss_kuma8500_lead_mar;
-        6: ss_kuma8500_lead_wbr;
-        7: ss_kuma8500_lead_bpr;
-        8: ss_kuma8500_lead_grn;
-        9: ss_kuma8500_lead_clo;
-        10:ss_kuma8500_lead_gao;
-        11:ss_kuma8500_lead_cwr;
-        12:ss_kuma8500_lead_pay;
-        13:ss_kuma8500_lead_gha;
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma8500_lead_rdm, random_bits % 19) { 
+        2: ss_kuma8500_lead_gha;
+        3: ss_kuma8500_lead_pch;
+        4: ss_kuma8500_lead_ora;
+        5: ss_kuma8500_lead_oaw;
+        6: ss_kuma8500_lead_mar;
+        7: ss_kuma8500_lead_wbr;
+        8: ss_kuma8500_lead_bpr;
+        9: ss_kuma8500_lead_grn;
+        10:ss_kuma8500_lead_clo;
+        11:ss_kuma8500_lead_gao;
+        12:ss_kuma8500_lead_cwr;
+        13:ss_kuma8500_lead_pay;
+        14:ss_kuma8500_lead_jal;
+        15:ss_kuma8500_lead_raw;
+        16:ss_kuma8500_lead_paw;
+        17:ss_kuma8500_lead_pst;
+        18:ss_kuma8500_lead_yel;
+        ss_kuma8500_lead_irl;
         }
-    
     
     switch(FEAT_ROADVEHS, PARENT, sw_kuma8500_lead_1cc, cargo_subtype) {
         0: sw_kuma8500_lead_rdm;
-        1: ss_kuma8500_lead_gha;
-        2: ss_kuma8500_lead_pch;
-        3: ss_kuma8500_lead_ora;
-        4: ss_kuma8500_lead_oaw;
-        5: ss_kuma8500_lead_mar;
-        6: ss_kuma8500_lead_wbr;
-        7: ss_kuma8500_lead_bpr;
-        8: ss_kuma8500_lead_grn;
-        9: ss_kuma8500_lead_clo;
-        10:ss_kuma8500_lead_gao;
-        11:ss_kuma8500_lead_cwr;
-        12:ss_kuma8500_lead_pay;
+        1: ss_kuma8500_lead_irl;
+        2: ss_kuma8500_lead_gha;
+        3: ss_kuma8500_lead_pch;
+        4: ss_kuma8500_lead_ora;
+        5: ss_kuma8500_lead_oaw;
+        6: ss_kuma8500_lead_mar;
+        7: ss_kuma8500_lead_wbr;
+        8: ss_kuma8500_lead_bpr;
+        9: ss_kuma8500_lead_grn;
+        10:ss_kuma8500_lead_clo;
+        11:ss_kuma8500_lead_gao;
+        12:ss_kuma8500_lead_cwr;
+        13:ss_kuma8500_lead_pay;
+        14:ss_kuma8500_lead_jal;
+        15:ss_kuma8500_lead_raw;
+        16:ss_kuma8500_lead_paw;
+        17:ss_kuma8500_lead_pst;
+        18:ss_kuma8500_lead_yel;
         }
 
     switch(FEAT_ROADVEHS, SELF, sw_kuma8500_stack, [ 

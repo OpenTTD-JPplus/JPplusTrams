@@ -8,10 +8,10 @@ switch (FEAT_ROADVEHS, SELF, RunningCostFactor, current_speed) {
 
 switch (FEAT_ROADVEHS, SELF, OpenDoors, 
 
-    (param_hide_logo == 1 && ( direction == DIRECTION_SOUTHWEST || direction == DIRECTION_WEST || direction == DIRECTION_NORTHWEST ))
+    (traffic_side == TRAFFIC_SIDE_LEFT && ( direction == DIRECTION_SOUTHWEST || direction == DIRECTION_WEST || direction == DIRECTION_NORTHWEST ))
 
     ||
 
-    (param_hide_logo == 0 && ( direction == DIRECTION_SOUTHEAST || direction == DIRECTION_EAST || direction == DIRECTION_NORTHEAST))
+    (traffic_side == TRAFFIC_SIDE_RIGHT && ( direction == DIRECTION_SOUTHEAST || direction == DIRECTION_EAST || direction == DIRECTION_NORTHEAST))
 
     ) {return;}

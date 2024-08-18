@@ -26,22 +26,6 @@ grf {
             }
         }
 
-	// Side of Road	
-	param 5 {
-        param_side_of_road {
-            type: int;
-            name: string(STR_PARAM_NAME_SIDE_OF_ROAD);
-            desc: string(STR_PARAM_DESC_SIDE_OF_ROAD);
-            min_value: 0;
-			max_value: 1;
-			def_value: 0;
-			names: {
-				0: string(STR_LEFT);
-				1: string(STR_RIGHT);
-			};
-        }
-    }
-
 	//Set capacities
 	param 1 {
 		param_capacity {
@@ -213,6 +197,8 @@ item(FEAT_ROADVEHS, item_9700,          12 ) {}
 item(FEAT_ROADVEHS, item_kuma9200,      13 ) {}
 item(FEAT_ROADVEHS, item_kuma8200,      14 ) {}
 item(FEAT_ROADVEHS, item_kuma8500,      15 ) {}
+item(FEAT_ROADVEHS, item_kuma8800,      16 ) {}
+item(FEAT_ROADVEHS, item_kuma8800_101,  17 ) {}
 
 // Sort Order in Menu
 sort(FEAT_ROADVEHS, [
@@ -241,6 +227,8 @@ sort(FEAT_ROADVEHS, [
 11, // 1976 5000
 14, // 1982 8200
 15, // 1985 8500
+16, // 1988 8800
+17, // 1993 8800_101
 13, // 1992 9200
 12, // 1997 9700
 6,  // 2009 0800
@@ -260,6 +248,14 @@ item(FEAT_ROADSTOPS, overpass_2sides_north_noplatform_green,    5  ) {}
 item(FEAT_ROADSTOPS, overpass_2sides_north_noplatform_brown,    6  ) {}
 item(FEAT_ROADSTOPS, overpass_2sides_north_noplatform_black,    7  ) {}
 
+item(FEAT_ROADSTOPS, overpass_2sides_both_platform_green,       26 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_both_platform_brown,       27 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_both_platform_black,       28 ) {}
+
+item(FEAT_ROADSTOPS, overpass_2sides_both_noplatform_green,     29 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_both_noplatform_brown,     30 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_both_noplatform_black,     31 ) {}
+
 item(FEAT_ROADSTOPS, overpass_1side_top_north_platform_green,   11 ) {}
 item(FEAT_ROADSTOPS, overpass_1side_top_north_platform_brown,   12 ) {}
 item(FEAT_ROADSTOPS, overpass_1side_top_north_platform_black,   13 ) {}
@@ -272,6 +268,14 @@ item(FEAT_ROADSTOPS, overpass_1side_btm_north_platform_green,   17 ) {}
 item(FEAT_ROADSTOPS, overpass_1side_btm_north_platform_brown,   18 ) {}
 item(FEAT_ROADSTOPS, overpass_1side_btm_north_platform_black,   19 ) {}
 
+item(FEAT_ROADSTOPS, overpass_1side_btm_both_platform_green,    32 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_btm_both_platform_brown,    33 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_btm_both_platform_black,    34 ) {}
+
+item(FEAT_ROADSTOPS, overpass_1side_btm_both_noplatform_green,  35 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_btm_both_noplatform_brown,  36 ) {}
+item(FEAT_ROADSTOPS, overpass_1side_btm_both_noplatform_black,  37 ) {}
+
 item(FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_green, 20 ) {}
 item(FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_brown, 21 ) {}
 item(FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_black, 22 ) {}
@@ -283,6 +287,14 @@ item(FEAT_ROADSTOPS, overpass_nostairs_platform_black,          25 ) {}
 item(FEAT_ROADSTOPS, overpass_nostairs_noplatform_green,        8  ) {}
 item(FEAT_ROADSTOPS, overpass_nostairs_noplatform_brown,        9  ) {}
 item(FEAT_ROADSTOPS, overpass_nostairs_noplatform_black,        10 ) {}
+
+item(FEAT_ROADSTOPS, overpass_2sides_south_platform_green,      38 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_south_platform_brown,      39 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_south_platform_black,      40 ) {}
+
+item(FEAT_ROADSTOPS, overpass_2sides_south_noplatform_green,    41 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_south_noplatform_brown,    42 ) {}
+item(FEAT_ROADSTOPS, overpass_2sides_south_noplatform_black,    43 ) {}
 
 // Kumamoto
 # 1 "JPplusTrams.pnml" 4
@@ -297,11 +309,11 @@ switch (FEAT_ROADVEHS, SELF, RunningCostFactor, current_speed) {
 
 switch (FEAT_ROADVEHS, SELF, OpenDoors, 
 
-    (param_hide_logo == 1 && ( direction == DIRECTION_SOUTHWEST || direction == DIRECTION_WEST || direction == DIRECTION_NORTHWEST ))
+    (traffic_side == TRAFFIC_SIDE_LEFT && ( direction == DIRECTION_SOUTHWEST || direction == DIRECTION_WEST || direction == DIRECTION_NORTHWEST ))
 
     ||
 
-    (param_hide_logo == 0 && ( direction == DIRECTION_SOUTHEAST || direction == DIRECTION_EAST || direction == DIRECTION_NORTHEAST))
+    (traffic_side == TRAFFIC_SIDE_RIGHT && ( direction == DIRECTION_SOUTHEAST || direction == DIRECTION_EAST || direction == DIRECTION_NORTHEAST))
 
     ) {return;}
 # 1 "JPplusTrams.pnml" 4
@@ -450,6 +462,16 @@ switch(FEAT_ROADVEHS, SELF, logo_toyama, param_hide_logo) {1:sprite_logo_toyama;
 
         switch(FEAT_ROADVEHS, SELF, door05_lead, OpenDoors()) {1:sg_door05_lead;}
         switch(FEAT_ROADVEHS, SELF, door05_rear, OpenDoors()) {1:sg_door05_rear;}
+
+    // Door 06
+        spriteset(spriteset_door06_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door06.png") {tmpl_7(1,1)}
+            
+        spritegroup sg_door06_lead {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door06_lead];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, door06, OpenDoors()) {1:sg_door06_lead;}
 
     // Door Nigaata03
 
@@ -1256,8 +1278,8 @@ switch(FEAT_ROADVEHS, SELF, sw_0800_subtype_text, cargo_subtype) {
     spriteset(spriteset_0800_rear_irl,          ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/0800_irl.png") {tmpl_7(1,25)}
     
     // Liveries
-    spriteset(spriteset_0800_lead_cocoro,       "src/trams/kumamoto/0800/0800_cocoro.png") {tmpl_7(1,1)}
-    spriteset(spriteset_0800_rear_cocoro,       "src/trams/kumamoto/0800/0800_cocoro.png") {tmpl_7(1,25)}
+    spriteset(spriteset_0800_lead_cocoro,       ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/0800_cocoro.png") {tmpl_7(1,1)}
+    spriteset(spriteset_0800_rear_cocoro,       ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/0800_cocoro.png") {tmpl_7(1,25)}
     
     spriteset(spriteset_0800_lead_1cc,          "src/trams/kumamoto/0800/0800_1cc.png") {tmpl_7(1,1)}
     spriteset(spriteset_0800_rear_1cc,          "src/trams/kumamoto/0800/0800_1cc.png") {tmpl_7(1,25)}
@@ -1878,7 +1900,8 @@ item(FEAT_ROADVEHS, item_5000) {
 switch(FEAT_ROADVEHS, SELF, sw_9700_subtype_text, cargo_subtype) {
 	    0: return string(LV_IRL);
         1: return string(LV_BLU);
-        2: return string(LV_1CC);
+        2: return string(LV_BLA);
+        3: return string(LV_1CC);
         return CB_RESULT_NO_TEXT;
         }
 
@@ -1900,11 +1923,14 @@ switch(FEAT_ROADVEHS, SELF, sw_9700_subtype_text, cargo_subtype) {
     spriteset(ss_9700_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/9700_blu.png") {tmpl_7(1,1 )}
     spriteset(ss_9700_rear_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/9700_blu.png") {tmpl_7(1,25)}
 
+    spriteset(ss_9700_lead_bla, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/9700_bla.png") {tmpl_7(1,1 )}
+    spriteset(ss_9700_rear_bla, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/9700_bla.png") {tmpl_7(1,25)}
+
     spriteset(ss_9700_lead_1cc, "src/trams/kumamoto/9700/9700_1cc.png") {tmpl_7(1,1 )}
     spriteset(ss_9700_rear_1cc, "src/trams/kumamoto/9700/9700_1cc.png") {tmpl_7(1,25)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_9700_lead_msk, cargo_subtype) {1:ss_9700_lead_blu; 2:ss_9700_lead_1cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_9700_rear_msk, cargo_subtype) {1:ss_9700_rear_blu; 2:ss_9700_rear_1cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_9700_lead_msk, cargo_subtype) {1:ss_9700_lead_blu; 2:ss_9700_lead_bla; 3:ss_9700_lead_1cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_9700_rear_msk, cargo_subtype) {1:ss_9700_rear_blu; 2:ss_9700_rear_bla; 3:ss_9700_rear_1cc;}
 
     switch(FEAT_ROADVEHS, SELF, sw_9700_lead_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
@@ -2184,19 +2210,25 @@ item(FEAT_ROADVEHS, item_kuma8200) {
 // Cargo Subtypes
 
 switch(FEAT_ROADVEHS, SELF, sw_kuma8500_subtype_text, cargo_subtype) {
-	    0: return string(LV_IRL);
-        1: return string(LV_RED);
-        2: return string(LV_PEACH);
-        3: return string(LV_ORANGE);
-        4: return string(LV_ORANGEWHITE);
-        5: return string(LV_MAROONBROWN);
-        6: return string(LV_WHITEBLUERED);
-        7: return string(LV_BLUEPURPLERED);
-        8: return string(LV_GREEN);
-        9: return string(LV_BLUEWHITE);
-        10:return string(LV_GREENORANGE);
-        11:return string(LV_CYANRED);
-        12:return string(LV_PINKYELLOW);
+	    0: return string(LV_RANDOM);
+        1: return string(LV_IRL);
+        2: return string(LV_RED);
+        3: return string(LV_PEACH);
+        4: return string(LV_ORANGE);
+        5: return string(LV_ORANGEWHITE);
+        6: return string(LV_MAROONBROWN);
+        7: return string(LV_WHITEBLUERED);
+        8: return string(LV_BLUEPURPLERED);
+        9: return string(LV_GREEN);
+        10:return string(LV_BLUEWHITE);
+        11:return string(LV_GREENORANGE);
+        12:return string(LV_CYANRED);
+        13:return string(LV_PINKYELLOW);
+        14:return string(LV_JAL);
+        15:return string(LV_REDWHITE);
+        16:return string(LV_PINKWHITE);
+        17:return string(LV_PINKSTRIPE);
+        18:return string(LV_YELLOW);
         //2: return string(LV_1CC);
         return CB_RESULT_NO_TEXT;
         }
@@ -2214,7 +2246,6 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma8500_subtype_text, cargo_subtype) {
 
     // Tram Graphics
     spriteset(ss_kuma8500_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_irl.png") {tmpl_7(1,1)}
-
     spriteset(ss_kuma8500_lead_gha, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_gha.png") {tmpl_7(1,1)}
     spriteset(ss_kuma8500_lead_pch, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_pch.png") {tmpl_7(1,1)}
     spriteset(ss_kuma8500_lead_ora, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_ora.png") {tmpl_7(1,1)}
@@ -2227,38 +2258,54 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma8500_subtype_text, cargo_subtype) {
     spriteset(ss_kuma8500_lead_gao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_gao.png") {tmpl_7(1,1)}
     spriteset(ss_kuma8500_lead_cwr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_cwr.png") {tmpl_7(1,1)}
     spriteset(ss_kuma8500_lead_pay, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_pay.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8500_lead_jal, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_jal.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8500_lead_raw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_raw.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8500_lead_paw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_paw.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8500_lead_pst, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_pst.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8500_lead_yel, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8500/kuma8500_yel.png") {tmpl_7(1,1)}
     //spriteset(ss_kuma8500_lead_1cc, "src/trams/kumamoto/8500/kuma8500_1cc.png") {tmpl_7(1,1)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_kuma8500_lead_rdm, random_bits % 14) {
-        2: ss_kuma8500_lead_pch;
-        3: ss_kuma8500_lead_ora;
-        4: ss_kuma8500_lead_oaw;
-        5: ss_kuma8500_lead_mar;
-        6: ss_kuma8500_lead_wbr;
-        7: ss_kuma8500_lead_bpr;
-        8: ss_kuma8500_lead_grn;
-        9: ss_kuma8500_lead_clo;
-        10:ss_kuma8500_lead_gao;
-        11:ss_kuma8500_lead_cwr;
-        12:ss_kuma8500_lead_pay;
-        13:ss_kuma8500_lead_gha;
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma8500_lead_rdm, random_bits % 19) { 
+        2: ss_kuma8500_lead_gha;
+        3: ss_kuma8500_lead_pch;
+        4: ss_kuma8500_lead_ora;
+        5: ss_kuma8500_lead_oaw;
+        6: ss_kuma8500_lead_mar;
+        7: ss_kuma8500_lead_wbr;
+        8: ss_kuma8500_lead_bpr;
+        9: ss_kuma8500_lead_grn;
+        10:ss_kuma8500_lead_clo;
+        11:ss_kuma8500_lead_gao;
+        12:ss_kuma8500_lead_cwr;
+        13:ss_kuma8500_lead_pay;
+        14:ss_kuma8500_lead_jal;
+        15:ss_kuma8500_lead_raw;
+        16:ss_kuma8500_lead_paw;
+        17:ss_kuma8500_lead_pst;
+        18:ss_kuma8500_lead_yel;
+        ss_kuma8500_lead_irl;
         }
-    
     
     switch(FEAT_ROADVEHS, PARENT, sw_kuma8500_lead_1cc, cargo_subtype) {
         0: sw_kuma8500_lead_rdm;
-        1: ss_kuma8500_lead_gha;
-        2: ss_kuma8500_lead_pch;
-        3: ss_kuma8500_lead_ora;
-        4: ss_kuma8500_lead_oaw;
-        5: ss_kuma8500_lead_mar;
-        6: ss_kuma8500_lead_wbr;
-        7: ss_kuma8500_lead_bpr;
-        8: ss_kuma8500_lead_grn;
-        9: ss_kuma8500_lead_clo;
-        10:ss_kuma8500_lead_gao;
-        11:ss_kuma8500_lead_cwr;
-        12:ss_kuma8500_lead_pay;
+        1: ss_kuma8500_lead_irl;
+        2: ss_kuma8500_lead_gha;
+        3: ss_kuma8500_lead_pch;
+        4: ss_kuma8500_lead_ora;
+        5: ss_kuma8500_lead_oaw;
+        6: ss_kuma8500_lead_mar;
+        7: ss_kuma8500_lead_wbr;
+        8: ss_kuma8500_lead_bpr;
+        9: ss_kuma8500_lead_grn;
+        10:ss_kuma8500_lead_clo;
+        11:ss_kuma8500_lead_gao;
+        12:ss_kuma8500_lead_cwr;
+        13:ss_kuma8500_lead_pay;
+        14:ss_kuma8500_lead_jal;
+        15:ss_kuma8500_lead_raw;
+        16:ss_kuma8500_lead_paw;
+        17:ss_kuma8500_lead_pst;
+        18:ss_kuma8500_lead_yel;
         }
 
     switch(FEAT_ROADVEHS, SELF, sw_kuma8500_stack, [ 
@@ -2305,6 +2352,156 @@ item(FEAT_ROADVEHS, item_kuma8500) {
         running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
         purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
         purchase:                       sw_kuma8500_purchase;
+        cost_factor:                    ((param_buycost*90)/4);
+        }
+}
+# 1 "JPplusTrams.pnml" 4
+# 1 "src/trams/kumamoto/8800/kuma8800.pnml" 1
+
+// Cargo Subtypes
+
+switch(FEAT_ROADVEHS, SELF, sw_kuma8800_subtype_text, cargo_subtype) {
+	    0: return string(LV_RANDOM);
+        1: return string(LV_KUMA8801);
+        2: return string(LV_KUMA8802);
+        3: return string(LV_2CC);
+        return CB_RESULT_NO_TEXT;
+        }
+
+// Graphics
+
+    // Purchase
+    spriteset(ss_kuma8800_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_purchase.png") {tmpl_p()}
+    spriteset(ss_kuma8800_101_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101_purchase.png") {tmpl_p()}
+
+    switch(FEAT_ROADVEHS, SELF, sw_kuma8800_purchase, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: logo_kumamoto; 
+            1: ss_kuma8800_purchase;
+        }
+
+    switch(FEAT_ROADVEHS, SELF, sw_kuma8800_101_purchase, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: logo_kumamoto; 
+            1: ss_kuma8800_101_purchase;
+        }
+
+    // Tram Graphics
+    spriteset(ss_kuma8800_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800.png") {tmpl_7(1,1)}
+
+    spriteset(ss_kuma8801_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8801.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8802_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8802.png") {tmpl_7(1,1)}
+
+    spriteset(ss_kuma8800_lead_2cc, "src/trams/kumamoto/8800/kuma8800_2cc.png") {tmpl_7(1,1)}
+
+    spriteset(ss_kuma8800_101_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8800_101_roof, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101_roof.png") {tmpl_7(1,1)}
+
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma8800_lead_rdm, random_bits % 2) {
+        1: ss_kuma8802_lead;
+        ss_kuma8801_lead;
+        }
+    
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma8800_lead_mask, cargo_subtype) {
+        0: sw_kuma8800_lead_rdm;
+        1: ss_kuma8801_lead;
+        2: ss_kuma8802_lead;
+        3: ss_kuma8800_lead_2cc;
+        }
+
+    switch(FEAT_ROADVEHS, SELF, sw_kuma8800_stack, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: ss_kuma8800_lead;            // Base
+            1: sw_kuma8800_lead_mask;       // Mask
+            2: sprite_panto03;              // Pantos
+            3: door06;                      // Doors
+        }
+
+    switch(FEAT_ROADVEHS, SELF, sw_kuma8800_101_stack, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: ss_kuma8800_101_lead;        // Base
+            1: sprite_panto03;              // Pantos
+            2: ss_kuma8800_101_roof;        // Roof
+            3: door06;                      // Doors
+        }  
+
+item(FEAT_ROADVEHS, item_kuma8800) {
+    property {
+        name:                           string(STR_KUMA8800);
+        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        loading_speed:                  25;
+        cargo_age_period:               240;
+        cost_factor:                    175;
+        running_cost_factor:            80;
+        speed:                          40 km/h;    
+        power:                          67 * 2 hp;  // 50kW per motor, 2 motors
+        cargo_capacity:                 72;
+        introduction_date:              date(1988,12,01);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                   50;
+        reliability_decay:              14;
+        tram_type:                      ELRL;
+        sound_effect:                   SOUND_POWER_STATION;
+        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
+        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
+        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+        refit_cost:                     0; // Refitting is free
+        running_cost_base:              RUNNING_COST_ROADVEH;
+        weight:                         19 ton;
+        length:                         7;
+        }
+    graphics {
+        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA8800));
+        cargo_subtype_text:             sw_kuma8800_subtype_text;
+        cargo_capacity:                 (param_capacity * 72 ) / 2;
+        purchase_cargo_capacity:        (param_capacity * 72 ) / 2;
+        default:                        sw_kuma8800_stack;
+        cargo_age_period:               sw_cargo_age_period_01;
+        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
+        purchase:                       sw_kuma8800_purchase;
+        cost_factor:                    ((param_buycost*90)/4);
+        }
+}
+
+item(FEAT_ROADVEHS, item_kuma8800_101) {
+    property {
+        name:                           string(STR_KUMA8800_101);
+        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        loading_speed:                  25;
+        cargo_age_period:               240;
+        cost_factor:                    175;
+        running_cost_factor:            80;
+        speed:                          40 km/h;    
+        power:                          67 * 2 hp;  // 50kW per motor, 2 motors
+        cargo_capacity:                 72;
+        introduction_date:              date(1993,09,24);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                   50;
+        reliability_decay:              14;
+        tram_type:                      ELRL;
+        sound_effect:                   SOUND_POWER_STATION;
+        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
+        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
+        variant_group:					16;
+        misc_flags:                     bitmask(ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+        refit_cost:                     0; // Refitting is free
+        running_cost_base:              RUNNING_COST_ROADVEH;
+        weight:                         19 ton;
+        length:                         7;
+        }
+    graphics {
+        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA8800));
+        //cargo_subtype_text:             sw_kuma8800_101_subtype_text;
+        cargo_capacity:                 (param_capacity * 72 ) / 2;
+        purchase_cargo_capacity:        (param_capacity * 72 ) / 2;
+        default:                        sw_kuma8800_101_stack;
+        cargo_age_period:               sw_cargo_age_period_01;
+        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
+        purchase:                       sw_kuma8800_101_purchase;
         cost_factor:                    ((param_buycost*90)/4);
         }
 }
@@ -2581,7 +2778,7 @@ item (FEAT_ROADSTOPS, kumamoto01_all,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_KUMAMOTO),string(STR_BOTH_SIDES));
+        name:                   string(STR_CONCAT_2, string(STR_KUMAMOTO),string(DUAL_SIDES));
     }
     graphics {
         default:                switch_kumamoto01_all_city_view;
@@ -2594,7 +2791,7 @@ item (FEAT_ROADSTOPS, kumamoto01_top,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_KUMAMOTO),string(STR_TOP_SIDE));
+        name:                   string(STR_CONCAT_2, string(STR_KUMAMOTO),string(FAR_SIDE));
     }
     graphics {
         default:                switch_kumamoto01_top_city_view;
@@ -2607,7 +2804,7 @@ item (FEAT_ROADSTOPS, kumamoto01_btm,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_KUMAMOTO),string(STR_BOTTOM_SIDE));
+        name:                   string(STR_CONCAT_2, string(STR_KUMAMOTO),string(NEAR_SIDE));
     }
     graphics {
         default:                switch_kumamoto01_btm_city_view;
@@ -2646,7 +2843,7 @@ item (FEAT_ROADSTOPS, kumamoto01_btm,) {
                     palette: recolour_remap + 0;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
                 }
@@ -2672,7 +2869,7 @@ item (FEAT_ROADSTOPS, kumamoto01_btm,) {
                     palette: recolour_remap + 0;
                     xextent: 3;
                     yextent: 16;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 13;
                     yoffset: 0;
                 }
@@ -2704,7 +2901,7 @@ item (FEAT_ROADSTOPS, kumamoto01_btm,) {
                     palette: recolour_remap + 1;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
             }
@@ -2730,7 +2927,7 @@ item (FEAT_ROADSTOPS, kumamoto01_btm,) {
                 palette: recolour_remap + 1;
                 xextent: 3;
                 yextent: 16;
-                zextent: 3;
+                zextent: 24;
                 xoffset: 13;
                 yoffset: 0;
             }
@@ -2762,7 +2959,7 @@ item (FEAT_ROADSTOPS, kumamoto01_btm,) {
                     palette: recolour_remap + 2;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
             }
@@ -2788,7 +2985,7 @@ item (FEAT_ROADSTOPS, kumamoto01_btm,) {
                 palette: recolour_remap + 2;
                 xextent: 3;
                 yextent: 16;
-                zextent: 3;
+                zextent: 24;
                 xoffset: 13;
                 yoffset: 0;
             }
@@ -2806,8 +3003,8 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_platform_green,) {
         classname:              string(STR_CAT_OVERPASS);
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_GREEN),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(GREEN),string(DUAL_SIDES),string(SOUTH_EXITS),string(PLATFORM));
     }
     graphics {
         default:                sw_overpass_2sides_north_platform_green_city_view;
@@ -2819,8 +3016,8 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_platform_brown,) {
         class:                  "JPOP";
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_BROWN),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BROWN),string(DUAL_SIDES),string(SOUTH_EXITS),string(PLATFORM));
     }
     graphics {
         default:                sw_overpass_2sides_north_platform_brown_city_view;
@@ -2832,8 +3029,8 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_platform_black,) {
         class:                  "JPOP";
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_BLACK),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BLACK),string(DUAL_SIDES),string(SOUTH_EXITS),string(PLATFORM));
     }
     graphics {
         default:                sw_overpass_2sides_north_platform_black_city_view;
@@ -2872,7 +3069,7 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_platform_black,) {
                     palette: recolour_remap + 0;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
                 }
@@ -2898,7 +3095,7 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_platform_black,) {
                     palette: recolour_remap + 0;
                     xextent: 3;
                     yextent: 16;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 13;
                     yoffset: 0;
                 }
@@ -2930,7 +3127,7 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_platform_black,) {
                     palette: recolour_remap + 1;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
             }
@@ -2956,7 +3153,7 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_platform_black,) {
                 palette: recolour_remap + 1;
                 xextent: 3;
                 yextent: 16;
-                zextent: 3;
+                zextent: 24;
                 xoffset: 13;
                 yoffset: 0;
             }
@@ -2988,7 +3185,7 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_platform_black,) {
                     palette: recolour_remap + 2;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
             }
@@ -3014,7 +3211,7 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_platform_black,) {
                 palette: recolour_remap + 2;
                 xextent: 3;
                 yextent: 16;
-                zextent: 3;
+                zextent: 24;
                 xoffset: 13;
                 yoffset: 0;
             }
@@ -3032,8 +3229,8 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_noplatform_green,) {
         classname:              string(STR_CAT_OVERPASS);
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_GREEN),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(GREEN),string(DUAL_SIDES),string(SOUTH_EXITS),string(NO_PLATFORM));
     }
     graphics {
         default:                sw_overpass_2sides_north_noplatform_green_city_view;
@@ -3045,8 +3242,8 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_noplatform_brown,) {
         class:                  "JPOP";
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_BROWN),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BROWN),string(DUAL_SIDES),string(SOUTH_EXITS),string(NO_PLATFORM));
     }
     graphics {
         default:                sw_overpass_2sides_north_noplatform_brown_city_view;
@@ -3058,11 +3255,463 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_noplatform_black,) {
         class:                  "JPOP";
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_BLACK),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BLACK),string(DUAL_SIDES),string(SOUTH_EXITS),string(NO_PLATFORM));
     }
     graphics {
         default:                sw_overpass_2sides_north_noplatform_black_city_view;
+    }
+}
+# 1 "JPplusTrams.pnml" 4
+# 1 "src/stops/overpass/overpass_2sides_both_platform.pnml" 1
+
+
+// Spritesets
+    spriteset (ss_overpass_2sides_both_platform_thru_1, "src/stops/overpass/overpass_2sides_both_platform.png") {tmpl_roadstop(0,0,-31,-33)}
+    spriteset (ss_overpass_2sides_both_platform_thru_2, "src/stops/overpass/overpass_2sides_both_platform.png") {tmpl_roadstop(1,0,-57,-46)}
+    spriteset (ss_overpass_2sides_both_platform_thru_3, "src/stops/overpass/overpass_2sides_both_platform.png") {tmpl_roadstop(2,0,-5,-46)}
+    spriteset (ss_overpass_2sides_both_platform_thru_4, "src/stops/overpass/overpass_2sides_both_platform.png") {tmpl_roadstop(3,0,-31,-33)}
+
+// Both
+    // Green
+        // X
+            spritelayout spritelayout_overpass_2sides_both_platform_green_x_city {
+                ground {
+                sprite: 1314;
+                }
+                building {
+                    sprite: ss_overpass_2sides_both_platform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+                }            
+                building {
+                    sprite: ss_overpass_2sides_both_platform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+                }
+            }
+        // Y
+            spritelayout spritelayout_overpass_2sides_both_platform_green_y_city {
+                ground {
+                    sprite: 1313;
+                }
+                building {
+                    sprite: ss_overpass_2sides_both_platform_thru_4;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 3;
+                    yextent: 16;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_2sides_both_platform_thru_3;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 3;
+                    yextent: 16;
+                    zextent: 24;
+                    xoffset: 13;
+                    yoffset: 0;
+                }
+            }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_2sides_both_platform_green_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_2sides_both_platform_green_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_2sides_both_platform_green_y_city;
+        }
+
+    // Brown
+        spritelayout spritelayout_overpass_2sides_both_platform_brown_x_city {
+            ground {
+            sprite: 1314;
+            }
+                building {
+                    sprite: ss_overpass_2sides_both_platform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 1;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_2sides_both_platform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 1;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_overpass_2sides_both_platform_brown_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: ss_overpass_2sides_both_platform_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 1;
+                xextent: 3;
+                yextent: 16;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: ss_overpass_2sides_both_platform_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 1;
+                xextent: 3;
+                yextent: 16;
+                zextent: 24;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_2sides_both_platform_brown_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_2sides_both_platform_brown_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_2sides_both_platform_brown_y_city;
+        }
+
+    // Black
+        spritelayout spritelayout_overpass_2sides_both_platform_black_x_city {
+            ground {
+            sprite: 1314;
+            }
+                building {
+                    sprite: ss_overpass_2sides_both_platform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 2;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_2sides_both_platform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 2;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_overpass_2sides_both_platform_black_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: ss_overpass_2sides_both_platform_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 2;
+                xextent: 3;
+                yextent: 16;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: ss_overpass_2sides_both_platform_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 2;
+                xextent: 3;
+                yextent: 16;
+                zextent: 24;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_2sides_both_platform_black_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_2sides_both_platform_black_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_2sides_both_platform_black_y_city;
+        }
+
+
+item (FEAT_ROADSTOPS, overpass_2sides_both_platform_green,) {
+    property {
+        class:                  "JPOP";
+        classname:              string(STR_CAT_OVERPASS);
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(GREEN),string(DUAL_SIDES),string(DUAL_EXITS),string(PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_2sides_both_platform_green_city_view;
+    }
+}
+
+item (FEAT_ROADSTOPS, overpass_2sides_both_platform_brown,) {
+    property {
+        class:                  "JPOP";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BROWN),string(DUAL_SIDES),string(DUAL_EXITS),string(PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_2sides_both_platform_brown_city_view;
+    }
+}
+
+item (FEAT_ROADSTOPS, overpass_2sides_both_platform_black,) {
+    property {
+        class:                  "JPOP";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BLACK),string(DUAL_SIDES),string(DUAL_EXITS),string(PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_2sides_both_platform_black_city_view;
+    }
+}
+# 1 "JPplusTrams.pnml" 4
+# 1 "src/stops/overpass/overpass_2sides_both_noplatform.pnml" 1
+
+
+// Spritesets
+    spriteset (ss_overpass_2sides_both_noplatform_thru_1, "src/stops/overpass/overpass_2sides_both_noplatform.png") {tmpl_roadstop(0,0,-31,-33)}
+    spriteset (ss_overpass_2sides_both_noplatform_thru_2, "src/stops/overpass/overpass_2sides_both_noplatform.png") {tmpl_roadstop(1,0,-57,-46)}
+    spriteset (ss_overpass_2sides_both_noplatform_thru_3, "src/stops/overpass/overpass_2sides_both_noplatform.png") {tmpl_roadstop(2,0,-5,-46)}
+    spriteset (ss_overpass_2sides_both_noplatform_thru_4, "src/stops/overpass/overpass_2sides_both_noplatform.png") {tmpl_roadstop(3,0,-31,-33)}
+
+// Both
+    // Green
+        // X
+            spritelayout spritelayout_overpass_2sides_both_noplatform_green_x_city {
+                ground {
+                sprite: 1314;
+                }
+                building {
+                    sprite: ss_overpass_2sides_both_noplatform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+                }            
+                building {
+                    sprite: ss_overpass_2sides_both_noplatform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+                }
+            }
+        // Y
+            spritelayout spritelayout_overpass_2sides_both_noplatform_green_y_city {
+                ground {
+                    sprite: 1313;
+                }
+                building {
+                    sprite: ss_overpass_2sides_both_noplatform_thru_4;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 3;
+                    yextent: 16;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_2sides_both_noplatform_thru_3;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 3;
+                    yextent: 16;
+                    zextent: 24;
+                    xoffset: 13;
+                    yoffset: 0;
+                }
+            }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_2sides_both_noplatform_green_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_2sides_both_noplatform_green_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_2sides_both_noplatform_green_y_city;
+        }
+
+    // Brown
+        spritelayout spritelayout_overpass_2sides_both_noplatform_brown_x_city {
+            ground {
+            sprite: 1314;
+            }
+                building {
+                    sprite: ss_overpass_2sides_both_noplatform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 1;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_2sides_both_noplatform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 1;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_overpass_2sides_both_noplatform_brown_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: ss_overpass_2sides_both_noplatform_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 1;
+                xextent: 3;
+                yextent: 16;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: ss_overpass_2sides_both_noplatform_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 1;
+                xextent: 3;
+                yextent: 16;
+                zextent: 24;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_2sides_both_noplatform_brown_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_2sides_both_noplatform_brown_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_2sides_both_noplatform_brown_y_city;
+        }
+
+    // Black
+        spritelayout spritelayout_overpass_2sides_both_noplatform_black_x_city {
+            ground {
+            sprite: 1314;
+            }
+                building {
+                    sprite: ss_overpass_2sides_both_noplatform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 2;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_2sides_both_noplatform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 2;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_overpass_2sides_both_noplatform_black_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: ss_overpass_2sides_both_noplatform_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 2;
+                xextent: 3;
+                yextent: 16;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: ss_overpass_2sides_both_noplatform_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 2;
+                xextent: 3;
+                yextent: 16;
+                zextent: 24;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_2sides_both_noplatform_black_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_2sides_both_noplatform_black_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_2sides_both_noplatform_black_y_city;
+        }
+
+
+item (FEAT_ROADSTOPS, overpass_2sides_both_noplatform_green,) {
+    property {
+        class:                  "JPOP";
+        classname:              string(STR_CAT_OVERPASS);
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(GREEN),string(DUAL_SIDES),string(DUAL_EXITS),string(NO_PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_2sides_both_noplatform_green_city_view;
+    }
+}
+
+item (FEAT_ROADSTOPS, overpass_2sides_both_noplatform_brown,) {
+    property {
+        class:                  "JPOP";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BROWN),string(DUAL_SIDES),string(DUAL_EXITS),string(NO_PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_2sides_both_noplatform_brown_city_view;
+    }
+}
+
+item (FEAT_ROADSTOPS, overpass_2sides_both_noplatform_black,) {
+    property {
+        class:                  "JPOP";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BLACK),string(DUAL_SIDES),string(DUAL_EXITS),string(NO_PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_2sides_both_noplatform_black_city_view;
     }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -3098,7 +3747,7 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_noplatform_black,) {
                     palette: recolour_remap + 0;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
                 }
@@ -3124,7 +3773,7 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_noplatform_black,) {
                     palette: recolour_remap + 0;
                     xextent: 3;
                     yextent: 16;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 13;
                     yoffset: 0;
                 }
@@ -3156,7 +3805,7 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_noplatform_black,) {
                     palette: recolour_remap + 1;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
             }
@@ -3182,7 +3831,7 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_noplatform_black,) {
                 palette: recolour_remap + 1;
                 xextent: 3;
                 yextent: 16;
-                zextent: 3;
+                zextent: 24;
                 xoffset: 13;
                 yoffset: 0;
             }
@@ -3214,7 +3863,7 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_noplatform_black,) {
                     palette: recolour_remap + 2;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
             }
@@ -3240,7 +3889,7 @@ item (FEAT_ROADSTOPS, overpass_2sides_north_noplatform_black,) {
                 palette: recolour_remap + 2;
                 xextent: 3;
                 yextent: 16;
-                zextent: 3;
+                zextent: 24;
                 xoffset: 13;
                 yoffset: 0;
             }
@@ -3258,8 +3907,8 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_platform_green,) {
         classname:              string(STR_CAT_OVERPASS);
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_GREEN),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(GREEN),string(FAR_SIDE),string(SOUTH_EXIT),string(PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_top_north_platform_green_city_view;
@@ -3271,8 +3920,8 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_platform_brown,) {
         class:                  "JPOP";
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_BROWN),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BROWN),string(FAR_SIDE),string(SOUTH_EXIT),string(PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_top_north_platform_brown_city_view;
@@ -3284,8 +3933,8 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_platform_black,) {
         class:                  "JPOP";
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_BLACK),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BLACK),string(FAR_SIDE),string(SOUTH_EXIT),string(PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_top_north_platform_black_city_view;
@@ -3324,7 +3973,7 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_platform_black,) {
                     palette: recolour_remap + 0;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
                 }
@@ -3350,7 +3999,7 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_platform_black,) {
                     palette: recolour_remap + 0;
                     xextent: 3;
                     yextent: 16;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 13;
                     yoffset: 0;
                 }
@@ -3382,7 +4031,7 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_platform_black,) {
                     palette: recolour_remap + 1;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
             }
@@ -3408,7 +4057,7 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_platform_black,) {
                 palette: recolour_remap + 1;
                 xextent: 3;
                 yextent: 16;
-                zextent: 3;
+                zextent: 24;
                 xoffset: 13;
                 yoffset: 0;
             }
@@ -3440,7 +4089,7 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_platform_black,) {
                     palette: recolour_remap + 2;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
             }
@@ -3466,7 +4115,7 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_platform_black,) {
                 palette: recolour_remap + 2;
                 xextent: 3;
                 yextent: 16;
-                zextent: 3;
+                zextent: 24;
                 xoffset: 13;
                 yoffset: 0;
             }
@@ -3484,8 +4133,8 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_noplatform_green,) {
         classname:              string(STR_CAT_OVERPASS);
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_GREEN),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(GREEN),string(FAR_SIDE),string(SOUTH_EXIT),string(NO_PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_top_north_noplatform_green_city_view;
@@ -3497,8 +4146,8 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_noplatform_brown,) {
         class:                  "JPOP";
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_BROWN),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BROWN),string(FAR_SIDE),string(SOUTH_EXIT),string(NO_PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_top_north_noplatform_brown_city_view;
@@ -3510,8 +4159,8 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_noplatform_black,) {
         class:                  "JPOP";
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_BLACK),string(OVERPASS_2SIDES_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BLACK),string(FAR_SIDE),string(SOUTH_EXIT),string(NO_PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_top_north_noplatform_black_city_view;
@@ -3550,7 +4199,7 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_noplatform_black,) {
                     palette: recolour_remap + 0;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
                 }
@@ -3576,7 +4225,7 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_noplatform_black,) {
                     palette: recolour_remap + 0;
                     xextent: 3;
                     yextent: 16;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 13;
                     yoffset: 0;
                 }
@@ -3608,7 +4257,7 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_noplatform_black,) {
                     palette: recolour_remap + 1;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
             }
@@ -3634,7 +4283,7 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_noplatform_black,) {
                 palette: recolour_remap + 1;
                 xextent: 3;
                 yextent: 16;
-                zextent: 3;
+                zextent: 24;
                 xoffset: 13;
                 yoffset: 0;
             }
@@ -3666,7 +4315,7 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_noplatform_black,) {
                     palette: recolour_remap + 2;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
             }
@@ -3692,7 +4341,7 @@ item (FEAT_ROADSTOPS, overpass_1side_top_north_noplatform_black,) {
                 palette: recolour_remap + 2;
                 xextent: 3;
                 yextent: 16;
-                zextent: 3;
+                zextent: 24;
                 xoffset: 13;
                 yoffset: 0;
             }
@@ -3710,8 +4359,8 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_platform_green,) {
         classname:              string(STR_CAT_OVERPASS);
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_GREEN),string(OVERPASS_1SIDE_BOTTOM_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(GREEN),string(NEAR_SIDE),string(SOUTH_EXIT),string(PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_btm_north_platform_green_city_view;
@@ -3723,8 +4372,8 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_platform_brown,) {
         class:                  "JPOP";
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_BROWN),string(OVERPASS_1SIDE_BOTTOM_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BROWN),string(NEAR_SIDE),string(SOUTH_EXIT),string(PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_btm_north_platform_brown_city_view;
@@ -3736,8 +4385,8 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_platform_black,) {
         class:                  "JPOP";
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_BLACK),string(OVERPASS_1SIDE_BOTTOM_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BLACK),string(NEAR_SIDE),string(SOUTH_EXIT),string(PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_btm_north_platform_black_city_view;
@@ -3776,7 +4425,7 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_platform_black,) {
                     palette: recolour_remap + 0;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
                 }
@@ -3802,7 +4451,7 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_platform_black,) {
                     palette: recolour_remap + 0;
                     xextent: 3;
                     yextent: 16;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 13;
                     yoffset: 0;
                 }
@@ -3834,7 +4483,7 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_platform_black,) {
                     palette: recolour_remap + 1;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
             }
@@ -3860,7 +4509,7 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_platform_black,) {
                 palette: recolour_remap + 1;
                 xextent: 3;
                 yextent: 16;
-                zextent: 3;
+                zextent: 24;
                 xoffset: 13;
                 yoffset: 0;
             }
@@ -3892,7 +4541,7 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_platform_black,) {
                     palette: recolour_remap + 2;
                     xextent: 16;
                     yextent: 3;
-                    zextent: 3;
+                    zextent: 24;
                     xoffset: 0;
                     yoffset: 13;
             }
@@ -3918,7 +4567,7 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_platform_black,) {
                 palette: recolour_remap + 2;
                 xextent: 3;
                 yextent: 16;
-                zextent: 3;
+                zextent: 24;
                 xoffset: 13;
                 yoffset: 0;
             }
@@ -3936,8 +4585,8 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_green,) {
         classname:              string(STR_CAT_OVERPASS);
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_GREEN),string(OVERPASS_1SIDE_BOTTOM_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(GREEN),string(NEAR_SIDE),string(SOUTH_EXIT),string(NO_PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_btm_north_noplatform_green_city_view;
@@ -3949,8 +4598,8 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_brown,) {
         class:                  "JPOP";
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_BROWN),string(OVERPASS_1SIDE_BOTTOM_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BROWN),string(NEAR_SIDE),string(SOUTH_EXIT),string(NO_PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_btm_north_noplatform_brown_city_view;
@@ -3962,11 +4611,463 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_black,) {
         class:                  "JPOP";
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_CONCAT_2, string(STR_BLACK),string(OVERPASS_1SIDE_BOTTOM_NORTH));
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BLACK),string(NEAR_SIDE),string(SOUTH_EXIT),string(NO_PLATFORM));
     }
     graphics {
         default:                sw_overpass_1side_btm_north_noplatform_black_city_view;
+    }
+}
+# 1 "JPplusTrams.pnml" 4
+# 1 "src/stops/overpass/overpass_1side_btm_both_platform.pnml" 1
+
+
+// Spritesets
+    spriteset (ss_overpass_1side_btm_both_platform_thru_1, "src/stops/overpass/overpass_1side_btm_both_platform.png") {tmpl_roadstop(0,0,-31,-33)}
+    spriteset (ss_overpass_1side_btm_both_platform_thru_2, "src/stops/overpass/overpass_1side_btm_both_platform.png") {tmpl_roadstop(1,0,-57,-46)}
+    spriteset (ss_overpass_1side_btm_both_platform_thru_3, "src/stops/overpass/overpass_1side_btm_both_platform.png") {tmpl_roadstop(2,0,-5,-46)}
+    spriteset (ss_overpass_1side_btm_both_platform_thru_4, "src/stops/overpass/overpass_1side_btm_both_platform.png") {tmpl_roadstop(3,0,-31,-33)}
+
+// Both
+    // Green
+        // X
+            spritelayout spritelayout_overpass_1side_btm_both_platform_green_x_city {
+                ground {
+                sprite: 1314;
+                }
+                building {
+                    sprite: ss_overpass_1side_btm_both_platform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+                }            
+                building {
+                    sprite: ss_overpass_1side_btm_both_platform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+                }
+            }
+        // Y
+            spritelayout spritelayout_overpass_1side_btm_both_platform_green_y_city {
+                ground {
+                    sprite: 1313;
+                }
+                building {
+                    sprite: ss_overpass_1side_btm_both_platform_thru_4;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 3;
+                    yextent: 16;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_1side_btm_both_platform_thru_3;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 3;
+                    yextent: 16;
+                    zextent: 24;
+                    xoffset: 13;
+                    yoffset: 0;
+                }
+            }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_1side_btm_both_platform_green_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_1side_btm_both_platform_green_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_1side_btm_both_platform_green_y_city;
+        }
+
+    // Brown
+        spritelayout spritelayout_overpass_1side_btm_both_platform_brown_x_city {
+            ground {
+            sprite: 1314;
+            }
+                building {
+                    sprite: ss_overpass_1side_btm_both_platform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 1;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_1side_btm_both_platform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 1;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_overpass_1side_btm_both_platform_brown_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: ss_overpass_1side_btm_both_platform_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 1;
+                xextent: 3;
+                yextent: 16;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: ss_overpass_1side_btm_both_platform_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 1;
+                xextent: 3;
+                yextent: 16;
+                zextent: 24;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_1side_btm_both_platform_brown_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_1side_btm_both_platform_brown_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_1side_btm_both_platform_brown_y_city;
+        }
+
+    // Black
+        spritelayout spritelayout_overpass_1side_btm_both_platform_black_x_city {
+            ground {
+            sprite: 1314;
+            }
+                building {
+                    sprite: ss_overpass_1side_btm_both_platform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 2;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_1side_btm_both_platform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 2;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_overpass_1side_btm_both_platform_black_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: ss_overpass_1side_btm_both_platform_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 2;
+                xextent: 3;
+                yextent: 16;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: ss_overpass_1side_btm_both_platform_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 2;
+                xextent: 3;
+                yextent: 16;
+                zextent: 24;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_1side_btm_both_platform_black_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_1side_btm_both_platform_black_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_1side_btm_both_platform_black_y_city;
+        }
+
+
+item (FEAT_ROADSTOPS, overpass_1side_btm_both_platform_green,) {
+    property {
+        class:                  "JPOP";
+        classname:              string(STR_CAT_OVERPASS);
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(GREEN),string(NEAR_SIDE),string(DUAL_EXITS),string(PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_1side_btm_both_platform_green_city_view;
+    }
+}
+
+item (FEAT_ROADSTOPS, overpass_1side_btm_both_platform_brown,) {
+    property {
+        class:                  "JPOP";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BROWN),string(NEAR_SIDE),string(DUAL_EXITS),string(PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_1side_btm_both_platform_brown_city_view;
+    }
+}
+
+item (FEAT_ROADSTOPS, overpass_1side_btm_both_platform_black,) {
+    property {
+        class:                  "JPOP";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BLACK),string(NEAR_SIDE),string(DUAL_EXITS),string(PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_1side_btm_both_platform_black_city_view;
+    }
+}
+# 1 "JPplusTrams.pnml" 4
+# 1 "src/stops/overpass/overpass_1side_btm_both_noplatform.pnml" 1
+
+
+// Spritesets
+    spriteset (ss_overpass_1side_btm_both_noplatform_thru_1, "src/stops/overpass/overpass_1side_btm_both_noplatform.png") {tmpl_roadstop(0,0,-31,-33)}
+    spriteset (ss_overpass_1side_btm_both_noplatform_thru_2, "src/stops/overpass/overpass_1side_btm_both_noplatform.png") {tmpl_roadstop(1,0,-57,-46)}
+    spriteset (ss_overpass_1side_btm_both_noplatform_thru_3, "src/stops/overpass/overpass_1side_btm_both_noplatform.png") {tmpl_roadstop(2,0,-5,-46)}
+    spriteset (ss_overpass_1side_btm_both_noplatform_thru_4, "src/stops/overpass/overpass_1side_btm_both_noplatform.png") {tmpl_roadstop(3,0,-31,-33)}
+
+// Both
+    // Green
+        // X
+            spritelayout spritelayout_overpass_1side_btm_both_noplatform_green_x_city {
+                ground {
+                sprite: 1314;
+                }
+                building {
+                    sprite: ss_overpass_1side_btm_both_noplatform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+                }            
+                building {
+                    sprite: ss_overpass_1side_btm_both_noplatform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+                }
+            }
+        // Y
+            spritelayout spritelayout_overpass_1side_btm_both_noplatform_green_y_city {
+                ground {
+                    sprite: 1313;
+                }
+                building {
+                    sprite: ss_overpass_1side_btm_both_noplatform_thru_4;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 3;
+                    yextent: 16;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_1side_btm_both_noplatform_thru_3;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 3;
+                    yextent: 16;
+                    zextent: 24;
+                    xoffset: 13;
+                    yoffset: 0;
+                }
+            }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_1side_btm_both_noplatform_green_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_1side_btm_both_noplatform_green_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_1side_btm_both_noplatform_green_y_city;
+        }
+
+    // Brown
+        spritelayout spritelayout_overpass_1side_btm_both_noplatform_brown_x_city {
+            ground {
+            sprite: 1314;
+            }
+                building {
+                    sprite: ss_overpass_1side_btm_both_noplatform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 1;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_1side_btm_both_noplatform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 1;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_overpass_1side_btm_both_noplatform_brown_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: ss_overpass_1side_btm_both_noplatform_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 1;
+                xextent: 3;
+                yextent: 16;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: ss_overpass_1side_btm_both_noplatform_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 1;
+                xextent: 3;
+                yextent: 16;
+                zextent: 24;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_1side_btm_both_noplatform_brown_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_1side_btm_both_noplatform_brown_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_1side_btm_both_noplatform_brown_y_city;
+        }
+
+    // Black
+        spritelayout spritelayout_overpass_1side_btm_both_noplatform_black_x_city {
+            ground {
+            sprite: 1314;
+            }
+                building {
+                    sprite: ss_overpass_1side_btm_both_noplatform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 2;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_1side_btm_both_noplatform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 2;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_overpass_1side_btm_both_noplatform_black_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: ss_overpass_1side_btm_both_noplatform_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 2;
+                xextent: 3;
+                yextent: 16;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: ss_overpass_1side_btm_both_noplatform_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 2;
+                xextent: 3;
+                yextent: 16;
+                zextent: 24;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_1side_btm_both_noplatform_black_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_1side_btm_both_noplatform_black_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_1side_btm_both_noplatform_black_y_city;
+        }
+
+
+item (FEAT_ROADSTOPS, overpass_1side_btm_both_noplatform_green,) {
+    property {
+        class:                  "JPOP";
+        classname:              string(STR_CAT_OVERPASS);
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(GREEN),string(NEAR_SIDE),string(DUAL_EXITS),string(NO_PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_1side_btm_both_noplatform_green_city_view;
+    }
+}
+
+item (FEAT_ROADSTOPS, overpass_1side_btm_both_noplatform_brown,) {
+    property {
+        class:                  "JPOP";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BROWN),string(NEAR_SIDE),string(DUAL_EXITS),string(NO_PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_1side_btm_both_noplatform_brown_city_view;
+    }
+}
+
+item (FEAT_ROADSTOPS, overpass_1side_btm_both_noplatform_black,) {
+    property {
+        class:                  "JPOP";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BLACK),string(NEAR_SIDE),string(DUAL_EXITS),string(NO_PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_1side_btm_both_noplatform_black_city_view;
     }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -4000,7 +5101,7 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_black,) {
             palette: recolour_remap + 0;
             xextent: 16;
             yextent: 3;
-            zextent: 3;
+            zextent: 24;
             xoffset: 0;
             yoffset: 13;
         }
@@ -4024,9 +5125,9 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_black,) {
             sprite: ss_overpass_nostairs_platform_thru_3;
             recolour_mode: RECOLOUR_REMAP;
             palette: recolour_remap + 0;
-            xextent: 3;
-            yextent: 16;
-            zextent: 3;
+            xextent: 16;
+            yextent: 6;
+            zextent: 24;
             xoffset: 13;
             yoffset: 0;
         }
@@ -4058,7 +5159,7 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_black,) {
             palette: recolour_remap + 1;
             xextent: 16;
             yextent: 3;
-            zextent: 3;
+            zextent: 24;
             xoffset: 0;
             yoffset: 13;
         }
@@ -4084,7 +5185,7 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_black,) {
             palette: recolour_remap + 1;
             xextent: 3;
             yextent: 16;
-            zextent: 3;
+            zextent: 24;
             xoffset: 13;
             yoffset: 0;
         }
@@ -4116,7 +5217,7 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_black,) {
             palette: recolour_remap + 2;
             xextent: 16;
             yextent: 3;
-            zextent: 3;
+            zextent: 24;
             xoffset: 0;
             yoffset: 13;
         }
@@ -4142,7 +5243,7 @@ item (FEAT_ROADSTOPS, overpass_1side_btm_north_noplatform_black,) {
             palette: recolour_remap + 2;
             xextent: 3;
             yextent: 16;
-            zextent: 3;
+            zextent: 24;
             xoffset: 13;
             yoffset: 0;
         }
@@ -4159,7 +5260,7 @@ item (FEAT_ROADSTOPS, overpass_nostairs_platform_green,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_GREEN),string(OVERPASS_NOSTAIRS));
+        name:                   string(STR_CONCAT_3, string(GREEN),string(NO_EXITS),string(PLATFORM));
     }
     graphics {
         default:                switch_overpass_nostairs_platform_green_city_view;
@@ -4172,7 +5273,7 @@ item (FEAT_ROADSTOPS, overpass_nostairs_platform_brown,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_BROWN),string(OVERPASS_NOSTAIRS));
+        name:                   string(STR_CONCAT_3, string(BROWN),string(NO_EXITS),string(PLATFORM));
     }
     graphics {
         default:                switch_overpass_nostairs_platform_brown_city_view;
@@ -4185,7 +5286,7 @@ item (FEAT_ROADSTOPS, overpass_nostairs_platform_black,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_BLACK),string(OVERPASS_NOSTAIRS));
+        name:                   string(STR_CONCAT_3, string(BLACK),string(NO_EXITS),string(PLATFORM));
     }
     graphics {
         default:                switch_overpass_nostairs_platform_black_city_view;
@@ -4222,7 +5323,7 @@ item (FEAT_ROADSTOPS, overpass_nostairs_platform_black,) {
             palette: recolour_remap + 0;
             xextent: 16;
             yextent: 3;
-            zextent: 3;
+            zextent: 24;
             xoffset: 0;
             yoffset: 13;
         }
@@ -4248,7 +5349,7 @@ item (FEAT_ROADSTOPS, overpass_nostairs_platform_black,) {
             palette: recolour_remap + 0;
             xextent: 3;
             yextent: 16;
-            zextent: 3;
+            zextent: 24;
             xoffset: 13;
             yoffset: 0;
         }
@@ -4280,7 +5381,7 @@ item (FEAT_ROADSTOPS, overpass_nostairs_platform_black,) {
             palette: recolour_remap + 1;
             xextent: 16;
             yextent: 3;
-            zextent: 3;
+            zextent: 24;
             xoffset: 0;
             yoffset: 13;
         }
@@ -4306,7 +5407,7 @@ item (FEAT_ROADSTOPS, overpass_nostairs_platform_black,) {
             palette: recolour_remap + 1;
             xextent: 3;
             yextent: 16;
-            zextent: 3;
+            zextent: 24;
             xoffset: 13;
             yoffset: 0;
         }
@@ -4338,7 +5439,7 @@ item (FEAT_ROADSTOPS, overpass_nostairs_platform_black,) {
             palette: recolour_remap + 2;
             xextent: 16;
             yextent: 3;
-            zextent: 3;
+            zextent: 24;
             xoffset: 0;
             yoffset: 13;
         }
@@ -4364,7 +5465,7 @@ item (FEAT_ROADSTOPS, overpass_nostairs_platform_black,) {
             palette: recolour_remap + 2;
             xextent: 3;
             yextent: 16;
-            zextent: 3;
+            zextent: 24;
             xoffset: 13;
             yoffset: 0;
         }
@@ -4381,7 +5482,7 @@ item (FEAT_ROADSTOPS, overpass_nostairs_noplatform_green,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_GREEN),string(OVERPASS_NOSTAIRS));
+        name:                   string(STR_CONCAT_3, string(GREEN),string(NO_EXITS),string(NO_PLATFORM));
     }
     graphics {
         default:                switch_overpass_nostairs_noplatform_green_city_view;
@@ -4394,7 +5495,7 @@ item (FEAT_ROADSTOPS, overpass_nostairs_noplatform_brown,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_BROWN),string(OVERPASS_NOSTAIRS));
+        name:                   string(STR_CONCAT_3, string(BROWN),string(NO_EXITS),string(NO_PLATFORM));
     }
     graphics {
         default:                switch_overpass_nostairs_noplatform_brown_city_view;
@@ -4407,10 +5508,462 @@ item (FEAT_ROADSTOPS, overpass_nostairs_noplatform_black,) {
         availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
         draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
         general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
-        name:                   string(STR_CONCAT_2, string(STR_BLACK),string(OVERPASS_NOSTAIRS));
+        name:                   string(STR_CONCAT_3, string(BLACK),string(NO_EXITS),string(NO_PLATFORM));
     }
     graphics {
         default:                switch_overpass_nostairs_noplatform_black_city_view;
+    }
+}
+# 1 "JPplusTrams.pnml" 4
+# 1 "src/stops/overpass/overpass_2sides_south_platform.pnml" 1
+
+
+// Spritesets
+    spriteset (ss_overpass_2sides_south_platform_thru_1, "src/stops/overpass/overpass_2sides_south_platform.png") {tmpl_roadstop(0,0,-31,-33)}
+    spriteset (ss_overpass_2sides_south_platform_thru_2, "src/stops/overpass/overpass_2sides_south_platform.png") {tmpl_roadstop(1,0,-57,-46)}
+    spriteset (ss_overpass_2sides_south_platform_thru_3, "src/stops/overpass/overpass_2sides_south_platform.png") {tmpl_roadstop(2,0,-5,-46)}
+    spriteset (ss_overpass_2sides_south_platform_thru_4, "src/stops/overpass/overpass_2sides_south_platform.png") {tmpl_roadstop(3,0,-31,-33)}
+
+// South
+    // Green
+        // X
+            spritelayout spritelayout_overpass_2sides_south_platform_green_x_city {
+                ground {
+                sprite: 1314;
+                }
+                building {
+                    sprite: ss_overpass_2sides_south_platform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+                }            
+                building {
+                    sprite: ss_overpass_2sides_south_platform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+                }
+            }
+        // Y
+            spritelayout spritelayout_overpass_2sides_south_platform_green_y_city {
+                ground {
+                    sprite: 1313;
+                }
+                building {
+                    sprite: ss_overpass_2sides_south_platform_thru_4;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 3;
+                    yextent: 16;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_2sides_south_platform_thru_3;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 3;
+                    yextent: 16;
+                    zextent: 24;
+                    xoffset: 13;
+                    yoffset: 0;
+                }
+            }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_2sides_south_platform_green_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_2sides_south_platform_green_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_2sides_south_platform_green_y_city;
+        }
+
+    // Brown
+        spritelayout spritelayout_overpass_2sides_south_platform_brown_x_city {
+            ground {
+            sprite: 1314;
+            }
+                building {
+                    sprite: ss_overpass_2sides_south_platform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 1;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_2sides_south_platform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 1;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_overpass_2sides_south_platform_brown_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: ss_overpass_2sides_south_platform_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 1;
+                xextent: 3;
+                yextent: 16;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: ss_overpass_2sides_south_platform_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 1;
+                xextent: 3;
+                yextent: 16;
+                zextent: 24;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_2sides_south_platform_brown_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_2sides_south_platform_brown_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_2sides_south_platform_brown_y_city;
+        }
+
+    // Black
+        spritelayout spritelayout_overpass_2sides_south_platform_black_x_city {
+            ground {
+            sprite: 1314;
+            }
+                building {
+                    sprite: ss_overpass_2sides_south_platform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 2;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_2sides_south_platform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 2;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_overpass_2sides_south_platform_black_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: ss_overpass_2sides_south_platform_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 2;
+                xextent: 3;
+                yextent: 16;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: ss_overpass_2sides_south_platform_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 2;
+                xextent: 3;
+                yextent: 16;
+                zextent: 24;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_2sides_south_platform_black_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_2sides_south_platform_black_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_2sides_south_platform_black_y_city;
+        }
+
+
+item (FEAT_ROADSTOPS, overpass_2sides_south_platform_green,) {
+    property {
+        class:                  "JPOP";
+        classname:              string(STR_CAT_OVERPASS);
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(GREEN),string(DUAL_SIDES),string(NORTH_EXITS),string(PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_2sides_south_platform_green_city_view;
+    }
+}
+
+item (FEAT_ROADSTOPS, overpass_2sides_south_platform_brown,) {
+    property {
+        class:                  "JPOP";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BROWN),string(DUAL_SIDES),string(NORTH_EXITS),string(PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_2sides_south_platform_brown_city_view;
+    }
+}
+
+item (FEAT_ROADSTOPS, overpass_2sides_south_platform_black,) {
+    property {
+        class:                  "JPOP";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BLACK),string(DUAL_SIDES),string(NORTH_EXITS),string(PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_2sides_south_platform_black_city_view;
+    }
+}
+# 1 "JPplusTrams.pnml" 4
+# 1 "src/stops/overpass/overpass_2sides_south_noplatform.pnml" 1
+
+
+// Spritesets
+    spriteset (ss_overpass_2sides_south_noplatform_thru_1, "src/stops/overpass/overpass_2sides_south_noplatform.png") {tmpl_roadstop(0,0,-31,-33)}
+    spriteset (ss_overpass_2sides_south_noplatform_thru_2, "src/stops/overpass/overpass_2sides_south_noplatform.png") {tmpl_roadstop(1,0,-57,-46)}
+    spriteset (ss_overpass_2sides_south_noplatform_thru_3, "src/stops/overpass/overpass_2sides_south_noplatform.png") {tmpl_roadstop(2,0,-5,-46)}
+    spriteset (ss_overpass_2sides_south_noplatform_thru_4, "src/stops/overpass/overpass_2sides_south_noplatform.png") {tmpl_roadstop(3,0,-31,-33)}
+
+// South
+    // Green
+        // X
+            spritelayout spritelayout_overpass_2sides_south_noplatform_green_x_city {
+                ground {
+                sprite: 1314;
+                }
+                building {
+                    sprite: ss_overpass_2sides_south_noplatform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+                }            
+                building {
+                    sprite: ss_overpass_2sides_south_noplatform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+                }
+            }
+        // Y
+            spritelayout spritelayout_overpass_2sides_south_noplatform_green_y_city {
+                ground {
+                    sprite: 1313;
+                }
+                building {
+                    sprite: ss_overpass_2sides_south_noplatform_thru_4;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 3;
+                    yextent: 16;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_2sides_south_noplatform_thru_3;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 0;
+                    xextent: 3;
+                    yextent: 16;
+                    zextent: 24;
+                    xoffset: 13;
+                    yoffset: 0;
+                }
+            }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_2sides_south_noplatform_green_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_2sides_south_noplatform_green_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_2sides_south_noplatform_green_y_city;
+        }
+
+    // Brown
+        spritelayout spritelayout_overpass_2sides_south_noplatform_brown_x_city {
+            ground {
+            sprite: 1314;
+            }
+                building {
+                    sprite: ss_overpass_2sides_south_noplatform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 1;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_2sides_south_noplatform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 1;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_overpass_2sides_south_noplatform_brown_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: ss_overpass_2sides_south_noplatform_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 1;
+                xextent: 3;
+                yextent: 16;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: ss_overpass_2sides_south_noplatform_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 1;
+                xextent: 3;
+                yextent: 16;
+                zextent: 24;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_2sides_south_noplatform_brown_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_2sides_south_noplatform_brown_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_2sides_south_noplatform_brown_y_city;
+        }
+
+    // Black
+        spritelayout spritelayout_overpass_2sides_south_noplatform_black_x_city {
+            ground {
+            sprite: 1314;
+            }
+                building {
+                    sprite: ss_overpass_2sides_south_noplatform_thru_1;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 2;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 3;
+                    xoffset: 0;
+                    yoffset: 0;
+            }
+                building {
+                    sprite: ss_overpass_2sides_south_noplatform_thru_2;
+                    recolour_mode: RECOLOUR_REMAP;
+                    palette: recolour_remap + 2;
+                    xextent: 16;
+                    yextent: 3;
+                    zextent: 24;
+                    xoffset: 0;
+                    yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_overpass_2sides_south_noplatform_black_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: ss_overpass_2sides_south_noplatform_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 2;
+                xextent: 3;
+                yextent: 16;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: ss_overpass_2sides_south_noplatform_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: recolour_remap + 2;
+                xextent: 3;
+                yextent: 16;
+                zextent: 24;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, sw_overpass_2sides_south_noplatform_black_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_overpass_2sides_south_noplatform_black_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_overpass_2sides_south_noplatform_black_y_city;
+        }
+
+
+item (FEAT_ROADSTOPS, overpass_2sides_south_noplatform_green,) {
+    property {
+        class:                  "JPOP";
+        classname:              string(STR_CAT_OVERPASS);
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(GREEN),string(DUAL_SIDES),string(NORTH_EXITS),string(NO_PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_2sides_south_noplatform_green_city_view;
+    }
+}
+
+item (FEAT_ROADSTOPS, overpass_2sides_south_noplatform_brown,) {
+    property {
+        class:                  "JPOP";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BROWN),string(DUAL_SIDES),string(NORTH_EXITS),string(NO_PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_2sides_south_noplatform_brown_city_view;
+    }
+}
+
+item (FEAT_ROADSTOPS, overpass_2sides_south_noplatform_black,) {
+    property {
+        class:                  "JPOP";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_4, string(BLACK),string(DUAL_SIDES),string(NORTH_EXITS),string(NO_PLATFORM));
+    }
+    graphics {
+        default:                sw_overpass_2sides_south_noplatform_black_city_view;
     }
 }
 # 1 "JPplusTrams.pnml" 4
