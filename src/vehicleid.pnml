@@ -17,6 +17,9 @@ item(FEAT_ROADVEHS, item_kuma8200,      14 ) {}
 item(FEAT_ROADVEHS, item_kuma8500,      15 ) {}
 item(FEAT_ROADVEHS, item_kuma8800,      16 ) {}
 item(FEAT_ROADVEHS, item_kuma8800_101,  17 ) {}
+item(FEAT_ROADVEHS, item_kuma1350,      18 ) {}
+item(FEAT_ROADVEHS, item_kuma1200,      19 ) {}
+item(FEAT_ROADVEHS, item_kuma1090,      20 ) {}
 
 // Sort Order in Menu
 sort(FEAT_ROADVEHS, [
@@ -42,6 +45,9 @@ sort(FEAT_ROADVEHS, [
 // Kumamoto
 9,  // 1951 1060
 10, // 1954 1080
+20, // 1955 1090
+19, // 1958 1200
+18, // 1960 1350
 11, // 1976 5000
 14, // 1982 8200
 15, // 1985 8500

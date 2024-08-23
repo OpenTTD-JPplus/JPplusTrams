@@ -71,6 +71,7 @@ LV_ORANGE                                       :{ORANGE} Orange
 
 LV_CYANRED                                      :{LTBLUE} Cyan {BLACK}& {RED}Red
 LV_GREENORANGE                                  :{GREEN} Green {BLACK}& {ORANGE}Orange
+LV_YELLOWBLUE                                   :{YELLOW} Yellow {BLACK}& {BLUE}Blue
 LV_YELLOWORANGE                                 :{YELLOW} Yellow {BLACK}& {ORANGE}Orange
 LV_PINKYELLOW                                   :{CREAM} Pink {BLACK}& {YELLOW}Yellow
 LV_WHITEBLUE                                    :{WHITE} White {BLACK}& {BLUE}Blue
@@ -138,6 +139,9 @@ DES_0800                                        :{GOLD}Original, Cocoro, 1cc & 2
 LV_COCORO                                       : "Cocoro"
 
 STR_1080                                        :1080 Series
+STR_KUMA1090                                    :1090 Series
+STR_KUMA1200                                    :1200 Series
+STR_KUMA1350                                    :1350 Series
 STR_5000                                        :5000 Series
 
 STR_9700                                        :9700 Series
