@@ -177,6 +177,7 @@ STR_NAME_TEST                                   :Roadstop JP
 
 STR_CAT_OVERPASS                                :JP+ Overpasses
 STR_CAT_PLATFORMS                               :JP+ Platforms
+STR_CAT_BUILDINGS                               :JP+ Station Buildings
 
 # Colours
 GREEN                                           :Green
@@ -210,3 +211,4 @@ OVERPASS_2SIDES_BOTH                            :Stairs in both sides & directio
 OVERPASS_1SIDE_BOTTOM_BOTH                      :Stairs at bottom, both sides
 
 STR_KUMAMOTO                                    :Kumamoto Platform
+STR_KAMIKUMAMOTO                                :Kamikumamoto

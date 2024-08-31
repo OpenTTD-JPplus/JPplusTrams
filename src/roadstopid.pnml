@@ -2,6 +2,12 @@
 // All
 item(FEAT_ROADSTOPS, platform_base,                             1  ) {}
 
+item(FEAT_ROADSTOPS, kumamoto01_all,                            47 ) {}
+item(FEAT_ROADSTOPS, kumamoto01_top,                            48 ) {}
+item(FEAT_ROADSTOPS, kumamoto01_btm,                            49 ) {}
+
+item(FEAT_ROADSTOPS, kumamoto02,                                50 ) {}
+
 // Overpass
 item(FEAT_ROADSTOPS, overpass_2sides_north_platform_green,      2  ) {}
 item(FEAT_ROADSTOPS, overpass_2sides_north_platform_brown,      3  ) {}
@@ -58,5 +64,9 @@ item(FEAT_ROADSTOPS, overpass_2sides_south_platform_black,      40 ) {}
 item(FEAT_ROADSTOPS, overpass_2sides_south_noplatform_green,    41 ) {}
 item(FEAT_ROADSTOPS, overpass_2sides_south_noplatform_brown,    42 ) {}
 item(FEAT_ROADSTOPS, overpass_2sides_south_noplatform_black,    43 ) {}
+
+item(FEAT_ROADSTOPS, overpass_nontrack_green,                   44 ) {}
+item(FEAT_ROADSTOPS, overpass_nontrack_brown,                   45 ) {}
+item(FEAT_ROADSTOPS, overpass_nontrack_black,                   46 ) {}
 
 // Kumamoto
