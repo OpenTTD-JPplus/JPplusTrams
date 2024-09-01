@@ -6,6 +6,10 @@ item(FEAT_ROADSTOPS, kumamoto01_all,                            47 ) {}
 item(FEAT_ROADSTOPS, kumamoto01_top,                            48 ) {}
 item(FEAT_ROADSTOPS, kumamoto01_btm,                            49 ) {}
 
+item(FEAT_ROADSTOPS, utsunomiya01_all,                          51 ) {}
+item(FEAT_ROADSTOPS, utsunomiya01_top,                          52 ) {}
+item(FEAT_ROADSTOPS, utsunomiya01_btm,                          53 ) {}
+
 item(FEAT_ROADSTOPS, kumamoto02,                                50 ) {}
 
 // Overpass
