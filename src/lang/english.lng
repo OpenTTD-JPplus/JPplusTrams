@@ -68,6 +68,7 @@ LV_CYAN                                         :{LTBLUE} Cyan
 LV_TURQ                                         :{LTBLUE} Turquoise
 LV_PEACH                                        :{CREAM} Peach
 LV_ORANGE                                       :{ORANGE} Orange     
+LV_PINK                                         :{CREAM} Pink
 
 LV_CYANRED                                      :{LTBLUE} Cyan {BLACK}& {RED}Red
 LV_GREENORANGE                                  :{GREEN} Green {BLACK}& {ORANGE}Orange
@@ -82,6 +83,7 @@ LV_WBG                                          :{BLUE} Blue {BLACK}& {GREEN}Gre
 LV_ORANGEWHITE                                  :{ORANGE} Orange {BLACK} &{WHITE}White
 LV_BLUEWHITE                                    :{LTBLUE} Blue {BLACK} &{WHITE}White
 LV_REDWHITE                                     :{RED} Red{BLACK} &{WHITE}White
+LV_REDWHITEGOLD                                 :{RED} Red{BLACK}, {WHITE}White{BLACK}& {GOLD}Gold
 LV_PINKWHITE                                    :{CREAM} Pink{BLACK} &{WHITE}White
 LV_MAROONBROWN                                  :{RED} Maroon {BLACK} &{BROWN}Brown
 LV_WHITEBLUERED                                 :{WHITE} White {BLACK}, {BLUE}Blue{BLACK}& {RED}Red
