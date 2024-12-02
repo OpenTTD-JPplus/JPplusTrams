@@ -82,6 +82,7 @@ LV_REDORANGE                                    :{RED} Red{BLACK} & {ORANGE} Ora
 LV_WBG                                          :{BLUE} Blue {BLACK}& {GREEN}Green
 LV_ORANGEWHITE                                  :{ORANGE} Orange {BLACK} &{WHITE}White
 LV_BLUEWHITE                                    :{LTBLUE} Blue {BLACK} &{WHITE}White
+LV_REDBLUE                                      :{RED} Red{BLACK} &{BLUE}Blue
 LV_REDWHITE                                     :{RED} Red{BLACK} &{WHITE}White
 LV_REDWHITEGOLD                                 :{RED} Red{BLACK}, {WHITE}White{BLACK}& {GOLD}Gold
 LV_PINKWHITE                                    :{CREAM} Pink{BLACK} &{WHITE}White
