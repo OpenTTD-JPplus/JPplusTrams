@@ -3,11 +3,11 @@
 # https://newgrf-specs.tt-wiki.net/wiki/NML:Language_files
 
 STR_GRF_NAME							        :{TITLE} {VERSION}
-STR_GRF_DESC							        :{WHITE}JP{RED}+{WHITE}Trams{}{}{}{BLACK}PENDING{}{}{BLACK}{COPYRIGHT}JP+Trams{}Licence: GPLv2{}{BLACK}{}{BLACK}Coded by{}{LTBLUE}KeepinItRail
+STR_GRF_DESC							        :{WHITE}JP{RED}+{WHITE}Trams{}{}{WHITE}JP{RED}+{WHITE}Trams{BLACK} is the lastest edition to the JP+ Family.{}{}Currently it includes various Kumamoto Trams and the Utsunomiya LRT. Release model expected to be on a city by city basis.{}{}{BLACK}{COPYRIGHT}JP+Trams{}Licence: GPLv2{}{BLACK}{}{BLACK}Coded by{}{LTBLUE}KeepinItRail
 
 STR_WEBSITE								        :https://github.com/KeepinItRail/JPplusTrams
 
-STR_ERROR_GAME_VERSION					        :JP+ Trams requires JGRPP version 0.57.0, or better
+STR_ERROR_GAME_VERSION					        :JP+ Trams requires JGRPP version 0.62.0, or better
 
 STR_CONCAT_2	                                :{STRING} {STRING}
 STR_CONCAT_3	                                :{STRING} {STRING} {STRING}

@@ -3,6 +3,11 @@
 spriteset (sprite_logo_lightline, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/logos/lightline.png") { tmpl_p() }
 switch(FEAT_ROADVEHS, SELF, logo_lightline, param_hide_logo) {1:sprite_logo_lightline;}
 
+// Kumamoto
+spriteset (sprite_logo_kumamoto, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/logos/kumamoto.png") { tmpl_p() }
+switch(FEAT_ROADVEHS, SELF, logo_kumamoto, param_hide_logo) {1:sprite_logo_kumamoto;}
+
+/*
 // Fukui
 spriteset (sprite_logo_fukui,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/logos/fukui.png") { tmpl_p() }
 switch(FEAT_ROADVEHS, SELF, logo_fukui, param_hide_logo) {1:sprite_logo_fukui;}
@@ -19,18 +24,15 @@ switch(FEAT_ROADVEHS, SELF, logo_manyosen, param_hide_logo) {1:sprite_logo_manyo
 spriteset (sprite_logo_echizen, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/logos/echizen.png") { tmpl_p() }
 switch(FEAT_ROADVEHS, SELF, logo_echizen, param_hide_logo) {1:sprite_logo_echizen;}
 
-// Kumamoto
-spriteset (sprite_logo_kumamoto, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/logos/kumamoto.png") { tmpl_p() }
-switch(FEAT_ROADVEHS, SELF, logo_kumamoto, param_hide_logo) {1:sprite_logo_kumamoto;}
-
 // Toyama
 spriteset (sprite_logo_toyama, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/logos/toyama.png") { tmpl_p() }
 switch(FEAT_ROADVEHS, SELF, logo_toyama, param_hide_logo) {1:sprite_logo_toyama;}
 
 // Hiroshima
-//spriteset (sprite_logo_hiroshima, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/logos/hiroshima.png") { tmpl_p() }
-//switch(FEAT_ROADVEHS, SELF, logo_hiroshima, param_hide_logo) {1:sprite_logo_hiroshima;}
+spriteset (sprite_logo_hiroshima, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/logos/hiroshima.png") { tmpl_p() }
+switch(FEAT_ROADVEHS, SELF, logo_hiroshima, param_hide_logo) {1:sprite_logo_hiroshima;}
 
 // Tokyo Metropolitan
-//spriteset (sprite_logo_tokyometropolitan,"src/logos/tokyometropolitan.png") { tmpl_p() }
-//switch(FEAT_ROADVEHS, SELF, logo_tokyometropolitan, param_hide_logo) {1:sprite_logo_tokyometropolitan;}
+spriteset (sprite_logo_tokyometropolitan,"src/logos/tokyometropolitan.png") { tmpl_p() }
+switch(FEAT_ROADVEHS, SELF, logo_tokyometropolitan, param_hide_logo) {1:sprite_logo_tokyometropolitan;}
+*/

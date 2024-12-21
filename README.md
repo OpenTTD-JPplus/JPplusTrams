@@ -8,14 +8,15 @@ This is the latest edition to the JP+ Family.
 **Coding:** KeepinItRail\
 **Graphics:** KeepinItRail\
 **Translations:** pending
+**Soecial thanks:** JP+ Crew
 
 ## Features
 
 * Choose different liveries via the Cargo Subtype Menu
 * Real World Stats were possible (or approximations when not known)
 * Parameters for;
-    * Hiding Company Logos in the Purchase Menu
-    * Choose which side the doors will open at stops
+    * Hiding Company Logos in the Purchase Menu (default = show)
+    * Choose which side the doors will open at stops (default = left)
     * Capacity
     * Run Cost
     * Buy Cost
@@ -27,8 +28,9 @@ Sorted in a rough north to south ordering
 ### Utsunomiya Light Rail (Tochigi)
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
-|![HU300形](/src/trams/utsunomiya/hu300/hu300_purchase.png)| HU300形| 2024 |
+|![HU300形](/src/trams/utsunomiya/hu300/hu300_purchase.png)| HU300形| 2023 |
 
+<!---
 ### Toyama Region Railway
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
@@ -46,11 +48,12 @@ Sorted in a rough north to south ordering
 |![L形](/src/trams/fukui/l/l_purchase.png)| L形 | 2016 |
 |![F1000形](/src/trams/fukui/f1000/f1000_purchase.png)| F1000形 | 2013 |
 
+
 ### Okayama Electric Tramway
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
 |![9200形](/src/trams/okayama/9200/oka9200_purchase.png)| 9200形 | 2002 |
-<!---
+
 |🚧| 10形 | 1912 |
 |🚧| 100形 | 1928 |
 |🚧| 300形 | 1950 |
@@ -77,19 +80,17 @@ Sorted in a rough north to south ordering
 | :---: | --- | :---:|
 |![1060形](/src/trams/kumamoto/1060/1060_purchase.png)| 1060形 | 1951 |
 |![1080形](src/trams/kumamoto/1080/1080_purchase.png)| 1080形 | 1954 |
-|![1080形](src/trams/kumamoto/5000/5000_purchase.png)| 5000形 | 1976 |
+|![1090形](src/trams/kumamoto/1090/kuma1090_purchase.png)| 1090形 | 1955 |
+|![1200形](src/trams/kumamoto/1200/kuma1200_purchase.png)| 1200形 | 1958 |
+|![1350形](src/trams/kumamoto/1350/kuma1350_purchase.png)| 1350形 | 1960 |
+|![1080形](src/trams/kumamoto/1080/1080_purchase.png)| 1080形 | 1954 |
+|![5000形](src/trams/kumamoto/5000/5000_purchase.png)| 5000形 | 1976 |
 |![8200形](src/trams/kumamoto/8200/kuma8200_purchase.png)| 8200形 | 1982 |
+|![8200形](src/trams/kumamoto/8500/kuma8500_purchase.png)| 8500形 | 1985 |
+|![8200形](src/trams/kumamoto/8800/kuma8800_purchase.png)| 8800形 | 1988 |
 |![9200形](src/trams/kumamoto/9200/kuma9200_purchase.png)| 9200形 | 1992 |
 |![9700形](src/trams/kumamoto/9700/9700_purchase.png)| 9700形 | 1997 |
 |![0800形](/src/trams/kumamoto/0800/0800_purchase.png)| 0800形 | 2009 |
-<!---
-|🚧| 1090形 | 1955 |
-|🚧| 1200形 | 1958 |
-|🚧| 1350形 | 1960 |
-|🚧| 8500形 | 1985 |
-|🚧| 8800形 | 1988 |
-
--->
 
 ## Building
 
