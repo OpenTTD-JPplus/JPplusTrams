@@ -8,8 +8,8 @@ grf {
 	grfid: 						"KR06";
 	name: 						string(STR_GRF_NAME);
 	desc: 						string(STR_GRF_DESC);
-	version: 					010;	// v0.1.0
-	min_compatible_version: 	010;	// v0.1.0
+	version: 					011;	// v0.1.1
+	min_compatible_version: 	011;	// v0.1.1
 	url: 						string(STR_WEBSITE);
 
 	// Hide logo
@@ -334,7 +334,7 @@ switch (FEAT_ROADVEHS, SELF, OpenDoors,
 
     ) {return;}
 
-
+/*
 switch (FEAT_ROADSTOPS, SELF, SameID2NE, nearby_tile_road_stop_id(-1, 0) == 50  ){return;}
 switch (FEAT_ROADSTOPS, SELF, SameID2NW, nearby_tile_road_stop_id( 0,-1) == 50  ){return;}
 switch (FEAT_ROADSTOPS, SELF, SameID2SE, nearby_tile_road_stop_id( 0, 1) == 50  ){return;}
@@ -364,6 +364,7 @@ switch (FEAT_ROADSTOPS, SELF, SameID2SW, nearby_tile_road_stop_id( 1, 0) == 50  
         switch_SE_facing() + 	// 0 or 1
         switch_NW_facing() 	    // 0 or 2
         ){return;}
+        */
 # 1 "JPplusTrams.pnml" 4
 # 1 "src/stats.pnml" 1
 
@@ -3121,275 +3122,7 @@ item (FEAT_ROADSTOPS, kumamoto01_btm,) {
     }
 }
 # 1 "JPplusTrams.pnml" 4
-# 1 "src/stops/kumamoto/kumamoto02.pnml" 1
-
-// Sprites
-
-    spriteset (spriteset_kumamoto02_solo_thru_1, "src/stops/kumamoto/kumamoto02_solo.png") {tmpl_roadstop(0,0,-31,-33)}
-    spriteset (spriteset_kumamoto02_solo_thru_2, "src/stops/kumamoto/kumamoto02_solo.png") {tmpl_roadstop(1,0,-57,-46)}
-    spriteset (spriteset_kumamoto02_solo_thru_3, "src/stops/kumamoto/kumamoto02_solo.png") {tmpl_roadstop(2,0,-5,-46)}
-    spriteset (spriteset_kumamoto02_solo_thru_4, "src/stops/kumamoto/kumamoto02_solo.png") {tmpl_roadstop(3,0,-31,-33)}
-
-    spriteset (spriteset_kumamoto02_both_thru_1, "src/stops/kumamoto/kumamoto02_both.png") {tmpl_roadstop(0,0,-31,-33)}
-    spriteset (spriteset_kumamoto02_both_thru_2, "src/stops/kumamoto/kumamoto02_both.png") {tmpl_roadstop(1,0,-57,-46)}
-    spriteset (spriteset_kumamoto02_both_thru_3, "src/stops/kumamoto/kumamoto02_both.png") {tmpl_roadstop(2,0,-5,-46)}
-    spriteset (spriteset_kumamoto02_both_thru_4, "src/stops/kumamoto/kumamoto02_both.png") {tmpl_roadstop(3,0,-31,-33)}
-
-    spriteset (spriteset_kumamoto02_topp_thru_1, "src/stops/kumamoto/kumamoto02_topp.png") {tmpl_roadstop(0,0,-31,-33)}
-    spriteset (spriteset_kumamoto02_topp_thru_2, "src/stops/kumamoto/kumamoto02_topp.png") {tmpl_roadstop(1,0,-57,-46)}
-    spriteset (spriteset_kumamoto02_topp_thru_3, "src/stops/kumamoto/kumamoto02_topp.png") {tmpl_roadstop(2,0,-5,-46)}
-    spriteset (spriteset_kumamoto02_topp_thru_4, "src/stops/kumamoto/kumamoto02_topp.png") {tmpl_roadstop(3,0,-31,-33)}
-
-    spriteset (spriteset_kumamoto02_bttm_thru_1, "src/stops/kumamoto/kumamoto02_bttm.png") {tmpl_roadstop(0,0,-31,-33)}
-    spriteset (spriteset_kumamoto02_bttm_thru_2, "src/stops/kumamoto/kumamoto02_bttm.png") {tmpl_roadstop(1,0,-57,-46)}
-    spriteset (spriteset_kumamoto02_bttm_thru_3, "src/stops/kumamoto/kumamoto02_bttm.png") {tmpl_roadstop(2,0,-5,-46)}
-    spriteset (spriteset_kumamoto02_bttm_thru_4, "src/stops/kumamoto/kumamoto02_bttm.png") {tmpl_roadstop(3,0,-31,-33)}
-
-
-// Spritelayouts
-    // All
-        spritelayout spritelayout_kumamoto02_solo_all_x_city {
-            ground {
-                sprite: 1314;
-            }
-            building {
-                sprite: spriteset_kumamoto02_solo_thru_1;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 16;
-                yextent: 3;
-                zextent: 3;
-                xoffset: 0;
-                yoffset: 0;
-            }
-            building {
-                sprite: spriteset_kumamoto02_solo_thru_2;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 16;
-                yextent: 3;
-                zextent: 3;
-                xoffset: 0;
-                yoffset: 13;
-            }
-        }
-
-        spritelayout spritelayout_kumamoto02_topp_all_x_city {
-            ground {
-                sprite: 1314;
-            }
-            building {
-                sprite: spriteset_kumamoto02_topp_thru_1;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 16;
-                yextent: 3;
-                zextent: 3;
-                xoffset: 0;
-                yoffset: 0;
-            }
-            building {
-                sprite: spriteset_kumamoto02_topp_thru_2;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 16;
-                yextent: 3;
-                zextent: 3;
-                xoffset: 0;
-                yoffset: 13;
-            }
-        }
-
-        spritelayout spritelayout_kumamoto02_bttm_all_x_city {
-            ground {
-                sprite: 1314;
-            }
-            building {
-                sprite: spriteset_kumamoto02_bttm_thru_1;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 16;
-                yextent: 3;
-                zextent: 3;
-                xoffset: 0;
-                yoffset: 0;
-            }
-            building {
-                sprite: spriteset_kumamoto02_bttm_thru_2;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 16;
-                yextent: 3;
-                zextent: 3;
-                xoffset: 0;
-                yoffset: 13;
-            }
-        }
-
-        spritelayout spritelayout_kumamoto02_both_all_x_city {
-            ground {
-                sprite: 1314;
-            }
-            building {
-                sprite: spriteset_kumamoto02_both_thru_1;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 16;
-                yextent: 3;
-                zextent: 3;
-                xoffset: 0;
-                yoffset: 0;
-            }
-            building {
-                sprite: spriteset_kumamoto02_both_thru_2;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 16;
-                yextent: 3;
-                zextent: 3;
-                xoffset: 0;
-                yoffset: 13;
-            }
-        }
-
-        switch (FEAT_ROADSTOPS, SELF, spritelayout_kumamoto02_all_x_city, BuildingOrderX() ) {
-            0: spritelayout_kumamoto02_solo_all_x_city;
-            1: spritelayout_kumamoto02_topp_all_x_city;
-            2: spritelayout_kumamoto02_bttm_all_x_city;
-            3: spritelayout_kumamoto02_both_all_x_city;
-        }
-
-        spritelayout spritelayout_kumamoto02_solo_all_y_city {
-            ground {
-                sprite: 1313;
-            }
-            building {
-                sprite: spriteset_kumamoto02_solo_thru_4;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 3;
-                yextent: 16;
-                zextent: 3;
-                xoffset: 0;
-                yoffset: 0;
-        }
-            building {
-                sprite: spriteset_kumamoto02_solo_thru_3;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 3;
-                yextent: 16;
-                zextent: 3;
-                xoffset: 13;
-                yoffset: 0;
-            }
-        }
-
-        spritelayout spritelayout_kumamoto02_both_all_y_city {
-            ground {
-                sprite: 1313;
-            }
-            building {
-                sprite: spriteset_kumamoto02_both_thru_4;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 3;
-                yextent: 16;
-                zextent: 3;
-                xoffset: 0;
-                yoffset: 0;
-        }
-            building {
-                sprite: spriteset_kumamoto02_both_thru_3;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 3;
-                yextent: 16;
-                zextent: 3;
-                xoffset: 13;
-                yoffset: 0;
-            }
-        }
-
-        spritelayout spritelayout_kumamoto02_topp_all_y_city {
-            ground {
-                sprite: 1313;
-            }
-            building {
-                sprite: spriteset_kumamoto02_topp_thru_4;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 3;
-                yextent: 16;
-                zextent: 3;
-                xoffset: 0;
-                yoffset: 0;
-        }
-            building {
-                sprite: spriteset_kumamoto02_topp_thru_3;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 3;
-                yextent: 16;
-                zextent: 3;
-                xoffset: 13;
-                yoffset: 0;
-            }
-        }
-
-        spritelayout spritelayout_kumamoto02_bttm_all_y_city {
-            ground {
-                sprite: 1313;
-            }
-            building {
-                sprite: spriteset_kumamoto02_bttm_thru_4;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 3;
-                yextent: 16;
-                zextent: 3;
-                xoffset: 0;
-                yoffset: 0;
-            }
-            building {
-                sprite: spriteset_kumamoto02_bttm_thru_3;
-                recolour_mode: RECOLOUR_REMAP;
-                palette: PALETTE_USE_DEFAULT;
-                xextent: 3;
-                yextent: 16;
-                zextent: 3;
-                xoffset: 13;
-                yoffset: 0;
-            }
-        }
-
-        switch (FEAT_ROADSTOPS, SELF, spritelayout_kumamoto02_all_y_city, BuildingOrderY() ) {
-            0: spritelayout_kumamoto02_solo_all_y_city;
-            1: spritelayout_kumamoto02_topp_all_y_city;
-            2: spritelayout_kumamoto02_bttm_all_y_city;
-            3: spritelayout_kumamoto02_both_all_y_city;
-        }
-
-
-        switch (FEAT_ROADSTOPS, SELF, switch_kumamoto02_all_city_view, view) {
-            RST_VIEW_DRIVE_THROUGH_X: spritelayout_kumamoto02_all_x_city;
-            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_kumamoto02_all_y_city;
-        }
-
-item (FEAT_ROADSTOPS, kumamoto02,) {
-    property {
-        class:                  "JPSB";
-        classname:              string(STR_CAT_BUILDINGS);
-        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
-        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
-        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY,RST_GENERAL_FLAG_NO_AUTO_ROAD_CONNECTION,RST_GENERAL_FLAG_NO_CATENARY);
-        name:                   string(STR_KAMIKUMAMOTO);
-    }
-    graphics {
-        default:                switch_kumamoto02_all_city_view;
-    }
-}
-# 1 "JPplusTrams.pnml" 4
+//#include "src/stops/kumamoto/kumamoto02.pnml"
 # 1 "src/stops/utsunomiya/utsunomiya01.pnml" 1
 
 // Sprites

@@ -8,7 +8,7 @@ This is the latest edition to the JP+ Family.
 **Coding:** KeepinItRail\
 **Graphics:** KeepinItRail\
 **Translations:** pending
-**Soecial thanks:** JP+ Crew
+**Special thanks:** JP+ Crew
 
 ## Features
 

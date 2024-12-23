@@ -16,7 +16,7 @@ switch (FEAT_ROADVEHS, SELF, OpenDoors,
 
     ) {return;}
 
-
+/*
 switch (FEAT_ROADSTOPS, SELF, SameID2NE, nearby_tile_road_stop_id(-1, 0) == 50  ){return;}
 switch (FEAT_ROADSTOPS, SELF, SameID2NW, nearby_tile_road_stop_id( 0,-1) == 50  ){return;}
 switch (FEAT_ROADSTOPS, SELF, SameID2SE, nearby_tile_road_stop_id( 0, 1) == 50  ){return;}
@@ -46,3 +46,4 @@ switch (FEAT_ROADSTOPS, SELF, SameID2SW, nearby_tile_road_stop_id( 1, 0) == 50  
         switch_SE_facing() + 	// 0 or 1
         switch_NW_facing() 	    // 0 or 2
         ){return;}
+        */
