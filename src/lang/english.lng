@@ -89,7 +89,11 @@ LV_PINKWHITE                                    :{CREAM} Pink{BLACK} &{WHITE}Whi
 LV_MAROONBROWN                                  :{RED} Maroon {BLACK} &{BROWN}Brown
 LV_WHITEBLUERED                                 :{WHITE} White {BLACK}, {BLUE}Blue{BLACK}& {RED}Red
 LV_BLUEPURPLERED                                :{BLUE} Blue {BLACK}, {PURPLE}Purple{BLACK}& {RED}Red
+
 LV_PINKSTRIPE                                   :{CREAM} Pink {BLACK}Stripe
+LV_BLUESTRIPE                                   :{BLUE} Blue {BLACK}Stripe
+LV_GREENSTRIPE                                  :{GREEN} Green {BLACK}Stripe
+LV_REDSTRIPE                                    :{RED} Red {BLACK}Stripe
 
 IRL1CC                                          :{GOLD}Original & 1cc
 IRL2CC                                          :{GOLD}Original & 2cc
@@ -132,6 +136,7 @@ STR_DE9000                                      :De9000 Series ("Centram")
 LV_DE9001                                       :{WHITE} de9001 (White)
 LV_DE9002                                       :{SILVER} de9002 (Silver)
 LV_DE9003                                       :{BLACK} de9003 (Black)
+STR_T100                                        :T100 Series ("Santram")
 
 # Kumamoto
 KUMAMOTO                                        :{GOLD}Kumamoto City Transportation Bureau

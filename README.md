@@ -30,13 +30,15 @@ Sorted in a rough north to south ordering
 | --- | --- | :---:|
 |![HU300形](/src/trams/utsunomiya/hu300/hu300_purchase.png)| HU300形| 2023 |
 
-<!---
+
 ### Toyama Region Railway
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
 |![tlr0600形](/src/trams/toyama/tlr0600/tlr0600_purchase.png)| TLR0600形 | 2006 |
 |![de9000形](/src/trams/toyama/de9000/de9000_purchase.png)| de9000形 | 2009 |
+|![de9000形](/src/trams/toyama/t100/t100_purchase.png)| T100形 | 2010 |
 
+<!---
 ### Manyosen (Toyama)
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
