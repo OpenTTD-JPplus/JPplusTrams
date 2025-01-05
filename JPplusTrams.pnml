@@ -37,10 +37,12 @@
 #include "src/trams/manyosen/mlrv1000/mlrv1000.pnml"
 #include "src/trams/fukui/l/l.pnml"
 */
+
+// Toyama
 #include "src/trams/toyama/tlr0600/tlr0600.pnml"
 #include "src/trams/toyama/de9000/de9000.pnml"
 #include "src/trams/toyama/t100/t100.pnml"
-
+#include "src/trams/toyama/8000/toyama8000.pnml"
 
 // Roadstops
 #include "src/stops/all/platform_base.pnml"

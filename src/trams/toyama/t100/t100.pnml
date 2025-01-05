@@ -80,7 +80,7 @@ switch(FEAT_ROADVEHS, SELF, sw_t100_subtype_text, cargo_subtype) {
             0: ss_t100_cntr;                          // Base
             1: sw_t100_cntr_mask;                     // Mask
             2: door07_cntr;                             // Doors
-            3: sprite_panto01;                          // Pantos
+            3: sprite_panto04;                          // Pantos
         }
 
     switch(FEAT_ROADVEHS, SELF, sw_t100_rear_stack, [ 

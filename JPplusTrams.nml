@@ -200,6 +200,7 @@ item(FEAT_ROADVEHS, item_kuma1350,      18 ) {}
 item(FEAT_ROADVEHS, item_kuma1200,      19 ) {}
 item(FEAT_ROADVEHS, item_kuma1090,      20 ) {}
 item(FEAT_ROADVEHS, item_t100,          21 ) {}
+item(FEAT_ROADVEHS, item_toyama8000,    22 ) {}
 
 // Sort Order in Menu
 sort(FEAT_ROADVEHS, [
@@ -207,6 +208,7 @@ sort(FEAT_ROADVEHS, [
 1,  // 2024 hu300
 
 // Toyama
+22, // 1993 8000
 7,  // 2006 tlr0600
 8,  // 2009 de9000
 21, // 2010 t100
@@ -550,6 +552,16 @@ switch(FEAT_ROADVEHS, SELF, logo_tokyometropolitan, param_hide_logo) {1:sprite_l
         switch(FEAT_ROADVEHS, SELF, door07_cntr, OpenDoors()) {1:sg_door07_cntr;}
         switch(FEAT_ROADVEHS, SELF, door07_rear, OpenDoors()) {1:sg_door07_rear;}
 
+    // Door 08
+        spriteset(spriteset_door08_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door08.png") {tmpl_7(1,1)}
+            
+        spritegroup sg_door08_lead {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door06_lead];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, door08, OpenDoors()) {1:sg_door08_lead;}
+
     // Door Nigaata03
 
         spriteset(ss_door_niigata03_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/doorniigata03_irl.png") {tmpl_7(1,1 )}
@@ -641,6 +653,7 @@ switch(FEAT_ROADVEHS, SELF, logo_tokyometropolitan, param_hide_logo) {1:sprite_l
     spriteset (sprite_panto02,"src/parts/pantos/panto02.png") {tmpl_7(1,1)}
     spriteset (sprite_panto03,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto03.png") {tmpl_7(1,1)}
     spriteset (sprite_panto04,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto04.png") {tmpl_7(1,1)}
+    spriteset (sprite_panto05,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto05.png") {tmpl_7(1,1)}
     
 # 1 "JPplusTrams.pnml" 4
 
@@ -2567,6 +2580,8 @@ item(FEAT_ROADVEHS, item_l) {
 }
 # 1 "JPplusTrams.pnml" 4
 */
+
+// Toyama
 # 1 "src/trams/toyama/tlr0600/tlr0600.pnml" 1
 
 // https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E3%83%A9%E3%82%A4%E3%83%88%E3%83%AC%E3%83%BC%E3%83%AB9200%E5%BD%A2%E9%9B%BB%E8%BB%8A
@@ -2927,7 +2942,7 @@ switch(FEAT_ROADVEHS, SELF, sw_t100_subtype_text, cargo_subtype) {
             0: ss_t100_cntr;                          // Base
             1: sw_t100_cntr_mask;                     // Mask
             2: door07_cntr;                             // Doors
-            3: sprite_panto01;                          // Pantos
+            3: sprite_panto04;                          // Pantos
         }
 
     switch(FEAT_ROADVEHS, SELF, sw_t100_rear_stack, [ 
@@ -3005,7 +3020,105 @@ item(FEAT_ROADVEHS, item_t100) {
         }
 }
 # 1 "JPplusTrams.pnml" 4
+# 1 "src/trams/toyama/8000/toyama8000.pnml" 1
 
+// Cargo Subtypes
+
+switch(FEAT_ROADVEHS, SELF, sw_toyama8000_subtype_text, cargo_subtype) {
+	    0: return string(LV_RANDOM);
+        1: return string(LV_IRL);
+        2: return string(LV_BLUEWHITE);
+        3: return string(LV_REDWHITE);
+        4: return string(LV_GREENWHITE);
+        5: return string(LV_CYAN);
+        return CB_RESULT_NO_TEXT;
+        }
+
+// Graphics
+
+    // Purchase
+    spriteset(ss_toyama8000_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_purchase.png") {tmpl_p()}
+
+    switch(FEAT_ROADVEHS, SELF, sw_toyama8000_purchase, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: logo_toyama; 
+            1: ss_toyama8000_purchase;
+        }
+
+    // Tram Graphics
+    spriteset(ss_toyama8000_lead_base, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_bse.png") {tmpl_7(1,1)}
+
+    spriteset(ss_toyama8000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_irl.png") {tmpl_7(1,1)}
+    spriteset(ss_toyama8000_lead_baw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_baw.png") {tmpl_7(1,1)}
+    spriteset(ss_toyama8000_lead_raw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_raw.png") {tmpl_7(1,1)}
+    spriteset(ss_toyama8000_lead_gaw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_gaw.png") {tmpl_7(1,1)}
+    spriteset(ss_toyama8000_lead_cya, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_cya.png") {tmpl_7(1,1)}
+
+    switch(FEAT_ROADVEHS, PARENT, sw_toyama8000_lead_rdm, random_bits % 19) { 
+        1: ss_toyama8000_lead_baw;
+        2: ss_toyama8000_lead_raw;
+        3: ss_toyama8000_lead_gaw;
+        4: ss_toyama8000_lead_cya;
+        ss_toyama8000_lead_irl;
+        }
+    
+    switch(FEAT_ROADVEHS, PARENT, sw_toyama8000_lead_mask, cargo_subtype) {
+        0: sw_toyama8000_lead_rdm;
+        1: ss_toyama8000_lead_irl;
+        2: ss_toyama8000_lead_baw;
+        3: ss_toyama8000_lead_raw;
+        4: ss_toyama8000_lead_gaw;
+        5: ss_toyama8000_lead_cya;
+        }
+
+    switch(FEAT_ROADVEHS, SELF, sw_toyama8000_stack, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: ss_toyama8000_lead_base;        // Base
+            1: sw_toyama8000_lead_mask;        // Mask
+            2: sprite_panto05;              // Pantos
+            3: door08;                      // Doors
+        }
+
+item(FEAT_ROADVEHS, item_toyama8000) {
+    property {
+        name:                           string(STR_TOYAMA8000);
+        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        loading_speed:                  25;
+        cargo_age_period:               240;
+        cost_factor:                    175;
+        running_cost_factor:            80;
+        speed:                          40 km/h;    
+        power:                          81 * 2 hp;  // 60kW per motor, 2 motors
+        cargo_capacity:                 66;
+        introduction_date:              date(1993,01,01);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                   60;
+        reliability_decay:              14;
+        tram_type:                      ELRL;
+        sound_effect:                   SOUND_POWER_STATION;
+        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
+        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
+        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+        refit_cost:                     0; // Refitting is free
+        running_cost_base:              RUNNING_COST_ROADVEH;
+        weight:                         17 ton;
+        length:                         7;
+        }
+    graphics {
+        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(DES_TOYAMA8000));
+        cargo_subtype_text:             sw_toyama8000_subtype_text;
+        cargo_capacity:                 (param_capacity * 66 ) / 2;
+        purchase_cargo_capacity:        (param_capacity * 66 ) / 2;
+        default:                        sw_toyama8000_stack;
+        cargo_age_period:               sw_cargo_age_period_01;
+        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
+        purchase:                       sw_toyama8000_purchase;
+        cost_factor:                    ((param_buycost*90)/4);
+        }
+}
+# 1 "JPplusTrams.pnml" 4
 
 // Roadstops
 # 1 "src/stops/all/platform_base.pnml" 1

@@ -80,6 +80,7 @@ LV_BROWNWHITE                                   :{BROWN} Brown {BLACK}& {WHITE}W
 LV_BROWNYELLOW                                  :{BROWN} Brown{BLACK}, {YELLOW}Yellow {BLACK}& {WHITE}White
 LV_REDORANGE                                    :{RED} Red{BLACK} & {ORANGE} Orange
 LV_WBG                                          :{BLUE} Blue {BLACK}& {GREEN}Green
+LV_GREENWHITE                                   :{GREEN} Green {BLACK} &{WHITE}White
 LV_ORANGEWHITE                                  :{ORANGE} Orange {BLACK} &{WHITE}White
 LV_BLUEWHITE                                    :{LTBLUE} Blue {BLACK} &{WHITE}White
 LV_REDBLUE                                      :{RED} Red{BLACK} &{BLUE}Blue
@@ -123,6 +124,9 @@ STR_MLRV1000                                    :Manyosen MLRV1000 Series ("AI-T
 LV_DORAEMON                                     :{LTBLUE} Doraemon Livery
 DES_MLRV1000                                    :{GOLD}Original, 1cc & Doraemon
 STR_L                                           :L Series ("ki-bo")
+
+
+# Toyama
 STR_TLR0600                                     :TLR0600 Series ("Portram")
 LV_TLR0601                                      :{RED} (TLR0601) Koko-kun
 LV_TLR0602                                      :{ORANGE} (TLR0602) Mogu-kun
@@ -137,6 +141,9 @@ LV_DE9001                                       :{WHITE} de9001 (White)
 LV_DE9002                                       :{SILVER} de9002 (Silver)
 LV_DE9003                                       :{BLACK} de9003 (Black)
 STR_T100                                        :T100 Series ("Santram")
+
+STR_TOYAMA8000                                  :8000 Series
+DES_TOYAMA8000                                  :{GOLD}Original, Blue&White, Red&White, Green&White and Cyan
 
 # Kumamoto
 KUMAMOTO                                        :{GOLD}Kumamoto City Transportation Bureau
