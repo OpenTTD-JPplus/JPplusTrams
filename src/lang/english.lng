@@ -60,6 +60,8 @@ LV_IRL                                          :{GOLD} Original Livery
 LV_1CC                                          :{GOLD} 1cc Livery
 LV_2CC                                          :{GOLD} 2cc Livery
 LV_RANDOM                                       :{GOLD} Random Livery
+LV_MODERN                                       :{GOLD} Modern Livery
+
 LV_RED                                          :{RED} Red
 LV_BLUE                                         :{BLUE} Blue
 LV_YELLOW                                       :{YELLOW} Yellow
@@ -144,6 +146,9 @@ STR_T100                                        :T100 Series ("Santram")
 
 STR_TOYAMA8000                                  :8000 Series
 DES_TOYAMA8000                                  :{GOLD}Original, Blue&White, Red&White, Green&White and Cyan
+
+STR_TOYAMA7000                                  :7000 Series
+DES_TOYAMA7000                                  :{GOLD}Original, Modern, Red&White
 
 # Kumamoto
 KUMAMOTO                                        :{GOLD}Kumamoto City Transportation Bureau

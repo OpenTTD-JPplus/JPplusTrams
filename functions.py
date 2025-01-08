@@ -21,6 +21,7 @@ for p in pantos:
 doors = {
     "door07" :  {"company" : "toyama", "folder" : "t100", "tram" : "t100",},
     "door08" :  {"company" : "toyama", "folder" : "8000", "tram" : "toyama8000",},
+    "door09" :  {"company" : "toyama", "folder" : "7000", "tram" : "toyama7000",},
 }
 
 for d in doors:

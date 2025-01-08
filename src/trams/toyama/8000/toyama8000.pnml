@@ -31,7 +31,7 @@ switch(FEAT_ROADVEHS, SELF, sw_toyama8000_subtype_text, cargo_subtype) {
     spriteset(ss_toyama8000_lead_gaw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_gaw.png") {tmpl_7(1,1)}
     spriteset(ss_toyama8000_lead_cya, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_cya.png") {tmpl_7(1,1)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_toyama8000_lead_rdm, random_bits % 19) { 
+    switch(FEAT_ROADVEHS, PARENT, sw_toyama8000_lead_rdm, random_bits % 5) { 
         1: ss_toyama8000_lead_baw;
         2: ss_toyama8000_lead_raw;
         3: ss_toyama8000_lead_gaw;
