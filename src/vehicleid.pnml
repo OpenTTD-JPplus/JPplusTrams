@@ -23,6 +23,7 @@ item(FEAT_ROADVEHS, item_kuma1090,      20 ) {}
 item(FEAT_ROADVEHS, item_t100,          21 ) {}
 item(FEAT_ROADVEHS, item_toyama8000,    22 ) {}
 item(FEAT_ROADVEHS, item_toyama7000,    23 ) {}
+item(FEAT_ROADVEHS, item_toyamade5000,  24 ) {}
 
 // Sort Order in Menu
 sort(FEAT_ROADVEHS, [
@@ -30,6 +31,7 @@ sort(FEAT_ROADVEHS, [
 1,  // 2024 hu300
 
 // Toyama
+24, // 1950 de5000
 23, // 1993 7000
 22, // 1993 8000
 7,  // 2006 tlr0600

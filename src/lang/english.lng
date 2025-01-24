@@ -150,6 +150,8 @@ DES_TOYAMA8000                                  :{GOLD}Original, Blue&White, Red
 STR_TOYAMA7000                                  :7000 Series
 DES_TOYAMA7000                                  :{GOLD}Original, Modern, Red&White
 
+STR_TOYAMADE5000                                :De5000 Series
+
 # Kumamoto
 KUMAMOTO                                        :{GOLD}Kumamoto City Transportation Bureau
 STR_1060                                        :1060 Series
@@ -233,3 +235,4 @@ OVERPASS_1SIDE_BOTTOM_BOTH                      :Stairs at bottom, both sides
 STR_KUMAMOTO                                    :Kumamoto Platform
 STR_KAMIKUMAMOTO                                :Kamikumamoto
 STR_UTSUNOMIYA                                  :Utsunomiya Platform
+STR_TOYAMA                                      :Toyama Platform

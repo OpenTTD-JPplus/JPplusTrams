@@ -44,12 +44,14 @@
 #include "src/trams/toyama/t100/t100.pnml"
 #include "src/trams/toyama/8000/toyama8000.pnml"
 #include "src/trams/toyama/7000/toyama7000.pnml"
+#include "src/trams/toyama/de5000/toyamade5000.pnml"
 
 // Roadstops
 #include "src/stops/all/platform_base.pnml"
 #include "src/stops/kumamoto/kumamoto01.pnml"
 //#include "src/stops/kumamoto/kumamoto02.pnml"
 #include "src/stops/utsunomiya/utsunomiya01.pnml"
+#include "src/stops/toyama/toyama01.pnml"
 #include "src/stops/overpass/overpass_2sides_north_platform.pnml"
 #include "src/stops/overpass/overpass_2sides_north_noplatform.pnml"
 #include "src/stops/overpass/overpass_2sides_both_platform.pnml"
