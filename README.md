@@ -34,6 +34,7 @@ Sorted in a rough north to south ordering
 ### Toyama Region Railway
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
+|![de5000形](/src/trams/toyama/de5000/toyamade5000_purchase.png)| de5000形 | 1950 |
 |![7000形](/src/trams/toyama/7000/toyama7000_purchase.png)| 7000形 | 1957 |
 |![8000形](/src/trams/toyama/8000/toyama8000_purchase.png)| 8000形 | 1993 |
 |![tlr0600形](/src/trams/toyama/tlr0600/tlr0600_purchase.png)| TLR0600形 | 2006 |
