@@ -1,0 +1,123 @@
+{
+    "Speed": {
+        "search_string": "speed:",
+        "ignore_string": "loading_speed:",
+        "return_string": "\t\tspeed:\t\t\t\t\t\t\t<stat>"
+    },
+    "Intro_Date": {
+        "search_string": "introduction_date:",
+        "return_string": "\t\tintroduction_date:\t\t\t\t<stat>"
+    },
+    "Model_Life": {
+        "search_string": "model_life:",
+        "return_string": "\t\tmodel_life:\t\t\t\t\t\t<stat>"
+    },
+    "Vehicle_Life": {
+        "search_string": "vehicle_life:",
+        "return_string": "\t\tvehicle_life:\t\t\t\t\t<stat>"
+    },
+    "Weight": {
+        "search_string": "weight:",
+        "return_string": "\t\tweight:\t\t\t\t\t\t\t<stat>"
+    },
+    "Cargo_Capacity": {
+        "search_string": "cargo_capacity:",
+        "ignore_string": "purchase_cargo_capacity:",
+        "return_string": "\t\tcargo_capacity:\t\t\t\t\t<stat>"
+    },
+    "Purchase_Cargo_Capacity": {
+        "search_string": "purchase_cargo_capacity:",
+        "return_string": "\t\tpurchase_cargo_capacity:\t\t<stat>"
+    },
+    "Power": {
+        "search_string": "power:",
+        "return_string": "\t\tpower:\t\t\t\t\t\t\t<stat>"
+    },
+    "Cost_Factor": {
+        "search_string": "cost_factor:",
+        "ignore_string": "running_cost_factor:",
+        "return_string": "\t\tcost_factor:\t\t\t\t\t<stat>"
+    },
+    "Running_Cost_Factor": {
+        "search_string": "running_cost_factor:",
+        "ignore_string": "purchase_running_cost_factor:",
+        "return_string": "\t\trunning_cost_factor:\t\t\t<stat>"
+    },
+    "Purchase_Running_Cost_Factor": {
+        "search_string": "purchase_running_cost_factor:",
+        "return_string": "\t\tpurchase_running_cost_factor:\t<stat>"
+    },
+    "Cargo_Age_Period": {
+        "search_string": "cargo_age_period:",
+        "return_string": "\t\tcargo_age_period:\t\t\t\t<stat>"
+    },
+    "Name": {
+        "search_string": "name:",
+        "return_string": "\t\tname:\t\t\t\t\t\t\t<stat>"
+    },
+    "Additional_Text": {
+        "search_string": "additional_text:",
+        "return_string": "\t\tadditional_text:\t\t\t\t<stat>"
+    },
+    "Default": {
+        "search_string": "default:",
+        "return_string": "\t\tdefault:\t\t\t\t\t\t<stat>"
+    },
+    "Purchase": {
+        "search_string": "purchase:",
+        "return_string": "\t\tpurchase:\t\t\t\t\t\t<stat>"
+    },
+    "Cargo_Subtype_Text": {
+        "search_string": "cargo_subtype_text:",
+        "return_string": "\t\tcargo_subtype_text:\t\t\t\t<stat>"
+    },
+    "Length": {
+        "search_string": "length:",
+        "return_string": "\t\tlength:\t\t\t\t\t\t\t<stat>"
+    },
+    "Climates_Available": {
+        "search_string": "climates_available:",
+        "return_string": "\t\tclimates_available:\t\t\t\t<stat>"
+    },
+    "Refittable_Cargo_Classes": {
+        "search_string": "refittable_cargo_classes:",
+        "return_string": "\t\trefittable_cargo_classes:\t\t<stat>"
+    },
+    "Visual_Effect": {
+        "search_string": "visual_effect:",
+        "return_string": "\t\tvisual_effect:\t\t\t\t\t<stat>"
+    },
+    "Sound_Effect": {
+        "search_string": "sound_effect:",
+        "return_string": "\t\tsound_effect:\t\t\t\t\t<stat>"
+    },
+    "Running_Cost_Base": {
+        "search_string": "running_cost_base:",
+        "return_string": "\t\trunning_cost_base:\t\t\t\t<stat>"
+    },
+    "Reliability_Decay": {
+        "search_string": "reliability_decay:",
+        "return_string": "\t\treliability_decay:\t\t\t\t<stat>"
+    },
+    "Tram_Type": {
+        "search_string": "tram_type:",
+        "return_string": "\t\ttram_type:\t\t\t\t\t\t<stat>"
+    },
+    "Misc_Flags": {
+        "search_string": "misc_flags:",
+        "return_string": "\t\tmisc_flags:\t\t\t\t\t\t<stat>"
+    },
+    "Loading_Speed": {
+        "search_string": "loading_speed:",
+        "return_string": "\t\tloading_speed:\t\t\t\t\t<stat>"
+    },
+    "Sprite_ID": {
+        "search_string": "sprite_id:",
+        "return_string": "\t\tsprite_id:\t\t\t\t\t\t<stat>"
+    },
+    "Refit_Cost": {
+        "search_string": "refit_cost:",
+        "return_string": "\t\trefit_cost:\t\t\t\t\t\t<stat>",
+        "comment"      : " // refitting is free"
+    }
+}

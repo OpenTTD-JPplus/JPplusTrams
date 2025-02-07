@@ -154,20 +154,20 @@ STR_TOYAMADE5000                                :De5000 Series
 
 # Kumamoto
 KUMAMOTO                                        :{GOLD}Kumamoto City Transportation Bureau
-STR_1060                                        :1060 Series
+STR_KUMA1060                                    :1060 Series
 
-STR_0800                                        :0800 Series
-DES_0800                                        :{GOLD}Original, Cocoro, 1cc & 2cc
+STR_KUMA0800                                    :0800 Series
+DES_KUMA0800                                    :{GOLD}Original, Cocoro, 1cc & 2cc
 LV_COCORO                                       : "Cocoro"
 
-STR_1080                                        :1080 Series
+STR_KUMA1080                                    :1080 Series
 STR_KUMA1090                                    :1090 Series
 STR_KUMA1200                                    :1200 Series
 STR_KUMA1350                                    :1350 Series
-STR_5000                                        :5000 Series
+STR_KUMA5000                                    :5000 Series
 
-STR_9700                                        :9700 Series
-DES_9700                                        :{GOLD}Original, Blue Stripe & 1cc 
+STR_KUMA9700                                    :9700 Series
+DES_KUMA9700                                    :{GOLD}Original, Blue Stripe & 1cc 
 LV_BLU                                          :{BLUE} Blue Stripe
 LV_BLA                                          :{BLACK} Black Stripe
 

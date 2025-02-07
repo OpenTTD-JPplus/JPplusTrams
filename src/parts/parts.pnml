@@ -1,0 +1,240 @@
+
+// Doors
+    // Blank
+        spriteset (sprite_blank, "src/parts/doors/blank.png") {tmpl_7(1,1)}
+
+    // Door 01
+        spriteset(ss_door01, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door01.png") {tmpl_7(1,1)}
+                
+        spritegroup sg_door01 {
+            loaded:  [sprite_blank];
+            loading: [ss_door01];
+        }
+
+         switch(FEAT_ROADVEHS, SELF, door01, OpenDoors()) {1:sg_door01;}
+
+    // Door 02
+        spriteset(spriteset_door02_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door02.png") {tmpl_7(1,1)}
+        spriteset(spriteset_door02_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door02.png") {tmpl_7(1,25)}
+            
+        spritegroup sg_door02_lead {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door02_lead];
+        }
+
+        spritegroup sg_door02_rear {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door02_rear];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, door02_lead, OpenDoors()) {1:sg_door02_lead;}
+        switch(FEAT_ROADVEHS, SELF, door02_rear, OpenDoors()) {1:sg_door02_rear;}
+/*
+    // Door 03
+        spriteset(spriteset_door03_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door03.png") {tmpl_7(1,1)}
+        spriteset(spriteset_door03_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door03.png") {tmpl_7(1,25)}
+            
+        spritegroup sg_door03_lead {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door03_lead];
+        }
+
+        spritegroup sg_door03_rear {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door03_rear];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, door03_lead, OpenDoors()) {1:sg_door03_lead;}
+        switch(FEAT_ROADVEHS, SELF, door03_rear, OpenDoors()) {1:sg_door03_rear;}
+*/
+    // Door 04
+        spriteset(spriteset_door04_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door04.png") {tmpl_7(1,1)}
+        spriteset(spriteset_door04_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door04.png") {tmpl_7(1,25)}
+            
+        spritegroup sg_door04_lead {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door04_lead];
+        }
+
+        spritegroup sg_door04_rear {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door04_rear];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, door04_lead, OpenDoors()) {1:sg_door04_lead;}
+        switch(FEAT_ROADVEHS, SELF, door04_rear, OpenDoors()) {1:sg_door04_rear;}
+
+    // Door 05
+        spriteset(spriteset_door05_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door05.png") {tmpl_7(1,1)}
+        spriteset(spriteset_door05_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door05.png") {tmpl_7(1,25)}
+            
+        spritegroup sg_door05_lead {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door05_lead];
+        }
+
+        spritegroup sg_door05_rear {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door05_rear];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, door05_lead, OpenDoors()) {1:sg_door05_lead;}
+        switch(FEAT_ROADVEHS, SELF, door05_rear, OpenDoors()) {1:sg_door05_rear;}
+
+    // Door 06
+        spriteset(spriteset_door06_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door06.png") {tmpl_7(1,1)}
+            
+        spritegroup sg_door06_lead {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door06_lead];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, door06, OpenDoors()) {1:sg_door06_lead;}
+
+    // Door 07
+        spriteset(spriteset_door07_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door07.png") {tmpl_7(1,1)}
+        spriteset(spriteset_door07_cntr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door07.png") {tmpl_7(1,25)}
+        spriteset(spriteset_door07_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door07.png") {tmpl_7(1,49)}
+            
+        spritegroup sg_door07_lead {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door07_lead];
+        }
+
+        spritegroup sg_door07_cntr {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door07_cntr];
+        }
+
+        spritegroup sg_door07_rear {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door07_rear];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, door07_lead, OpenDoors()) {1:sg_door07_lead;}
+        switch(FEAT_ROADVEHS, SELF, door07_cntr, OpenDoors()) {1:sg_door07_cntr;}
+        switch(FEAT_ROADVEHS, SELF, door07_rear, OpenDoors()) {1:sg_door07_rear;}
+
+    // Door 08
+        spriteset(spriteset_door08_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door08.png") {tmpl_7(1,1)}
+            
+        spritegroup sg_door08_lead {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door08_lead];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, door08, OpenDoors()) {1:sg_door08_lead;}
+
+    // Door 09
+        spriteset(spriteset_door09_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door09.png") {tmpl_7(1,1)}
+            
+        spritegroup sg_door09_lead {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door09_lead];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, door09, OpenDoors()) {1:sg_door09_lead;}
+
+    // Door 10
+        spriteset(spriteset_door10_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door10.png") {tmpl_7(1,1)}
+            
+        spritegroup sg_door10_lead {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door10_lead];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, door10, OpenDoors()) {1:sg_door10_lead;}
+
+    // Door Nigaata03
+
+        spriteset(ss_door_niigata03_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/doorniigata03_irl.png") {tmpl_7(1,1 )}
+        spriteset(ss_door_niigata03_cntr_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/doorniigata03_irl.png") {tmpl_7(1,25)}
+        spriteset(ss_door_niigata03_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/doorniigata03_irl.png") {tmpl_7(1,49)}
+
+            // IRL
+            spritegroup sg_door_niigata03_lead_irl {
+                loaded:  [sprite_blank];
+                loading: [ss_door_niigata03_lead_irl];
+            }
+
+            spritegroup sg_door_niigata03_cntr_irl {
+                loaded:  [sprite_blank];
+                loading: [ss_door_niigata03_cntr_irl];
+            }
+
+            spritegroup sg_door_niigata03_rear_irl {
+                loaded:  [sprite_blank];
+                loading: [ss_door_niigata03_rear_irl];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, door_niigata03_lead_irl, OpenDoors()) {1:sg_door_niigata03_lead_irl;}
+        switch(FEAT_ROADVEHS, SELF, door_niigata03_cntr_irl, OpenDoors()) {1:sg_door_niigata03_cntr_irl;}
+        switch(FEAT_ROADVEHS, SELF, door_niigata03_rear_irl, OpenDoors()) {1:sg_door_niigata03_rear_irl;}
+
+        spriteset(ss_door_niigata03_lead_2cc, "src/parts/doors/doorniigata03_2cc.png") {tmpl_7(1,1 )}
+        spriteset(ss_door_niigata03_cntr_2cc, "src/parts/doors/doorniigata03_2cc.png") {tmpl_7(1,25)}
+        spriteset(ss_door_niigata03_rear_2cc, "src/parts/doors/doorniigata03_2cc.png") {tmpl_7(1,49)}
+
+        // 2cc
+            spritegroup sg_door_niigata03_lead_2cc {
+                loaded:  [sprite_blank];
+                loading: [ss_door_niigata03_lead_2cc];
+            }
+
+            spritegroup sg_door_niigata03_cntr_2cc {
+                loaded:  [sprite_blank];
+                loading: [ss_door_niigata03_cntr_2cc];
+            }
+
+            spritegroup sg_door_niigata03_rear_2cc {
+                loaded:  [sprite_blank];
+                loading: [ss_door_niigata03_rear_2cc];
+            }
+        
+        switch(FEAT_ROADVEHS, SELF, door_niigata03_lead_2cc, OpenDoors()) {1:sg_door_niigata03_lead_2cc;}
+        switch(FEAT_ROADVEHS, SELF, door_niigata03_cntr_2cc, OpenDoors()) {1:sg_door_niigata03_cntr_2cc;}
+        switch(FEAT_ROADVEHS, SELF, door_niigata03_rear_2cc, OpenDoors()) {1:sg_door_niigata03_rear_2cc;}
+/*
+    // Door Doraemon
+
+        spriteset(ss_door_doraemon_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/doordoraemon.png") {tmpl_7(1,1 )}
+        spriteset(ss_door_doraemon_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/doordoraemon.png") {tmpl_7(1,25)}
+
+            spritegroup sg_door_doraemon_lead {
+                loaded:  [sprite_blank];
+                loading: [ss_door_doraemon_lead];
+            }
+
+            spritegroup sg_door_doraemon_rear {
+                loaded:  [sprite_blank];
+                loading: [ss_door_doraemon_rear];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, door_doraemon_lead, OpenDoors()) {1:sg_door_doraemon_lead;}
+        switch(FEAT_ROADVEHS, SELF, door_doraemon_rear, OpenDoors()) {1:sg_door_doraemon_rear;}
+*/
+    // Door TLR0600 1cc
+
+        spriteset(ss_door_tlr0600_1cc_lead, "src/parts/doors/doortlr0600_1cc.png") {tmpl_7(1,1 )}
+        spriteset(ss_door_tlr0600_1cc_rear, "src/parts/doors/doortlr0600_1cc.png") {tmpl_7(1,25)}
+
+            spritegroup sg_door_tlr0600_1cc_lead {
+                loaded:  [sprite_blank];
+                loading: [ss_door_tlr0600_1cc_lead];
+            }
+
+            spritegroup sg_door_tlr0600_1cc_rear {
+                loaded:  [sprite_blank];
+                loading: [ss_door_tlr0600_1cc_rear];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, door_tlr0600_1cc_lead, OpenDoors()) {1:sg_door_tlr0600_1cc_lead;}
+        switch(FEAT_ROADVEHS, SELF, door_tlr0600_1cc_rear, OpenDoors()) {1:sg_door_tlr0600_1cc_rear;}
+
+// Pantos
+    spriteset (sprite_panto01,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto01.png") {tmpl_7(1,1)}
+    spriteset (sprite_panto02,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto02.png") {tmpl_7(1,1)}
+    spriteset (sprite_panto03,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto03.png") {tmpl_7(1,1)}
+    spriteset (sprite_panto04,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto04.png") {tmpl_7(1,1)}
+    spriteset (sprite_panto05,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto05.png") {tmpl_7(1,1)}
+    

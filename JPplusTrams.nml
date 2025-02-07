@@ -178,71 +178,70 @@ replace(recolour_remap) {
 # 1 "JPplusTrams.pnml" 4
 # 1 "src/vehicleid.pnml" 1
 
-// Order of creation
-item(FEAT_ROADVEHS, item_hu300,         1  ) {}
-item(FEAT_ROADVEHS, item_f1000,         2  ) {}
-item(FEAT_ROADVEHS, item_oka9200,       3  ) {}
-item(FEAT_ROADVEHS, item_mlrv1000,      4  ) {}
-item(FEAT_ROADVEHS, item_l,             5  ) {}
-item(FEAT_ROADVEHS, item_0800,          6  ) {}
-item(FEAT_ROADVEHS, item_tlr0600,       7  ) {}
-item(FEAT_ROADVEHS, item_de9000,        8  ) {}
-item(FEAT_ROADVEHS, item_1060,          9  ) {}
-item(FEAT_ROADVEHS, item_1080,          10 ) {}
-item(FEAT_ROADVEHS, item_5000,          11 ) {}
-item(FEAT_ROADVEHS, item_9700,          12 ) {}
-item(FEAT_ROADVEHS, item_kuma9200,      13 ) {}
-item(FEAT_ROADVEHS, item_kuma8200,      14 ) {}
-item(FEAT_ROADVEHS, item_kuma8500,      15 ) {}
-item(FEAT_ROADVEHS, item_kuma8800,      16 ) {}
-item(FEAT_ROADVEHS, item_kuma8800_101,  17 ) {}
-item(FEAT_ROADVEHS, item_kuma1350,      18 ) {}
-item(FEAT_ROADVEHS, item_kuma1200,      19 ) {}
-item(FEAT_ROADVEHS, item_kuma1090,      20 ) {}
-item(FEAT_ROADVEHS, item_t100,          21 ) {}
-item(FEAT_ROADVEHS, item_toyama8000,    22 ) {}
-item(FEAT_ROADVEHS, item_toyama7000,    23 ) {}
-item(FEAT_ROADVEHS, item_toyamade5000,  24 ) {}
+// Tram ID Allocation
+item(FEAT_ROADVEHS, item_hu300,			1  ) {}
+item(FEAT_ROADVEHS, item_toyamade5000,	24 ) {}
+item(FEAT_ROADVEHS, item_toyama7000,	23 ) {}
+item(FEAT_ROADVEHS, item_toyama8000,	22 ) {}
+item(FEAT_ROADVEHS, item_tlr0600,		7  ) {}
+item(FEAT_ROADVEHS, item_de9000,		8  ) {}
+item(FEAT_ROADVEHS, item_t100,			21 ) {}
+item(FEAT_ROADVEHS, item_mlrv1000,		4  ) {}
+item(FEAT_ROADVEHS, item_l,				5  ) {}
+item(FEAT_ROADVEHS, item_f1000,			2  ) {}
+item(FEAT_ROADVEHS, item_oka9200,		3  ) {}
+item(FEAT_ROADVEHS, item_kuma1060,		9  ) {}
+item(FEAT_ROADVEHS, item_kuma1080,		10 ) {}
+item(FEAT_ROADVEHS, item_kuma1090,		20 ) {}
+item(FEAT_ROADVEHS, item_kuma1200,		19 ) {}
+item(FEAT_ROADVEHS, item_kuma1350,		18 ) {}
+item(FEAT_ROADVEHS, item_kuma5000,		11 ) {}
+item(FEAT_ROADVEHS, item_kuma8200,		14 ) {}
+item(FEAT_ROADVEHS, item_kuma8500,		15 ) {}
+item(FEAT_ROADVEHS, item_kuma8800,		16 ) {}
+item(FEAT_ROADVEHS, item_kuma8800_101,	17 ) {}
+item(FEAT_ROADVEHS, item_kuma9200,		13 ) {}
+item(FEAT_ROADVEHS, item_kuma9700,		12 ) {}
+item(FEAT_ROADVEHS, item_kuma0800,		6  ) {}
 
 // Sort Order in Menu
 sort(FEAT_ROADVEHS, [
+
 // Utsunomiya
-1,  // 2024 hu300
+1,	// 2023 hu300
 
 // Toyama
-24, // 1950 de5000
-23, // 1993 7000
-22, // 1993 8000
-7,  // 2006 tlr0600
-8,  // 2009 de9000
-21, // 2010 t100
+24,	// 1950 toyamade5000
+23,	// 1957 toyama7000
+22,	// 1993 toyama8000
+7,	// 2006 tlr0600
+8,	// 2009 de9000
+21,	// 2010 t100
 
 // Manyosen
-4,  // 2004 mlrv1000
+4,	// 2004 mlrv1000
 
 // Fukui
-    // Echizen
-5,  // 2016 l
-    // Fukui
-2,  // 2013 f1000
+5,	// 2016 l
+2,	// 2013 f1000
 
 // Okayama
-3,  // 2002 9200
+3,	// 2002 oka9200
 
 // Kumamoto
-9,  // 1951 1060
-10, // 1954 1080
-20, // 1955 1090
-19, // 1958 1200
-18, // 1960 1350
-11, // 1976 5000
-14, // 1982 8200
-15, // 1985 8500
-16, // 1988 8800
-17, // 1993 8800_101
-13, // 1992 9200
-12, // 1997 9700
-6,  // 2009 0800
+9,	// 1951 kuma1060
+10,	// 1954 kuma1080
+20,	// 1955 kuma1090
+19,	// 1958 kuma1200
+18,	// 1960 kuma1350
+11,	// 1976 kuma5000
+14,	// 1982 kuma8200
+15,	// 1985 kuma8500
+16,	// 1988 kuma8800
+17,	// 1993 kuma8800_101
+13,	// 1992 kuma9200
+12,	// 1997 kuma9700
+6,	// 2009 kuma0800
 ]);
 # 1 "JPplusTrams.pnml" 4
 # 1 "src/roadstopid.pnml" 1
@@ -388,12 +387,12 @@ switch (FEAT_ROADSTOPS, SELF, SameID2SW, nearby_tile_road_stop_id( 1, 0) == 50  
 
 // Spark
 
-    switch (FEAT_ROADVEHS, SELF, sw_spark_1st_only, position_in_consist ) {
+    switch (FEAT_ROADVEHS, SELF, sw_spark_on_1, position_in_consist ) {
         0:  return VISUAL_EFFECT_ELECTRIC;
             return VISUAL_EFFECT_DISABLE; //default
     }
 
-    switch (FEAT_ROADVEHS, SELF, sw_spark_2nd_only, position_in_consist ) {
+    switch (FEAT_ROADVEHS, SELF, sw_spark_on_2, position_in_consist ) {
         1:  return VISUAL_EFFECT_ELECTRIC;
             return VISUAL_EFFECT_DISABLE; //default
     }
@@ -674,7 +673,7 @@ switch(FEAT_ROADVEHS, SELF, logo_tokyometropolitan, param_hide_logo) {1:sprite_l
 
 // Pantos
     spriteset (sprite_panto01,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto01.png") {tmpl_7(1,1)}
-    spriteset (sprite_panto02,"src/parts/pantos/panto02.png") {tmpl_7(1,1)}
+    spriteset (sprite_panto02,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto02.png") {tmpl_7(1,1)}
     spriteset (sprite_panto03,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto03.png") {tmpl_7(1,1)}
     spriteset (sprite_panto04,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto04.png") {tmpl_7(1,1)}
     spriteset (sprite_panto05,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto05.png") {tmpl_7(1,1)}
@@ -765,30 +764,10 @@ switch(FEAT_ROADVEHS, SELF, sw_hu300_subtype_text, cargo_subtype) {
                 sw_hu300_rear_stack; //default
         }
 
-// Capacity is 160, split in 3
-switch (FEAT_ROADVEHS, SELF, sw_hu300_capacity, position_in_consist ) {
-    1:  return ((param_capacity/2)*60);
-    return ((param_capacity/2)*50);
-}
-
-// Forced Purchase menu capacities
-switch (FEAT_ROADVEHS, SELF, sw_hu300_purchase_capacity, param_capacity ) {
-    3:  return 240/3;
-    4:  return 320/3;
-    return 160/3; // default/IRL
-}
-
 // Length of parts
 switch (FEAT_ROADVEHS, SELF, sw_hu300_length, position_in_consist ) {
     1:  return 6;
     return 7; 
-}
-
-switch (FEAT_ROADVEHS, SELF, sw_hu300_spark, position_in_consist ) {
-    0:  return VISUAL_EFFECT_DISABLE;
-    1:  return VISUAL_EFFECT_ELECTRIC;
-    2:  return VISUAL_EFFECT_DISABLE;
-        return VISUAL_EFFECT_DISABLE; //default
 }
 
 //set number of articulated parts
@@ -797,64 +776,51 @@ switch (FEAT_ROADVEHS, SELF, sw_hu300_articulated_part, extra_callback_info1) {
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
 }
 
-switch (FEAT_ROADVEHS, SELF, sw_hu300_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
-
 item(FEAT_ROADVEHS, item_hu300) {
     property {
-        name:                           string(STR_HU300);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          70 km/h;    // Current operates at 40km/h, but capable (with approval) of 70 km/h
-        power:                          135 * 4 hp;
-        cargo_capacity:                 155;
-        introduction_date:              date(2023,08,23);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         39 ton;
+		name:							string(STR_HU300);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							70 km/h;
+		power:							135 * 4 hp;
+		introduction_date:				date(2023,08,23);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							39 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(UTSUNOMIYA),string(LIVERIES),string(IRL1CC2CC));
-        cargo_subtype_text:             sw_hu300_subtype_text;
-        cargo_capacity:                 sw_hu300_capacity;
-        purchase_cargo_capacity:        sw_hu300_purchase_capacity;
-        default:                        sw_hu300_stack;
-        length:                         sw_hu300_length;
-        cargo_age_period:               sw_hu300_cargo_age_period;
-        running_cost_factor:            133 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   133 + ((param_runcost * 30 ) / 2 );
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(UTSUNOMIYA),string(LIVERIES),string(IRL1CC2CC));
+		cargo_subtype_text:				sw_hu300_subtype_text;
+		cargo_capacity:					(param_capacity * 160 / 3 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 160 / 3 ) / 2;
+		default:						sw_hu300_stack;
+		length:							sw_hu300_length;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			133 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	133 + ((param_runcost * 30 ) / 2 );
         articulated_part:               sw_hu300_articulated_part;
-        visual_effect:                  sw_hu300_spark;
-        purchase:                       sw_hu300_purchase;
-        cost_factor:                    ( (param_buycost * 175 ) / 4 );
+		visual_effect:					sw_spark_on_1;
+		purchase:						sw_hu300_purchase;
+		cost_factor:					((param_buycost * 175 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
 
 // Kumamoto
-# 1 "src/trams/kumamoto/1060/1060.pnml" 1
+# 1 "src/trams/kumamoto/1060/kuma1060.pnml" 1
 
 // https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E3%83%A9%E3%82%A4%E3%83%88%E3%83%AC%E3%83%BC%E3%83%AB9200%E5%BD%A2%E9%9B%BB%E8%BB%8A
 
 
-switch(FEAT_ROADVEHS, SELF, sw_1060_subtype_text, cargo_subtype) {
+switch(FEAT_ROADVEHS, SELF, sw_kuma1060_subtype_text, cargo_subtype) {
 	    0: return string(LV_IRL);
         1: return string(LV_1CC);
         return CB_RESULT_NO_TEXT;
@@ -863,73 +829,69 @@ switch(FEAT_ROADVEHS, SELF, sw_1060_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(spriteset_1060_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1060/1060_purchase.png") {tmpl_p()}
+    spriteset(spriteset_kuma1060_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1060/kuma1060_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_1060_purchase, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma1060_purchase, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: logo_kumamoto; 
-            1: spriteset_1060_purchase;
+            1: spriteset_kuma1060_purchase;
         }
 
     // Tram Graphics
-    spriteset(spriteset_1060_lead_irl,          ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1060/1060_irl.png") {tmpl_7(1,1)}
-    spriteset(spriteset_1060_lead_1cc,          "src/trams/kumamoto/1060/1060_1cc.png") {tmpl_7(1,1)}
-    switch(FEAT_ROADVEHS, PARENT, sw_1060_lead_1cc, cargo_subtype) {1:spriteset_1080_lead_1cc;}
+    spriteset(spriteset_kuma1060_lead_irl,          ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1060/kuma1060_irl.png") {tmpl_7(1,1)}
+    spriteset(spriteset_kuma1060_lead_1cc,          "src/trams/kumamoto/1060/kuma1060_1cc.png") {tmpl_7(1,1)}
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma1060_lead_1cc, cargo_subtype) {1:spriteset_kuma1060_lead_1cc;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_1060_stack, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma1060_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: spriteset_1060_lead_irl; // Base
-            1: sw_1060_lead_1cc;        // 1cc mask
+            0: spriteset_kuma1060_lead_irl; // Base
+            1: sw_kuma1060_lead_1cc;        // 1cc mask
             2: sprite_panto02;          // Pantos
             3: door01;                  // Doors
         }
 
-item(FEAT_ROADVEHS, item_1060) {
+item(FEAT_ROADVEHS, item_kuma1060) {
     property {
-        name:                           string(STR_1060);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          24 km/h;    
-        power:                          51 * 2 hp;  // 38kW per motor, 2 motors
-        cargo_capacity:                 74;
-        introduction_date:              date(1951,01,01);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         15.25 ton;
-        length:                         7;
+		name:							string(STR_KUMA1060);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							24 km/h;
+		power:							51 * 2 hp;
+		introduction_date:				date(1951,01,01);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							15.25 ton;
+		length:							7;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
-        cargo_subtype_text:             sw_1060_subtype_text;
-        cargo_capacity:                 (param_capacity * 74 ) / 2;
-        purchase_cargo_capacity:        (param_capacity * 74 ) / 2;
-        default:                        sw_1060_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
-        purchase:                       sw_1060_purchase;
-        cost_factor:                    ((param_buycost*90)/4);
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
+		cargo_subtype_text:				sw_kuma1060_subtype_text;
+		cargo_capacity:					(param_capacity * 74 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 74 ) / 2;
+		default:						sw_kuma1060_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		purchase:						sw_kuma1060_purchase;
+		cost_factor:					((param_buycost * 90 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
-# 1 "src/trams/kumamoto/1080/1080.pnml" 1
+# 1 "src/trams/kumamoto/1080/kuma1080.pnml" 1
 
 // https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E3%83%A9%E3%82%A4%E3%83%88%E3%83%AC%E3%83%BC%E3%83%AB9200%E5%BD%A2%E9%9B%BB%E8%BB%8A
 
 
-switch(FEAT_ROADVEHS, SELF, sw_1080_subtype_text, cargo_subtype) {
+switch(FEAT_ROADVEHS, SELF, sw_kuma1080_subtype_text, cargo_subtype) {
 	    0: return string(LV_IRL);
         1: return string(LV_1CC);
         return CB_RESULT_NO_TEXT;
@@ -938,64 +900,60 @@ switch(FEAT_ROADVEHS, SELF, sw_1080_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(spriteset_1080_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1080/1080_purchase.png") {tmpl_p()}
+    spriteset(spriteset_kuma1080_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1080/kuma1080_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_1080_purchase, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma1080_purchase, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: logo_kumamoto; 
-            1: spriteset_1080_purchase;
+            1: spriteset_kuma1080_purchase;
         }
 
     // Tram Graphics
-    spriteset(spriteset_1080_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1080/1080_irl.png") {tmpl_7(1,1)}
-    spriteset(spriteset_1080_lead_1cc, "src/trams/kumamoto/1080/1080_1cc.png") {tmpl_7(1,1)}
-    switch(FEAT_ROADVEHS, PARENT, sw_1080_lead_1cc, cargo_subtype) {1:spriteset_1080_lead_1cc;}
+    spriteset(spriteset_kuma1080_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1080/kuma1080_irl.png") {tmpl_7(1,1)}
+    spriteset(spriteset_kuma1080_lead_1cc, "src/trams/kumamoto/1080/kuma1080_1cc.png") {tmpl_7(1,1)}
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma1080_lead_1cc, cargo_subtype) {1:spriteset_kuma1080_lead_1cc;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_1080_stack, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma1080_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: spriteset_1080_lead_irl; // Base
-            1: sw_1080_lead_1cc;        // 1cc mask
+            0: spriteset_kuma1080_lead_irl; // Base
+            1: sw_kuma1080_lead_1cc;        // 1cc mask
             2: sprite_panto02;          // Pantos
             3: door01;                  // Doors
         }
 
-item(FEAT_ROADVEHS, item_1080) {
+item(FEAT_ROADVEHS, item_kuma1080) {
     property {
-        name:                           string(STR_1080);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          24 km/h;    
-        power:                          51 * 2 hp;  // 38kW per motor, 2 motors
-        cargo_capacity:                 74;
-        introduction_date:              date(1954,01,01);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         15.25 ton;
-        length:                         7;
+		name:							string(STR_KUMA1080);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							24 km/h;
+		power:							51 * 2 hp;
+		introduction_date:				date(1954,01,01);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							15.25 ton;
+		length:							7;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
-        cargo_subtype_text:             sw_1080_subtype_text;
-        cargo_capacity:                 (param_capacity * 74 ) / 2;
-        purchase_cargo_capacity:        (param_capacity * 74 ) / 2;
-        default:                        sw_1080_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
-        purchase:                       sw_1080_purchase;
-        cost_factor:                    ((param_buycost*90)/4);
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
+		cargo_subtype_text:				sw_kuma1080_subtype_text;
+		cargo_capacity:					(param_capacity * 74 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 74 ) / 2;
+		default:						sw_kuma1080_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		purchase:						sw_kuma1080_purchase;
+		cost_factor:					((param_buycost * 90 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -1040,41 +998,37 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma1090_subtype_text, cargo_subtype) {
 
 item(FEAT_ROADVEHS, item_kuma1090) {
     property {
-        name:                           string(STR_KUMA1090);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          24 km/h;    
-        power:                          51 * 2 hp;  // 38kW per motor, 2 motors
-        cargo_capacity:                 72;
-        introduction_date:              date(1955,01,01);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         15.25 ton;
-        length:                         7;
+		name:							string(STR_KUMA1090);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							24 km/h;
+		power:							51 * 2 hp;
+		introduction_date:				date(1955,01,01);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							15.25 ton;
+		length:							7;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
-        cargo_subtype_text:             sw_kuma1090_subtype_text;
-        cargo_capacity:                 (param_capacity * 72 ) / 2;
-        purchase_cargo_capacity:        (param_capacity * 72 ) / 2;
-        default:                        sw_kuma1090_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            42 + ((param_runcost * 29 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   42 + ((param_runcost * 29 ) / 2 );
-        purchase:                       sw_kuma1090_purchase;
-        cost_factor:                    ((param_buycost * 89 ) / 4 );
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
+		cargo_subtype_text:				sw_kuma1090_subtype_text;
+		cargo_capacity:					(param_capacity * 72 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		default:						sw_kuma1090_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			42 + ((param_runcost * 29 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	42 + ((param_runcost * 29 ) / 2 );
+		purchase:						sw_kuma1090_purchase;
+		cost_factor:					((param_buycost * 89 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -1118,41 +1072,37 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma1200_subtype_text, cargo_subtype) {
 
 item(FEAT_ROADVEHS, item_kuma1200) {
     property {
-        name:                           string(STR_KUMA1200);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          24 km/h;    
-        power:                          51 * 2 hp;  // 38kW per motor, 2 motors
-        cargo_capacity:                 72;
-        introduction_date:              date(1958,01,01);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         15.25 ton;
-        length:                         7;
+		name:							string(STR_KUMA1200);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							24 km/h;
+		power:							51 * 2 hp;
+		introduction_date:				date(1958,01,01);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							15.25 ton;
+		length:							7;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
-        cargo_subtype_text:             sw_kuma1200_subtype_text;
-        cargo_capacity:                 (param_capacity * 72 ) / 2;
-        purchase_cargo_capacity:        (param_capacity * 72 ) / 2;
-        default:                        sw_kuma1200_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            42 + ((param_runcost * 29 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   42 + ((param_runcost * 29 ) / 2 );
-        purchase:                       sw_kuma1200_purchase;
-        cost_factor:                    ((param_buycost * 89 ) / 4 );
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
+		cargo_subtype_text:				sw_kuma1200_subtype_text;
+		cargo_capacity:					(param_capacity * 72 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		default:						sw_kuma1200_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			42 + ((param_runcost * 29 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	42 + ((param_runcost * 29 ) / 2 );
+		purchase:						sw_kuma1200_purchase;
+		cost_factor:					((param_buycost * 89 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -1212,50 +1162,46 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma1350_subtype_text, cargo_subtype) {
 
 item(FEAT_ROADVEHS, item_kuma1350) {
     property {
-        name:                           string(STR_KUMA1350);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          24 km/h;    
-        power:                          51 * 2 hp;  // 38kW per motor, 2 motors
-        cargo_capacity:                 72;
-        introduction_date:              date(1960,01,01);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         15.25 ton;
-        length:                         7;
+		name:							string(STR_KUMA1350);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							24 km/h;
+		power:							51 * 2 hp;
+		introduction_date:				date(1960,01,01);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							15.25 ton;
+		length:							7;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
-        cargo_subtype_text:             sw_kuma1350_subtype_text;
-        cargo_capacity:                 (param_capacity * 72 ) / 2;
-        purchase_cargo_capacity:        (param_capacity * 72 ) / 2;
-        default:                        sw_kuma1350_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            40 + ((param_runcost * 28 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   40 + ((param_runcost * 28 ) / 2 );
-        purchase:                       sw_kuma1350_purchase;
-        cost_factor:                    ((param_buycost * 88 ) / 4 );
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
+		cargo_subtype_text:				sw_kuma1350_subtype_text;
+		cargo_capacity:					(param_capacity * 72 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		default:						sw_kuma1350_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			40 + ((param_runcost * 28 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	40 + ((param_runcost * 28 ) / 2 );
+		purchase:						sw_kuma1350_purchase;
+		cost_factor:					((param_buycost * 88 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
-# 1 "src/trams/kumamoto/5000/5000.pnml" 1
+# 1 "src/trams/kumamoto/5000/kuma5000.pnml" 1
 
 // https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E3%83%A9%E3%82%A4%E3%83%88%E3%83%AC%E3%83%BC%E3%83%AB9200%E5%BD%A2%E9%9B%BB%E8%BB%8A
 
 
-switch(FEAT_ROADVEHS, SELF, sw_5000_subtype_text, cargo_subtype) {
+switch(FEAT_ROADVEHS, SELF, sw_kuma5000_subtype_text, cargo_subtype) {
 	    0: return string(LV_IRL);
         1: return string(LV_REDORANGE);
         2: return string(LV_1CC);
@@ -1266,102 +1212,98 @@ switch(FEAT_ROADVEHS, SELF, sw_5000_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(ss_5000_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/5000_purchase.png") {tmpl_p()}
+    spriteset(ss_kuma5000_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_5000_purchase, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma5000_purchase, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: logo_kumamoto; 
-            1: ss_5000_purchase;
+            1: ss_kuma5000_purchase;
         }
 
     // Tram Graphics
-    spriteset(ss_5000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/5000_irl.png") {tmpl_7(1,1 )}
-    spriteset(ss_5000_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/5000_irl.png") {tmpl_7(1,25)}
+    spriteset(ss_kuma5000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_irl.png") {tmpl_7(1,1 )}
+    spriteset(ss_kuma5000_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_irl.png") {tmpl_7(1,25)}
 
-    spriteset(ss_5000_lead_rao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/5000_rao.png") {tmpl_7(1,1 )}
-    spriteset(ss_5000_rear_rao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/5000_rao.png") {tmpl_7(1,25)}
+    spriteset(ss_kuma5000_lead_rao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_rao.png") {tmpl_7(1,1 )}
+    spriteset(ss_kuma5000_rear_rao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_rao.png") {tmpl_7(1,25)}
 
-    spriteset(ss_5000_lead_1cc, "src/trams/kumamoto/5000/5000_1cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_5000_rear_1cc, "src/trams/kumamoto/5000/5000_1cc.png") {tmpl_7(1,25)}
+    spriteset(ss_kuma5000_lead_1cc, "src/trams/kumamoto/5000/kuma5000_1cc.png") {tmpl_7(1,1 )}
+    spriteset(ss_kuma5000_rear_1cc, "src/trams/kumamoto/5000/kuma5000_1cc.png") {tmpl_7(1,25)}
 
-    spriteset(ss_5000_lead_2cc, "src/trams/kumamoto/5000/5000_2cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_5000_rear_2cc, "src/trams/kumamoto/5000/5000_2cc.png") {tmpl_7(1,25)}
+    spriteset(ss_kuma5000_lead_2cc, "src/trams/kumamoto/5000/kuma5000_2cc.png") {tmpl_7(1,1 )}
+    spriteset(ss_kuma5000_rear_2cc, "src/trams/kumamoto/5000/kuma5000_2cc.png") {tmpl_7(1,25)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_5000_lead_1cc, cargo_subtype) {1:ss_5000_lead_rao; 2:ss_5000_lead_1cc; 3:ss_5000_lead_2cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_5000_rear_1cc, cargo_subtype) {1:ss_5000_rear_rao; 2:ss_5000_rear_1cc; 3:ss_5000_rear_2cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma5000_lead_1cc, cargo_subtype) {1:ss_kuma5000_lead_rao; 2:ss_kuma5000_lead_1cc; 3:ss_kuma5000_lead_2cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma5000_rear_1cc, cargo_subtype) {1:ss_kuma5000_rear_rao; 2:ss_kuma5000_rear_1cc; 3:ss_kuma5000_rear_2cc;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_5000_lead_stack, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma5000_lead_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_5000_lead_irl;        // Base
-            1: sw_5000_lead_1cc;        // 1cc mask
+            0: ss_kuma5000_lead_irl;        // Base
+            1: sw_kuma5000_lead_1cc;        // 1cc mask
             2: door04_lead;             // Doors
             3: sprite_panto02;          // Pantos
         }
 
-    switch(FEAT_ROADVEHS, SELF, sw_5000_rear_stack, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma5000_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_5000_rear_irl;        // Base
-            1: sw_5000_rear_1cc;        // 1cc mask
+            0: ss_kuma5000_rear_irl;        // Base
+            1: sw_kuma5000_rear_1cc;        // 1cc mask
             2: door04_rear;             // Doors
         } 
 
-    switch (FEAT_ROADVEHS, SELF, sw_5000_stack, position_in_consist ) {
-            0:  sw_5000_lead_stack;
-                sw_5000_rear_stack;     //default
+    switch (FEAT_ROADVEHS, SELF, sw_kuma5000_stack, position_in_consist ) {
+            0:  sw_kuma5000_lead_stack;
+                sw_kuma5000_rear_stack;     //default
         } 
 
-switch (FEAT_ROADVEHS, SELF, sw_5000_articulated_part, extra_callback_info1) {
-    0..1:  return item_5000;
+switch (FEAT_ROADVEHS, SELF, sw_kuma5000_articulated_part, extra_callback_info1) {
+    0..1:  return item_kuma5000;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
 }
 
-item(FEAT_ROADVEHS, item_5000) {
+item(FEAT_ROADVEHS, item_kuma5000) {
     property {
-        name:                           string(STR_5000);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          33 km/h;    
-        power:                          51 * 4 hp;  // 38kW per motor, 4 motors
-        cargo_capacity:                 74;
-        introduction_date:              date(1976,11,06);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         22.4 ton;
+		name:							string(STR_KUMA5000);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							33 km/h;
+		power:							51 * 4 hp;
+		introduction_date:				date(1976,11,06);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							22.4 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC2CC));
-        cargo_subtype_text:             sw_5000_subtype_text;
-        length:                         7;
-        cargo_capacity:                 (param_capacity * 130 / 2) / 2;
-        purchase_cargo_capacity:        (param_capacity * 130 / 2) / 2;
-        articulated_part:               sw_5000_articulated_part;
-        default:                        sw_5000_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
-        visual_effect:                  sw_spark_1st_only;
-        purchase:                       sw_5000_purchase;
-        cost_factor:                    ((param_buycost*90)/4);
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC2CC));
+		cargo_subtype_text:				sw_kuma5000_subtype_text;
+		length:							7;
+		cargo_capacity:					(param_capacity * 130 / 2 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 130 / 2 ) / 2;
+        articulated_part:               sw_kuma5000_articulated_part;
+		default:						sw_kuma5000_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		visual_effect:					sw_spark_on_1;
+		purchase:						sw_kuma5000_purchase;
+		cost_factor:					((param_buycost * 90 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
-# 1 "src/trams/kumamoto/9700/9700.pnml" 1
+# 1 "src/trams/kumamoto/9700/kuma9700.pnml" 1
 
 // https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E3%83%A9%E3%82%A4%E3%83%88%E3%83%AC%E3%83%BC%E3%83%AB9200%E5%BD%A2%E9%9B%BB%E8%BB%8A
 
 
-switch(FEAT_ROADVEHS, SELF, sw_9700_subtype_text, cargo_subtype) {
+switch(FEAT_ROADVEHS, SELF, sw_kuma9700_subtype_text, cargo_subtype) {
 	    0: return string(LV_IRL);
         1: return string(LV_BLU);
         2: return string(LV_BLA);
@@ -1372,93 +1314,89 @@ switch(FEAT_ROADVEHS, SELF, sw_9700_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(ss_9700_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/9700_purchase.png") {tmpl_p()}
+    spriteset(ss_kuma9700_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_9700_purchase, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma9700_purchase, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: logo_kumamoto; 
-            1: ss_9700_purchase;
+            1: ss_kuma9700_purchase;
         }
 
     // Tram Graphics
-    spriteset(ss_9700_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/9700_irl.png") {tmpl_7(1,1 )}
-    spriteset(ss_9700_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/9700_irl.png") {tmpl_7(1,25)}
+    spriteset(ss_kuma9700_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_irl.png") {tmpl_7(1,1 )}
+    spriteset(ss_kuma9700_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_irl.png") {tmpl_7(1,25)}
 
-    spriteset(ss_9700_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/9700_blu.png") {tmpl_7(1,1 )}
-    spriteset(ss_9700_rear_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/9700_blu.png") {tmpl_7(1,25)}
+    spriteset(ss_kuma9700_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_blu.png") {tmpl_7(1,1 )}
+    spriteset(ss_kuma9700_rear_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_blu.png") {tmpl_7(1,25)}
 
-    spriteset(ss_9700_lead_bla, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/9700_bla.png") {tmpl_7(1,1 )}
-    spriteset(ss_9700_rear_bla, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/9700_bla.png") {tmpl_7(1,25)}
+    spriteset(ss_kuma9700_lead_bla, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_bla.png") {tmpl_7(1,1 )}
+    spriteset(ss_kuma9700_rear_bla, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_bla.png") {tmpl_7(1,25)}
 
-    spriteset(ss_9700_lead_1cc, "src/trams/kumamoto/9700/9700_1cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_9700_rear_1cc, "src/trams/kumamoto/9700/9700_1cc.png") {tmpl_7(1,25)}
+    spriteset(ss_kuma9700_lead_1cc, "src/trams/kumamoto/9700/kuma9700_1cc.png") {tmpl_7(1,1 )}
+    spriteset(ss_kuma9700_rear_1cc, "src/trams/kumamoto/9700/kuma9700_1cc.png") {tmpl_7(1,25)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_9700_lead_msk, cargo_subtype) {1:ss_9700_lead_blu; 2:ss_9700_lead_bla; 3:ss_9700_lead_1cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_9700_rear_msk, cargo_subtype) {1:ss_9700_rear_blu; 2:ss_9700_rear_bla; 3:ss_9700_rear_1cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma9700_lead_msk, cargo_subtype) {1:ss_kuma9700_lead_blu; 2:ss_kuma9700_lead_bla; 3:ss_kuma9700_lead_1cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma9700_rear_msk, cargo_subtype) {1:ss_kuma9700_rear_blu; 2:ss_kuma9700_rear_bla; 3:ss_kuma9700_rear_1cc;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_9700_lead_stack, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma9700_lead_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_9700_lead_irl;        // Base
-            1: sw_9700_lead_msk;        // 1cc mask
+            0: ss_kuma9700_lead_irl;        // Base
+            1: sw_kuma9700_lead_msk;        // 1cc mask
             2: door05_lead;             // Doors
             3: sprite_panto01;          // Pantos
         }
 
-    switch(FEAT_ROADVEHS, SELF, sw_9700_rear_stack, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma9700_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_9700_rear_irl;        // Base
-            1: sw_9700_rear_msk;        // 1cc mask
+            0: ss_kuma9700_rear_irl;        // Base
+            1: sw_kuma9700_rear_msk;        // 1cc mask
             2: door05_rear;             // Doors
         } 
 
-    switch (FEAT_ROADVEHS, SELF, sw_9700_stack, position_in_consist ) {
-            0:  sw_9700_lead_stack;
-                sw_9700_rear_stack;     //default
+    switch (FEAT_ROADVEHS, SELF, sw_kuma9700_stack, position_in_consist ) {
+            0:  sw_kuma9700_lead_stack;
+                sw_kuma9700_rear_stack;     //default
         } 
 
-switch (FEAT_ROADVEHS, SELF, sw_9700_articulated_part, extra_callback_info1) {
-    0..1:  return item_9700;
+switch (FEAT_ROADVEHS, SELF, sw_kuma9700_articulated_part, extra_callback_info1) {
+    0..1:  return item_kuma9700;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
 }
 
-item(FEAT_ROADVEHS, item_9700) {
+item(FEAT_ROADVEHS, item_kuma9700) {
     property {
-        name:                           string(STR_9700);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          70 km/h;    
-        power:                          135 * 2 hp;  // 100kW per motor, 2 motors
-        cargo_capacity:                 76;
-        introduction_date:              date(1997,08,02);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         21 ton;
+		name:							string(STR_KUMA9700);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							70 km/h;
+		power:							135 * 2 hp;
+		introduction_date:				date(1997,08,02);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							21 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_9700));
-        cargo_subtype_text:             sw_9700_subtype_text;
-        length:                         7;
-        cargo_capacity:                 (param_capacity * 76 / 2) / 2;
-        purchase_cargo_capacity:        (param_capacity * 76 / 2) / 2;
-        articulated_part:               sw_9700_articulated_part;
-        default:                        sw_9700_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
-        purchase:                       sw_9700_purchase;
-        cost_factor:                    ((param_buycost*90)/4);
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA9700));
+		cargo_subtype_text:				sw_kuma9700_subtype_text;
+		length:							7;
+		cargo_capacity:					(param_capacity * 76 / 2 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 76 / 2 ) / 2;
+        articulated_part:               sw_kuma9700_articulated_part;
+		default:						sw_kuma9700_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		visual_effect:					sw_spark_on_1;
+		purchase:						sw_kuma9700_purchase;
+		cost_factor:					((param_buycost * 90 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -1554,41 +1492,37 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma9200_subtype_text, cargo_subtype) {
 
 item(FEAT_ROADVEHS, item_kuma9200) {
     property {
-        name:                           string(STR_KUMA9200);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          50 km/h;    // Unknown
-        power:                          67 * 2 hp;  // 50kW per motor, 2 motors
-        cargo_capacity:                 74;
-        introduction_date:              date(1992,04,02);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         19 ton;
-        length:                         7;
+		name:							string(STR_KUMA9200);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							50 km/h;
+		power:							67 * 2 hp;
+		introduction_date:				date(1992,04,02);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							19 ton;
+		length:							7;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA9200));
-        cargo_subtype_text:             sw_kuma9200_subtype_text;
-        cargo_capacity:                 (param_capacity * 72 ) / 2;
-        purchase_cargo_capacity:        (param_capacity * 72 ) / 2;
-        default:                        sw_kuma9200_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
-        purchase:                       sw_kuma9200_purchase;
-        cost_factor:                    ((param_buycost*90)/4);
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA9200));
+		cargo_subtype_text:				sw_kuma9200_subtype_text;
+		cargo_capacity:					(param_capacity * 72 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		default:						sw_kuma9200_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		purchase:						sw_kuma9200_purchase;
+		cost_factor:					((param_buycost * 90 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -1631,41 +1565,37 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma8200_subtype_text, cargo_subtype) {
 
 item(FEAT_ROADVEHS, item_kuma8200) {
     property {
-        name:                           string(STR_KUMA8200);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          40 km/h;    
-        power:                          162 hp;  // 120kW per motor, 1 motor
-        cargo_capacity:                 70;
-        introduction_date:              date(1982,02,08);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         19 ton;
-        length:                         7;
+		name:							string(STR_KUMA8200);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							40 km/h;
+		power:							162 hp;
+		introduction_date:				date(1982,02,08);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							19 ton;
+		length:							7;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
-        cargo_subtype_text:             sw_kuma8200_subtype_text;
-        cargo_capacity:                 (param_capacity * 70 ) / 2;
-        purchase_cargo_capacity:        (param_capacity * 70 ) / 2;
-        default:                        sw_kuma8200_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
-        purchase:                       sw_kuma8200_purchase;
-        cost_factor:                    ((param_buycost*90)/4);
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));
+		cargo_subtype_text:				sw_kuma8200_subtype_text;
+		cargo_capacity:					(param_capacity * 70 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 70 ) / 2;
+		default:						sw_kuma8200_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		purchase:						sw_kuma8200_purchase;
+		cost_factor:					((param_buycost * 90 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -1782,41 +1712,37 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma8500_subtype_text, cargo_subtype) {
 
 item(FEAT_ROADVEHS, item_kuma8500) {
     property {
-        name:                           string(STR_KUMA8500);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          40 km/h;    
-        power:                          52 * 2 hp;  // 38kW per motor, 2 motors
-        cargo_capacity:                 70;
-        introduction_date:              date(1985,04,05);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   60;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         17 ton;
-        length:                         7;
+		name:							string(STR_KUMA8500);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							40 km/h;
+		power:							52 * 2 hp;
+		introduction_date:				date(1985,04,05);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							17 ton;
+		length:							7;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA8500));
-        cargo_subtype_text:             sw_kuma8500_subtype_text;
-        cargo_capacity:                 (param_capacity * 72 ) / 2;
-        purchase_cargo_capacity:        (param_capacity * 72 ) / 2;
-        default:                        sw_kuma8500_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
-        purchase:                       sw_kuma8500_purchase;
-        cost_factor:                    ((param_buycost*90)/4);
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA8500));
+		cargo_subtype_text:				sw_kuma8500_subtype_text;
+		cargo_capacity:					(param_capacity * 72 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		default:						sw_kuma8500_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		purchase:						sw_kuma8500_purchase;
+		cost_factor:					((param_buycost * 90 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -1836,18 +1762,11 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma8800_subtype_text, cargo_subtype) {
 
     // Purchase
     spriteset(ss_kuma8800_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_purchase.png") {tmpl_p()}
-    spriteset(ss_kuma8800_101_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101_purchase.png") {tmpl_p()}
 
     switch(FEAT_ROADVEHS, SELF, sw_kuma8800_purchase, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: logo_kumamoto; 
             1: ss_kuma8800_purchase;
-        }
-
-    switch(FEAT_ROADVEHS, SELF, sw_kuma8800_101_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_kumamoto; 
-            1: ss_kuma8800_101_purchase;
         }
 
     // Tram Graphics
@@ -1857,9 +1776,6 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma8800_subtype_text, cargo_subtype) {
     spriteset(ss_kuma8802_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8802.png") {tmpl_7(1,1)}
 
     spriteset(ss_kuma8800_lead_2cc, "src/trams/kumamoto/8800/kuma8800_2cc.png") {tmpl_7(1,1)}
-
-    spriteset(ss_kuma8800_101_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma8800_101_roof, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101_roof.png") {tmpl_7(1,1)}
 
     switch(FEAT_ROADVEHS, PARENT, sw_kuma8800_lead_rdm, random_bits % 2) {
         1: ss_kuma8802_lead;
@@ -1881,6 +1797,59 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma8800_subtype_text, cargo_subtype) {
             3: door06;                      // Doors
         }
 
+item(FEAT_ROADVEHS, item_kuma8800) {
+    property {
+		name:							string(STR_KUMA8800);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							40 km/h;
+		power:							67 * 2 hp;
+		introduction_date:				date(1988,12,01);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							19 ton;
+		length:							7;
+        }
+    graphics {
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA8800));
+		cargo_subtype_text:				sw_kuma8800_subtype_text;
+		cargo_capacity:					(param_capacity * 72 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		default:						sw_kuma8800_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		purchase:						sw_kuma8800_purchase;
+		cost_factor:					((param_buycost * 90 ) / 4 );
+        }
+}
+# 1 "JPplusTrams.pnml" 4
+# 1 "src/trams/kumamoto/8800/kuma8800_101.pnml" 1
+
+// Graphics
+
+    // Purchase
+    spriteset(ss_kuma8800_101_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101_purchase.png") {tmpl_p()}
+
+    switch(FEAT_ROADVEHS, SELF, sw_kuma8800_101_purchase, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: logo_kumamoto; 
+            1: ss_kuma8800_101_purchase;
+        }
+
+    // Tram Graphics
+    spriteset(ss_kuma8800_101_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8800_101_roof, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101_roof.png") {tmpl_7(1,1)}
+
     switch(FEAT_ROADVEHS, SELF, sw_kuma8800_101_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_kuma8800_101_lead;        // Base
@@ -1889,93 +1858,48 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma8800_subtype_text, cargo_subtype) {
             3: door06;                      // Doors
         }  
 
-item(FEAT_ROADVEHS, item_kuma8800) {
-    property {
-        name:                           string(STR_KUMA8800);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          40 km/h;    
-        power:                          67 * 2 hp;  // 50kW per motor, 2 motors
-        cargo_capacity:                 72;
-        introduction_date:              date(1988,12,01);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         19 ton;
-        length:                         7;
-        }
-    graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA8800));
-        cargo_subtype_text:             sw_kuma8800_subtype_text;
-        cargo_capacity:                 (param_capacity * 72 ) / 2;
-        purchase_cargo_capacity:        (param_capacity * 72 ) / 2;
-        default:                        sw_kuma8800_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
-        purchase:                       sw_kuma8800_purchase;
-        cost_factor:                    ((param_buycost*90)/4);
-        }
-}
-
 item(FEAT_ROADVEHS, item_kuma8800_101) {
     property {
-        name:                           string(STR_KUMA8800_101);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          40 km/h;    
-        power:                          67 * 2 hp;  // 50kW per motor, 2 motors
-        cargo_capacity:                 72;
-        introduction_date:              date(1993,09,24);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
+		name:							string(STR_KUMA8800_101);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							40 km/h;
+		power:							67 * 2 hp;
+		introduction_date:				date(1993,09,24);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
         variant_group:					16;
-        misc_flags:                     bitmask(ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         19 ton;
-        length:                         7;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							19 ton;
+		length:							7;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA8800));
-        //cargo_subtype_text:             sw_kuma8800_101_subtype_text;
-        cargo_capacity:                 (param_capacity * 72 ) / 2;
-        purchase_cargo_capacity:        (param_capacity * 72 ) / 2;
-        default:                        sw_kuma8800_101_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
-        purchase:                       sw_kuma8800_101_purchase;
-        cost_factor:                    ((param_buycost*90)/4);
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA8800));
+		cargo_capacity:					(param_capacity * 72 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		default:						sw_kuma8800_101_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		purchase:						sw_kuma8800_101_purchase;
+		cost_factor:					((param_buycost * 90 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
-# 1 "src/trams/kumamoto/0800/0800.pnml" 1
+# 1 "src/trams/kumamoto/0800/kuma0800.pnml" 1
 
 // https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E3%83%A9%E3%82%A4%E3%83%88%E3%83%AC%E3%83%BC%E3%83%AB9200%E5%BD%A2%E9%9B%BB%E8%BB%8A
 
 
-switch(FEAT_ROADVEHS, SELF, sw_0800_subtype_text, cargo_subtype) {
+switch(FEAT_ROADVEHS, SELF, sw_kuma0800_subtype_text, cargo_subtype) {
 	    0: return string(LV_IRL);
         1: return string(LV_COCORO);
         2: return string(LV_1CC);
@@ -1986,99 +1910,94 @@ switch(FEAT_ROADVEHS, SELF, sw_0800_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(spriteset_0800_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/0800_purchase.png") {tmpl_p()}
+    spriteset(spriteset_kuma0800_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_0800_purchase, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma0800_purchase, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: logo_kumamoto; 
-            1: spriteset_0800_purchase;
+            1: spriteset_kuma0800_purchase;
         }
 
     // Tram Graphics
 
     // Base
-    spriteset(spriteset_0800_lead_irl,          ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/0800_irl.png") {tmpl_7(1,1)}
-    spriteset(spriteset_0800_rear_irl,          ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/0800_irl.png") {tmpl_7(1,25)}
+    spriteset(spriteset_kuma0800_lead_irl,          ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_irl.png") {tmpl_7(1,1)}
+    spriteset(spriteset_kuma0800_rear_irl,          ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_irl.png") {tmpl_7(1,25)}
     
     // Liveries
-    spriteset(spriteset_0800_lead_cocoro,       ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/0800_cocoro.png") {tmpl_7(1,1)}
-    spriteset(spriteset_0800_rear_cocoro,       ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/0800_cocoro.png") {tmpl_7(1,25)}
+    spriteset(spriteset_kuma0800_lead_cocoro,       ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_cocoro.png") {tmpl_7(1,1)}
+    spriteset(spriteset_kuma0800_rear_cocoro,       ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_cocoro.png") {tmpl_7(1,25)}
     
-    spriteset(spriteset_0800_lead_1cc,          "src/trams/kumamoto/0800/0800_1cc.png") {tmpl_7(1,1)}
-    spriteset(spriteset_0800_rear_1cc,          "src/trams/kumamoto/0800/0800_1cc.png") {tmpl_7(1,25)}
+    spriteset(spriteset_kuma0800_lead_1cc,          "src/trams/kumamoto/0800/kuma0800_1cc.png") {tmpl_7(1,1)}
+    spriteset(spriteset_kuma0800_rear_1cc,          "src/trams/kumamoto/0800/kuma0800_1cc.png") {tmpl_7(1,25)}
     
-    spriteset(spriteset_0800_lead_2cc,          "src/trams/kumamoto/0800/0800_2cc.png") {tmpl_7(1,1)}
-    spriteset(spriteset_0800_rear_2cc,          "src/trams/kumamoto/0800/0800_2cc.png") {tmpl_7(1,25)}
+    spriteset(spriteset_kuma0800_lead_2cc,          "src/trams/kumamoto/0800/kuma0800_2cc.png") {tmpl_7(1,1)}
+    spriteset(spriteset_kuma0800_rear_2cc,          "src/trams/kumamoto/0800/kuma0800_2cc.png") {tmpl_7(1,25)}
 
     // Mask Selection
-    switch(FEAT_ROADVEHS, PARENT, sw_0800_lead_mask, cargo_subtype) {1: spriteset_0800_lead_cocoro; 2:spriteset_0800_lead_1cc; 3:spriteset_0800_lead_2cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_0800_rear_mask, cargo_subtype) {1: spriteset_0800_rear_cocoro; 2:spriteset_0800_rear_1cc; 3:spriteset_0800_rear_2cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma0800_lead_mask, cargo_subtype) {1: spriteset_kuma0800_lead_cocoro; 2:spriteset_kuma0800_lead_1cc; 3:spriteset_kuma0800_lead_2cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma0800_rear_mask, cargo_subtype) {1: spriteset_kuma0800_rear_cocoro; 2:spriteset_kuma0800_rear_1cc; 3:spriteset_kuma0800_rear_2cc;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_0800_lead_stack, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma0800_lead_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: spriteset_0800_lead_irl; // Base
-            1: sw_0800_lead_mask;       // Mask
+            0: spriteset_kuma0800_lead_irl; // Base
+            1: sw_kuma0800_lead_mask;       // Mask
             2: door02_lead;             // Doors
             3: sprite_panto01;          // Pantos
         }
 
-    switch(FEAT_ROADVEHS, SELF, sw_0800_rear_stack, [ 
+    switch(FEAT_ROADVEHS, SELF, sw_kuma0800_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: spriteset_0800_rear_irl; // Base
-            1: sw_0800_rear_mask;       // Mask
+            0: spriteset_kuma0800_rear_irl; // Base
+            1: sw_kuma0800_rear_mask;       // Mask
             2: door02_rear;             // Doors
         }
 
-    switch (FEAT_ROADVEHS, SELF, sw_0800_stack, position_in_consist ) {
-    0:  sw_0800_lead_stack;
-        sw_0800_rear_stack; //default
+    switch (FEAT_ROADVEHS, SELF, sw_kuma0800_stack, position_in_consist ) {
+    0:  sw_kuma0800_lead_stack;
+        sw_kuma0800_rear_stack; //default
 }
 
 //set number of articulated parts
-switch (FEAT_ROADVEHS, SELF, sw_0800_articulated_part, extra_callback_info1) {
-    0..1:  return item_0800;
+switch (FEAT_ROADVEHS, SELF, sw_kuma0800_articulated_part, extra_callback_info1) {
+    0..1:  return item_kuma0800;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
 }
 
-item(FEAT_ROADVEHS, item_0800) {
+item(FEAT_ROADVEHS, item_kuma0800) {
     property {
-        name:                           string(STR_0800);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          70 km/h;    // Current operates at 40km/h, but capable (with approval) of 70 km/h
-        power:                          135 * 2 hp;
-        cargo_capacity:                 74;
-        introduction_date:              date(2009,04,01);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         25 ton;
+		name:							string(STR_KUMA0800);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							70 km/h;
+		power:							135 * 2 hp;
+		introduction_date:				date(2009,04,01);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							25 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_0800));
-        cargo_subtype_text:             sw_0800_subtype_text;
-        cargo_capacity:                 (param_capacity * 82 / num_vehs_in_consist) / 2;
-        purchase_cargo_capacity:        (param_capacity * 82 / 2) / 2;
-        default:                        sw_0800_stack;
-        length:                         7;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            90 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   90 + ((param_runcost * 30 ) / 2 );
-        articulated_part:               sw_0800_articulated_part;
-        visual_effect:                  sw_spark_2nd_only;
-        purchase:                       sw_0800_purchase;
-        cost_factor:                    ((param_buycost*175)/4);
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA0800));
+		cargo_subtype_text:				sw_kuma0800_subtype_text;
+		cargo_capacity:					(param_capacity * 82 / 2 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 82 / 2 ) / 2;
+		default:						sw_kuma0800_stack;
+		length:							7;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			90 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	90 + ((param_runcost * 30 ) / 2 );
+        articulated_part:               sw_kuma0800_articulated_part;
+		visual_effect:					sw_spark_on_1;
+		purchase:						sw_kuma0800_purchase;
+		cost_factor:					((param_buycost * 175 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -2199,43 +2118,43 @@ switch (FEAT_ROADVEHS, SELF, sw_f1000_articulated_part, extra_callback_info1) {
 
 item(FEAT_ROADVEHS, item_f1000) {
     property {
-        name:                           string(STR_F1000);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          70 km/h;    // Current operates at 40km/h, but capable (with approval) of 70 km/h
-        power:                          135 * 3 hp;
-        cargo_capacity:                 155;
-        introduction_date:              date(2013,03,31);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         37 ton;
+		name:							string(STR_F1000);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		cargo_age_period:				sw_cargo_age_period_01;
+		cost_factor:					((param_buycost * 167 ) / 4 );
+		running_cost_factor:			130 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		speed:							70 km/h;
+		power:							135 * 3 hp;
+		cargo_capacity:					(param_capacity * 155 / 3 ) / 2;
+		introduction_date:				date(2013,03,31);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					sw_spark_on_1;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							37 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(FUKUI),string(LIVERIES),string(VARIOUS));
-        cargo_subtype_text:             sw_f1000_subtype_text;
-        cargo_capacity:                 ((param_capacity*  155) / num_vehs_in_consist) / 2;
-        purchase_cargo_capacity:        ((param_capacity * 155) / 3 ) / 2;
-        default:                        sw_f1001_stack;
-        length:                         sw_f1000_length;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            130 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   130 + ((param_runcost * 30 ) / 2 );
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(FUKUI),string(LIVERIES),string(VARIOUS));
+		cargo_subtype_text:				sw_f1000_subtype_text;
+		cargo_capacity:					(param_capacity * 155 / 3 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 155 / 3 ) / 2;
+		default:						sw_f1000_stack;
+		length:							sw_f1000_length;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			130 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	130 + ((param_runcost * 30 ) / 2 );
         articulated_part:               sw_f1000_articulated_part;
-        visual_effect:                  sw_spark_2nd_only;
-        purchase:                       sw_f1000_purchase;
-        cost_factor:                    ((param_buycost * 167 ) / 4);
+		visual_effect:					sw_spark_on_1;
+		purchase:						sw_f1000_purchase;
+		cost_factor:					((param_buycost * 167 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -2297,65 +2216,51 @@ switch(FEAT_ROADVEHS, SELF, sw_oka9200_subtype_text, cargo_subtype) {
                 sw_oka9200_rear_stack;                     //default
         }
 
-switch (FEAT_ROADVEHS, SELF, sw_oka9200_spark, position_in_consist ) {
-    0:  return VISUAL_EFFECT_DISABLE;
-    1:  return VISUAL_EFFECT_ELECTRIC;
-        return VISUAL_EFFECT_DISABLE; //default
-}
-
 //set number of articulated parts
 switch (FEAT_ROADVEHS, SELF, sw_oka9200_articulated_part, extra_callback_info1) {
     0..1:  return item_oka9200;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
 }
 
-switch (FEAT_ROADVEHS, SELF, sw_oka9200_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
-
 item(FEAT_ROADVEHS, item_oka9200) {
     property {
-        name:                           string(STR_9200);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          70 km/h;    // Current operates at 40km/h, but capable (with approval) of 70 km/h
-        power:                          135 * 2 hp;
-        cargo_capacity:                 74;
-        introduction_date:              date(2002,07,05);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         20 ton;
+		name:							string(STR_9200);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		cargo_age_period:				sw_cargo_age_period_01;
+		cost_factor:					((param_buycost * 122 ) / 4 );
+		running_cost_factor:			89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		speed:							70 km/h;
+		power:							135 * 2 hp;
+		cargo_capacity:					(param_capacity * 74 / 2 ) / 2;
+		introduction_date:				date(2002,07,05);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					sw_spark_on_1;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							20 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(OKAYAMA),string(LIVERIES),string(IRL1CC2CC));
-        cargo_subtype_text:             sw_oka9200_subtype_text;
-        cargo_capacity:                 (param_capacity * 74 / num_vehs_in_consist) / 2;
-        purchase_cargo_capacity:        (param_capacity * 74 / 2) / 2;
-        default:                        sw_oka9200_stack;
-        length:                         7;
-        cargo_age_period:               sw_oka9200_cargo_age_period;
-        running_cost_factor:            89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   89 + ((param_runcost * 30 ) / 2 );
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(OKAYAMA),string(LIVERIES),string(IRL1CC2CC)));
+		cargo_subtype_text:				sw_oka9200_subtype_text;
+		cargo_capacity:					(param_capacity * 74 / 2 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 74 / 2 ) / 2;
+		default:						sw_oka9200_stack;
+		length:							7;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	89 + ((param_runcost * 30 ) / 2 );
         articulated_part:               sw_oka9200_articulated_part;
-        visual_effect:                  sw_oka9200_spark;
-        purchase:                       sw_oka9200_purchase;
-        cost_factor:                    ((param_buycost * 122 ) / 4);
+		visual_effect:					sw_spark_on_1;
+		purchase:						sw_oka9200_purchase;
+		cost_factor:					((param_buycost * 122 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -2424,65 +2329,47 @@ switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_subtype_text, cargo_subtype) {
             sw_mlrv1000_rear_stack;                      //default
         }
 
-switch (FEAT_ROADVEHS, SELF, sw_mlrv1000_spark, position_in_consist ) {
-    0:  return VISUAL_EFFECT_DISABLE;
-    1:  return VISUAL_EFFECT_ELECTRIC;
-        return VISUAL_EFFECT_DISABLE; //default
-}
-
 //set number of articulated parts
 switch (FEAT_ROADVEHS, SELF, sw_mlrv1000_articulated_part, extra_callback_info1) {
     0..1:  return item_mlrv1000;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
 }
 
-switch (FEAT_ROADVEHS, SELF, sw_mlrv1000_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
-
 item(FEAT_ROADVEHS, item_mlrv1000) {
     property {
-        name:                           string(STR_MLRV1000);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          70 km/h;    // Current operates at 40km/h, but capable (with approval) of 70 km/h
-        power:                          135 * 2 hp;
-        cargo_capacity:                 74;
-        introduction_date:              date(2004,01,21);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         21 ton;
+		name:							string(STR_MLRV1000);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							70 km/h;
+		power:							135 * 2 hp;
+		introduction_date:				date(2004,04,21);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					sw_spark_on_1;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							21 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(MANYOSEN),string(LIVERIES),string(DES_MLRV1000));
-        cargo_subtype_text:             sw_mlrv1000_subtype_text;
-        cargo_capacity:                 (param_capacity * 80 / num_vehs_in_consist) / 2;
-        purchase_cargo_capacity:        (param_capacity * 80 / 2) / 2;
-        default:                        sw_mlrv1000_stack;
-        length:                         7;
-        cargo_age_period:               sw_mlrv1000_cargo_age_period;
-        running_cost_factor:            88 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   88 + ((param_runcost * 30 ) / 2 );
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(MANYOSEN),string(LIVERIES),string(DES_MLRV1000));
+		cargo_subtype_text:				sw_mlrv1000_subtype_text;
+		cargo_capacity:					(param_capacity * 80 / 2 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 80 / 2 ) / 2;
+		default:						sw_mlrv1000_stack;
+		length:							7;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			88 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	88 + ((param_runcost * 30 ) / 2 );
         articulated_part:               sw_mlrv1000_articulated_part;
-        visual_effect:                  sw_mlrv1000_spark;
-        purchase:                       sw_mlrv1000_purchase;
-        cost_factor:                    ((param_buycost*175)/4);
+		visual_effect:					sw_spark_on_1;
+		purchase:						sw_mlrv1000_purchase;
+		cost_factor:					((param_buycost * 175 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -2541,65 +2428,46 @@ switch(FEAT_ROADVEHS, SELF, sw_l_subtype_text, cargo_subtype) {
                 sw_l_rear_stack;                     //default
         }    
 
-switch (FEAT_ROADVEHS, SELF, sw_l_spark, position_in_consist ) {
-    0:  return VISUAL_EFFECT_DISABLE;
-    1:  return VISUAL_EFFECT_ELECTRIC;
-        return VISUAL_EFFECT_DISABLE; //default
-}
-
 //set number of articulated parts
 switch (FEAT_ROADVEHS, SELF, sw_l_articulated_part, extra_callback_info1) {
     0..1:  return item_l;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
 }
 
-switch (FEAT_ROADVEHS, SELF, sw_l_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
-
 item(FEAT_ROADVEHS, item_l) {
     property {
-        name:                           string(STR_L);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          72 km/h;    // Current operates at 40km/h, but capable (with approval) of 70 km/h
-        power:                          135 * 2 hp;
-        cargo_capacity:                 74;
-        introduction_date:              date(2016,03,27);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         21 ton;
+		name:							string(STR_L);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							72 km/h;
+		power:							135 * 2 hp;
+		introduction_date:				date(2016,03,27);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							21 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(ECHIZEN),string(LIVERIES),string(IRL1CC));
-        cargo_subtype_text:             sw_l_subtype_text;
-        cargo_capacity:                 (param_capacity * 100 / num_vehs_in_consist) / 2;
-        purchase_cargo_capacity:        (param_capacity * 100 / 2) / 2;
-        default:                        sw_l_stack;
-        length:                         7;
-        cargo_age_period:               sw_l_cargo_age_period;
-        running_cost_factor:            92 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   92 + ((param_runcost * 30 ) / 2 );
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(FUKUI),string(LIVERIES),string(IRL1CC));
+		cargo_subtype_text:				sw_l_subtype_text;
+		cargo_capacity:					(param_capacity * 100 / 2 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 100 / 2 ) / 2;
+		default:						sw_l_stack;
+		length:							7;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			92 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	92 + ((param_runcost * 30 ) / 2 );
         articulated_part:               sw_l_articulated_part;
-        visual_effect:                  sw_l_spark;
-        purchase:                       sw_l_purchase;
-        cost_factor:                    ((param_buycost * 124 ) / 4);
+		visual_effect:					sw_spark_on_1;
+		purchase:						sw_l_purchase;
+		cost_factor:					((param_buycost * 124 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -2698,65 +2566,46 @@ switch(FEAT_ROADVEHS, SELF, sw_tlr0600_subtype_text, cargo_subtype) {
                 sw_tlr0600_rear_stack;                  //default
         }
 
-switch (FEAT_ROADVEHS, SELF, sw_tlr0600_spark, position_in_consist ) {
-    0:  return VISUAL_EFFECT_DISABLE;
-    1:  return VISUAL_EFFECT_ELECTRIC;
-        return VISUAL_EFFECT_DISABLE; //default
-}
-
 //set number of articulated parts
 switch (FEAT_ROADVEHS, SELF, sw_tlr0600_articulated_part, extra_callback_info1) {
     0..1:  return item_tlr0600;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
 }
 
-switch (FEAT_ROADVEHS, SELF, sw_tlr0600_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
-
 item(FEAT_ROADVEHS, item_tlr0600) {
     property {
-        name:                           string(STR_TLR0600);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          70 km/h;    // Current operates at 40km/h, but capable (with approval) of 70 km/h
-        power:                          135 * 2 hp;
-        cargo_capacity:                 74;
-        introduction_date:              date(2006,04,29);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         25 ton;
+		name:							string(STR_TLR0600);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							70 km/h;
+		power:							135 * 2 hp;
+		introduction_date:				date(2006,04,29);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							25 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(VARIOUS));
-        cargo_subtype_text:             sw_tlr0600_subtype_text;
-        cargo_capacity:                 (param_capacity * 80 / num_vehs_in_consist) / 2;
-        purchase_cargo_capacity:        (param_capacity * 80 / 2) / 2;
-        default:                        sw_tlr0600_stack;
-        length:                         7;
-        cargo_age_period:               sw_tlr0600_cargo_age_period;
-        running_cost_factor:            88 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   88 + ((param_runcost * 30 ) / 2 );
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(VARIOUS));
+		cargo_subtype_text:				sw_tlr0600_subtype_text;
+		cargo_capacity:					(param_capacity * 80 / 2 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 80 / 2 ) / 2;
+		default:						sw_tlr0600_stack;
+		length:							7;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			88 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	88 + ((param_runcost * 30 ) / 2 );
         articulated_part:               sw_tlr0600_articulated_part;
-        visual_effect:                  sw_tlr0600_spark;
-        purchase:                       sw_tlr0600_purchase;
-        cost_factor:                    ((param_buycost*175)/4);
+		visual_effect:					sw_spark_on_1;
+		purchase:						sw_tlr0600_purchase;
+		cost_factor:					((param_buycost * 175 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -2821,65 +2670,46 @@ switch(FEAT_ROADVEHS, SELF, sw_de9000_subtype_text, cargo_subtype) {
                 sw_de9000_rear_stack;                   //default
         }
 
-switch (FEAT_ROADVEHS, SELF, sw_de9000_spark, position_in_consist ) {
-    0:  return VISUAL_EFFECT_DISABLE;
-    1:  return VISUAL_EFFECT_ELECTRIC;
-        return VISUAL_EFFECT_DISABLE; //default
-}
-
 //set number of articulated parts
 switch (FEAT_ROADVEHS, SELF, sw_de9000_articulated_part, extra_callback_info1) {
     0..1:  return item_de9000;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
 }
 
-switch (FEAT_ROADVEHS, SELF, sw_de9000_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
-
 item(FEAT_ROADVEHS, item_de9000) {
     property {
-        name:                           string(STR_DE9000);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          70 km/h;    // Current operates at 40km/h, but capable (with approval) of 70 km/h
-        power:                          135 * 2 hp;
-        cargo_capacity:                 74;
-        introduction_date:              date(2009,12,23);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         25 ton;
+		name:							string(STR_DE9000);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							70 km/h;
+		power:							135 * 2 hp;
+		introduction_date:				date(2009,12,23);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							25 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(VARIOUS));
-        cargo_subtype_text:             sw_de9000_subtype_text;
-        cargo_capacity:                 (param_capacity * 80 / num_vehs_in_consist) / 2;
-        purchase_cargo_capacity:        (param_capacity * 80 / 2) / 2;
-        default:                        sw_de9000_stack;
-        length:                         7;
-        cargo_age_period:               sw_de9000_cargo_age_period;
-        running_cost_factor:            89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   89 + ((param_runcost * 30 ) / 2 );
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(VARIOUS));
+		cargo_subtype_text:				sw_de9000_subtype_text;
+		cargo_capacity:					(param_capacity * 80 / 2 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 80 / 2 ) / 2;
+		default:						sw_de9000_stack;
+		length:							7;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			88 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	88 + ((param_runcost * 30 ) / 2 );
         articulated_part:               sw_de9000_articulated_part;
-        visual_effect:                  sw_de9000_spark;
-        purchase:                       sw_de9000_purchase;
-        cost_factor:                    ((param_buycost*176)/4);
+		visual_effect:					sw_spark_on_1;
+		purchase:						sw_de9000_purchase;
+		cost_factor:					((param_buycost * 176 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -2982,65 +2812,46 @@ switch(FEAT_ROADVEHS, SELF, sw_t100_subtype_text, cargo_subtype) {
                 sw_t100_rear_stack;                   //default
         }
 
-switch (FEAT_ROADVEHS, SELF, sw_t100_spark, position_in_consist ) {
-    0:  return VISUAL_EFFECT_DISABLE;
-    1:  return VISUAL_EFFECT_ELECTRIC;
-        return VISUAL_EFFECT_DISABLE; //default
-}
-
 //set number of articulated parts
 switch (FEAT_ROADVEHS, SELF, sw_t100_articulated_part, extra_callback_info1) {
     0..2:  return item_t100;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
 }
 
-switch (FEAT_ROADVEHS, SELF, sw_t100_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
-
 item(FEAT_ROADVEHS, item_t100) {
     property {
-        name:                           string(STR_T100);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          70 km/h;    // Current operates at 40km/h, but capable (with approval) of 70 km/h
-        power:                          135 * 2 hp;
-        cargo_capacity:                 74;
-        introduction_date:              date(2010,01,01);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         25 ton;
+		name:							string(STR_T100);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							70 km/h;
+		power:							135 * 2 hp;
+		introduction_date:				date(2010,01,01);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							25 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(VARIOUS));
-        cargo_subtype_text:             sw_t100_subtype_text;
-        cargo_capacity:                 (param_capacity * 74 / num_vehs_in_consist) / 2;
-        purchase_cargo_capacity:        (param_capacity * 74 / 3) / 2;
-        default:                        sw_t100_stack;
-        length:                         5;
-        cargo_age_period:               sw_t100_cargo_age_period;
-        running_cost_factor:            89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   89 + ((param_runcost * 30 ) / 2 );
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(VARIOUS));
+		cargo_subtype_text:				sw_t100_subtype_text;
+		cargo_capacity:					(param_capacity * 74 / 3 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 74 / 3 ) / 2;
+		default:						sw_t100_stack;
+		length:							5;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	89 + ((param_runcost * 30 ) / 2 );
         articulated_part:               sw_t100_articulated_part;
-        visual_effect:                  sw_t100_spark;
-        purchase:                       sw_t100_purchase;
-        cost_factor:                    ((param_buycost*176)/4);
+		visual_effect:					sw_spark_on_2;
+		purchase:						sw_t100_purchase;
+		cost_factor:					((param_buycost * 176 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -3105,41 +2916,37 @@ switch(FEAT_ROADVEHS, SELF, sw_toyama8000_subtype_text, cargo_subtype) {
 
 item(FEAT_ROADVEHS, item_toyama8000) {
     property {
-        name:                           string(STR_TOYAMA8000);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-		speed:							34 km/h;
-        power:                          81 * 2 hp;  // 60kW per motor, 2 motors
-        cargo_capacity:                 66;
+		name:							string(STR_TOYAMA8000);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							40 km/h;
+		power:							81 * 2 hp;
 		introduction_date:				date(1993,01,01);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   60;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         17 ton;
-        length:                         7;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							17 ton;
+		length:							7;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(DES_TOYAMA8000));
-        cargo_subtype_text:             sw_toyama8000_subtype_text;
-        cargo_capacity:                 (param_capacity * 66 ) / 2;
-        purchase_cargo_capacity:        (param_capacity * 66 ) / 2;
-        default:                        sw_toyama8000_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
-        purchase:                       sw_toyama8000_purchase;
-        cost_factor:                    ((param_buycost*90)/4);
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(DES_TOYAMA8000));
+		cargo_subtype_text:				sw_toyama8000_subtype_text;
+		cargo_capacity:					(param_capacity * 66 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 66 ) / 2;
+		default:						sw_toyama8000_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		purchase:						sw_toyama8000_purchase;
+		cost_factor:					((param_buycost * 90 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -3196,41 +3003,37 @@ switch(FEAT_ROADVEHS, SELF, sw_toyama7000_subtype_text, cargo_subtype) {
 
 item(FEAT_ROADVEHS, item_toyama7000) {
     property {
-        name:                           string(STR_TOYAMA7000);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-		loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-		speed:							35 km/h;
-        power:                          67 * 2 hp;  // 50kW per motor, 2 motors
-        cargo_capacity:                 66;
+		name:							string(STR_TOYAMA7000);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							24 km/h;
+		power:							67 * 2 hp;
 		introduction_date:				date(1957,01,01);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   60;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         16 ton;
-        length:                         7;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							16 ton;
+		length:							7;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(DES_TOYAMA7000));
-        cargo_subtype_text:             sw_toyama7000_subtype_text;
-        cargo_capacity:                 (param_capacity * 90 ) / 2;
-        purchase_cargo_capacity:        (param_capacity * 90 ) / 2;
-        default:                        sw_toyama7000_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
-        purchase:                       sw_toyama7000_purchase;
-        cost_factor:                    ((param_buycost*90)/4);
+		default:						sw_toyama7000_stack;
+		purchase:						sw_toyama7000_purchase;
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(DES_TOYAMA7000));
+		cargo_subtype_text:				sw_toyama7000_subtype_text;
+		cargo_capacity:					(param_capacity * 66 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 66 ) / 2;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		cost_factor:					((param_buycost * 90 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
@@ -3238,7 +3041,11 @@ item(FEAT_ROADVEHS, item_toyama7000) {
 
 // Cargo Subtypes
 
-    // Only 1 type
+    switch(FEAT_ROADVEHS, SELF, sw_toyamade5000_subtype_text, cargo_subtype) {
+	    0: return string(LV_IRL);
+        1: return string(LV_ORANGEWHITE);
+        return CB_RESULT_NO_TEXT;
+        }
 
 // Graphics
 
@@ -3255,53 +3062,54 @@ item(FEAT_ROADVEHS, item_toyama7000) {
     spriteset(ss_toyamade5000_lead_base, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de5000/toyamade5000_bse.png") {tmpl_7(1,1)}
 
     spriteset(ss_toyamade5000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de5000/toyamade5000_irl.png") {tmpl_7(1,1)}
+    spriteset(ss_toyamade5000_lead_oaw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de5000/toyamade5000_oaw.png") {tmpl_7(1,1)}
  
+    switch(FEAT_ROADVEHS, PARENT, sw_toyamade5000_lead_mask, cargo_subtype) {
+        0: ss_toyamade5000_lead_irl;
+        1: ss_toyamade5000_lead_oaw;
+        }
 
     switch(FEAT_ROADVEHS, SELF, sw_toyamade5000_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_toyamade5000_lead_base;        // Base
-            1: ss_toyamade5000_lead_irl;        // Mask
-            2: sprite_panto05;              // Pantos
-            3: door10;                      // Doors
+            1: sw_toyamade5000_lead_mask;        // Mask
+            2: sprite_panto05;                  // Pantos
+            3: door10;                          // Doors
         }
 
 item(FEAT_ROADVEHS, item_toyamade5000) {
     property {
-        name:                           string(STR_TOYAMADE5000);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          24 km/h;    
-        power:                          51 * 2 hp;  // 50kW per motor, 2 motors
-        cargo_capacity:                 66;
-        introduction_date:              date(1950,01,01);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   60;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         18 ton;
-        length:                         7;
+		name:							string(STR_TOYAMADE5000);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							24 km/h;
+		power:							51 * 2 hp;
+		introduction_date:				date(1950,01,01);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							18 ton;
+		length:							7;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(LV_IRL));
-        //cargo_subtype_text:             sw_toyamade5000_subtype_text;
-        cargo_capacity:                 (param_capacity * 90 ) / 2;
-        purchase_cargo_capacity:        (param_capacity * 90 ) / 2;
-        default:                        sw_toyamade5000_stack;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   45 + ((param_runcost * 30 ) / 2 );
-        purchase:                       sw_toyamade5000_purchase;
-        cost_factor:                    ((param_buycost*90)/4);
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(LV_IRL));
+		cargo_subtype_text:				sw_toyamade5000_subtype_text;
+		cargo_capacity:					(param_capacity * 72 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		default:						sw_toyamade5000_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		purchase:						sw_toyamade5000_purchase;
+		cost_factor:					((param_buycost * 90 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4

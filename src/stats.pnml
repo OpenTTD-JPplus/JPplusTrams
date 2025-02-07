@@ -11,12 +11,12 @@
 
 // Spark
 
-    switch (FEAT_ROADVEHS, SELF, sw_spark_1st_only, position_in_consist ) {
+    switch (FEAT_ROADVEHS, SELF, sw_spark_on_1, position_in_consist ) {
         0:  return VISUAL_EFFECT_ELECTRIC;
             return VISUAL_EFFECT_DISABLE; //default
     }
 
-    switch (FEAT_ROADVEHS, SELF, sw_spark_2nd_only, position_in_consist ) {
+    switch (FEAT_ROADVEHS, SELF, sw_spark_on_2, position_in_consist ) {
         1:  return VISUAL_EFFECT_ELECTRIC;
             return VISUAL_EFFECT_DISABLE; //default
     }

@@ -1,0 +1,32 @@
+{
+    "panto05": {
+        "Tram": "toyama8000",
+        "City": "toyama",
+        "Folder": "8000",
+        "Panto_Location": 1
+    },
+    "panto01": {
+        "Tram": "tlr0600",
+        "City": "toyama",
+        "Folder": "tlr0600",
+        "Panto_Location": 1
+    },
+    "panto04": {
+        "Tram": "t100",
+        "City": "toyama",
+        "Folder": "t100",
+        "Panto_Location": 2
+    },
+    "panto02": {
+        "Tram": "kuma1060",
+        "City": "kumamoto",
+        "Folder": "1060",
+        "Panto_Location": 1
+    },
+    "panto03": {
+        "Tram": "kuma8200",
+        "City": "kumamoto",
+        "Folder": "8200",
+        "Panto_Location": 1
+    }
+}

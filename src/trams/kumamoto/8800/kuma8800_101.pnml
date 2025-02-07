@@ -1,0 +1,59 @@
+
+// Graphics
+
+    // Purchase
+    spriteset(ss_kuma8800_101_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101_purchase.png") {tmpl_p()}
+
+    switch(FEAT_ROADVEHS, SELF, sw_kuma8800_101_purchase, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: logo_kumamoto; 
+            1: ss_kuma8800_101_purchase;
+        }
+
+    // Tram Graphics
+    spriteset(ss_kuma8800_101_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8800_101_roof, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101_roof.png") {tmpl_7(1,1)}
+
+    switch(FEAT_ROADVEHS, SELF, sw_kuma8800_101_stack, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: ss_kuma8800_101_lead;        // Base
+            1: sprite_panto03;              // Pantos
+            2: ss_kuma8800_101_roof;        // Roof
+            3: door06;                      // Doors
+        }  
+
+item(FEAT_ROADVEHS, item_kuma8800_101) {
+    property {
+		name:							string(STR_KUMA8800_101);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							40 km/h;
+		power:							67 * 2 hp;
+		introduction_date:				date(1993,09,24);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+        variant_group:					16;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							19 ton;
+		length:							7;
+        }
+    graphics {
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA8800));
+		cargo_capacity:					(param_capacity * 72 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		default:						sw_kuma8800_101_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		purchase:						sw_kuma8800_101_purchase;
+		cost_factor:					((param_buycost * 90 ) / 4 );
+        }
+}

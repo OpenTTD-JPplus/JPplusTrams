@@ -1,0 +1,105 @@
+
+// https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E3%83%A9%E3%82%A4%E3%83%88%E3%83%AC%E3%83%BC%E3%83%AB9200%E5%BD%A2%E9%9B%BB%E8%BB%8A
+
+
+switch(FEAT_ROADVEHS, SELF, sw_kuma0800_subtype_text, cargo_subtype) {
+	    0: return string(LV_IRL);
+        1: return string(LV_COCORO);
+        2: return string(LV_1CC);
+        3: return string(LV_2CC);
+        return CB_RESULT_NO_TEXT;
+        }
+
+// Graphics
+
+    // Purchase
+    spriteset(spriteset_kuma0800_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_purchase.png") {tmpl_p()}
+
+    switch(FEAT_ROADVEHS, SELF, sw_kuma0800_purchase, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: logo_kumamoto; 
+            1: spriteset_kuma0800_purchase;
+        }
+
+    // Tram Graphics
+
+    // Base
+    spriteset(spriteset_kuma0800_lead_irl,          ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_irl.png") {tmpl_7(1,1)}
+    spriteset(spriteset_kuma0800_rear_irl,          ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_irl.png") {tmpl_7(1,25)}
+    
+    // Liveries
+    spriteset(spriteset_kuma0800_lead_cocoro,       ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_cocoro.png") {tmpl_7(1,1)}
+    spriteset(spriteset_kuma0800_rear_cocoro,       ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_cocoro.png") {tmpl_7(1,25)}
+    
+    spriteset(spriteset_kuma0800_lead_1cc,          "src/trams/kumamoto/0800/kuma0800_1cc.png") {tmpl_7(1,1)}
+    spriteset(spriteset_kuma0800_rear_1cc,          "src/trams/kumamoto/0800/kuma0800_1cc.png") {tmpl_7(1,25)}
+    
+    spriteset(spriteset_kuma0800_lead_2cc,          "src/trams/kumamoto/0800/kuma0800_2cc.png") {tmpl_7(1,1)}
+    spriteset(spriteset_kuma0800_rear_2cc,          "src/trams/kumamoto/0800/kuma0800_2cc.png") {tmpl_7(1,25)}
+
+    // Mask Selection
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma0800_lead_mask, cargo_subtype) {1: spriteset_kuma0800_lead_cocoro; 2:spriteset_kuma0800_lead_1cc; 3:spriteset_kuma0800_lead_2cc;}
+    switch(FEAT_ROADVEHS, PARENT, sw_kuma0800_rear_mask, cargo_subtype) {1: spriteset_kuma0800_rear_cocoro; 2:spriteset_kuma0800_rear_1cc; 3:spriteset_kuma0800_rear_2cc;}
+
+    switch(FEAT_ROADVEHS, SELF, sw_kuma0800_lead_stack, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: spriteset_kuma0800_lead_irl; // Base
+            1: sw_kuma0800_lead_mask;       // Mask
+            2: door02_lead;             // Doors
+            3: sprite_panto01;          // Pantos
+        }
+
+    switch(FEAT_ROADVEHS, SELF, sw_kuma0800_rear_stack, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: spriteset_kuma0800_rear_irl; // Base
+            1: sw_kuma0800_rear_mask;       // Mask
+            2: door02_rear;             // Doors
+        }
+
+    switch (FEAT_ROADVEHS, SELF, sw_kuma0800_stack, position_in_consist ) {
+    0:  sw_kuma0800_lead_stack;
+        sw_kuma0800_rear_stack; //default
+}
+
+//set number of articulated parts
+switch (FEAT_ROADVEHS, SELF, sw_kuma0800_articulated_part, extra_callback_info1) {
+    0..1:  return item_kuma0800;
+        return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+}
+
+item(FEAT_ROADVEHS, item_kuma0800) {
+    property {
+		name:							string(STR_KUMA0800);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							70 km/h;
+		power:							135 * 2 hp;
+		introduction_date:				date(2009,04,01);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							25 ton;
+        }
+    graphics {
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA0800));
+		cargo_subtype_text:				sw_kuma0800_subtype_text;
+		cargo_capacity:					(param_capacity * 82 / 2 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 82 / 2 ) / 2;
+		default:						sw_kuma0800_stack;
+		length:							7;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			90 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	90 + ((param_runcost * 30 ) / 2 );
+        articulated_part:               sw_kuma0800_articulated_part;
+		visual_effect:					sw_spark_on_1;
+		purchase:						sw_kuma0800_purchase;
+		cost_factor:					((param_buycost * 175 ) / 4 );
+        }
+}

@@ -1,0 +1,86 @@
+{
+    "kumamoto01": {
+        "City": "kumamoto",
+        "Row": 1
+    },
+    "kumamoto02_both": {
+        "City": "kumamoto",
+        "Row": 1
+    },
+    "kumamoto02_bttm": {
+        "City": "kumamoto",
+        "Row": 1
+    },
+    "kumamoto02_solo": {
+        "City": "kumamoto",
+        "Row": 1
+    },
+    "kumamoto02_topp": {
+        "City": "kumamoto",
+        "Row": 1
+    },
+    "toyama01": {
+        "City": "toyama",
+        "Row": 1
+    },
+    "overpass_1side_btm_both_noplatform": {
+        "City": "overpass",
+        "Row": 1
+    },
+    "overpass_1side_btm_both_platform": {
+        "City": "overpass",
+        "Row": 1
+    },
+    "overpass_1side_btm_north_noplatform": {
+        "City": "overpass",
+        "Row": 1
+    },
+    "overpass_1side_btm_north_platform": {
+        "City": "overpass",
+        "Row": 1
+    },
+    "overpass_1side_top_north_noplatform": {
+        "City": "overpass",
+        "Row": 1
+    },
+    "overpass_1side_top_north_platform": {
+        "City": "overpass",
+        "Row": 1
+    },
+    "overpass_2sides_both_noplatform": {
+        "City": "overpass",
+        "Row": 1
+    },
+    "overpass_2sides_both_platform": {
+        "City": "overpass",
+        "Row": 1
+    },
+    "overpass_2sides_north_noplatform": {
+        "City": "overpass",
+        "Row": 1
+    },
+    "overpass_2sides_north_platform": {
+        "City": "overpass",
+        "Row": 1
+    },
+    "overpass_2sides_south_noplatform": {
+        "City": "overpass",
+        "Row": 1
+    },
+    "overpass_2sides_south_platform": {
+        "City": "overpass",
+        "Row": 1
+    },
+    "overpass_nontrack": {
+        "City": "overpass",
+        "Row": 1
+    },
+    "overpass_nostairs_platform": {
+        "City": "overpass",
+        "Row": 1
+    },
+    "overpass_nostairs_noplatform": {
+        "City": "overpass",
+        "Row": 1
+    }
+}

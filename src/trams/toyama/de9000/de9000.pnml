@@ -58,64 +58,45 @@ switch(FEAT_ROADVEHS, SELF, sw_de9000_subtype_text, cargo_subtype) {
                 sw_de9000_rear_stack;                   //default
         }
 
-switch (FEAT_ROADVEHS, SELF, sw_de9000_spark, position_in_consist ) {
-    0:  return VISUAL_EFFECT_DISABLE;
-    1:  return VISUAL_EFFECT_ELECTRIC;
-        return VISUAL_EFFECT_DISABLE; //default
-}
-
 //set number of articulated parts
 switch (FEAT_ROADVEHS, SELF, sw_de9000_articulated_part, extra_callback_info1) {
     0..1:  return item_de9000;
         return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
 }
 
-switch (FEAT_ROADVEHS, SELF, sw_de9000_cargo_age_period, (param_aging)) {
-    0:  return 240;
-    1:  return 200;
-    2:  return 170;
-    3:  return 140;
-        return 240; //default
-} 
-
 item(FEAT_ROADVEHS, item_de9000) {
     property {
-        name:                           string(STR_DE9000);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          70 km/h;    // Current operates at 40km/h, but capable (with approval) of 70 km/h
-        power:                          135 * 2 hp;
-        cargo_capacity:                 74;
-        introduction_date:              date(2009,12,23);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         25 ton;
+		name:							string(STR_DE9000);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		speed:							70 km/h;
+		power:							135 * 2 hp;
+		introduction_date:				date(2009,12,23);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							25 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(VARIOUS));
-        cargo_subtype_text:             sw_de9000_subtype_text;
-        cargo_capacity:                 (param_capacity * 80 / num_vehs_in_consist) / 2;
-        purchase_cargo_capacity:        (param_capacity * 80 / 2) / 2;
-        default:                        sw_de9000_stack;
-        length:                         7;
-        cargo_age_period:               sw_de9000_cargo_age_period;
-        running_cost_factor:            89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   89 + ((param_runcost * 30 ) / 2 );
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(VARIOUS));
+		cargo_subtype_text:				sw_de9000_subtype_text;
+		cargo_capacity:					(param_capacity * 80 / 2 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 80 / 2 ) / 2;
+		default:						sw_de9000_stack;
+		length:							7;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			88 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	88 + ((param_runcost * 30 ) / 2 );
         articulated_part:               sw_de9000_articulated_part;
-        visual_effect:                  sw_de9000_spark;
-        purchase:                       sw_de9000_purchase;
-        cost_factor:                    ((param_buycost*176)/4);
+		visual_effect:					sw_spark_on_1;
+		purchase:						sw_de9000_purchase;
+		cost_factor:					((param_buycost * 176 ) / 4 );
         }
 }

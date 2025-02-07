@@ -111,42 +111,42 @@ switch (FEAT_ROADVEHS, SELF, sw_f1000_articulated_part, extra_callback_info1) {
 
 item(FEAT_ROADVEHS, item_f1000) {
     property {
-        name:                           string(STR_F1000);
-        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
-        loading_speed:                  25;
-        cargo_age_period:               240;
-        cost_factor:                    175;
-        running_cost_factor:            80;
-        speed:                          70 km/h;    // Current operates at 40km/h, but capable (with approval) of 70 km/h
-        power:                          135 * 3 hp;
-        cargo_capacity:                 155;
-        introduction_date:              date(2013,03,31);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                   50;
-        reliability_decay:              14;
-        tram_type:                      ELRL;
-        sound_effect:                   SOUND_POWER_STATION;
-        visual_effect:                  VISUAL_EFFECT_ELECTRIC;
-        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
-        misc_flags:                     bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
-        refit_cost:                     0; // Refitting is free
-        running_cost_base:              RUNNING_COST_ROADVEH;
-        weight:                         37 ton;
+		name:							string(STR_F1000);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		cargo_age_period:				sw_cargo_age_period_01;
+		cost_factor:					((param_buycost * 167 ) / 4 );
+		running_cost_factor:			130 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		speed:							70 km/h;
+		power:							135 * 3 hp;
+		cargo_capacity:					(param_capacity * 155 / 3 ) / 2;
+		introduction_date:				date(2013,03,31);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					sw_spark_on_1;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							37 ton;
         }
     graphics {
-        additional_text:                string(STR_CONCAT_4, string(OPERATORS),string(FUKUI),string(LIVERIES),string(VARIOUS));
-        cargo_subtype_text:             sw_f1000_subtype_text;
-        cargo_capacity:                 ((param_capacity*  155) / num_vehs_in_consist) / 2;
-        purchase_cargo_capacity:        ((param_capacity * 155) / 3 ) / 2;
-        default:                        sw_f1001_stack;
-        length:                         sw_f1000_length;
-        cargo_age_period:               sw_cargo_age_period_01;
-        running_cost_factor:            130 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-        purchase_running_cost_factor:   130 + ((param_runcost * 30 ) / 2 );
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(FUKUI),string(LIVERIES),string(VARIOUS));
+		cargo_subtype_text:				sw_f1000_subtype_text;
+		cargo_capacity:					(param_capacity * 155 / 3 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 155 / 3 ) / 2;
+		default:						sw_f1000_stack;
+		length:							sw_f1000_length;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			130 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	130 + ((param_runcost * 30 ) / 2 );
         articulated_part:               sw_f1000_articulated_part;
-        visual_effect:                  sw_spark_2nd_only;
-        purchase:                       sw_f1000_purchase;
-        cost_factor:                    ((param_buycost * 167 ) / 4);
+		visual_effect:					sw_spark_on_1;
+		purchase:						sw_f1000_purchase;
+		cost_factor:					((param_buycost * 167 ) / 4 );
         }
 }

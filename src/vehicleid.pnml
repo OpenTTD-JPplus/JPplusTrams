@@ -1,67 +1,66 @@
 
-// Order of creation
-item(FEAT_ROADVEHS, item_hu300,         1  ) {}
-item(FEAT_ROADVEHS, item_f1000,         2  ) {}
-item(FEAT_ROADVEHS, item_oka9200,       3  ) {}
-item(FEAT_ROADVEHS, item_mlrv1000,      4  ) {}
-item(FEAT_ROADVEHS, item_l,             5  ) {}
-item(FEAT_ROADVEHS, item_0800,          6  ) {}
-item(FEAT_ROADVEHS, item_tlr0600,       7  ) {}
-item(FEAT_ROADVEHS, item_de9000,        8  ) {}
-item(FEAT_ROADVEHS, item_1060,          9  ) {}
-item(FEAT_ROADVEHS, item_1080,          10 ) {}
-item(FEAT_ROADVEHS, item_5000,          11 ) {}
-item(FEAT_ROADVEHS, item_9700,          12 ) {}
-item(FEAT_ROADVEHS, item_kuma9200,      13 ) {}
-item(FEAT_ROADVEHS, item_kuma8200,      14 ) {}
-item(FEAT_ROADVEHS, item_kuma8500,      15 ) {}
-item(FEAT_ROADVEHS, item_kuma8800,      16 ) {}
-item(FEAT_ROADVEHS, item_kuma8800_101,  17 ) {}
-item(FEAT_ROADVEHS, item_kuma1350,      18 ) {}
-item(FEAT_ROADVEHS, item_kuma1200,      19 ) {}
-item(FEAT_ROADVEHS, item_kuma1090,      20 ) {}
-item(FEAT_ROADVEHS, item_t100,          21 ) {}
-item(FEAT_ROADVEHS, item_toyama8000,    22 ) {}
-item(FEAT_ROADVEHS, item_toyama7000,    23 ) {}
-item(FEAT_ROADVEHS, item_toyamade5000,  24 ) {}
+// Tram ID Allocation
+item(FEAT_ROADVEHS, item_hu300,			1  ) {}
+item(FEAT_ROADVEHS, item_toyamade5000,	24 ) {}
+item(FEAT_ROADVEHS, item_toyama7000,	23 ) {}
+item(FEAT_ROADVEHS, item_toyama8000,	22 ) {}
+item(FEAT_ROADVEHS, item_tlr0600,		7  ) {}
+item(FEAT_ROADVEHS, item_de9000,		8  ) {}
+item(FEAT_ROADVEHS, item_t100,			21 ) {}
+item(FEAT_ROADVEHS, item_mlrv1000,		4  ) {}
+item(FEAT_ROADVEHS, item_l,				5  ) {}
+item(FEAT_ROADVEHS, item_f1000,			2  ) {}
+item(FEAT_ROADVEHS, item_oka9200,		3  ) {}
+item(FEAT_ROADVEHS, item_kuma1060,		9  ) {}
+item(FEAT_ROADVEHS, item_kuma1080,		10 ) {}
+item(FEAT_ROADVEHS, item_kuma1090,		20 ) {}
+item(FEAT_ROADVEHS, item_kuma1200,		19 ) {}
+item(FEAT_ROADVEHS, item_kuma1350,		18 ) {}
+item(FEAT_ROADVEHS, item_kuma5000,		11 ) {}
+item(FEAT_ROADVEHS, item_kuma8200,		14 ) {}
+item(FEAT_ROADVEHS, item_kuma8500,		15 ) {}
+item(FEAT_ROADVEHS, item_kuma8800,		16 ) {}
+item(FEAT_ROADVEHS, item_kuma8800_101,	17 ) {}
+item(FEAT_ROADVEHS, item_kuma9200,		13 ) {}
+item(FEAT_ROADVEHS, item_kuma9700,		12 ) {}
+item(FEAT_ROADVEHS, item_kuma0800,		6  ) {}
 
 // Sort Order in Menu
 sort(FEAT_ROADVEHS, [
+
 // Utsunomiya
-1,  // 2024 hu300
+1,	// 2023 hu300
 
 // Toyama
-24, // 1950 de5000
-23, // 1993 7000
-22, // 1993 8000
-7,  // 2006 tlr0600
-8,  // 2009 de9000
-21, // 2010 t100
+24,	// 1950 toyamade5000
+23,	// 1957 toyama7000
+22,	// 1993 toyama8000
+7,	// 2006 tlr0600
+8,	// 2009 de9000
+21,	// 2010 t100
 
 // Manyosen
-4,  // 2004 mlrv1000
+4,	// 2004 mlrv1000
 
 // Fukui
-    // Echizen
-5,  // 2016 l
-    // Fukui
-2,  // 2013 f1000
+5,	// 2016 l
+2,	// 2013 f1000
 
 // Okayama
-3,  // 2002 9200
+3,	// 2002 oka9200
 
 // Kumamoto
-9,  // 1951 1060
-10, // 1954 1080
-20, // 1955 1090
-19, // 1958 1200
-18, // 1960 1350
-11, // 1976 5000
-14, // 1982 8200
-15, // 1985 8500
-16, // 1988 8800
-17, // 1993 8800_101
-13, // 1992 9200
-12, // 1997 9700
-6,  // 2009 0800
+9,	// 1951 kuma1060
+10,	// 1954 kuma1080
+20,	// 1955 kuma1090
+19,	// 1958 kuma1200
+18,	// 1960 kuma1350
+11,	// 1976 kuma5000
+14,	// 1982 kuma8200
+15,	// 1985 kuma8500
+16,	// 1988 kuma8800
+17,	// 1993 kuma8800_101
+13,	// 1992 kuma9200
+12,	// 1997 kuma9700
+6,	// 2009 kuma0800
 ]);

@@ -17,18 +17,19 @@
 #include "src/trams/utsunomiya/hu300/hu300.pnml"
 
 // Kumamoto
-#include "src/trams/kumamoto/1060/1060.pnml"
-#include "src/trams/kumamoto/1080/1080.pnml"
+#include "src/trams/kumamoto/1060/kuma1060.pnml"
+#include "src/trams/kumamoto/1080/kuma1080.pnml"
 #include "src/trams/kumamoto/1090/kuma1090.pnml"
 #include "src/trams/kumamoto/1200/kuma1200.pnml"
 #include "src/trams/kumamoto/1350/kuma1350.pnml"
-#include "src/trams/kumamoto/5000/5000.pnml"
-#include "src/trams/kumamoto/9700/9700.pnml"
+#include "src/trams/kumamoto/5000/kuma5000.pnml"
+#include "src/trams/kumamoto/9700/kuma9700.pnml"
 #include "src/trams/kumamoto/9200/kuma9200.pnml"
 #include "src/trams/kumamoto/8200/kuma8200.pnml"
 #include "src/trams/kumamoto/8500/kuma8500.pnml"
 #include "src/trams/kumamoto/8800/kuma8800.pnml"
-#include "src/trams/kumamoto/0800/0800.pnml"
+#include "src/trams/kumamoto/8800/kuma8800_101.pnml"
+#include "src/trams/kumamoto/0800/kuma0800.pnml"
 
 // Dev
 /*
