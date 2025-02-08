@@ -88,7 +88,7 @@ item(FEAT_ROADVEHS, item_l) {
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			92 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
 		purchase_running_cost_factor:	92 + ((param_runcost * 30 ) / 2 );
-        articulated_part:               sw_l_articulated_part;
+		articulated_part:				sw_l_articulated_part;
 		visual_effect:					sw_spark_on_1;
 		purchase:						sw_l_purchase;
 		cost_factor:					((param_buycost * 124 ) / 4 );

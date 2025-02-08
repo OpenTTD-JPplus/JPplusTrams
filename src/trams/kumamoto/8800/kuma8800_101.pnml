@@ -31,7 +31,7 @@ item(FEAT_ROADVEHS, item_kuma8800_101) {
 		speed:							40 km/h;
 		power:							67 * 2 hp;
 		introduction_date:				date(1993,09,24);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;

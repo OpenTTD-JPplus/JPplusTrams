@@ -1,7 +1,7 @@
 
 import pandas as pd
 import numpy as np
-import json
+import json, os
 from PIL import Image
 
 def ExportToJSON(dictionary, target_file):
@@ -25,13 +25,25 @@ def CargoCapacity(x):
     else:
         return str(x['Cargo_Capacity']) + " / " + str(x['Parts'])
 
+def ModelLife(x):
+    if x['Model_Life'] == 0:
+        return 'VEHICLE_NEVER_EXPIRES'
+    else:
+        return str(x['Model_Life'])
+
+def ArticulatedPart(x):
+    if x['Parts'] == 1:
+        return '<delete>'
+    else:
+        return 'sw_' + x['Tram'] + '_articulated_part'
+
 def CreateTramsJSON():
     # Trams
 
     # convert excel spreadsheet into dataframe
     df_trams = pd.read_excel('docs/jpplustrams.ods','trams', 
         usecols=['Tram', 'ID', 'City', 'Folder', 'Include', 'Name', 'Description', 'Speed', 'Intro', 'Weight', 'Cargo_Capacity', 'Power', 'Model_Life', 'Vehicle_Life', 'Cost_Factor', 'Running_Cost_Factor', 'Cargo_Age_Period', 'Length', 'Parts', 'Panto_Location', 'Loading_Speed'],
-        converters={'Tram':str,'Folder':str,'Intro':str, 'Cargo_Capacity':str, 'Model_Life':str, 'Vehicle_Life':str, 'Cost_Factor':str, 'Cargo_Age_Period':str, 'Length':str, 'Loading_Speed':str})
+        converters={'Tram':str,'Folder':str,'Intro':str, 'Cargo_Capacity':str, 'Vehicle_Life':str, 'Cost_Factor':str, 'Cargo_Age_Period':str, 'Length':str, 'Loading_Speed':str})
     
     # filter out trams not to include
     df_trams = df_trams[(df_trams['Include']==True)]
@@ -42,6 +54,7 @@ def CreateTramsJSON():
     df_trams['Purchase_Cargo_Capacity'] = df_trams['Cargo_Capacity']
     df_trams['Cost_Factor'] = '((param_buycost * ' + df_trams['Cost_Factor'] + ' ) / 4 )'
     df_trams['Name'] = 'string(' + df_trams['Name'] + ')'
+    df_trams['Articulated_Part'] = df_trams.apply(ArticulatedPart, axis=1)
     df_trams['Operator'] = df_trams['City'].str.upper()
     df_trams['Additional_Text'] = 'string(STR_CONCAT_4, string(OPERATORS),string(' + df_trams['Operator'] + '),string(LIVERIES),string(' + df_trams['Description'] + '))'
     df_trams[['Running_Cost_Factor_A', 'Running_Cost_Factor_B']] = df_trams['Running_Cost_Factor'].str.split(',', expand=True)
@@ -61,7 +74,8 @@ def CreateTramsJSON():
     df_trams['Tram_Type'] = 'ELRL'
     df_trams['Misc_Flags'] = 'bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK)'
     df_trams['Sprite_ID'] = 'SPRITE_ID_NEW_ROADVEH'
-
+    df_trams['Model_Life'] = df_trams.apply(ModelLife, axis=1)
+    
     df_trams = df_trams.drop(columns=['Include', 'Intro', 'Description', 'Operator', 'Running_Cost_Factor_A', 'Running_Cost_Factor_B'])
 
     #print(df_trams[['Tram', 'Speed', 'Intro_Date']])
@@ -70,7 +84,14 @@ def CreateTramsJSON():
     # convert dataframe into dictionary
     trams_dict = df_trams.set_index('Tram').T.to_dict('dict')
 
-    ExportToJSON(trams_dict, 'lib/jpplustrams.json')
+    ExportToJSON(trams_dict, 'lib/trams.json')
+
+    with open('lib/trams.json', 'r') as input:
+        with open('lib/trams_temp.json', 'w' ) as output:
+            for line in input:
+                if "<delete>" not in line.strip('\n'):
+                    output.write(line)
+    os.replace('lib/trams_temp.json', 'lib/trams.json')
 
     # Pantos
 
@@ -99,16 +120,16 @@ def CreateTramsJSON():
 
 def SortTrams():
 
-    trams = LoadJSON('lib/jpplustrams.json')
+    trams = LoadJSON('lib/trams.json')
 
     with open('src/vehicleid.pnml', 'w') as f:
         f.write('\n// Tram ID Allocation\n')
         for t in trams:
             name_length = len(t)
-            if 2 <= name_length <= 5:
-                padding = '\t\t\t'
-            elif name_length <= 1:
+            if name_length <= 1:
                 padding = '\t\t\t\t'
+            elif 2 <= name_length <= 5:
+                padding = '\t\t\t'          
             elif 6 <= name_length <= 8:
                 padding = '\t\t'
             else:
@@ -160,7 +181,7 @@ def CropStops():
         sprite.save("src/stops/" + stops[s]["City"] + "/" + s + ".png")
 
 def UpdateStats():
-    trams = LoadJSON('lib/jpplustrams.json')
+    trams = LoadJSON('lib/trams.json')
     schema = LoadJSON('lib/schema.json')
 
     for t in trams:

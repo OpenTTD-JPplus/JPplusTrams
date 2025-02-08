@@ -3,8 +3,8 @@ grf {
 	grfid: 						"KR06";
 	name: 						string(STR_GRF_NAME);
 	desc: 						string(STR_GRF_DESC);
-	version: 					011;	// v0.1.1
-	min_compatible_version: 	011;	// v0.1.1
+	version: 					012;	// v0.1.2
+	min_compatible_version: 	012;	// v0.1.2
 	url: 						string(STR_WEBSITE);
 
 	// Hide logo

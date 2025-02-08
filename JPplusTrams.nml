@@ -8,8 +8,8 @@ grf {
 	grfid: 						"KR06";
 	name: 						string(STR_GRF_NAME);
 	desc: 						string(STR_GRF_DESC);
-	version: 					011;	// v0.1.1
-	min_compatible_version: 	011;	// v0.1.1
+	version: 					012;	// v0.1.2
+	min_compatible_version: 	012;	// v0.1.2
 	url: 						string(STR_WEBSITE);
 
 	// Hide logo
@@ -806,7 +806,7 @@ item(FEAT_ROADVEHS, item_hu300) {
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			133 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
 		purchase_running_cost_factor:	133 + ((param_runcost * 30 ) / 2 );
-        articulated_part:               sw_hu300_articulated_part;
+		articulated_part:				sw_hu300_articulated_part;
 		visual_effect:					sw_spark_on_1;
 		purchase:						sw_hu300_purchase;
 		cost_factor:					((param_buycost * 175 ) / 4 );
@@ -859,7 +859,7 @@ item(FEAT_ROADVEHS, item_kuma1060) {
 		speed:							24 km/h;
 		power:							51 * 2 hp;
 		introduction_date:				date(1951,01,01);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
@@ -930,7 +930,7 @@ item(FEAT_ROADVEHS, item_kuma1080) {
 		speed:							24 km/h;
 		power:							51 * 2 hp;
 		introduction_date:				date(1954,01,01);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
@@ -1005,7 +1005,7 @@ item(FEAT_ROADVEHS, item_kuma1090) {
 		speed:							24 km/h;
 		power:							51 * 2 hp;
 		introduction_date:				date(1955,01,01);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
@@ -1079,7 +1079,7 @@ item(FEAT_ROADVEHS, item_kuma1200) {
 		speed:							24 km/h;
 		power:							51 * 2 hp;
 		introduction_date:				date(1958,01,01);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
@@ -1169,7 +1169,7 @@ item(FEAT_ROADVEHS, item_kuma1350) {
 		speed:							24 km/h;
 		power:							51 * 2 hp;
 		introduction_date:				date(1960,01,01);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
@@ -1270,7 +1270,7 @@ item(FEAT_ROADVEHS, item_kuma5000) {
 		speed:							33 km/h;
 		power:							51 * 4 hp;
 		introduction_date:				date(1976,11,06);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
@@ -1287,11 +1287,11 @@ item(FEAT_ROADVEHS, item_kuma5000) {
 		length:							7;
 		cargo_capacity:					(param_capacity * 130 / 2 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 130 / 2 ) / 2;
-        articulated_part:               sw_kuma5000_articulated_part;
+		articulated_part:				sw_kuma5000_articulated_part;
 		default:						sw_kuma5000_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
-		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		running_cost_factor:			87 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	87 + ((param_runcost * 30 ) / 2 );
 		visual_effect:					sw_spark_on_1;
 		purchase:						sw_kuma5000_purchase;
 		cost_factor:					((param_buycost * 90 ) / 4 );
@@ -1389,11 +1389,11 @@ item(FEAT_ROADVEHS, item_kuma9700) {
 		length:							7;
 		cargo_capacity:					(param_capacity * 76 / 2 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 76 / 2 ) / 2;
-        articulated_part:               sw_kuma9700_articulated_part;
+		articulated_part:				sw_kuma9700_articulated_part;
 		default:						sw_kuma9700_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
-		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		running_cost_factor:			89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	89 + ((param_runcost * 30 ) / 2 );
 		visual_effect:					sw_spark_on_1;
 		purchase:						sw_kuma9700_purchase;
 		cost_factor:					((param_buycost * 90 ) / 4 );
@@ -1499,7 +1499,7 @@ item(FEAT_ROADVEHS, item_kuma9200) {
 		speed:							50 km/h;
 		power:							67 * 2 hp;
 		introduction_date:				date(1992,04,02);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
@@ -1572,7 +1572,7 @@ item(FEAT_ROADVEHS, item_kuma8200) {
 		speed:							40 km/h;
 		power:							162 hp;
 		introduction_date:				date(1982,02,08);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
@@ -1719,7 +1719,7 @@ item(FEAT_ROADVEHS, item_kuma8500) {
 		speed:							40 km/h;
 		power:							52 * 2 hp;
 		introduction_date:				date(1985,04,05);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
@@ -1806,7 +1806,7 @@ item(FEAT_ROADVEHS, item_kuma8800) {
 		speed:							40 km/h;
 		power:							67 * 2 hp;
 		introduction_date:				date(1988,12,01);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
@@ -1867,7 +1867,7 @@ item(FEAT_ROADVEHS, item_kuma8800_101) {
 		speed:							40 km/h;
 		power:							67 * 2 hp;
 		introduction_date:				date(1993,09,24);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
@@ -1994,7 +1994,7 @@ item(FEAT_ROADVEHS, item_kuma0800) {
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			90 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
 		purchase_running_cost_factor:	90 + ((param_runcost * 30 ) / 2 );
-        articulated_part:               sw_kuma0800_articulated_part;
+		articulated_part:				sw_kuma0800_articulated_part;
 		visual_effect:					sw_spark_on_1;
 		purchase:						sw_kuma0800_purchase;
 		cost_factor:					((param_buycost * 175 ) / 4 );
@@ -2146,12 +2146,11 @@ item(FEAT_ROADVEHS, item_f1000) {
 		cargo_subtype_text:				sw_f1000_subtype_text;
 		cargo_capacity:					(param_capacity * 155 / 3 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 155 / 3 ) / 2;
-		default:						sw_f1000_stack;
 		length:							sw_f1000_length;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			130 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
 		purchase_running_cost_factor:	130 + ((param_runcost * 30 ) / 2 );
-        articulated_part:               sw_f1000_articulated_part;
+		articulated_part:				sw_f1000_articulated_part;
 		visual_effect:					sw_spark_on_1;
 		purchase:						sw_f1000_purchase;
 		cost_factor:					((param_buycost * 167 ) / 4 );
@@ -2257,7 +2256,7 @@ item(FEAT_ROADVEHS, item_oka9200) {
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
 		purchase_running_cost_factor:	89 + ((param_runcost * 30 ) / 2 );
-        articulated_part:               sw_oka9200_articulated_part;
+		articulated_part:				sw_oka9200_articulated_part;
 		visual_effect:					sw_spark_on_1;
 		purchase:						sw_oka9200_purchase;
 		cost_factor:					((param_buycost * 122 ) / 4 );
@@ -2366,7 +2365,7 @@ item(FEAT_ROADVEHS, item_mlrv1000) {
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			88 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
 		purchase_running_cost_factor:	88 + ((param_runcost * 30 ) / 2 );
-        articulated_part:               sw_mlrv1000_articulated_part;
+		articulated_part:				sw_mlrv1000_articulated_part;
 		visual_effect:					sw_spark_on_1;
 		purchase:						sw_mlrv1000_purchase;
 		cost_factor:					((param_buycost * 175 ) / 4 );
@@ -2464,7 +2463,7 @@ item(FEAT_ROADVEHS, item_l) {
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			92 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
 		purchase_running_cost_factor:	92 + ((param_runcost * 30 ) / 2 );
-        articulated_part:               sw_l_articulated_part;
+		articulated_part:				sw_l_articulated_part;
 		visual_effect:					sw_spark_on_1;
 		purchase:						sw_l_purchase;
 		cost_factor:					((param_buycost * 124 ) / 4 );
@@ -2602,7 +2601,7 @@ item(FEAT_ROADVEHS, item_tlr0600) {
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			88 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
 		purchase_running_cost_factor:	88 + ((param_runcost * 30 ) / 2 );
-        articulated_part:               sw_tlr0600_articulated_part;
+		articulated_part:				sw_tlr0600_articulated_part;
 		visual_effect:					sw_spark_on_1;
 		purchase:						sw_tlr0600_purchase;
 		cost_factor:					((param_buycost * 175 ) / 4 );
@@ -2706,7 +2705,7 @@ item(FEAT_ROADVEHS, item_de9000) {
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			88 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
 		purchase_running_cost_factor:	88 + ((param_runcost * 30 ) / 2 );
-        articulated_part:               sw_de9000_articulated_part;
+		articulated_part:				sw_de9000_articulated_part;
 		visual_effect:					sw_spark_on_1;
 		purchase:						sw_de9000_purchase;
 		cost_factor:					((param_buycost * 176 ) / 4 );
@@ -2846,9 +2845,9 @@ item(FEAT_ROADVEHS, item_t100) {
 		default:						sw_t100_stack;
 		length:							5;
 		cargo_age_period:				sw_cargo_age_period_01;
-		running_cost_factor:			89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-		purchase_running_cost_factor:	89 + ((param_runcost * 30 ) / 2 );
-        articulated_part:               sw_t100_articulated_part;
+		running_cost_factor:			129 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	129 + ((param_runcost * 30 ) / 2 );
+		articulated_part:				sw_t100_articulated_part;
 		visual_effect:					sw_spark_on_2;
 		purchase:						sw_t100_purchase;
 		cost_factor:					((param_buycost * 176 ) / 4 );
@@ -2923,7 +2922,7 @@ item(FEAT_ROADVEHS, item_toyama8000) {
 		speed:							40 km/h;
 		power:							81 * 2 hp;
 		introduction_date:				date(1993,01,01);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
@@ -3010,7 +3009,7 @@ item(FEAT_ROADVEHS, item_toyama7000) {
 		speed:							24 km/h;
 		power:							67 * 2 hp;
 		introduction_date:				date(1957,01,01);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
@@ -3086,7 +3085,7 @@ item(FEAT_ROADVEHS, item_toyamade5000) {
 		speed:							24 km/h;
 		power:							51 * 2 hp;
 		introduction_date:				date(1950,01,01);
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						10;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;

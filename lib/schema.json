@@ -75,6 +75,10 @@
         "search_string": "length:",
         "return_string": "\t\tlength:\t\t\t\t\t\t\t<stat>"
     },
+    "Articulated_Part": {
+        "search_string": "articulated_part:",
+        "return_string": "\t\tarticulated_part:\t\t\t\t<stat>"
+    },
     "Climates_Available": {
         "search_string": "climates_available:",
         "return_string": "\t\tclimates_available:\t\t\t\t<stat>"
