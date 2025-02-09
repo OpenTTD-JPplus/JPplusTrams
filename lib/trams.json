@@ -229,7 +229,7 @@
         "Speed": "70 km/h",
         "Model_Life": "VEHICLE_NEVER_EXPIRES",
         "Vehicle_Life": "60",
-        "Power": "135 * 2 hp",
+        "Power": "114 * 2 hp",
         "Weight": "25 ton",
         "Cargo_Capacity": "(param_capacity * 74 / 3 ) / 2",
         "Loading_Speed": "25",
