@@ -64,7 +64,6 @@ item(FEAT_ROADVEHS, item_l) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							72 km/h;
 		power:							135 * 2 hp;
 		introduction_date:				date(2016,03,27);
 		model_life:						VEHICLE_NEVER_EXPIRES;
@@ -83,6 +82,7 @@ item(FEAT_ROADVEHS, item_l) {
 		cargo_subtype_text:				sw_l_subtype_text;
 		cargo_capacity:					(param_capacity * 100 / 2 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 100 / 2 ) / 2;
+		speed:							sw_speed_72;
 		default:						sw_l_stack;
 		length:							7;
 		cargo_age_period:				sw_cargo_age_period_01;

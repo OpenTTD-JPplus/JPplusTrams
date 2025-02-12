@@ -54,7 +54,6 @@ item(FEAT_ROADVEHS, item_toyama7000) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							24 km/h;
 		power:							67 * 2 hp;
 		introduction_date:				date(1957,01,01);
 		model_life:						10;
@@ -77,6 +76,7 @@ item(FEAT_ROADVEHS, item_toyama7000) {
 		cargo_subtype_text:				sw_toyama7000_subtype_text;
 		cargo_capacity:					(param_capacity * 66 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 66 ) / 2;
+		speed:							sw_speed_24;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
 		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );

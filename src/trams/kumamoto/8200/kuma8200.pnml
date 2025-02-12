@@ -40,7 +40,6 @@ item(FEAT_ROADVEHS, item_kuma8200) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							40 km/h;
 		power:							162 hp;
 		introduction_date:				date(1982,02,08);
 		model_life:						10;
@@ -61,6 +60,7 @@ item(FEAT_ROADVEHS, item_kuma8200) {
 		cargo_subtype_text:				sw_kuma8200_subtype_text;
 		cargo_capacity:					(param_capacity * 70 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 70 ) / 2;
+		speed:							sw_speed_40;
 		default:						sw_kuma8200_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();

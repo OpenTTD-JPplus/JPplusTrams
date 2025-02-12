@@ -20,3 +20,41 @@
         1:  return VISUAL_EFFECT_ELECTRIC;
             return VISUAL_EFFECT_DISABLE; //default
     }
+
+// Speed
+
+    switch (FEAT_ROADVEHS, SELF, sw_speed_24, (param_speed)) {
+        1:  return 24;
+        return 50;
+    } 
+
+    switch (FEAT_ROADVEHS, SELF, sw_speed_33, (param_speed)) {
+        1:  return 33;
+        return 60;
+    } 
+
+    switch (FEAT_ROADVEHS, SELF, sw_speed_40, (param_speed)) {
+        1:  return 40;
+        return 70;
+    } 
+
+    switch (FEAT_ROADVEHS, SELF, sw_speed_50, (param_speed)) {
+        1:  return 40;
+        return 80;
+    } 
+/*
+    switch (FEAT_ROADVEHS, SELF, sw_speed_60, (param_speed)) {
+        1:  return 60;
+        return 90;
+    } 
+*/
+    switch (FEAT_ROADVEHS, SELF, sw_speed_70, (param_speed)) {
+        1:  return 70;
+        return 100;
+    } 
+/*
+    switch (FEAT_ROADVEHS, SELF, sw_speed_72, (param_speed)) {
+        1:  return 72;
+        return 105;
+    } 
+*/

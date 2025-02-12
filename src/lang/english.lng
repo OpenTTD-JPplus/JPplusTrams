@@ -55,6 +55,10 @@ STR_PARAM_VALUE_AGE_NORMAL                      :Regular
 STR_PARAM_VALUE_AGE_HARD                        :Sweaty
 STR_PARAM_VALUE_AGE_HARDER                      :Slammed
 
+# Speed
+STR_PARAM_NAME_SPEED                            :Speed Limit
+STR_PARAM_DESC_SPEED                            :Enable Speed Limit Law
+
 # Liveries
 LV_IRL                                          :{GOLD} Original Livery
 LV_1CC                                          :{GOLD} 1cc Livery

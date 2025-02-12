@@ -43,13 +43,14 @@ def CreateTramsJSON():
     # convert excel spreadsheet into dataframe
     df_trams = pd.read_excel('docs/jpplustrams.ods','trams', 
         usecols=['Tram', 'ID', 'City', 'Folder', 'Include', 'Name', 'Description', 'Speed', 'Intro', 'Weight', 'Cargo_Capacity', 'Power', 'Model_Life', 'Vehicle_Life', 'Cost_Factor', 'Running_Cost_Factor', 'Cargo_Age_Period', 'Length', 'Parts', 'Panto_Location', 'Loading_Speed'],
-        converters={'Tram':str,'Folder':str,'Intro':str, 'Cargo_Capacity':str, 'Vehicle_Life':str, 'Cost_Factor':str, 'Cargo_Age_Period':str, 'Length':str, 'Loading_Speed':str})
+        converters={'Tram':str,'Folder':str,'Intro':str, 'Cargo_Capacity':str, 'Vehicle_Life':str, 'Cost_Factor':str, 'Cargo_Age_Period':str, 'Speed':str, 'Length':str, 'Loading_Speed':str})
     
     # filter out trams not to include
     df_trams = df_trams[(df_trams['Include']==True)]
 
     # convert stats into nml code
     df_trams['Intro_Date'] = 'date(' + df_trams['Intro'].str[:10].replace('-',',', regex=True) + ')'
+    df_trams['Speed'] = 'sw_speed_' + df_trams['Speed']
     df_trams['Cargo_Capacity'] = '(param_capacity * ' + df_trams.apply(CargoCapacity, axis=1) + ' ) / 2'
     df_trams['Purchase_Cargo_Capacity'] = df_trams['Cargo_Capacity']
     df_trams['Cost_Factor'] = '((param_buycost * ' + df_trams['Cost_Factor'] + ' ) / 4 )'

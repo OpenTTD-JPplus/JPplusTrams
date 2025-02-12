@@ -92,6 +92,18 @@ grf {
 			};
 		}
 	}
+
+	//speed
+	param 4 { 
+		param_speed { 
+			type: bool;
+			name: string(STR_PARAM_NAME_SPEED);
+			desc: string(STR_PARAM_DESC_SPEED);
+			bit: 0;
+            def_value: 1;
+		}
+	}
+
 }
 
 if (version_openttd(1,10,0,28004) > openttd_version) {
@@ -396,6 +408,44 @@ switch (FEAT_ROADSTOPS, SELF, SameID2SW, nearby_tile_road_stop_id( 1, 0) == 50  
         1:  return VISUAL_EFFECT_ELECTRIC;
             return VISUAL_EFFECT_DISABLE; //default
     }
+
+// Speed
+
+    switch (FEAT_ROADVEHS, SELF, sw_speed_24, (param_speed)) {
+        1:  return 24;
+        return 50;
+    } 
+
+    switch (FEAT_ROADVEHS, SELF, sw_speed_33, (param_speed)) {
+        1:  return 33;
+        return 60;
+    } 
+
+    switch (FEAT_ROADVEHS, SELF, sw_speed_40, (param_speed)) {
+        1:  return 40;
+        return 70;
+    } 
+
+    switch (FEAT_ROADVEHS, SELF, sw_speed_50, (param_speed)) {
+        1:  return 40;
+        return 80;
+    } 
+/*
+    switch (FEAT_ROADVEHS, SELF, sw_speed_60, (param_speed)) {
+        1:  return 60;
+        return 90;
+    } 
+*/
+    switch (FEAT_ROADVEHS, SELF, sw_speed_70, (param_speed)) {
+        1:  return 70;
+        return 100;
+    } 
+/*
+    switch (FEAT_ROADVEHS, SELF, sw_speed_72, (param_speed)) {
+        1:  return 72;
+        return 105;
+    } 
+*/
 # 1 "JPplusTrams.pnml" 4
 # 1 "src/logos/logos.pnml" 1
 
@@ -782,7 +832,6 @@ item(FEAT_ROADVEHS, item_hu300) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							70 km/h;
 		power:							135 * 4 hp;
 		introduction_date:				date(2023,08,23);
 		model_life:						VEHICLE_NEVER_EXPIRES;
@@ -801,6 +850,7 @@ item(FEAT_ROADVEHS, item_hu300) {
 		cargo_subtype_text:				sw_hu300_subtype_text;
 		cargo_capacity:					(param_capacity * 160 / 3 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 160 / 3 ) / 2;
+		speed:							sw_speed_70;
 		default:						sw_hu300_stack;
 		length:							sw_hu300_length;
 		cargo_age_period:				sw_cargo_age_period_01;
@@ -856,7 +906,6 @@ item(FEAT_ROADVEHS, item_kuma1060) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							24 km/h;
 		power:							51 * 2 hp;
 		introduction_date:				date(1951,01,01);
 		model_life:						10;
@@ -877,6 +926,7 @@ item(FEAT_ROADVEHS, item_kuma1060) {
 		cargo_subtype_text:				sw_kuma1060_subtype_text;
 		cargo_capacity:					(param_capacity * 74 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 74 ) / 2;
+		speed:							sw_speed_24;
 		default:						sw_kuma1060_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
@@ -927,7 +977,6 @@ item(FEAT_ROADVEHS, item_kuma1080) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							24 km/h;
 		power:							51 * 2 hp;
 		introduction_date:				date(1954,01,01);
 		model_life:						10;
@@ -948,6 +997,7 @@ item(FEAT_ROADVEHS, item_kuma1080) {
 		cargo_subtype_text:				sw_kuma1080_subtype_text;
 		cargo_capacity:					(param_capacity * 74 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 74 ) / 2;
+		speed:							sw_speed_24;
 		default:						sw_kuma1080_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
@@ -1002,7 +1052,6 @@ item(FEAT_ROADVEHS, item_kuma1090) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							24 km/h;
 		power:							51 * 2 hp;
 		introduction_date:				date(1955,01,01);
 		model_life:						10;
@@ -1023,6 +1072,7 @@ item(FEAT_ROADVEHS, item_kuma1090) {
 		cargo_subtype_text:				sw_kuma1090_subtype_text;
 		cargo_capacity:					(param_capacity * 72 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		speed:							sw_speed_24;
 		default:						sw_kuma1090_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			42 + ((param_runcost * 29 ) / 2 ) * RunningCostFactor();
@@ -1076,7 +1126,6 @@ item(FEAT_ROADVEHS, item_kuma1200) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							24 km/h;
 		power:							51 * 2 hp;
 		introduction_date:				date(1958,01,01);
 		model_life:						10;
@@ -1097,6 +1146,7 @@ item(FEAT_ROADVEHS, item_kuma1200) {
 		cargo_subtype_text:				sw_kuma1200_subtype_text;
 		cargo_capacity:					(param_capacity * 72 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		speed:							sw_speed_24;
 		default:						sw_kuma1200_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			42 + ((param_runcost * 29 ) / 2 ) * RunningCostFactor();
@@ -1166,7 +1216,6 @@ item(FEAT_ROADVEHS, item_kuma1350) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							24 km/h;
 		power:							51 * 2 hp;
 		introduction_date:				date(1960,01,01);
 		model_life:						10;
@@ -1187,6 +1236,7 @@ item(FEAT_ROADVEHS, item_kuma1350) {
 		cargo_subtype_text:				sw_kuma1350_subtype_text;
 		cargo_capacity:					(param_capacity * 72 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		speed:							sw_speed_24;
 		default:						sw_kuma1350_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			40 + ((param_runcost * 28 ) / 2 ) * RunningCostFactor();
@@ -1267,7 +1317,6 @@ item(FEAT_ROADVEHS, item_kuma5000) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							33 km/h;
 		power:							51 * 4 hp;
 		introduction_date:				date(1976,11,06);
 		model_life:						10;
@@ -1287,6 +1336,7 @@ item(FEAT_ROADVEHS, item_kuma5000) {
 		length:							7;
 		cargo_capacity:					(param_capacity * 130 / 2 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 130 / 2 ) / 2;
+		speed:							sw_speed_33;
 		articulated_part:				sw_kuma5000_articulated_part;
 		default:						sw_kuma5000_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
@@ -1369,7 +1419,6 @@ item(FEAT_ROADVEHS, item_kuma9700) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							70 km/h;
 		power:							135 * 2 hp;
 		introduction_date:				date(1997,08,02);
 		model_life:						VEHICLE_NEVER_EXPIRES;
@@ -1389,6 +1438,7 @@ item(FEAT_ROADVEHS, item_kuma9700) {
 		length:							7;
 		cargo_capacity:					(param_capacity * 76 / 2 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 76 / 2 ) / 2;
+		speed:							sw_speed_70;
 		articulated_part:				sw_kuma9700_articulated_part;
 		default:						sw_kuma9700_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
@@ -1496,7 +1546,6 @@ item(FEAT_ROADVEHS, item_kuma9200) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							50 km/h;
 		power:							67 * 2 hp;
 		introduction_date:				date(1992,04,02);
 		model_life:						10;
@@ -1517,6 +1566,7 @@ item(FEAT_ROADVEHS, item_kuma9200) {
 		cargo_subtype_text:				sw_kuma9200_subtype_text;
 		cargo_capacity:					(param_capacity * 72 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		speed:							sw_speed_50;
 		default:						sw_kuma9200_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
@@ -1569,7 +1619,6 @@ item(FEAT_ROADVEHS, item_kuma8200) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							40 km/h;
 		power:							162 hp;
 		introduction_date:				date(1982,02,08);
 		model_life:						10;
@@ -1590,6 +1639,7 @@ item(FEAT_ROADVEHS, item_kuma8200) {
 		cargo_subtype_text:				sw_kuma8200_subtype_text;
 		cargo_capacity:					(param_capacity * 70 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 70 ) / 2;
+		speed:							sw_speed_40;
 		default:						sw_kuma8200_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
@@ -1716,7 +1766,6 @@ item(FEAT_ROADVEHS, item_kuma8500) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							40 km/h;
 		power:							52 * 2 hp;
 		introduction_date:				date(1985,04,05);
 		model_life:						10;
@@ -1737,6 +1786,7 @@ item(FEAT_ROADVEHS, item_kuma8500) {
 		cargo_subtype_text:				sw_kuma8500_subtype_text;
 		cargo_capacity:					(param_capacity * 72 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		speed:							sw_speed_40;
 		default:						sw_kuma8500_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
@@ -1803,7 +1853,6 @@ item(FEAT_ROADVEHS, item_kuma8800) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							40 km/h;
 		power:							67 * 2 hp;
 		introduction_date:				date(1988,12,01);
 		model_life:						10;
@@ -1824,6 +1873,7 @@ item(FEAT_ROADVEHS, item_kuma8800) {
 		cargo_subtype_text:				sw_kuma8800_subtype_text;
 		cargo_capacity:					(param_capacity * 72 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		speed:							sw_speed_40;
 		default:						sw_kuma8800_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
@@ -1864,7 +1914,6 @@ item(FEAT_ROADVEHS, item_kuma8800_101) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							40 km/h;
 		power:							67 * 2 hp;
 		introduction_date:				date(1993,09,24);
 		model_life:						10;
@@ -1885,6 +1934,7 @@ item(FEAT_ROADVEHS, item_kuma8800_101) {
 		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA8800));
 		cargo_capacity:					(param_capacity * 72 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		speed:							sw_speed_40;
 		default:						sw_kuma8800_101_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
@@ -1970,7 +2020,6 @@ item(FEAT_ROADVEHS, item_kuma0800) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							70 km/h;
 		power:							135 * 2 hp;
 		introduction_date:				date(2009,04,01);
 		model_life:						VEHICLE_NEVER_EXPIRES;
@@ -1989,6 +2038,7 @@ item(FEAT_ROADVEHS, item_kuma0800) {
 		cargo_subtype_text:				sw_kuma0800_subtype_text;
 		cargo_capacity:					(param_capacity * 82 / 2 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 82 / 2 ) / 2;
+		speed:							sw_speed_70;
 		default:						sw_kuma0800_stack;
 		length:							7;
 		cargo_age_period:				sw_cargo_age_period_01;
@@ -2125,7 +2175,6 @@ item(FEAT_ROADVEHS, item_f1000) {
 		cargo_age_period:				sw_cargo_age_period_01;
 		cost_factor:					((param_buycost * 167 ) / 4 );
 		running_cost_factor:			130 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-		speed:							70 km/h;
 		power:							135 * 3 hp;
 		cargo_capacity:					(param_capacity * 155 / 3 ) / 2;
 		introduction_date:				date(2013,03,31);
@@ -2146,6 +2195,7 @@ item(FEAT_ROADVEHS, item_f1000) {
 		cargo_subtype_text:				sw_f1000_subtype_text;
 		cargo_capacity:					(param_capacity * 155 / 3 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 155 / 3 ) / 2;
+		speed:							sw_speed_70;
 		length:							sw_f1000_length;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			130 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
@@ -2227,19 +2277,13 @@ item(FEAT_ROADVEHS, item_oka9200) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		cargo_age_period:				sw_cargo_age_period_01;
-		cost_factor:					((param_buycost * 122 ) / 4 );
-		running_cost_factor:			89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-		speed:							70 km/h;
 		power:							135 * 2 hp;
-		cargo_capacity:					(param_capacity * 74 / 2 ) / 2;
 		introduction_date:				date(2002,07,05);
 		model_life:						VEHICLE_NEVER_EXPIRES;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
 		sound_effect:					SOUND_POWER_STATION;
-		visual_effect:					sw_spark_on_1;
 		sprite_id:						SPRITE_ID_NEW_ROADVEH;
 		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
 		refit_cost:						0; // refitting is free
@@ -2251,6 +2295,7 @@ item(FEAT_ROADVEHS, item_oka9200) {
 		cargo_subtype_text:				sw_oka9200_subtype_text;
 		cargo_capacity:					(param_capacity * 74 / 2 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 74 / 2 ) / 2;
+		speed:							sw_speed_70;
 		default:						sw_oka9200_stack;
 		length:							7;
 		cargo_age_period:				sw_cargo_age_period_01;
@@ -2340,7 +2385,6 @@ item(FEAT_ROADVEHS, item_mlrv1000) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							70 km/h;
 		power:							135 * 2 hp;
 		introduction_date:				date(2004,04,21);
 		model_life:						VEHICLE_NEVER_EXPIRES;
@@ -2348,7 +2392,6 @@ item(FEAT_ROADVEHS, item_mlrv1000) {
 		reliability_decay:				14;
 		tram_type:						ELRL;
 		sound_effect:					SOUND_POWER_STATION;
-		visual_effect:					sw_spark_on_1;
 		sprite_id:						SPRITE_ID_NEW_ROADVEH;
 		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
 		refit_cost:						0; // refitting is free
@@ -2360,6 +2403,7 @@ item(FEAT_ROADVEHS, item_mlrv1000) {
 		cargo_subtype_text:				sw_mlrv1000_subtype_text;
 		cargo_capacity:					(param_capacity * 80 / 2 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 80 / 2 ) / 2;
+		speed:							sw_speed_70;
 		default:						sw_mlrv1000_stack;
 		length:							7;
 		cargo_age_period:				sw_cargo_age_period_01;
@@ -2439,7 +2483,6 @@ item(FEAT_ROADVEHS, item_l) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							72 km/h;
 		power:							135 * 2 hp;
 		introduction_date:				date(2016,03,27);
 		model_life:						VEHICLE_NEVER_EXPIRES;
@@ -2458,6 +2501,7 @@ item(FEAT_ROADVEHS, item_l) {
 		cargo_subtype_text:				sw_l_subtype_text;
 		cargo_capacity:					(param_capacity * 100 / 2 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 100 / 2 ) / 2;
+		speed:							sw_speed_72;
 		default:						sw_l_stack;
 		length:							7;
 		cargo_age_period:				sw_cargo_age_period_01;
@@ -2577,7 +2621,6 @@ item(FEAT_ROADVEHS, item_tlr0600) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							70 km/h;
 		power:							135 * 2 hp;
 		introduction_date:				date(2006,04,29);
 		model_life:						VEHICLE_NEVER_EXPIRES;
@@ -2596,6 +2639,7 @@ item(FEAT_ROADVEHS, item_tlr0600) {
 		cargo_subtype_text:				sw_tlr0600_subtype_text;
 		cargo_capacity:					(param_capacity * 80 / 2 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 80 / 2 ) / 2;
+		speed:							sw_speed_70;
 		default:						sw_tlr0600_stack;
 		length:							7;
 		cargo_age_period:				sw_cargo_age_period_01;
@@ -2681,7 +2725,6 @@ item(FEAT_ROADVEHS, item_de9000) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							70 km/h;
 		power:							135 * 2 hp;
 		introduction_date:				date(2009,12,23);
 		model_life:						VEHICLE_NEVER_EXPIRES;
@@ -2700,6 +2743,7 @@ item(FEAT_ROADVEHS, item_de9000) {
 		cargo_subtype_text:				sw_de9000_subtype_text;
 		cargo_capacity:					(param_capacity * 80 / 2 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 80 / 2 ) / 2;
+		speed:							sw_speed_70;
 		default:						sw_de9000_stack;
 		length:							7;
 		cargo_age_period:				sw_cargo_age_period_01;
@@ -2823,7 +2867,6 @@ item(FEAT_ROADVEHS, item_t100) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							70 km/h;
 		power:							114 * 2 hp;
 		introduction_date:				date(2010,01,01);
 		model_life:						VEHICLE_NEVER_EXPIRES;
@@ -2842,6 +2885,7 @@ item(FEAT_ROADVEHS, item_t100) {
 		cargo_subtype_text:				sw_t100_subtype_text;
 		cargo_capacity:					(param_capacity * 74 / 3 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 74 / 3 ) / 2;
+		speed:							sw_speed_70;
 		default:						sw_t100_stack;
 		length:							5;
 		cargo_age_period:				sw_cargo_age_period_01;
@@ -2919,7 +2963,6 @@ item(FEAT_ROADVEHS, item_toyama8000) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							40 km/h;
 		power:							81 * 2 hp;
 		introduction_date:				date(1993,01,01);
 		model_life:						10;
@@ -2940,6 +2983,7 @@ item(FEAT_ROADVEHS, item_toyama8000) {
 		cargo_subtype_text:				sw_toyama8000_subtype_text;
 		cargo_capacity:					(param_capacity * 66 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 66 ) / 2;
+		speed:							sw_speed_40;
 		default:						sw_toyama8000_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
@@ -3006,7 +3050,6 @@ item(FEAT_ROADVEHS, item_toyama7000) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							24 km/h;
 		power:							67 * 2 hp;
 		introduction_date:				date(1957,01,01);
 		model_life:						10;
@@ -3029,6 +3072,7 @@ item(FEAT_ROADVEHS, item_toyama7000) {
 		cargo_subtype_text:				sw_toyama7000_subtype_text;
 		cargo_capacity:					(param_capacity * 66 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 66 ) / 2;
+		speed:							sw_speed_24;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
 		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
@@ -3082,7 +3126,6 @@ item(FEAT_ROADVEHS, item_toyamade5000) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							24 km/h;
 		power:							51 * 2 hp;
 		introduction_date:				date(1950,01,01);
 		model_life:						10;
@@ -3103,6 +3146,7 @@ item(FEAT_ROADVEHS, item_toyamade5000) {
 		cargo_subtype_text:				sw_toyamade5000_subtype_text;
 		cargo_capacity:					(param_capacity * 72 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		speed:							sw_speed_24;
 		default:						sw_toyamade5000_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();

@@ -67,19 +67,13 @@ item(FEAT_ROADVEHS, item_oka9200) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		cargo_age_period:				sw_cargo_age_period_01;
-		cost_factor:					((param_buycost * 122 ) / 4 );
-		running_cost_factor:			89 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-		speed:							70 km/h;
 		power:							135 * 2 hp;
-		cargo_capacity:					(param_capacity * 74 / 2 ) / 2;
 		introduction_date:				date(2002,07,05);
 		model_life:						VEHICLE_NEVER_EXPIRES;
 		vehicle_life:					60;
 		reliability_decay:				14;
 		tram_type:						ELRL;
 		sound_effect:					SOUND_POWER_STATION;
-		visual_effect:					sw_spark_on_1;
 		sprite_id:						SPRITE_ID_NEW_ROADVEH;
 		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
 		refit_cost:						0; // refitting is free
@@ -91,6 +85,7 @@ item(FEAT_ROADVEHS, item_oka9200) {
 		cargo_subtype_text:				sw_oka9200_subtype_text;
 		cargo_capacity:					(param_capacity * 74 / 2 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 74 / 2 ) / 2;
+		speed:							sw_speed_70;
 		default:						sw_oka9200_stack;
 		length:							7;
 		cargo_age_period:				sw_cargo_age_period_01;

@@ -68,7 +68,6 @@ item(FEAT_ROADVEHS, item_kuma5000) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							33 km/h;
 		power:							51 * 4 hp;
 		introduction_date:				date(1976,11,06);
 		model_life:						10;
@@ -88,6 +87,7 @@ item(FEAT_ROADVEHS, item_kuma5000) {
 		length:							7;
 		cargo_capacity:					(param_capacity * 130 / 2 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 130 / 2 ) / 2;
+		speed:							sw_speed_33;
 		articulated_part:				sw_kuma5000_articulated_part;
 		default:						sw_kuma5000_stack;
 		cargo_age_period:				sw_cargo_age_period_01;

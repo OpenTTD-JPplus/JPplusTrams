@@ -43,7 +43,6 @@ item(FEAT_ROADVEHS, item_toyamade5000) {
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
-		speed:							24 km/h;
 		power:							51 * 2 hp;
 		introduction_date:				date(1950,01,01);
 		model_life:						10;
@@ -64,6 +63,7 @@ item(FEAT_ROADVEHS, item_toyamade5000) {
 		cargo_subtype_text:				sw_toyamade5000_subtype_text;
 		cargo_capacity:					(param_capacity * 72 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 72 ) / 2;
+		speed:							sw_speed_24;
 		default:						sw_toyamade5000_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
 		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();

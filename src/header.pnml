@@ -87,6 +87,18 @@ grf {
 			};
 		}
 	}
+
+	//speed
+	param 4 { 
+		param_speed { 
+			type: bool;
+			name: string(STR_PARAM_NAME_SPEED);
+			desc: string(STR_PARAM_DESC_SPEED);
+			bit: 0;
+            def_value: 1;
+		}
+	}
+
 }
 
 if (version_openttd(1,10,0,28004) > openttd_version) {
