@@ -23,6 +23,10 @@
         "City": "toyama",
         "Row": 1
     },
+    "okayama01": {
+        "City": "okayama",
+        "Row": 1
+    },
     "overpass_1side_btm_both_noplatform": {
         "City": "overpass",
         "Row": 1

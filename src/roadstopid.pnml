@@ -2,13 +2,29 @@
 // All
 item(FEAT_ROADSTOPS, platform_base,                             1  ) {}
 
-item(FEAT_ROADSTOPS, kumamoto01_all,                            47 ) {}
-item(FEAT_ROADSTOPS, kumamoto01_top,                            48 ) {}
-item(FEAT_ROADSTOPS, kumamoto01_btm,                            49 ) {}
+// Utsunomiya
 
 item(FEAT_ROADSTOPS, utsunomiya01_all,                          51 ) {}
 item(FEAT_ROADSTOPS, utsunomiya01_top,                          52 ) {}
 item(FEAT_ROADSTOPS, utsunomiya01_btm,                          53 ) {}
+
+// Toyama
+
+item(FEAT_ROADSTOPS, toyama01_all,                              54 ) {}
+item(FEAT_ROADSTOPS, toyama01_top,                              55 ) {}
+item(FEAT_ROADSTOPS, toyama01_btm,                              56 ) {}
+
+// Okayama
+
+item(FEAT_ROADSTOPS, okayama01_all,                             57 ) {}
+item(FEAT_ROADSTOPS, okayama01_top,                             58 ) {}
+item(FEAT_ROADSTOPS, okayama01_btm,                             59 ) {}
+
+// Kumamoto
+
+item(FEAT_ROADSTOPS, kumamoto01_all,                            47 ) {}
+item(FEAT_ROADSTOPS, kumamoto01_top,                            48 ) {}
+item(FEAT_ROADSTOPS, kumamoto01_btm,                            49 ) {}
 
 item(FEAT_ROADSTOPS, kumamoto02,                                50 ) {}
 
@@ -72,5 +88,3 @@ item(FEAT_ROADSTOPS, overpass_2sides_south_noplatform_black,    43 ) {}
 item(FEAT_ROADSTOPS, overpass_nontrack_green,                   44 ) {}
 item(FEAT_ROADSTOPS, overpass_nontrack_brown,                   45 ) {}
 item(FEAT_ROADSTOPS, overpass_nontrack_black,                   46 ) {}
-
-// Kumamoto

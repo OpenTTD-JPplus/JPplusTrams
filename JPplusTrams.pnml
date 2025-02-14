@@ -56,6 +56,7 @@
 //#include "src/stops/kumamoto/kumamoto02.pnml"
 #include "src/stops/utsunomiya/utsunomiya01.pnml"
 #include "src/stops/toyama/toyama01.pnml"
+#include "src/stops/okayama/okayama01.pnml"
 #include "src/stops/overpass/overpass_2sides_north_platform.pnml"
 #include "src/stops/overpass/overpass_2sides_north_noplatform.pnml"
 #include "src/stops/overpass/overpass_2sides_both_platform.pnml"

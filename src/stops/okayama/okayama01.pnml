@@ -1,0 +1,221 @@
+
+// Sprites
+
+    spriteset (spriteset_okayama01_thru_1, "src/stops/okayama/okayama01.png") {tmpl_roadstop(0,0,-31,-33)}
+    spriteset (spriteset_okayama01_thru_2, "src/stops/okayama/okayama01.png") {tmpl_roadstop(1,0,-57,-46)}
+    spriteset (spriteset_okayama01_thru_3, "src/stops/okayama/okayama01.png") {tmpl_roadstop(2,0,-5,-46)}
+    spriteset (spriteset_okayama01_thru_4, "src/stops/okayama/okayama01.png") {tmpl_roadstop(3,0,-31,-33)}
+
+// Spritelayouts
+    // All
+        spritelayout spritelayout_okayama01_all_x_city {
+            ground {
+                sprite: 1314;
+            }
+            building {
+                sprite: spriteset_okayama01_thru_1;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: PALETTE_USE_DEFAULT;
+                xextent: 16;
+                yextent: 3;
+                zextent: 11;
+                xoffset: 0;
+                yoffset: 0;
+            }
+            building {
+                sprite: spriteset_okayama01_thru_2;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: PALETTE_USE_DEFAULT;
+                xextent: 16;
+                yextent: 3;
+                zextent: 11;
+                xoffset: 0;
+                yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_okayama01_all_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: spriteset_okayama01_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: PALETTE_USE_DEFAULT;
+                xextent: 3;
+                yextent: 16;
+                zextent: 11;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: spriteset_okayama01_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: PALETTE_USE_DEFAULT;
+                xextent: 3;
+                yextent: 16;
+                zextent: 11;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, switch_okayama01_all_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_okayama01_all_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_okayama01_all_y_city;
+        }
+
+    // Top
+        spritelayout spritelayout_okayama01_top_x_city {
+            ground {
+                sprite: 1314;
+            }
+            building {
+                sprite: spriteset_okayama01_thru_1;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: PALETTE_USE_DEFAULT;
+                xextent: 16;
+                yextent: 3;
+                zextent: 11;
+                xoffset: 0;
+                yoffset: 0;
+            }
+            building {
+                sprite: ss_platform_base_thru_2;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: PALETTE_USE_DEFAULT;
+                xextent: 16;
+                yextent: 3;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_okayama01_top_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: spriteset_okayama01_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: PALETTE_USE_DEFAULT;
+                xextent: 3;
+                yextent: 16;
+                zextent: 11;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: ss_platform_base_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: PALETTE_USE_DEFAULT;
+                xextent: 3;
+                yextent: 16;
+                zextent: 3;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, switch_okayama01_top_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_okayama01_top_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_okayama01_top_y_city;
+        }
+    
+    // Bottom
+        spritelayout spritelayout_okayama01_btm_x_city {
+            ground {
+                sprite: 1314;
+            }
+            building {
+                sprite: ss_platform_base_thru_1;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: PALETTE_USE_DEFAULT;
+                xextent: 16;
+                yextent: 3;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 0;
+            }
+            building {
+                sprite: spriteset_okayama01_thru_2;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: PALETTE_USE_DEFAULT;
+                xextent: 16;
+                yextent: 3;
+                zextent: 11;
+                xoffset: 0;
+                yoffset: 13;
+            }
+        }
+
+        spritelayout spritelayout_okayama01_btm_y_city {
+            ground {
+                sprite: 1313;
+            }
+            building {
+                sprite: ss_platform_base_thru_4;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: PALETTE_USE_DEFAULT;
+                xextent: 3;
+                yextent: 16;
+                zextent: 3;
+                xoffset: 0;
+                yoffset: 0;
+        }
+            building {
+                sprite: spriteset_okayama01_thru_3;
+                recolour_mode: RECOLOUR_REMAP;
+                palette: PALETTE_USE_DEFAULT;
+                xextent: 3;
+                yextent: 16;
+                zextent: 11;
+                xoffset: 13;
+                yoffset: 0;
+            }
+        }
+
+        switch (FEAT_ROADSTOPS, SELF, switch_okayama01_btm_city_view, view) {
+            RST_VIEW_DRIVE_THROUGH_X: spritelayout_okayama01_btm_x_city;
+            RST_VIEW_DRIVE_THROUGH_Y: spritelayout_okayama01_btm_y_city;
+        }
+
+item (FEAT_ROADSTOPS, okayama01_all,) {
+    property {
+        class:                  "JPPF";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_2, string(STR_OKAYAMA),string(DUAL_SIDES));
+    }
+    graphics {
+        default:                switch_okayama01_all_city_view;
+    }
+}
+
+item (FEAT_ROADSTOPS, okayama01_top,) {
+    property {
+        class:                  "JPPF";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_2, string(STR_OKAYAMA),string(FAR_SIDE));
+    }
+    graphics {
+        default:                switch_okayama01_top_city_view;
+    }
+}
+
+item (FEAT_ROADSTOPS, okayama01_btm,) {
+    property {
+        class:                  "JPPF";
+        availability_type:      RST_AVAILABILITY_TYPE_PASSENGER;
+        draw_mode:  	        bitmask(RST_DRAW_FLAG_DRIVE_THROUGH_ROAD_OVERLAY);
+        general_flags:          bitmask(RST_GENERAL_FLAG_DRIVE_THROUGH_ONLY);
+        name:                   string(STR_CONCAT_2, string(STR_OKAYAMA),string(NEAR_SIDE));
+    }
+    graphics {
+        default:                switch_okayama01_btm_city_view;
+    }
+}
