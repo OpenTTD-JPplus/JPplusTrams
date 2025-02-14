@@ -15,11 +15,11 @@ switch(FEAT_ROADVEHS, SELF, logo_toyama, param_hide_logo) {1:sprite_logo_toyama;
 // Fukui
 spriteset (sprite_logo_fukui,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/logos/fukui.png") { tmpl_p() }
 switch(FEAT_ROADVEHS, SELF, logo_fukui, param_hide_logo) {1:sprite_logo_fukui;}
-
+*/
 // Okayama
 spriteset (sprite_logo_okayama, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/logos/okayama.png") { tmpl_p() }
 switch(FEAT_ROADVEHS, SELF, logo_okayama, param_hide_logo) {1:sprite_logo_okayama;}
-
+/*
 // Manyosen
 spriteset (sprite_logo_manyosen,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/logos/manyosen.png") { tmpl_p() }
 switch(FEAT_ROADVEHS, SELF, logo_manyosen, param_hide_logo) {1:sprite_logo_manyosen;}

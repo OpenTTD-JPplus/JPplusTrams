@@ -29,7 +29,7 @@
 
         switch(FEAT_ROADVEHS, SELF, door02_lead, OpenDoors()) {1:sg_door02_lead;}
         switch(FEAT_ROADVEHS, SELF, door02_rear, OpenDoors()) {1:sg_door02_rear;}
-/*
+
     // Door 03
         spriteset(spriteset_door03_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door03.png") {tmpl_7(1,1)}
         spriteset(spriteset_door03_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door03.png") {tmpl_7(1,25)}
@@ -46,7 +46,7 @@
 
         switch(FEAT_ROADVEHS, SELF, door03_lead, OpenDoors()) {1:sg_door03_lead;}
         switch(FEAT_ROADVEHS, SELF, door03_rear, OpenDoors()) {1:sg_door03_rear;}
-*/
+
     // Door 04
         spriteset(spriteset_door04_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door04.png") {tmpl_7(1,1)}
         spriteset(spriteset_door04_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door04.png") {tmpl_7(1,25)}

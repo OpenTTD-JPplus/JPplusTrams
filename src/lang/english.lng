@@ -75,6 +75,7 @@ LV_TURQ                                         :{LTBLUE} Turquoise
 LV_PEACH                                        :{CREAM} Peach
 LV_ORANGE                                       :{ORANGE} Orange     
 LV_PINK                                         :{CREAM} Pink
+LV_BLACK                                        :{BLACK} Black
 
 LV_CYANRED                                      :{LTBLUE} Cyan {BLACK}& {RED}Red
 LV_GREENORANGE                                  :{GREEN} Green {BLACK}& {ORANGE}Orange
@@ -88,6 +89,7 @@ LV_REDORANGE                                    :{RED} Red{BLACK} & {ORANGE} Ora
 LV_WBG                                          :{BLUE} Blue {BLACK}& {GREEN}Green
 LV_GREENWHITE                                   :{GREEN} Green {BLACK} &{WHITE}White
 LV_ORANGEWHITE                                  :{ORANGE} Orange {BLACK} &{WHITE}White
+LV_ORANGEBROWN                                  :{ORANGE} Orange {BLACK} &{BROWN}Brown
 LV_BLUEWHITE                                    :{LTBLUE} Blue {BLACK} &{WHITE}White
 LV_REDBLUE                                      :{RED} Red{BLACK} &{BLUE}Blue
 LV_REDWHITE                                     :{RED} Red{BLACK} &{WHITE}White
@@ -108,11 +110,9 @@ IRL1CC2CC                                       :{GOLD}Original, 1cc & 2cc
 VARIOUS                                         :{GOLD}Various, see cargo subtype menu                       
 
 # Operators
-OKAYAMA                                         :{GOLD}Okayama Electric Tramway
 FUKUI                                           :{GOLD}Fukui Railway
 MANYOSEN                                        :{GOLD}Manyosen (Toyama)
 ECHIZEN                                         :{GOLD}Echizen (Fukui)
-TOYAMA                                          :{GOLD}Toyama Chihō Railway
 
 # Trams
 
@@ -125,7 +125,6 @@ LV_F1001                                        :{ORANGE} (F1001)
 LV_F1002                                        :{LTBLUE} (F1002)
 LV_F1003                                        :{GREEN} (F1003)
 LV_F1004                                        :{CREAM} (F1004)
-STR_9200                                        :9200 Series ("Momo")
 STR_MLRV1000                                    :Manyosen MLRV1000 Series ("AI-Tram")
 LV_DORAEMON                                     :{LTBLUE} Doraemon Livery
 DES_MLRV1000                                    :{GOLD}Original, 1cc & Doraemon
@@ -133,6 +132,7 @@ STR_L                                           :L Series ("ki-bo")
 
 
 # Toyama
+TOYAMA                                          :{GOLD}Toyama Chihō Railway
 STR_TLR0600                                     :TLR0600 Series ("Portram")
 LV_TLR0601                                      :{RED} (TLR0601) Koko-kun
 LV_TLR0602                                      :{ORANGE} (TLR0602) Mogu-kun
@@ -155,6 +155,11 @@ STR_TOYAMA7000                                  :7000 Series
 DES_TOYAMA7000                                  :{GOLD}Original, Modern, Red&White
 
 STR_TOYAMADE5000                                :De5000 Series
+
+# Okayama
+OKAYAMA                                         :{GOLD}Okayama Electric Tramway
+STR_OKA3000                                     :3000 Series
+STR_OKA9200                                     :9200 Series ("Momo")
 
 # Kumamoto
 KUMAMOTO                                        :{GOLD}Kumamoto City Transportation Bureau

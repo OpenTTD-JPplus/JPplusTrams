@@ -63,7 +63,7 @@ switch (FEAT_ROADVEHS, SELF, sw_oka9200_articulated_part, extra_callback_info1) 
 
 item(FEAT_ROADVEHS, item_oka9200) {
     property {
-		name:							string(STR_9200);
+		name:							string(STR_OKA9200);
 		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		loading_speed:					25;
@@ -81,7 +81,7 @@ item(FEAT_ROADVEHS, item_oka9200) {
 		weight:							20 ton;
         }
     graphics {
-		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(OKAYAMA),string(LIVERIES),string(IRL1CC2CC)));
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(OKAYAMA),string(LIVERIES),string(IRL1CC2CC));
 		cargo_subtype_text:				sw_oka9200_subtype_text;
 		cargo_capacity:					(param_capacity * 74 / 2 ) / 2;
 		purchase_cargo_capacity:		(param_capacity * 74 / 2 ) / 2;

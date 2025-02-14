@@ -52,13 +52,14 @@ Sorted in a rough north to south ordering
 | --- | --- | :---:|
 |![L形](/src/trams/fukui/l/l_purchase.png)| L形 | 2016 |
 |![F1000形](/src/trams/fukui/f1000/f1000_purchase.png)| F1000形 | 2013 |
-
+-->
 
 ### Okayama Electric Tramway
 | | Tram &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Release |
 | --- | --- | :---:|
+|![3000形](/src/trams/okayama/3000/oka3000_purchase.png)| 3000形 | 1953 |
 |![9200形](/src/trams/okayama/9200/oka9200_purchase.png)| 9200形 | 2002 |
-
+<!---
 |🚧| 10形 | 1912 |
 |🚧| 100形 | 1928 |
 |🚧| 300形 | 1950 |
