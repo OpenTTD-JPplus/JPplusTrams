@@ -159,6 +159,7 @@ STR_TOYAMADE5000                                :De5000 Series
 # Okayama
 OKAYAMA                                         :{GOLD}Okayama Electric Tramway
 STR_OKA3000                                     :3000 Series
+STR_OKA7000                                     :7000 Series
 STR_OKA9200                                     :9200 Series ("Momo")
 
 # Kumamoto

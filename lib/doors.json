@@ -29,6 +29,11 @@
         "City": "fukui",
         "Folder": "l"
     },
+    "door11": {
+        "Tram": "oka7000",
+        "City": "okayama",
+        "Folder": "7000"
+    },
     "door01": {
         "Tram": "kuma1060",
         "City": "kumamoto",

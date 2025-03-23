@@ -137,6 +137,19 @@ disable_item(FEAT_ROADVEHS); // disable default road vehicles
         [ x+224,    y,       20,    20,      -7,       -10]
     }
 
+    /* Sprite template for a 8/8 length tram */
+    template tmpl_8(x,y) {
+        //left_x, upper_y, width, height, offset_x, offset_y
+        [ x,        y,        8,    22,      -3,       -14]
+        [ x+14,     y,       22,    20,     -14,       -10]
+        [ x+48,     y,       32,    16,     -14,       -10]
+        [ x+94,     y,       22,    20,      -8,       -11]
+        [ x+128,    y,        8,    22,      -3,       -14]
+        [ x+144,    y,       22,    20,     -14,       -09]
+        [ x+176,    y,       32,    16,     -14,       -11]
+        [ x+224,    y,       22,    20,      -8,       -10]
+    }
+
 /* ROADSTOPS */
 
     template tmpl_roadstop(x,y,xo,yo) {
@@ -202,6 +215,7 @@ item(FEAT_ROADVEHS, item_mlrv1000,		4  ) {}
 item(FEAT_ROADVEHS, item_l,				5  ) {}
 item(FEAT_ROADVEHS, item_f1000,			2  ) {}
 item(FEAT_ROADVEHS, item_oka3000,		25 ) {}
+item(FEAT_ROADVEHS, item_oka7000,		26 ) {}
 item(FEAT_ROADVEHS, item_oka9200,		3  ) {}
 item(FEAT_ROADVEHS, item_kuma1060,		9  ) {}
 item(FEAT_ROADVEHS, item_kuma1080,		10 ) {}
@@ -240,6 +254,7 @@ sort(FEAT_ROADVEHS, [
 
 // Okayama
 25,	// 1953 oka3000
+26,	// 1980 oka7000
 3,	// 2002 oka9200
 
 // Kumamoto
@@ -651,6 +666,16 @@ switch(FEAT_ROADVEHS, SELF, logo_tokyometropolitan, param_hide_logo) {1:sprite_l
 
         switch(FEAT_ROADVEHS, SELF, door10, OpenDoors()) {1:sg_door10_lead;}
 
+    // Door 11
+        spriteset(spriteset_door11_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door10.png") {tmpl_8(1,1)}
+            
+        spritegroup sg_door11_lead {
+            loaded:  [sprite_blank];
+            loading: [spriteset_door11_lead];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, door11, OpenDoors()) {1:sg_door11_lead;}
+
     // Door Nigaata03
 
         spriteset(ss_door_niigata03_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/doorniigata03_irl.png") {tmpl_7(1,1 )}
@@ -743,6 +768,7 @@ switch(FEAT_ROADVEHS, SELF, logo_tokyometropolitan, param_hide_logo) {1:sprite_l
     spriteset (sprite_panto03,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto03.png") {tmpl_7(1,1)}
     spriteset (sprite_panto04,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto04.png") {tmpl_7(1,1)}
     spriteset (sprite_panto05,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto05.png") {tmpl_7(1,1)}
+    spriteset (sprite_panto06,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto06.png") {tmpl_8(1,1)}
     
 # 1 "JPplusTrams.pnml" 4
 
@@ -3154,6 +3180,90 @@ item(FEAT_ROADVEHS, item_oka3000) {
 		purchase_running_cost_factor:	46 + ((param_runcost * 29 ) / 2 );
 		purchase:						sw_oka3000_purchase;
 		cost_factor:					((param_buycost * 89 ) / 4 );
+        }
+}
+# 1 "JPplusTrams.pnml" 4
+# 1 "src/trams/okayama/7000/oka7000.pnml" 1
+
+// Cargo Subtypes
+
+    switch(FEAT_ROADVEHS, SELF, sw_oka7000_subtype_text, cargo_subtype) {
+	    0: return string(LV_RANDOM);
+        1: return string(LV_BLACK);
+        2: return string(LV_ORANGEBROWN);
+        3: return string(LV_GREENORANGE);
+        return CB_RESULT_NO_TEXT;
+        }
+
+// Graphics
+
+    // Purchase
+    spriteset(ss_oka7000_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7000/oka7000_purchase.png") {tmpl_p()}
+
+    switch(FEAT_ROADVEHS, SELF, sw_oka7000_purchase, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: logo_okayama; 
+            1: ss_oka7000_purchase;
+        }
+
+    // Tram Graphics
+    spriteset(ss_oka7000_lead_whi, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7000/oka7000_whi.png") {tmpl_8(1,1)}
+    spriteset(ss_oka7000_lead_bar, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7000/oka7000_bar.png") {tmpl_8(1,1)}
+    spriteset(ss_oka7000_lead_wab, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7000/oka7000_wab.png") {tmpl_8(1,1)}
+ 
+    switch(FEAT_ROADVEHS, PARENT, sw_oka7000_lead_rdm, random_bits % 3) { 
+        1: ss_oka7000_lead_bar;
+        2: ss_oka7000_lead_wab;
+        ss_oka7000_lead_whi;
+        }
+
+    switch(FEAT_ROADVEHS, PARENT, ss_oka7000_lead_mask, cargo_subtype) {
+        0: sw_oka7000_lead_rdm;
+        2: ss_oka7000_lead_bar;
+        3: ss_oka7000_lead_wab;
+        }
+
+    switch(FEAT_ROADVEHS, SELF, sw_oka7000_stack, [ 
+        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+            0: ss_oka7000_lead_whi;             // Base
+            1: ss_oka7000_lead_mask;            // Mask
+            2: sprite_panto06;                  // Pantos
+            3: door11;                          // Doors
+        }
+
+item(FEAT_ROADVEHS, item_oka7000) {
+    property {
+		name:							string(STR_OKA7000);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		power:							51 * 2 hp;
+		introduction_date:				date(1980,01,01);
+		model_life:						10;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							16.5 ton;
+		length:							8;
+        }
+    graphics {
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(OKAYAMA),string(LIVERIES),string(VARIOUS));
+		cargo_subtype_text:				sw_oka7000_subtype_text;
+		cargo_capacity:					(param_capacity * 96 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 96 ) / 2;
+		speed:							sw_speed_40;
+		default:						sw_oka7000_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		purchase:						sw_oka7000_purchase;
+		cost_factor:					((param_buycost * 90 ) / 4 );
         }
 }
 # 1 "JPplusTrams.pnml" 4
