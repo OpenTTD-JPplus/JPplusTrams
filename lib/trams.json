@@ -373,7 +373,7 @@
         "Name": "string(STR_OKA3000)",
         "Parts": 1,
         "Panto_Location": 1,
-        "Length": "7",
+        "Length": "8",
         "Speed": "sw_speed_24",
         "Model_Life": "10",
         "Vehicle_Life": "60",

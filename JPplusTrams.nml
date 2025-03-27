@@ -769,6 +769,7 @@ switch(FEAT_ROADVEHS, SELF, logo_tokyometropolitan, param_hide_logo) {1:sprite_l
     spriteset (sprite_panto04,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto04.png") {tmpl_7(1,1)}
     spriteset (sprite_panto05,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto05.png") {tmpl_7(1,1)}
     spriteset (sprite_panto06,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto06.png") {tmpl_8(1,1)}
+    spriteset (sprite_panto07,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto07.png") {tmpl_8(1,1)}
     
 # 1 "JPplusTrams.pnml" 4
 
@@ -3123,9 +3124,9 @@ item(FEAT_ROADVEHS, item_toyamade5000) {
         }
 
     // Tram Graphics
-    spriteset(ss_oka3000_lead_blk, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_blk.png") {tmpl_7(1,1)}
-    spriteset(ss_oka3000_lead_oab, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_oab.png") {tmpl_7(1,1)}
-    spriteset(ss_oka3000_lead_gao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_gao.png") {tmpl_7(1,1)}
+    spriteset(ss_oka3000_lead_blk, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_blk.png") {tmpl_8(1,1)}
+    spriteset(ss_oka3000_lead_oab, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_oab.png") {tmpl_8(1,1)}
+    spriteset(ss_oka3000_lead_gao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_gao.png") {tmpl_8(1,1)}
  
     switch(FEAT_ROADVEHS, PARENT, sw_oka3000_lead_rdm, random_bits % 3) { 
         1: ss_oka3000_lead_oab;
@@ -3143,7 +3144,7 @@ item(FEAT_ROADVEHS, item_toyamade5000) {
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_oka3000_lead_blk;             // Base
             1: ss_oka3000_lead_mask;            // Mask
-            2: sprite_panto03;                  // Pantos
+            2: sprite_panto07;                  // Pantos
             3: door10;                          // Doors
         }
 
@@ -3166,7 +3167,7 @@ item(FEAT_ROADVEHS, item_oka3000) {
 		refit_cost:						0; // refitting is free
 		running_cost_base:				RUNNING_COST_ROADVEH;
 		weight:							15 ton;
-		length:							7;
+		length:							8;
         }
     graphics {
 		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(OKAYAMA),string(LIVERIES),string(VARIOUS));

@@ -17,6 +17,12 @@
         "Folder": "t100",
         "Panto_Location": 2
     },
+    "panto07": {
+        "Tram": "oka3000",
+        "City": "okayama",
+        "Folder": "3000",
+        "Panto_Location": 1
+    },
     "panto06": {
         "Tram": "oka7000",
         "City": "okayama",
