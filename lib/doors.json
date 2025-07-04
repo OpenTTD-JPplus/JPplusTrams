@@ -34,20 +34,10 @@
         "City": "okayama",
         "Folder": "7000"
     },
-    "door01": {
-        "Tram": "kuma1060",
-        "City": "kumamoto",
-        "Folder": "1060"
-    },
     "door04": {
         "Tram": "kuma5000",
         "City": "kumamoto",
         "Folder": "5000"
-    },
-    "door06": {
-        "Tram": "kuma8800",
-        "City": "kumamoto",
-        "Folder": "8800"
     },
     "door05": {
         "Tram": "kuma9700",

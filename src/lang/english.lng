@@ -76,11 +76,13 @@ LV_PEACH                                        :{CREAM} Peach
 LV_ORANGE                                       :{ORANGE} Orange     
 LV_PINK                                         :{CREAM} Pink
 LV_BLACK                                        :{BLACK} Black
+LV_WHITE                                        :{WHITE} White
 
 LV_CYANRED                                      :{LTBLUE} Cyan {BLACK}& {RED}Red
 LV_GREENORANGE                                  :{GREEN} Green {BLACK}& {ORANGE}Orange
 LV_YELLOWBLUE                                   :{YELLOW} Yellow {BLACK}& {BLUE}Blue
 LV_YELLOWORANGE                                 :{YELLOW} Yellow {BLACK}& {ORANGE}Orange
+LV_YELLOWPINK                                   :{YELLOW} Yellow {BLACK}& {CREAM} Pink 
 LV_PINKYELLOW                                   :{CREAM} Pink {BLACK}& {YELLOW}Yellow
 LV_WHITEBLUE                                    :{WHITE} White {BLACK}& {BLUE}Blue
 LV_BROWNWHITE                                   :{BROWN} Brown {BLACK}& {WHITE}White
@@ -93,10 +95,12 @@ LV_ORANGEBROWN                                  :{ORANGE} Orange {BLACK} &{BROWN
 LV_BLUEWHITE                                    :{LTBLUE} Blue {BLACK} &{WHITE}White
 LV_REDBLUE                                      :{RED} Red{BLACK} &{BLUE}Blue
 LV_REDWHITE                                     :{RED} Red{BLACK} &{WHITE}White
+LV_REDYELLOW                                    :{RED} Red{BLACK} &{YELLOW}Yellow
 LV_REDWHITEGOLD                                 :{RED} Red{BLACK}, {WHITE}White{BLACK}& {GOLD}Gold
 LV_PINKWHITE                                    :{CREAM} Pink{BLACK} &{WHITE}White
 LV_MAROONBROWN                                  :{RED} Maroon {BLACK} &{BROWN}Brown
 LV_WHITEBLUERED                                 :{WHITE} White {BLACK}, {BLUE}Blue{BLACK}& {RED}Red
+LV_WHITEGREENBLUE                               :{WHITE} White {BLACK}, {GREEN}Green{BLACK}& {LTBLUE}Blue
 LV_BLUEPURPLERED                                :{BLUE} Blue {BLACK}, {PURPLE}Purple{BLACK}& {RED}Red
 
 LV_PINKSTRIPE                                   :{CREAM} Pink {BLACK}Stripe
@@ -160,6 +164,8 @@ STR_TOYAMADE5000                                :De5000 Series
 OKAYAMA                                         :{GOLD}Okayama Electric Tramway
 STR_OKA3000                                     :3000 Series
 STR_OKA7000                                     :7000 Series
+STR_OKA7100                                     :7100 Series
+STR_OKA7900                                     :7900 Series
 STR_OKA9200                                     :9200 Series ("Momo")
 
 # Kumamoto

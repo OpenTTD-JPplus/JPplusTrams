@@ -12,6 +12,8 @@ item(FEAT_ROADVEHS, item_l,				5  ) {}
 item(FEAT_ROADVEHS, item_f1000,			2  ) {}
 item(FEAT_ROADVEHS, item_oka3000,		25 ) {}
 item(FEAT_ROADVEHS, item_oka7000,		26 ) {}
+item(FEAT_ROADVEHS, item_oka7100,		28 ) {}
+item(FEAT_ROADVEHS, item_oka7900,		27 ) {}
 item(FEAT_ROADVEHS, item_oka9200,		3  ) {}
 item(FEAT_ROADVEHS, item_kuma1060,		9  ) {}
 item(FEAT_ROADVEHS, item_kuma1080,		10 ) {}
@@ -51,6 +53,8 @@ sort(FEAT_ROADVEHS, [
 // Okayama
 25,	// 1953 oka3000
 26,	// 1980 oka7000
+28,	// 1981 oka7100
+27,	// 1989 oka7900
 3,	// 2002 oka9200
 
 // Kumamoto

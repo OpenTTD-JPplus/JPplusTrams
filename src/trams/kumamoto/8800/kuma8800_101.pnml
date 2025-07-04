@@ -10,16 +10,27 @@
             1: ss_kuma8800_101_purchase;
         }
 
+	// Panto & Doors
+	spriteset(panto_kuma8800_101, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101_panto.png") {tmpl_8(1,1)}
+	spriteset(doorz_kuma8800_101, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101_doors.png") {tmpl_8(1,1)}
+
+	spritegroup sg_doors_kuma8800_101 {
+        loaded:  [sprite_blank];
+        loading: [doorz_kuma8800_101];
+        }
+
+    switch(FEAT_ROADVEHS, SELF, doors_kuma8800_101, OpenDoors()) {1:sg_doors_kuma8800_101;}	
+
     // Tram Graphics
-    spriteset(ss_kuma8800_101_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma8800_101_roof, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101_roof.png") {tmpl_7(1,1)}
+    spriteset(ss_kuma8800_101_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101.png") {tmpl_8(1,1)}
+    spriteset(ss_kuma8800_101_roof, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/8800/kuma8800_101_roof.png") {tmpl_8(1,1)}
 
     switch(FEAT_ROADVEHS, SELF, sw_kuma8800_101_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_kuma8800_101_lead;        // Base
-            1: sprite_panto03;              // Pantos
+            1: panto_kuma8800_101;          // Pantos
             2: ss_kuma8800_101_roof;        // Roof
-            3: door06;                      // Doors
+            3: doors_kuma8800_101;          // Doors
         }  
 
 item(FEAT_ROADVEHS, item_kuma8800_101) {
@@ -42,7 +53,7 @@ item(FEAT_ROADVEHS, item_kuma8800_101) {
 		refit_cost:						0; // refitting is free
 		running_cost_base:				RUNNING_COST_ROADVEH;
 		weight:							19 ton;
-		length:							7;
+		length:							8;
         }
     graphics {
 		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA8800));

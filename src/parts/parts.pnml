@@ -3,16 +3,6 @@
     // Blank
         spriteset (sprite_blank, "src/parts/doors/blank.png") {tmpl_7(1,1)}
 
-    // Door 01
-        spriteset(ss_door01, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door01.png") {tmpl_7(1,1)}
-                
-        spritegroup sg_door01 {
-            loaded:  [sprite_blank];
-            loading: [ss_door01];
-        }
-
-         switch(FEAT_ROADVEHS, SELF, door01, OpenDoors()) {1:sg_door01;}
-
     // Door 02
         spriteset(spriteset_door02_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door02.png") {tmpl_7(1,1)}
         spriteset(spriteset_door02_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door02.png") {tmpl_7(1,25)}
@@ -80,16 +70,6 @@
 
         switch(FEAT_ROADVEHS, SELF, door05_lead, OpenDoors()) {1:sg_door05_lead;}
         switch(FEAT_ROADVEHS, SELF, door05_rear, OpenDoors()) {1:sg_door05_rear;}
-
-    // Door 06
-        spriteset(spriteset_door06_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door06.png") {tmpl_7(1,1)}
-            
-        spritegroup sg_door06_lead {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door06_lead];
-        }
-
-        switch(FEAT_ROADVEHS, SELF, door06, OpenDoors()) {1:sg_door06_lead;}
 
     // Door 07
         spriteset(spriteset_door07_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door07.png") {tmpl_7(1,1)}

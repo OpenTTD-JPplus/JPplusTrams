@@ -20,10 +20,21 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma1200_subtype_text, cargo_subtype) {
             1: spriteset_kuma1200_purchase;
         }
 
+	// Panto & Doors
+	spriteset(panto_kuma1200, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1200/kuma1200_panto.png") {tmpl_8(1,1)}
+	spriteset(doorz_kuma1200, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1200/kuma1200_doors.png") {tmpl_8(1,1)}
+
+	spritegroup sg_doors_kuma1200 {
+        loaded:  [sprite_blank];
+        loading: [doorz_kuma1200];
+        }
+
+    switch(FEAT_ROADVEHS, SELF, doors_kuma1200, OpenDoors()) {1:sg_doors_kuma1200 ;}	
+
     // Tram Graphics
-    spriteset(spriteset_kuma1200_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1200/kuma1200_irl.png") {tmpl_7(1,1)}
-    spriteset(spriteset_kuma1200_lead_1cc, "src/trams/kumamoto/1200/kuma1200_1cc.png") {tmpl_7(1,1)}
-    spriteset(spriteset_kuma1200_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1200/kuma1200_blu.png") {tmpl_7(1,1)}
+    spriteset(spriteset_kuma1200_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1200/kuma1200_irl.png") {tmpl_8(1,1)}
+    spriteset(spriteset_kuma1200_lead_1cc, "src/trams/kumamoto/1200/kuma1200_1cc.png") {tmpl_8(1,1)}
+    spriteset(spriteset_kuma1200_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/1200/kuma1200_blu.png") {tmpl_8(1,1)}
 
     switch(FEAT_ROADVEHS, PARENT, sw_kuma1200_lead_1cc, cargo_subtype) {1:spriteset_kuma1200_lead_1cc; 2:spriteset_kuma1200_lead_blu;}
 
@@ -31,8 +42,8 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma1200_subtype_text, cargo_subtype) {
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_kuma1200_lead_irl; // Base
             1: sw_kuma1200_lead_1cc;        // 1cc mask
-            2: sprite_panto02;              // Pantos
-            3: door01;                      // Doors
+            2: panto_kuma1200;              // Pantos
+            3: doors_kuma1200;              // Doors
         }
 
 item(FEAT_ROADVEHS, item_kuma1200) {
@@ -54,7 +65,7 @@ item(FEAT_ROADVEHS, item_kuma1200) {
 		refit_cost:						0; // refitting is free
 		running_cost_base:				RUNNING_COST_ROADVEH;
 		weight:							15.25 ton;
-		length:							7;
+		length:							8;
         }
     graphics {
 		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(IRL1CC));

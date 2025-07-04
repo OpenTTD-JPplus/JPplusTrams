@@ -67,7 +67,7 @@ item(FEAT_ROADVEHS, item_toyama7000) {
 		refit_cost:						0; // refitting is free
 		running_cost_base:				RUNNING_COST_ROADVEH;
 		weight:							16 ton;
-		length:							7;
+		length:							8;
         }
     graphics {
 		default:						sw_toyama7000_stack;

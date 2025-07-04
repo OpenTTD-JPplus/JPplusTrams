@@ -49,6 +49,8 @@
 // Okayama
 #include "src/trams/okayama/3000/oka3000.pnml"
 #include "src/trams/okayama/7000/oka7000.pnml"
+#include "src/trams/okayama/7100/oka7100.pnml"
+#include "src/trams/okayama/7900/oka7900.pnml"
 #include "src/trams/okayama/9200/oka9200.pnml"
 
 // Roadstops

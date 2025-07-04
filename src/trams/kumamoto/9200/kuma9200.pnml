@@ -30,6 +30,17 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma9200_subtype_text, cargo_subtype) {
             1: ss_kuma9200_purchase;
         }
 
+    // Panto & Doors
+	spriteset(panto_kuma9200, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_panto.png") {tmpl_8(1,1)}
+	spriteset(doorz_kuma9200, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_doors.png") {tmpl_8(1,1)}
+
+	spritegroup sg_doors_kuma9200 {
+        loaded:  [sprite_blank];
+        loading: [doorz_kuma9200];
+        }
+
+    switch(FEAT_ROADVEHS, SELF, doors_kuma9200, OpenDoors()) {1:sg_doors_kuma9200 ;}
+
     // Tram Graphics
     spriteset(ss_kuma9200_lead_bse, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_bse.png") {tmpl_7(1,1)}
     spriteset(ss_kuma9200_lead_red, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_red.png") {tmpl_7(1,1)}
@@ -83,8 +94,8 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma9200_subtype_text, cargo_subtype) {
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_kuma9200_lead_bse;        // Base
             1: sw_kuma9200_lead_msk;        // Mask
-            2: sprite_panto03;              // Pantos
-            3: door01;                      // Doors
+            2: panto_kuma9200;              // Pantos
+            3: doors_kuma9200;              // Doors
         }
 
 item(FEAT_ROADVEHS, item_kuma9200) {
@@ -106,7 +117,7 @@ item(FEAT_ROADVEHS, item_kuma9200) {
 		refit_cost:						0; // refitting is free
 		running_cost_base:				RUNNING_COST_ROADVEH;
 		weight:							19 ton;
-		length:							7;
+		length:							8;
         }
     graphics {
 		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(KUMAMOTO),string(LIVERIES),string(DES_KUMA9200));
