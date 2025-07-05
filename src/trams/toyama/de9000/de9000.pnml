@@ -19,6 +19,26 @@ switch(FEAT_ROADVEHS, SELF, sw_de9000_subtype_text, cargo_subtype) {
             0: logo_toyama; 
             1: spriteset_de9000_purchase;
         }
+        
+    // Panto
+        spriteset(panto_de9000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de9000/de9000_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_de9000_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de9000/de9000_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_de9000_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de9000/de9000_doors.png") {tmpl_7(1,25)}
+
+        spritegroup sg_doors_de9000_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_de9000_lead];
+            }
+
+        spritegroup sg_doors_de9000_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_de9000_rear];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_de9000_lead, OpenDoors()) {1:sg_doors_de9000_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_de9000_rear, OpenDoors()) {1:sg_doors_de9000_rear;}
 
     // Tram Graphics
     // Base
@@ -42,15 +62,15 @@ switch(FEAT_ROADVEHS, SELF, sw_de9000_subtype_text, cargo_subtype) {
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_de9001_lead;                          // Base
             1: sw_de9000_lead_mask;                     // Mask
-            2: door02_lead;                             // Doors
-            3: sprite_panto01;                          // Pantos
+            2: doors_de9000_lead;                       // Doors
+            3: panto_de9000;                            // Pantos
         }
 
     switch(FEAT_ROADVEHS, SELF, sw_de9000_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_de9001_rear;                          // Base
             1: sw_de9000_rear_mask;                     // Mask
-            2: door02_rear;                             // Doors
+            2: doors_de9000_rear;                       // Doors
         }
     
     switch (FEAT_ROADVEHS, SELF, sw_de9000_stack, position_in_consist ) {

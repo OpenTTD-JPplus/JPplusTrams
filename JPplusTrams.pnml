@@ -9,7 +9,6 @@
 #include "src/functions.pnml"
 #include "src/stats.pnml"
 #include "src/logos/logos.pnml"
-#include "src/parts/parts.pnml"
 
 /*---TRAMS---*/
 

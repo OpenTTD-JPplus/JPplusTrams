@@ -21,6 +21,24 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma0800_subtype_text, cargo_subtype) {
             1: spriteset_kuma0800_purchase;
         }
 
+    // Panto & Doors
+	spriteset(panto_kuma0800, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_panto.png") {tmpl_7(1,1)}
+	spriteset(doorz_kuma0800_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_doors.png") {tmpl_7(1,1)}
+    spriteset(doorz_kuma0800_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_doors.png") {tmpl_7(1,25)}
+
+	spritegroup sg_doors_kuma0800_lead {
+        loaded:  [sprite_blank];
+        loading: [doorz_kuma0800_lead];
+        }
+
+    spritegroup sg_doors_kuma0800_rear {
+        loaded:  [sprite_blank];
+        loading: [doorz_kuma0800_rear];
+        }
+
+    switch(FEAT_ROADVEHS, SELF, doors_kuma0800_lead, OpenDoors()) {1:sg_doors_kuma0800_lead;}
+    switch(FEAT_ROADVEHS, SELF, doors_kuma0800_rear, OpenDoors()) {1:sg_doors_kuma0800_rear;}
+
     // Tram Graphics
 
     // Base
@@ -45,15 +63,15 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma0800_subtype_text, cargo_subtype) {
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_kuma0800_lead_irl; // Base
             1: sw_kuma0800_lead_mask;       // Mask
-            2: door02_lead;             // Doors
-            3: sprite_panto01;          // Pantos
+            2: doors_kuma0800_lead;         // Doors
+            3: panto_kuma0800;              // Pantos
         }
 
     switch(FEAT_ROADVEHS, SELF, sw_kuma0800_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_kuma0800_rear_irl; // Base
             1: sw_kuma0800_rear_mask;       // Mask
-            2: door02_rear;             // Doors
+            2: doors_kuma0800_rear;         // Doors
         }
 
     switch (FEAT_ROADVEHS, SELF, sw_kuma0800_stack, position_in_consist ) {

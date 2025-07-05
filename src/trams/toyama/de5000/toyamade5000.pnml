@@ -18,6 +18,17 @@
             1: ss_toyamade5000_purchase;
         }
 
+    // Panto & Doors
+	spriteset(panto_toyamade5000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de5000/toyamade5000_panto.png") {tmpl_8(1,1)}
+	spriteset(doorz_toyamade5000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de5000/toyamade5000_doors.png") {tmpl_8(1,1)}
+
+	spritegroup sg_doors_toyamade5000 {
+        loaded:  [sprite_blank];
+        loading: [doorz_toyamade5000];
+        }
+
+    switch(FEAT_ROADVEHS, SELF, doors_toyamade5000, OpenDoors()) {1:sg_doors_toyamade5000 ;}
+
     // Tram Graphics
     spriteset(ss_toyamade5000_lead_base, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de5000/toyamade5000_bse.png") {tmpl_7(1,1)}
 
@@ -33,8 +44,8 @@
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_toyamade5000_lead_base;        // Base
             1: sw_toyamade5000_lead_mask;        // Mask
-            2: sprite_panto05;                  // Pantos
-            3: door10;                          // Doors
+            2: panto_toyamade5000;               // Pantos
+            3: doors_toyamade5000;               // Doors
         }
 
 item(FEAT_ROADVEHS, item_toyamade5000) {
@@ -56,7 +67,7 @@ item(FEAT_ROADVEHS, item_toyamade5000) {
 		refit_cost:						0; // refitting is free
 		running_cost_base:				RUNNING_COST_ROADVEH;
 		weight:							18 ton;
-		length:							7;
+		length:							8;
         }
     graphics {
 		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(LV_IRL));

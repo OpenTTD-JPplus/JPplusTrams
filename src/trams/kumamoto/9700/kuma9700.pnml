@@ -13,49 +13,70 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma9700_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(ss_kuma9700_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_purchase.png") {tmpl_p()}
+        spriteset(ss_kuma9700_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_kuma9700_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_kumamoto; 
-            1: ss_kuma9700_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_kuma9700_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_kumamoto; 
+                1: ss_kuma9700_purchase;
+            }
+
+    // Panto
+        spriteset(panto_kuma9700, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_kuma9700_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_kuma9700_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_doors.png") {tmpl_7(1,25)}
+
+        spritegroup sg_doors_kuma9700_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_kuma9700_lead];
+            }
+
+        spritegroup sg_doors_kuma9700_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_kuma9700_rear];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_kuma9700_lead, OpenDoors()) {1:sg_doors_kuma9700_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_kuma9700_rear, OpenDoors()) {1:sg_doors_kuma9700_rear;}
+        
 
     // Tram Graphics
-    spriteset(ss_kuma9700_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_irl.png") {tmpl_7(1,1 )}
-    spriteset(ss_kuma9700_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_irl.png") {tmpl_7(1,25)}
+        spriteset(ss_kuma9700_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_irl.png") {tmpl_7(1,1 )}
+        spriteset(ss_kuma9700_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_irl.png") {tmpl_7(1,25)}
 
-    spriteset(ss_kuma9700_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_blu.png") {tmpl_7(1,1 )}
-    spriteset(ss_kuma9700_rear_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_blu.png") {tmpl_7(1,25)}
+        spriteset(ss_kuma9700_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_blu.png") {tmpl_7(1,1 )}
+        spriteset(ss_kuma9700_rear_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_blu.png") {tmpl_7(1,25)}
 
-    spriteset(ss_kuma9700_lead_bla, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_bla.png") {tmpl_7(1,1 )}
-    spriteset(ss_kuma9700_rear_bla, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_bla.png") {tmpl_7(1,25)}
+        spriteset(ss_kuma9700_lead_bla, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_bla.png") {tmpl_7(1,1 )}
+        spriteset(ss_kuma9700_rear_bla, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_bla.png") {tmpl_7(1,25)}
 
-    spriteset(ss_kuma9700_lead_1cc, "src/trams/kumamoto/9700/kuma9700_1cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_kuma9700_rear_1cc, "src/trams/kumamoto/9700/kuma9700_1cc.png") {tmpl_7(1,25)}
+        spriteset(ss_kuma9700_lead_1cc, "src/trams/kumamoto/9700/kuma9700_1cc.png") {tmpl_7(1,1 )}
+        spriteset(ss_kuma9700_rear_1cc, "src/trams/kumamoto/9700/kuma9700_1cc.png") {tmpl_7(1,25)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_kuma9700_lead_msk, cargo_subtype) {1:ss_kuma9700_lead_blu; 2:ss_kuma9700_lead_bla; 3:ss_kuma9700_lead_1cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_kuma9700_rear_msk, cargo_subtype) {1:ss_kuma9700_rear_blu; 2:ss_kuma9700_rear_bla; 3:ss_kuma9700_rear_1cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_kuma9700_lead_msk, cargo_subtype) {1:ss_kuma9700_lead_blu; 2:ss_kuma9700_lead_bla; 3:ss_kuma9700_lead_1cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_kuma9700_rear_msk, cargo_subtype) {1:ss_kuma9700_rear_blu; 2:ss_kuma9700_rear_bla; 3:ss_kuma9700_rear_1cc;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_kuma9700_lead_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_kuma9700_lead_irl;        // Base
-            1: sw_kuma9700_lead_msk;        // 1cc mask
-            2: door05_lead;             // Doors
-            3: sprite_panto01;          // Pantos
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_kuma9700_lead_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_kuma9700_lead_irl;        // Base
+                1: sw_kuma9700_lead_msk;        // 1cc mask
+                2: doors_kuma9700_lead;         // Doors
+                3: panto_kuma9700;              // Pantos
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_kuma9700_rear_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_kuma9700_rear_irl;        // Base
-            1: sw_kuma9700_rear_msk;        // 1cc mask
-            2: door05_rear;             // Doors
-        } 
+        switch(FEAT_ROADVEHS, SELF, sw_kuma9700_rear_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_kuma9700_rear_irl;        // Base
+                1: sw_kuma9700_rear_msk;        // 1cc mask
+                2: doors_kuma9700_rear;         // Doors
+            } 
 
-    switch (FEAT_ROADVEHS, SELF, sw_kuma9700_stack, position_in_consist ) {
-            0:  sw_kuma9700_lead_stack;
-                sw_kuma9700_rear_stack;     //default
-        } 
+        switch (FEAT_ROADVEHS, SELF, sw_kuma9700_stack, position_in_consist ) {
+                0:  sw_kuma9700_lead_stack;
+                    sw_kuma9700_rear_stack;     //default
+            } 
 
 switch (FEAT_ROADVEHS, SELF, sw_kuma9700_articulated_part, extra_callback_info1) {
     0..1:  return item_kuma9700;

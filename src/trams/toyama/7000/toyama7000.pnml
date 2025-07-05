@@ -20,12 +20,23 @@ switch(FEAT_ROADVEHS, SELF, sw_toyama7000_subtype_text, cargo_subtype) {
             1: ss_toyama7000_purchase;
         }
 
-    // Tram Graphics
-    spriteset(ss_toyama7000_lead_base, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_bse.png") {tmpl_7(1,1)}
+    // Panto & Doors
+	spriteset(panto_toyama7000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_panto.png") {tmpl_8(1,1)}
+	spriteset(doorz_toyama7000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_doors.png") {tmpl_8(1,1)}
 
-    spriteset(ss_toyama7000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_irl.png") {tmpl_7(1,1)}
-    spriteset(ss_toyama7000_lead_new, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_new.png") {tmpl_7(1,1)}
-    spriteset(ss_toyama7000_lead_raw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_raw.png") {tmpl_7(1,1)}
+	spritegroup sg_doors_toyama7000 {
+        loaded:  [sprite_blank];
+        loading: [doorz_toyama7000];
+        }
+
+    switch(FEAT_ROADVEHS, SELF, doors_toyama7000, OpenDoors()) {1:sg_doors_toyama7000 ;}
+
+    // Tram Graphics
+    spriteset(ss_toyama7000_lead_base, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_bse.png") {tmpl_8(1,1)}
+
+    spriteset(ss_toyama7000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_irl.png") {tmpl_8(1,1)}
+    spriteset(ss_toyama7000_lead_new, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_new.png") {tmpl_8(1,1)}
+    spriteset(ss_toyama7000_lead_raw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_raw.png") {tmpl_8(1,1)}
 
     switch(FEAT_ROADVEHS, PARENT, sw_toyama7000_lead_rdm, random_bits % 3) { 
         1: ss_toyama7000_lead_new;
@@ -42,10 +53,10 @@ switch(FEAT_ROADVEHS, SELF, sw_toyama7000_subtype_text, cargo_subtype) {
 
     switch(FEAT_ROADVEHS, SELF, sw_toyama7000_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_toyama7000_lead_base;        // Base
-            1: sw_toyama7000_lead_mask;        // Mask
-            2: sprite_panto05;              // Pantos
-            3: door09;                      // Doors
+            0: ss_toyama7000_lead_base;         // Base
+            1: sw_toyama7000_lead_mask;         // Mask
+            2: panto_toyama7000;                // Pantos
+            3: doors_toyama7000;                // Doors
         }
 
 item(FEAT_ROADVEHS, item_toyama7000) {

@@ -22,6 +22,33 @@ switch(FEAT_ROADVEHS, SELF, sw_f1000_subtype_text, cargo_subtype) {
             1: ss_f1000_purchase;
         }
 
+    // Panto
+        spriteset(panto_f1000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/f1000/f1000_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_f1000_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/f1000/f1000_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_f1000_cntr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/f1000/f1000_doors.png") {tmpl_7(1,25)}
+        spriteset(doorz_f1000_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/f1000/f1000_doors.png") {tmpl_7(1,49)}
+            
+        spritegroup sg_doors_f1000_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_f1000_lead];
+        }
+
+        spritegroup sg_doors_f1000_cntr {
+            loaded:  [sprite_blank];
+            loading: [doorz_f1000_cntr];
+        }
+
+        spritegroup sg_doors_f1000_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_f1000_rear];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, doors_f1000_lead, OpenDoors()) {1:sg_doors_f1000_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_f1000_cntr, OpenDoors()) {1:sg_doors_f1000_cntr;}
+        switch(FEAT_ROADVEHS, SELF, doors_f1000_rear, OpenDoors()) {1:sg_doors_f1000_rear;}
+
     // Tram Graphics
 
         // Base
@@ -73,22 +100,22 @@ switch(FEAT_ROADVEHS, SELF, sw_f1000_subtype_text, cargo_subtype) {
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_f1001_lead;                           // Base
             1: sw_f1000_lead_mask;                      // Mask
-            2: door_niigata03_lead_irl;                 // Doors
-            3: sprite_panto01;                          // Pantos
+            2: doors_fukui_lead;                        // Doors
+            3: panto_f1000;                             // Pantos
         }
 
         switch(FEAT_ROADVEHS, SELF, sw_f1000_cntr_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_f1001_cntr;                           // Base
             1: sw_f1000_cntr_mask;                      // Mask
-            2: door_niigata03_cntr_irl;                 // Doors
+            2: doors_fukui_cntr;                        // Doors
         }
 
         switch(FEAT_ROADVEHS, SELF, sw_f1000_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_f1001_rear;                           // Base
             1: sw_f1000_rear_mask;                      // Mask
-            2: door_niigata03_rear_irl;                 // Doors
+            2: doors_fukui_rear;                        // Doors
         }
 
         switch (FEAT_ROADVEHS, SELF, sw_f1001_stack, position_in_consist ) {

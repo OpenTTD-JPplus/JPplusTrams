@@ -12,55 +12,92 @@ switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(spriteset_mlrv1000_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_purchase.png") {tmpl_p()}
+        spriteset(spriteset_mlrv1000_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_manyosen; 
-            1: spriteset_mlrv1000_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_manyosen; 
+                1: spriteset_mlrv1000_purchase;
+            }
+
+    // Panto
+        spriteset(panto_mlrv1000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_mlrv1000_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_mlrv1000_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doors.png") {tmpl_7(1,25)}
+
+        spritegroup sg_doors_mlrv1000_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_mlrv1000_lead];
+            }
+
+        spritegroup sg_doors_mlrv1000_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_mlrv1000_rear];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_mlrv1000_lead, OpenDoors()) {1:sg_doors_mlrv1000_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_mlrv1000_rear, OpenDoors()) {1:sg_doors_mlrv1000_rear;}
+
+    // Doors Doraemon
+        spriteset(doorz_mlrv1000_lead_dor, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doors_dor.png") {tmpl_7(1,1)}
+        spriteset(doorz_mlrv1000_rear_dor, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doors_dor.png") {tmpl_7(1,25)}
+
+        spritegroup sg_doors_mlrv1000_lead_dor {
+            loaded:  [sprite_blank];
+            loading: [doorz_mlrv1000_lead_dor];
+            }
+
+        spritegroup sg_doors_mlrv1000_rear_dor {
+            loaded:  [sprite_blank];
+            loading: [doorz_mlrv1000_rear_dor];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_mlrv1000_lead_dor, OpenDoors()) {1:sg_doors_mlrv1000_lead_dor;}
+        switch(FEAT_ROADVEHS, SELF, doors_mlrv1000_rear_dor, OpenDoors()) {1:sg_doors_mlrv1000_rear_dor;}
 
     // Tram Graphics
 
-    // Base
-    spriteset(spriteset_mlrv1000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_irl.png") {tmpl_7(1,1 )}
-    spriteset(spriteset_mlrv1000_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_irl.png") {tmpl_7(1,25)}
+        // Base
+        spriteset(spriteset_mlrv1000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_irl.png") {tmpl_7(1,1 )}
+        spriteset(spriteset_mlrv1000_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_irl.png") {tmpl_7(1,25)}
 
-    // Liveries
-    spriteset(spriteset_mlrv1000_lead_doraemon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doraemon.png") {tmpl_7(1,1 )}
-    spriteset(spriteset_mlrv1000_rear_doraemon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doraemon.png") {tmpl_7(1,25)}
+        // Liveries
+        spriteset(spriteset_mlrv1000_lead_doraemon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doraemon.png") {tmpl_7(1,1 )}
+        spriteset(spriteset_mlrv1000_rear_doraemon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doraemon.png") {tmpl_7(1,25)}
 
-    spriteset(spriteset_mlrv1000_lead_1cc, "src/trams/manyosen/mlrv1000/mlrv1000_1cc.png") {tmpl_7(1,1 )}
-    spriteset(spriteset_mlrv1000_rear_1cc, "src/trams/manyosen/mlrv1000/mlrv1000_1cc.png") {tmpl_7(1,25)}
+        spriteset(spriteset_mlrv1000_lead_1cc, "src/trams/manyosen/mlrv1000/mlrv1000_1cc.png") {tmpl_7(1,1 )}
+        spriteset(spriteset_mlrv1000_rear_1cc, "src/trams/manyosen/mlrv1000/mlrv1000_1cc.png") {tmpl_7(1,25)}
 
-    // Mask Selection
-    switch(FEAT_ROADVEHS, PARENT, sw_mlrv1000_lead_mask, cargo_subtype) {1:spriteset_mlrv1000_lead_doraemon; 2:spriteset_mlrv1000_lead_1cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_mlrv1000_rear_mask, cargo_subtype) {1:spriteset_mlrv1000_rear_doraemon; 2:spriteset_mlrv1000_rear_1cc;}
+        // Mask Selection
+        switch(FEAT_ROADVEHS, PARENT, sw_mlrv1000_lead_mask, cargo_subtype) {1:spriteset_mlrv1000_lead_doraemon; 2:spriteset_mlrv1000_lead_1cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_mlrv1000_rear_mask, cargo_subtype) {1:spriteset_mlrv1000_rear_doraemon; 2:spriteset_mlrv1000_rear_1cc;}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_door_mlrv1000_lead_doraemon_check, cargo_subtype) {1:door_doraemon_lead;}
-    switch(FEAT_ROADVEHS, PARENT, sw_door_mlrv1000_rear_doraemon_check, cargo_subtype) {1:door_doraemon_rear;}
+        switch(FEAT_ROADVEHS, PARENT, doors_mlrv1000_lead_dor_check, cargo_subtype) {1:doors_mlrv1000_lead_dor;}
+        switch(FEAT_ROADVEHS, PARENT, doors_mlrv1000_rear_dor_check, cargo_subtype) {1:doors_mlrv1000_rear_dor;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_lead_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: spriteset_mlrv1000_lead_irl;             // Base
-            1: sw_mlrv1000_lead_mask;                   // Mask
-            2: door02_lead;                             // Doors (base)
-            3: sw_door_mlrv1000_lead_doraemon_check;    // Doors (extra layer for Doraemon)
-            4: sprite_panto01;                          // Pantos
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_lead_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: spriteset_mlrv1000_lead_irl;             // Base
+                1: sw_mlrv1000_lead_mask;                   // Mask
+                2: doors_mlrv1000_lead;                     // Doors (base)
+                3: sw_door_mlrv1000_lead_doraemon_check;    // Doors (extra layer for Doraemon)
+                4: panto_mlrv1000;                          // Pantos
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_rear_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: spriteset_mlrv1000_rear_irl;             // Base
-            1: sw_mlrv1000_rear_mask;                   // Mask
-            2: door02_rear;                             // Doors (base)
-            3: sw_door_mlrv1000_rear_doraemon_check;    // Doors (extra layer for Doraemon)
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_rear_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: spriteset_mlrv1000_rear_irl;             // Base
+                1: sw_mlrv1000_rear_mask;                   // Mask
+                2: doors_mlrv1000_rear;                     // Doors (base)
+                3: sw_door_mlrv1000_rear_doraemon_check;    // Doors (extra layer for Doraemon)
+            }
 
-        switch (FEAT_ROADVEHS, SELF, sw_mlrv1000_stack, position_in_consist ) {
-            0:  sw_mlrv1000_lead_stack;
-            sw_mlrv1000_rear_stack;                      //default
-        }
+            switch (FEAT_ROADVEHS, SELF, sw_mlrv1000_stack, position_in_consist ) {
+                0:  sw_mlrv1000_lead_stack;
+                sw_mlrv1000_rear_stack;                      //default
+            }
 
 //set number of articulated parts
 switch (FEAT_ROADVEHS, SELF, sw_mlrv1000_articulated_part, extra_callback_info1) {

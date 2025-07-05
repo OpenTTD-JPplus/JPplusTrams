@@ -11,46 +11,66 @@ switch(FEAT_ROADVEHS, SELF, sw_l_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(ss_l_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_purchase.png") {tmpl_p()}
+        spriteset(ss_l_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_l_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_echizen; 
-            1: ss_l_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_l_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_echizen; 
+                1: ss_l_purchase;
+            }
+
+    // Panto
+        spriteset(panto_l, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_l_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_l_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_doors.png") {tmpl_7(1,25)}
+
+        spritegroup sg_doors_l_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_l_lead];
+            }
+
+        spritegroup sg_doors_l_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_l_rear];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_l_lead, OpenDoors()) {1:sg_doors_l_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_l_rear, OpenDoors()) {1:sg_doors_l_rear;}
 
     // Tram Graphics
 
-    // Base
-    spriteset(ss_l_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_irl.png") {tmpl_7(1,1 )}
-    spriteset(ss_l_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_irl.png") {tmpl_7(1,25)}
+        // Base
+        spriteset(ss_l_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_irl.png") {tmpl_7(1,1 )}
+        spriteset(ss_l_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_irl.png") {tmpl_7(1,25)}
 
-    // Liveries
-    spriteset(ss_l_lead_1cc, "src/trams/fukui/l/l_1cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_l_rear_1cc, "src/trams/fukui/l/l_1cc.png") {tmpl_7(1,25)}
+        // Liveries
+        spriteset(ss_l_lead_1cc, "src/trams/fukui/l/l_1cc.png") {tmpl_7(1,1 )}
+        spriteset(ss_l_rear_1cc, "src/trams/fukui/l/l_1cc.png") {tmpl_7(1,25)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_l_lead_mask, cargo_subtype) {1:ss_l_lead_1cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_l_rear_mask, cargo_subtype) {1:ss_l_rear_1cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_l_lead_mask, cargo_subtype) {1:ss_l_lead_1cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_l_rear_mask, cargo_subtype) {1:ss_l_rear_1cc;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_l_lead_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_l_lead_irl;                        // Base
-            1: sw_l_lead_mask;                       // Mask
-            2: door03_lead;                          // Doors
-            3: sprite_panto01;                       // Pantos
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_l_lead_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_l_lead_irl;                       // Base
+                1: sw_l_lead_mask;                      // Mask
+                2: doors_l_lead;                        // Doors
+                3: panto_l;                             // Pantos
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_l_rear_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_l_rear_irl;                        // Base
-            1: sw_l_rear_mask;                       // Mask
-            2: door03_rear;                          // Doors
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_l_rear_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_l_rear_irl;                        // Base
+                1: sw_l_rear_mask;                       // Mask
+                2: doors_l_rear;                         // Doors
+            }
 
-    switch (FEAT_ROADVEHS, SELF, sw_l_stack, position_in_consist ) {
-            0:  sw_l_lead_stack;
-                sw_l_rear_stack;                     //default
-        }    
+        switch (FEAT_ROADVEHS, SELF, sw_l_stack, position_in_consist ) {
+                0:  sw_l_lead_stack;
+                    sw_l_rear_stack;                     //default
+            }    
 
 //set number of articulated parts
 switch (FEAT_ROADVEHS, SELF, sw_l_articulated_part, extra_callback_info1) {

@@ -14,36 +14,63 @@ switch(FEAT_ROADVEHS, SELF, sw_t100_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(spriteset_t100_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_purchase.png") {tmpl_p()}
+        spriteset(spriteset_t100_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_t100_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_toyama; 
-            1: spriteset_t100_purchase;
+        switch(FEAT_ROADVEHS, SELF, sw_t100_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_toyama; 
+                1: spriteset_t100_purchase;
+            }
+
+    // Panto
+        spriteset(panto_t100, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_panto.png") {tmpl_7(1,25)}
+
+    // Doors
+        spriteset(doorz_t100_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_t100_cntr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_doors.png") {tmpl_7(1,25)}
+        spriteset(doorz_t100_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_doors.png") {tmpl_7(1,49)}
+            
+        spritegroup sg_doors_t100_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_t100_lead];
         }
+
+        spritegroup sg_doors_t100_cntr {
+            loaded:  [sprite_blank];
+            loading: [doorz_t100_cntr];
+        }
+
+        spritegroup sg_doors_t100_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_t100_rear];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, doors_t100_lead, OpenDoors()) {1:sg_doors_t100_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_t100_cntr, OpenDoors()) {1:sg_doors_t100_cntr;}
+        switch(FEAT_ROADVEHS, SELF, doors_t100_rear, OpenDoors()) {1:sg_doors_t100_rear;}
 
     // Tram Graphics
     // Base
-    spriteset(ss_t100_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_irl.png") {tmpl_7(1,1 )}
-    spriteset(ss_t100_cntr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_irl.png") {tmpl_7(1,25)}
-    spriteset(ss_t100_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_irl.png") {tmpl_7(1,49)}
+        spriteset(ss_t100_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_irl.png") {tmpl_7(1,1 )}
+        spriteset(ss_t100_cntr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_irl.png") {tmpl_7(1,25)}
+        spriteset(ss_t100_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_irl.png") {tmpl_7(1,49)}
 
     // Liveries
-    spriteset(ss_t100_lead_1cc, "src/trams/toyama/t100/t100_1cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_t100_cntr_1cc, "src/trams/toyama/t100/t100_1cc.png") {tmpl_7(1,25 )}
-    spriteset(ss_t100_rear_1cc, "src/trams/toyama/t100/t100_1cc.png") {tmpl_7(1,49)}
+        spriteset(ss_t100_lead_1cc, "src/trams/toyama/t100/t100_1cc.png") {tmpl_7(1,1 )}
+        spriteset(ss_t100_cntr_1cc, "src/trams/toyama/t100/t100_1cc.png") {tmpl_7(1,25 )}
+        spriteset(ss_t100_rear_1cc, "src/trams/toyama/t100/t100_1cc.png") {tmpl_7(1,49)}
 
-    spriteset(ss_t100_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_blu.png") {tmpl_7(1,1 )}
-    spriteset(ss_t100_cntr_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_blu.png") {tmpl_7(1,25)}
-    spriteset(ss_t100_rear_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_blu.png") {tmpl_7(1,49)}
+        spriteset(ss_t100_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_blu.png") {tmpl_7(1,1 )}
+        spriteset(ss_t100_cntr_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_blu.png") {tmpl_7(1,25)}
+        spriteset(ss_t100_rear_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_blu.png") {tmpl_7(1,49)}
 
-    spriteset(ss_t100_lead_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_grn.png") {tmpl_7(1,1 )}
-    spriteset(ss_t100_cntr_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_grn.png") {tmpl_7(1,25)}
-    spriteset(ss_t100_rear_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_grn.png") {tmpl_7(1,49)}
+        spriteset(ss_t100_lead_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_grn.png") {tmpl_7(1,1 )}
+        spriteset(ss_t100_cntr_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_grn.png") {tmpl_7(1,25)}
+        spriteset(ss_t100_rear_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_grn.png") {tmpl_7(1,49)}
 
-    spriteset(ss_t100_lead_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_yao.png") {tmpl_7(1,1 )}
-    spriteset(ss_t100_cntr_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_yao.png") {tmpl_7(1,25)}
-    spriteset(ss_t100_rear_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_yao.png") {tmpl_7(1,49)}
+        spriteset(ss_t100_lead_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_yao.png") {tmpl_7(1,1 )}
+        spriteset(ss_t100_cntr_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_yao.png") {tmpl_7(1,25)}
+        spriteset(ss_t100_rear_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_yao.png") {tmpl_7(1,49)}
 
     // Random Stripe 
     switch (FEAT_ROADVEHS, PARENT, sw_t100_lead_random, random_bits % 4) {
@@ -70,24 +97,24 @@ switch(FEAT_ROADVEHS, SELF, sw_t100_subtype_text, cargo_subtype) {
 
     switch(FEAT_ROADVEHS, SELF, sw_t100_lead_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_t100_lead;                          // Base
-            1: sw_t100_lead_mask;                     // Mask
-            2: door07_lead;                             // Doors
+            0: ss_t100_lead;                            // Base
+            1: sw_t100_lead_mask;                       // Mask
+            2: doors_t100_lead;                         // Doors
         }
 
     switch(FEAT_ROADVEHS, SELF, sw_t100_cntr_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_t100_cntr;                          // Base
-            1: sw_t100_cntr_mask;                     // Mask
-            2: door07_cntr;                             // Doors
-            3: sprite_panto04;                          // Pantos
+            0: ss_t100_cntr;                            // Base
+            1: sw_t100_cntr_mask;                       // Mask
+            2: doors_t100_cntr;                         // Doors
+            3: panto_t100;                              // Pantos
         }
 
     switch(FEAT_ROADVEHS, SELF, sw_t100_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_t100_rear;                          // Base
-            1: sw_t100_rear_mask;                     // Mask
-            2: door07_rear;                             // Doors
+            0: ss_t100_rear;                            // Base
+            1: sw_t100_rear_mask;                       // Mask
+            2: doors_t100_rear;                         // Doors
         }
     
     switch (FEAT_ROADVEHS, SELF, sw_t100_stack, position_in_consist ) {

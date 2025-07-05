@@ -20,6 +20,57 @@ switch(FEAT_ROADVEHS, SELF, sw_hu300_subtype_text, cargo_subtype) {
             1: spriteset_hu300_purchase;
         }
 
+    // Panto
+        spriteset(panto_hu300, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/utsunomiya/hu300/hu300_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_hu300_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/utsunomiya/hu300/hu300_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_hu300_cntr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/utsunomiya/hu300/hu300_doors.png") {tmpl_7(1,25)}
+        spriteset(doorz_hu300_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/utsunomiya/hu300/hu300_doors.png") {tmpl_7(1,49)}
+            
+        spritegroup sg_doors_hu300_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_hu300_lead];
+        }
+
+        spritegroup sg_doors_hu300_cntr {
+            loaded:  [sprite_blank];
+            loading: [doorz_hu300_cntr];
+        }
+
+        spritegroup sg_doors_hu300_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_hu300_rear];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, doors_hu300_lead, OpenDoors()) {1:sg_doors_hu300_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_hu300_cntr, OpenDoors()) {1:sg_doors_hu300_cntr;}
+        switch(FEAT_ROADVEHS, SELF, doors_hu300_rear, OpenDoors()) {1:sg_doors_hu300_rear;}
+
+    // Doors 2cc
+        spriteset(doorz_hu300_lead_2cc, "src/trams/utsunomiya/hu300/hu300_doors_2cc.png") {tmpl_7(1,1)}
+        spriteset(doorz_hu300_cntr_2cc, "src/trams/utsunomiya/hu300/hu300_doors_2cc.png") {tmpl_7(1,25)}
+        spriteset(doorz_hu300_rear_2cc, "src/trams/utsunomiya/hu300/hu300_doors_2cc.png") {tmpl_7(1,49)}
+            
+        spritegroup sg_doors_hu300_lead_2cc {
+            loaded:  [sprite_blank];
+            loading: [doorz_hu300_lead_2cc];
+        }
+
+        spritegroup sg_doors_hu300_cntr_2cc {
+            loaded:  [sprite_blank];
+            loading: [doorz_hu300_cntr_2cc];
+        }
+
+        spritegroup sg_doors_hu300_rear_2cc {
+            loaded:  [sprite_blank];
+            loading: [doorz_hu300_rear_2cc];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, doors_hu300_lead_2cc, OpenDoors()) {1:sg_doors_hu300_lead_2cc;}
+        switch(FEAT_ROADVEHS, SELF, doors_hu300_cntr_2cc, OpenDoors()) {1:sg_doors_hu300_cntr_2cc;}
+        switch(FEAT_ROADVEHS, SELF, doors_hu300_rear_2cc, OpenDoors()) {1:sg_doors_hu300_rear_2cc;}
+
     // Tram Graphics
 
         // Base
@@ -43,33 +94,33 @@ switch(FEAT_ROADVEHS, SELF, sw_hu300_subtype_text, cargo_subtype) {
         switch(FEAT_ROADVEHS, PARENT, sw_hu300_rear_mask, cargo_subtype) {1:spriteset_hu300_rear_1cc; 2:spriteset_hu300_rear_2cc;}
 
         // Doors
-        switch(FEAT_ROADVEHS, PARENT, sw_door_hu300_lead_2cc_check, cargo_subtype) {2:door_niigata03_lead_2cc;}
-        switch(FEAT_ROADVEHS, PARENT, sw_door_hu300_cntr_2cc_check, cargo_subtype) {2:door_niigata03_cntr_2cc;}
-        switch(FEAT_ROADVEHS, PARENT, sw_door_hu300_rear_2cc_check, cargo_subtype) {2:door_niigata03_rear_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, doors_hu300_lead_2cc_check, cargo_subtype) {2:doors_hu300_lead_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, doors_hu300_cntr_2cc_check, cargo_subtype) {2:doors_hu300_cntr_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, doors_hu300_rear_2cc_check, cargo_subtype) {2:doors_hu300_rear_2cc;}
 
         switch(FEAT_ROADVEHS, SELF, sw_hu300_lead_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_hu300_lead_irl;        // Base
             1: sw_hu300_lead_mask;              // Mask
-            2: door_niigata03_lead_irl;         // Doors (base)
-            3: sw_door_hu300_lead_2cc_check;    // Doors (extra layer for 2cc)
-            4: sprite_panto01;                  // Pantos
+            2: doors_hu300_lead;                // Doors (base)
+            3: doors_hu300_lead_2cc_check;      // Doors (extra layer for 2cc)
+            4: panto_hu300;                     // Pantos
         }
 
         switch(FEAT_ROADVEHS, SELF, sw_hu300_cntr_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_hu300_cntr_irl;        // Base
             1: sw_hu300_cntr_mask;              // Mask
-            2: door_niigata03_cntr_irl;         // Doors (base)
-            3: sw_door_hu300_cntr_2cc_check;    // Doors (extra layer for 2cc)
+            2: doors_hu300_cntr;                // Doors (base)
+            3: doors_hu300_cntr_2cc_check;      // Doors (extra layer for 2cc)
         }
 
         switch(FEAT_ROADVEHS, SELF, sw_hu300_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_hu300_rear_irl;        // Base
             1: sw_hu300_rear_mask;              // Mask
-            2: door_niigata03_rear_irl;         // Doors (base)
-            3: sw_door_hu300_rear_2cc_check;    // Doors (extra layer for 2cc)
+            2: doors_hu300_rear;                // Doors (base)
+            3: doors_hu300_rear_2cc_check;      // Doors (extra layer for 2cc)
         }
 
         switch (FEAT_ROADVEHS, SELF, sw_hu300_stack, position_in_consist ) {

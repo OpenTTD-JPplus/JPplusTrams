@@ -11,49 +11,69 @@ switch(FEAT_ROADVEHS, SELF, sw_oka9200_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(spriteset_oka9200_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_purchase.png") {tmpl_p()}
+        spriteset(spriteset_oka9200_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka9200_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_okayama; 
-            1: spriteset_oka9200_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_oka9200_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_okayama; 
+                1: spriteset_oka9200_purchase;
+            }
+
+    // Panto
+        spriteset(panto_oka9200, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_oka9200_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_oka9200_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_doors.png") {tmpl_7(1,25)}
+
+        spritegroup sg_doors_oka9200_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_oka9200_lead];
+            }
+
+        spritegroup sg_doors_oka9200_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_oka9200_rear];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_oka9200_lead, OpenDoors()) {1:sg_doors_oka9200_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_oka9200_rear, OpenDoors()) {1:sg_doors_oka9200_rear;}
 
     // Tram Graphics
 
     // Base
-    spriteset(ss_oka9200_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_irl.png") {tmpl_7(1,1 )}
-    spriteset(ss_oka9200_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_irl.png") {tmpl_7(1,25)}
+        spriteset(ss_oka9200_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_irl.png") {tmpl_7(1,1 )}
+        spriteset(ss_oka9200_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_irl.png") {tmpl_7(1,25)}
 
     // Liveries
-    spriteset(ss_oka9200_lead_1cc, "src/trams/okayama/9200/oka9200_1cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_oka9200_rear_1cc, "src/trams/okayama/9200/oka9200_1cc.png") {tmpl_7(1,25)}
+        spriteset(ss_oka9200_lead_1cc, "src/trams/okayama/9200/oka9200_1cc.png") {tmpl_7(1,1 )}
+        spriteset(ss_oka9200_rear_1cc, "src/trams/okayama/9200/oka9200_1cc.png") {tmpl_7(1,25)}
 
-    spriteset(ss_oka9200_lead_2cc, "src/trams/okayama/9200/oka9200_2cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_oka9200_rear_2cc, "src/trams/okayama/9200/oka9200_2cc.png") {tmpl_7(1,25)}
+        spriteset(ss_oka9200_lead_2cc, "src/trams/okayama/9200/oka9200_2cc.png") {tmpl_7(1,1 )}
+        spriteset(ss_oka9200_rear_2cc, "src/trams/okayama/9200/oka9200_2cc.png") {tmpl_7(1,25)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_oka9200_lead_mask, cargo_subtype) {1:ss_oka9200_lead_1cc; 2:ss_oka9200_lead_2cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_oka9200_rear_mask, cargo_subtype) {1:ss_oka9200_rear_1cc; 2:ss_oka9200_rear_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_oka9200_lead_mask, cargo_subtype) {1:ss_oka9200_lead_1cc; 2:ss_oka9200_lead_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_oka9200_rear_mask, cargo_subtype) {1:ss_oka9200_rear_1cc; 2:ss_oka9200_rear_2cc;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka9200_lead_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_oka9200_lead_irl;                        // Base
-            1: sw_oka9200_lead_mask;                       // Mask
-            2: door03_lead;                             // Doors
-            3: sprite_panto01;                          // Pantos
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_oka9200_lead_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_oka9200_lead_irl;                         // Base
+                1: sw_oka9200_lead_mask;                        // Mask
+                2: doors_oka9200_lead;                          // Doors
+                3: panto_oka9200;                               // Pantos
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka9200_rear_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_oka9200_rear_irl;                        // Base
-            1: sw_oka9200_rear_mask;                       // Mask
-            2: door03_rear;                             // Doors
-        }    
+        switch(FEAT_ROADVEHS, SELF, sw_oka9200_rear_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_oka9200_rear_irl;                         // Base
+                1: sw_oka9200_rear_mask;                        // Mask
+                2: doors_oka9200_rear;                          // Doors
+            }    
 
-    switch (FEAT_ROADVEHS, SELF, sw_oka9200_stack, position_in_consist ) {
-            0:  sw_oka9200_lead_stack;
-                sw_oka9200_rear_stack;                     //default
-        }
+        switch (FEAT_ROADVEHS, SELF, sw_oka9200_stack, position_in_consist ) {
+                0:  sw_oka9200_lead_stack;
+                    sw_oka9200_rear_stack;                     //default
+            }
 
 //set number of articulated parts
 switch (FEAT_ROADVEHS, SELF, sw_oka9200_articulated_part, extra_callback_info1) {

@@ -12,38 +12,51 @@
 // Graphics
 
     // Purchase
-    spriteset(ss_oka3000_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_purchase.png") {tmpl_p()}
+        spriteset(ss_oka3000_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka3000_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_okayama; 
-            1: ss_oka3000_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_oka3000_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_okayama; 
+                1: ss_oka3000_purchase;
+            }
+
+    // Panto
+        spriteset(panto_oka3000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_panto.png") {tmpl_8(1,1)}
+
+    // Doors
+        spriteset(doorz_oka3000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_doors.png") {tmpl_8(1,1)}
+
+        spritegroup sg_doors_oka3000 {
+            loaded:  [sprite_blank];
+            loading: [doorz_oka3000];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_oka3000, OpenDoors()) {1:sg_doors_oka3000;}
 
     // Tram Graphics
-    spriteset(ss_oka3000_lead_blk, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_blk.png") {tmpl_8(1,1)}
-    spriteset(ss_oka3000_lead_oab, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_oab.png") {tmpl_8(1,1)}
-    spriteset(ss_oka3000_lead_gao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_gao.png") {tmpl_8(1,1)}
- 
-    switch(FEAT_ROADVEHS, PARENT, sw_oka3000_lead_rdm, random_bits % 3) { 
-        1: ss_oka3000_lead_oab;
-        2: ss_oka3000_lead_gao;
-        ss_oka3000_lead_blk;
-        }
+        spriteset(ss_oka3000_lead_blk, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_blk.png") {tmpl_8(1,1)}
+        spriteset(ss_oka3000_lead_oab, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_oab.png") {tmpl_8(1,1)}
+        spriteset(ss_oka3000_lead_gao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_gao.png") {tmpl_8(1,1)}
+    
+        switch(FEAT_ROADVEHS, PARENT, sw_oka3000_lead_rdm, random_bits % 3) { 
+            1: ss_oka3000_lead_oab;
+            2: ss_oka3000_lead_gao;
+            ss_oka3000_lead_blk;
+            }
 
-    switch(FEAT_ROADVEHS, PARENT, ss_oka3000_lead_mask, cargo_subtype) {
-        0: sw_oka3000_lead_rdm;
-        2: ss_oka3000_lead_oab;
-        3: ss_oka3000_lead_gao;
-        }
+        switch(FEAT_ROADVEHS, PARENT, ss_oka3000_lead_mask, cargo_subtype) {
+            0: sw_oka3000_lead_rdm;
+            2: ss_oka3000_lead_oab;
+            3: ss_oka3000_lead_gao;
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka3000_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_oka3000_lead_blk;             // Base
-            1: ss_oka3000_lead_mask;            // Mask
-            2: sprite_panto07;                  // Pantos
-            3: door10;                          // Doors
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_oka3000_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_oka3000_lead_blk;             // Base
+                1: ss_oka3000_lead_mask;            // Mask
+                2: panto_oka3000;                   // Pantos
+                3: doors_oka3000;                   // Doors
+            }
 
 item(FEAT_ROADVEHS, item_oka3000) {
     property {

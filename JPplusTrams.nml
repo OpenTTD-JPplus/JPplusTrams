@@ -371,6 +371,7 @@ item(FEAT_ROADSTOPS, overpass_nontrack_black,                   46 ) {}
 # 1 "JPplusTrams.pnml" 4
 # 1 "src/functions.pnml" 1
 
+spriteset (sprite_blank, "src/blank/blank.png") {tmpl_7(1,1)}
 
 switch (FEAT_ROADVEHS, SELF, RunningCostFactor, current_speed) {
         0: return 1/10 ;        	// Stopped
@@ -522,240 +523,6 @@ spriteset (sprite_logo_tokyometropolitan,"src/logos/tokyometropolitan.png") { tm
 switch(FEAT_ROADVEHS, SELF, logo_tokyometropolitan, param_hide_logo) {1:sprite_logo_tokyometropolitan;}
 */
 # 1 "JPplusTrams.pnml" 4
-# 1 "src/parts/parts.pnml" 1
-
-// Doors
-    // Blank
-        spriteset (sprite_blank, "src/parts/doors/blank.png") {tmpl_7(1,1)}
-
-    // Door 02
-        spriteset(spriteset_door02_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door02.png") {tmpl_7(1,1)}
-        spriteset(spriteset_door02_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door02.png") {tmpl_7(1,25)}
-            
-        spritegroup sg_door02_lead {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door02_lead];
-        }
-
-        spritegroup sg_door02_rear {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door02_rear];
-        }
-
-        switch(FEAT_ROADVEHS, SELF, door02_lead, OpenDoors()) {1:sg_door02_lead;}
-        switch(FEAT_ROADVEHS, SELF, door02_rear, OpenDoors()) {1:sg_door02_rear;}
-
-    // Door 03
-        spriteset(spriteset_door03_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door03.png") {tmpl_7(1,1)}
-        spriteset(spriteset_door03_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door03.png") {tmpl_7(1,25)}
-            
-        spritegroup sg_door03_lead {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door03_lead];
-        }
-
-        spritegroup sg_door03_rear {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door03_rear];
-        }
-
-        switch(FEAT_ROADVEHS, SELF, door03_lead, OpenDoors()) {1:sg_door03_lead;}
-        switch(FEAT_ROADVEHS, SELF, door03_rear, OpenDoors()) {1:sg_door03_rear;}
-
-    // Door 04
-        spriteset(spriteset_door04_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door04.png") {tmpl_7(1,1)}
-        spriteset(spriteset_door04_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door04.png") {tmpl_7(1,25)}
-            
-        spritegroup sg_door04_lead {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door04_lead];
-        }
-
-        spritegroup sg_door04_rear {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door04_rear];
-        }
-
-        switch(FEAT_ROADVEHS, SELF, door04_lead, OpenDoors()) {1:sg_door04_lead;}
-        switch(FEAT_ROADVEHS, SELF, door04_rear, OpenDoors()) {1:sg_door04_rear;}
-
-    // Door 05
-        spriteset(spriteset_door05_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door05.png") {tmpl_7(1,1)}
-        spriteset(spriteset_door05_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door05.png") {tmpl_7(1,25)}
-            
-        spritegroup sg_door05_lead {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door05_lead];
-        }
-
-        spritegroup sg_door05_rear {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door05_rear];
-        }
-
-        switch(FEAT_ROADVEHS, SELF, door05_lead, OpenDoors()) {1:sg_door05_lead;}
-        switch(FEAT_ROADVEHS, SELF, door05_rear, OpenDoors()) {1:sg_door05_rear;}
-
-    // Door 07
-        spriteset(spriteset_door07_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door07.png") {tmpl_7(1,1)}
-        spriteset(spriteset_door07_cntr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door07.png") {tmpl_7(1,25)}
-        spriteset(spriteset_door07_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door07.png") {tmpl_7(1,49)}
-            
-        spritegroup sg_door07_lead {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door07_lead];
-        }
-
-        spritegroup sg_door07_cntr {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door07_cntr];
-        }
-
-        spritegroup sg_door07_rear {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door07_rear];
-        }
-
-        switch(FEAT_ROADVEHS, SELF, door07_lead, OpenDoors()) {1:sg_door07_lead;}
-        switch(FEAT_ROADVEHS, SELF, door07_cntr, OpenDoors()) {1:sg_door07_cntr;}
-        switch(FEAT_ROADVEHS, SELF, door07_rear, OpenDoors()) {1:sg_door07_rear;}
-
-    // Door 08
-        spriteset(spriteset_door08_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door08.png") {tmpl_7(1,1)}
-            
-        spritegroup sg_door08_lead {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door08_lead];
-        }
-
-        switch(FEAT_ROADVEHS, SELF, door08, OpenDoors()) {1:sg_door08_lead;}
-
-    // Door 09
-        spriteset(spriteset_door09_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door09.png") {tmpl_7(1,1)}
-            
-        spritegroup sg_door09_lead {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door09_lead];
-        }
-
-        switch(FEAT_ROADVEHS, SELF, door09, OpenDoors()) {1:sg_door09_lead;}
-
-    // Door 10
-        spriteset(spriteset_door10_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door10.png") {tmpl_7(1,1)}
-            
-        spritegroup sg_door10_lead {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door10_lead];
-        }
-
-        switch(FEAT_ROADVEHS, SELF, door10, OpenDoors()) {1:sg_door10_lead;}
-
-    // Door 11
-        spriteset(spriteset_door11_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/door10.png") {tmpl_8(1,1)}
-            
-        spritegroup sg_door11_lead {
-            loaded:  [sprite_blank];
-            loading: [spriteset_door11_lead];
-        }
-
-        switch(FEAT_ROADVEHS, SELF, door11, OpenDoors()) {1:sg_door11_lead;}
-
-    // Door Nigaata03
-
-        spriteset(ss_door_niigata03_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/doorniigata03_irl.png") {tmpl_7(1,1 )}
-        spriteset(ss_door_niigata03_cntr_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/doorniigata03_irl.png") {tmpl_7(1,25)}
-        spriteset(ss_door_niigata03_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/doorniigata03_irl.png") {tmpl_7(1,49)}
-
-            // IRL
-            spritegroup sg_door_niigata03_lead_irl {
-                loaded:  [sprite_blank];
-                loading: [ss_door_niigata03_lead_irl];
-            }
-
-            spritegroup sg_door_niigata03_cntr_irl {
-                loaded:  [sprite_blank];
-                loading: [ss_door_niigata03_cntr_irl];
-            }
-
-            spritegroup sg_door_niigata03_rear_irl {
-                loaded:  [sprite_blank];
-                loading: [ss_door_niigata03_rear_irl];
-            }
-
-        switch(FEAT_ROADVEHS, SELF, door_niigata03_lead_irl, OpenDoors()) {1:sg_door_niigata03_lead_irl;}
-        switch(FEAT_ROADVEHS, SELF, door_niigata03_cntr_irl, OpenDoors()) {1:sg_door_niigata03_cntr_irl;}
-        switch(FEAT_ROADVEHS, SELF, door_niigata03_rear_irl, OpenDoors()) {1:sg_door_niigata03_rear_irl;}
-
-        spriteset(ss_door_niigata03_lead_2cc, "src/parts/doors/doorniigata03_2cc.png") {tmpl_7(1,1 )}
-        spriteset(ss_door_niigata03_cntr_2cc, "src/parts/doors/doorniigata03_2cc.png") {tmpl_7(1,25)}
-        spriteset(ss_door_niigata03_rear_2cc, "src/parts/doors/doorniigata03_2cc.png") {tmpl_7(1,49)}
-
-        // 2cc
-            spritegroup sg_door_niigata03_lead_2cc {
-                loaded:  [sprite_blank];
-                loading: [ss_door_niigata03_lead_2cc];
-            }
-
-            spritegroup sg_door_niigata03_cntr_2cc {
-                loaded:  [sprite_blank];
-                loading: [ss_door_niigata03_cntr_2cc];
-            }
-
-            spritegroup sg_door_niigata03_rear_2cc {
-                loaded:  [sprite_blank];
-                loading: [ss_door_niigata03_rear_2cc];
-            }
-        
-        switch(FEAT_ROADVEHS, SELF, door_niigata03_lead_2cc, OpenDoors()) {1:sg_door_niigata03_lead_2cc;}
-        switch(FEAT_ROADVEHS, SELF, door_niigata03_cntr_2cc, OpenDoors()) {1:sg_door_niigata03_cntr_2cc;}
-        switch(FEAT_ROADVEHS, SELF, door_niigata03_rear_2cc, OpenDoors()) {1:sg_door_niigata03_rear_2cc;}
-/*
-    // Door Doraemon
-
-        spriteset(ss_door_doraemon_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/doordoraemon.png") {tmpl_7(1,1 )}
-        spriteset(ss_door_doraemon_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/doors/doordoraemon.png") {tmpl_7(1,25)}
-
-            spritegroup sg_door_doraemon_lead {
-                loaded:  [sprite_blank];
-                loading: [ss_door_doraemon_lead];
-            }
-
-            spritegroup sg_door_doraemon_rear {
-                loaded:  [sprite_blank];
-                loading: [ss_door_doraemon_rear];
-            }
-
-        switch(FEAT_ROADVEHS, SELF, door_doraemon_lead, OpenDoors()) {1:sg_door_doraemon_lead;}
-        switch(FEAT_ROADVEHS, SELF, door_doraemon_rear, OpenDoors()) {1:sg_door_doraemon_rear;}
-*/
-    // Door TLR0600 1cc
-
-        spriteset(ss_door_tlr0600_1cc_lead, "src/parts/doors/doortlr0600_1cc.png") {tmpl_7(1,1 )}
-        spriteset(ss_door_tlr0600_1cc_rear, "src/parts/doors/doortlr0600_1cc.png") {tmpl_7(1,25)}
-
-            spritegroup sg_door_tlr0600_1cc_lead {
-                loaded:  [sprite_blank];
-                loading: [ss_door_tlr0600_1cc_lead];
-            }
-
-            spritegroup sg_door_tlr0600_1cc_rear {
-                loaded:  [sprite_blank];
-                loading: [ss_door_tlr0600_1cc_rear];
-            }
-
-        switch(FEAT_ROADVEHS, SELF, door_tlr0600_1cc_lead, OpenDoors()) {1:sg_door_tlr0600_1cc_lead;}
-        switch(FEAT_ROADVEHS, SELF, door_tlr0600_1cc_rear, OpenDoors()) {1:sg_door_tlr0600_1cc_rear;}
-
-// Pantos
-    spriteset (sprite_panto01,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto01.png") {tmpl_7(1,1)}
-    spriteset (sprite_panto02,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto02.png") {tmpl_7(1,1)}
-    spriteset (sprite_panto03,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto03.png") {tmpl_7(1,1)}
-    spriteset (sprite_panto04,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto04.png") {tmpl_7(1,1)}
-    spriteset (sprite_panto05,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto05.png") {tmpl_7(1,1)}
-    spriteset (sprite_panto06,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto06.png") {tmpl_8(1,1)}
-    spriteset (sprite_panto07,ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/parts/pantos/panto07.png") {tmpl_8(1,1)}
-    
-# 1 "JPplusTrams.pnml" 4
 
 /*---TRAMS---*/
 
@@ -783,6 +550,57 @@ switch(FEAT_ROADVEHS, SELF, sw_hu300_subtype_text, cargo_subtype) {
             1: spriteset_hu300_purchase;
         }
 
+    // Panto
+        spriteset(panto_hu300, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/utsunomiya/hu300/hu300_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_hu300_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/utsunomiya/hu300/hu300_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_hu300_cntr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/utsunomiya/hu300/hu300_doors.png") {tmpl_7(1,25)}
+        spriteset(doorz_hu300_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/utsunomiya/hu300/hu300_doors.png") {tmpl_7(1,49)}
+            
+        spritegroup sg_doors_hu300_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_hu300_lead];
+        }
+
+        spritegroup sg_doors_hu300_cntr {
+            loaded:  [sprite_blank];
+            loading: [doorz_hu300_cntr];
+        }
+
+        spritegroup sg_doors_hu300_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_hu300_rear];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, doors_hu300_lead, OpenDoors()) {1:sg_doors_hu300_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_hu300_cntr, OpenDoors()) {1:sg_doors_hu300_cntr;}
+        switch(FEAT_ROADVEHS, SELF, doors_hu300_rear, OpenDoors()) {1:sg_doors_hu300_rear;}
+
+    // Doors 2cc
+        spriteset(doorz_hu300_lead_2cc, "src/trams/utsunomiya/hu300/hu300_doors_2cc.png") {tmpl_7(1,1)}
+        spriteset(doorz_hu300_cntr_2cc, "src/trams/utsunomiya/hu300/hu300_doors_2cc.png") {tmpl_7(1,25)}
+        spriteset(doorz_hu300_rear_2cc, "src/trams/utsunomiya/hu300/hu300_doors_2cc.png") {tmpl_7(1,49)}
+            
+        spritegroup sg_doors_hu300_lead_2cc {
+            loaded:  [sprite_blank];
+            loading: [doorz_hu300_lead_2cc];
+        }
+
+        spritegroup sg_doors_hu300_cntr_2cc {
+            loaded:  [sprite_blank];
+            loading: [doorz_hu300_cntr_2cc];
+        }
+
+        spritegroup sg_doors_hu300_rear_2cc {
+            loaded:  [sprite_blank];
+            loading: [doorz_hu300_rear_2cc];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, doors_hu300_lead_2cc, OpenDoors()) {1:sg_doors_hu300_lead_2cc;}
+        switch(FEAT_ROADVEHS, SELF, doors_hu300_cntr_2cc, OpenDoors()) {1:sg_doors_hu300_cntr_2cc;}
+        switch(FEAT_ROADVEHS, SELF, doors_hu300_rear_2cc, OpenDoors()) {1:sg_doors_hu300_rear_2cc;}
+
     // Tram Graphics
 
         // Base
@@ -806,33 +624,33 @@ switch(FEAT_ROADVEHS, SELF, sw_hu300_subtype_text, cargo_subtype) {
         switch(FEAT_ROADVEHS, PARENT, sw_hu300_rear_mask, cargo_subtype) {1:spriteset_hu300_rear_1cc; 2:spriteset_hu300_rear_2cc;}
 
         // Doors
-        switch(FEAT_ROADVEHS, PARENT, sw_door_hu300_lead_2cc_check, cargo_subtype) {2:door_niigata03_lead_2cc;}
-        switch(FEAT_ROADVEHS, PARENT, sw_door_hu300_cntr_2cc_check, cargo_subtype) {2:door_niigata03_cntr_2cc;}
-        switch(FEAT_ROADVEHS, PARENT, sw_door_hu300_rear_2cc_check, cargo_subtype) {2:door_niigata03_rear_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, doors_hu300_lead_2cc_check, cargo_subtype) {2:doors_hu300_lead_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, doors_hu300_cntr_2cc_check, cargo_subtype) {2:doors_hu300_cntr_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, doors_hu300_rear_2cc_check, cargo_subtype) {2:doors_hu300_rear_2cc;}
 
         switch(FEAT_ROADVEHS, SELF, sw_hu300_lead_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_hu300_lead_irl;        // Base
             1: sw_hu300_lead_mask;              // Mask
-            2: door_niigata03_lead_irl;         // Doors (base)
-            3: sw_door_hu300_lead_2cc_check;    // Doors (extra layer for 2cc)
-            4: sprite_panto01;                  // Pantos
+            2: doors_hu300_lead;                // Doors (base)
+            3: doors_hu300_lead_2cc_check;      // Doors (extra layer for 2cc)
+            4: panto_hu300;                     // Pantos
         }
 
         switch(FEAT_ROADVEHS, SELF, sw_hu300_cntr_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_hu300_cntr_irl;        // Base
             1: sw_hu300_cntr_mask;              // Mask
-            2: door_niigata03_cntr_irl;         // Doors (base)
-            3: sw_door_hu300_cntr_2cc_check;    // Doors (extra layer for 2cc)
+            2: doors_hu300_cntr;                // Doors (base)
+            3: doors_hu300_cntr_2cc_check;      // Doors (extra layer for 2cc)
         }
 
         switch(FEAT_ROADVEHS, SELF, sw_hu300_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_hu300_rear_irl;        // Base
             1: sw_hu300_rear_mask;              // Mask
-            2: door_niigata03_rear_irl;         // Doors (base)
-            3: sw_door_hu300_rear_2cc_check;    // Doors (extra layer for 2cc)
+            2: doors_hu300_rear;                // Doors (base)
+            3: doors_hu300_rear_2cc_check;      // Doors (extra layer for 2cc)
         }
 
         switch (FEAT_ROADVEHS, SELF, sw_hu300_stack, position_in_consist ) {
@@ -1344,49 +1162,69 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma5000_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(ss_kuma5000_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_purchase.png") {tmpl_p()}
+        spriteset(ss_kuma5000_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_kuma5000_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_kumamoto; 
-            1: ss_kuma5000_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_kuma5000_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_kumamoto; 
+                1: ss_kuma5000_purchase;
+            }
+
+    // Panto
+	    spriteset(panto_kuma5000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_kuma5000_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_kuma5000_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_doors.png") {tmpl_7(1,25)}
+
+        spritegroup sg_doors_kuma5000_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_kuma5000_lead];
+            }
+
+        spritegroup sg_doors_kuma5000_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_kuma5000_rear];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_kuma5000_lead, OpenDoors()) {1:sg_doors_kuma5000_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_kuma5000_rear, OpenDoors()) {1:sg_doors_kuma5000_rear;}
 
     // Tram Graphics
-    spriteset(ss_kuma5000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_irl.png") {tmpl_7(1,1 )}
-    spriteset(ss_kuma5000_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_irl.png") {tmpl_7(1,25)}
+        spriteset(ss_kuma5000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_irl.png") {tmpl_7(1,1 )}
+        spriteset(ss_kuma5000_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_irl.png") {tmpl_7(1,25)}
 
-    spriteset(ss_kuma5000_lead_rao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_rao.png") {tmpl_7(1,1 )}
-    spriteset(ss_kuma5000_rear_rao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_rao.png") {tmpl_7(1,25)}
+        spriteset(ss_kuma5000_lead_rao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_rao.png") {tmpl_7(1,1 )}
+        spriteset(ss_kuma5000_rear_rao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/5000/kuma5000_rao.png") {tmpl_7(1,25)}
 
-    spriteset(ss_kuma5000_lead_1cc, "src/trams/kumamoto/5000/kuma5000_1cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_kuma5000_rear_1cc, "src/trams/kumamoto/5000/kuma5000_1cc.png") {tmpl_7(1,25)}
+        spriteset(ss_kuma5000_lead_1cc, "src/trams/kumamoto/5000/kuma5000_1cc.png") {tmpl_7(1,1 )}
+        spriteset(ss_kuma5000_rear_1cc, "src/trams/kumamoto/5000/kuma5000_1cc.png") {tmpl_7(1,25)}
 
-    spriteset(ss_kuma5000_lead_2cc, "src/trams/kumamoto/5000/kuma5000_2cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_kuma5000_rear_2cc, "src/trams/kumamoto/5000/kuma5000_2cc.png") {tmpl_7(1,25)}
+        spriteset(ss_kuma5000_lead_2cc, "src/trams/kumamoto/5000/kuma5000_2cc.png") {tmpl_7(1,1 )}
+        spriteset(ss_kuma5000_rear_2cc, "src/trams/kumamoto/5000/kuma5000_2cc.png") {tmpl_7(1,25)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_kuma5000_lead_1cc, cargo_subtype) {1:ss_kuma5000_lead_rao; 2:ss_kuma5000_lead_1cc; 3:ss_kuma5000_lead_2cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_kuma5000_rear_1cc, cargo_subtype) {1:ss_kuma5000_rear_rao; 2:ss_kuma5000_rear_1cc; 3:ss_kuma5000_rear_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_kuma5000_lead_1cc, cargo_subtype) {1:ss_kuma5000_lead_rao; 2:ss_kuma5000_lead_1cc; 3:ss_kuma5000_lead_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_kuma5000_rear_1cc, cargo_subtype) {1:ss_kuma5000_rear_rao; 2:ss_kuma5000_rear_1cc; 3:ss_kuma5000_rear_2cc;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_kuma5000_lead_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_kuma5000_lead_irl;        // Base
-            1: sw_kuma5000_lead_1cc;        // 1cc mask
-            2: door04_lead;             // Doors
-            3: sprite_panto02;          // Pantos
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_kuma5000_lead_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_kuma5000_lead_irl;        // Base
+                1: sw_kuma5000_lead_1cc;        // 1cc mask
+                2: doors_kuma5000_lead;         // Doors
+                3: panto_kuma5000;              // Pantos
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_kuma5000_rear_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_kuma5000_rear_irl;        // Base
-            1: sw_kuma5000_rear_1cc;        // 1cc mask
-            2: door04_rear;             // Doors
-        } 
+        switch(FEAT_ROADVEHS, SELF, sw_kuma5000_rear_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_kuma5000_rear_irl;        // Base
+                1: sw_kuma5000_rear_1cc;        // 1cc mask
+                2: doors_kuma5000_rear;         // Doors
+            } 
 
-    switch (FEAT_ROADVEHS, SELF, sw_kuma5000_stack, position_in_consist ) {
-            0:  sw_kuma5000_lead_stack;
-                sw_kuma5000_rear_stack;     //default
-        } 
+        switch (FEAT_ROADVEHS, SELF, sw_kuma5000_stack, position_in_consist ) {
+                0:  sw_kuma5000_lead_stack;
+                    sw_kuma5000_rear_stack;     //default
+            } 
 
 switch (FEAT_ROADVEHS, SELF, sw_kuma5000_articulated_part, extra_callback_info1) {
     0..1:  return item_kuma5000;
@@ -1446,49 +1284,70 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma9700_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(ss_kuma9700_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_purchase.png") {tmpl_p()}
+        spriteset(ss_kuma9700_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_kuma9700_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_kumamoto; 
-            1: ss_kuma9700_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_kuma9700_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_kumamoto; 
+                1: ss_kuma9700_purchase;
+            }
+
+    // Panto
+        spriteset(panto_kuma9700, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_kuma9700_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_kuma9700_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_doors.png") {tmpl_7(1,25)}
+
+        spritegroup sg_doors_kuma9700_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_kuma9700_lead];
+            }
+
+        spritegroup sg_doors_kuma9700_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_kuma9700_rear];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_kuma9700_lead, OpenDoors()) {1:sg_doors_kuma9700_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_kuma9700_rear, OpenDoors()) {1:sg_doors_kuma9700_rear;}
+        
 
     // Tram Graphics
-    spriteset(ss_kuma9700_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_irl.png") {tmpl_7(1,1 )}
-    spriteset(ss_kuma9700_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_irl.png") {tmpl_7(1,25)}
+        spriteset(ss_kuma9700_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_irl.png") {tmpl_7(1,1 )}
+        spriteset(ss_kuma9700_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_irl.png") {tmpl_7(1,25)}
 
-    spriteset(ss_kuma9700_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_blu.png") {tmpl_7(1,1 )}
-    spriteset(ss_kuma9700_rear_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_blu.png") {tmpl_7(1,25)}
+        spriteset(ss_kuma9700_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_blu.png") {tmpl_7(1,1 )}
+        spriteset(ss_kuma9700_rear_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_blu.png") {tmpl_7(1,25)}
 
-    spriteset(ss_kuma9700_lead_bla, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_bla.png") {tmpl_7(1,1 )}
-    spriteset(ss_kuma9700_rear_bla, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_bla.png") {tmpl_7(1,25)}
+        spriteset(ss_kuma9700_lead_bla, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_bla.png") {tmpl_7(1,1 )}
+        spriteset(ss_kuma9700_rear_bla, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9700/kuma9700_bla.png") {tmpl_7(1,25)}
 
-    spriteset(ss_kuma9700_lead_1cc, "src/trams/kumamoto/9700/kuma9700_1cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_kuma9700_rear_1cc, "src/trams/kumamoto/9700/kuma9700_1cc.png") {tmpl_7(1,25)}
+        spriteset(ss_kuma9700_lead_1cc, "src/trams/kumamoto/9700/kuma9700_1cc.png") {tmpl_7(1,1 )}
+        spriteset(ss_kuma9700_rear_1cc, "src/trams/kumamoto/9700/kuma9700_1cc.png") {tmpl_7(1,25)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_kuma9700_lead_msk, cargo_subtype) {1:ss_kuma9700_lead_blu; 2:ss_kuma9700_lead_bla; 3:ss_kuma9700_lead_1cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_kuma9700_rear_msk, cargo_subtype) {1:ss_kuma9700_rear_blu; 2:ss_kuma9700_rear_bla; 3:ss_kuma9700_rear_1cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_kuma9700_lead_msk, cargo_subtype) {1:ss_kuma9700_lead_blu; 2:ss_kuma9700_lead_bla; 3:ss_kuma9700_lead_1cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_kuma9700_rear_msk, cargo_subtype) {1:ss_kuma9700_rear_blu; 2:ss_kuma9700_rear_bla; 3:ss_kuma9700_rear_1cc;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_kuma9700_lead_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_kuma9700_lead_irl;        // Base
-            1: sw_kuma9700_lead_msk;        // 1cc mask
-            2: door05_lead;             // Doors
-            3: sprite_panto01;          // Pantos
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_kuma9700_lead_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_kuma9700_lead_irl;        // Base
+                1: sw_kuma9700_lead_msk;        // 1cc mask
+                2: doors_kuma9700_lead;         // Doors
+                3: panto_kuma9700;              // Pantos
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_kuma9700_rear_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_kuma9700_rear_irl;        // Base
-            1: sw_kuma9700_rear_msk;        // 1cc mask
-            2: door05_rear;             // Doors
-        } 
+        switch(FEAT_ROADVEHS, SELF, sw_kuma9700_rear_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_kuma9700_rear_irl;        // Base
+                1: sw_kuma9700_rear_msk;        // 1cc mask
+                2: doors_kuma9700_rear;         // Doors
+            } 
 
-    switch (FEAT_ROADVEHS, SELF, sw_kuma9700_stack, position_in_consist ) {
-            0:  sw_kuma9700_lead_stack;
-                sw_kuma9700_rear_stack;     //default
-        } 
+        switch (FEAT_ROADVEHS, SELF, sw_kuma9700_stack, position_in_consist ) {
+                0:  sw_kuma9700_lead_stack;
+                    sw_kuma9700_rear_stack;     //default
+            } 
 
 switch (FEAT_ROADVEHS, SELF, sw_kuma9700_articulated_part, extra_callback_info1) {
     0..1:  return item_kuma9700;
@@ -1557,81 +1416,83 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma9200_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(ss_kuma9200_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_purchase.png") {tmpl_p()}
+        spriteset(ss_kuma9200_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_kuma9200_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_kumamoto; 
-            1: ss_kuma9200_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_kuma9200_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_kumamoto; 
+                1: ss_kuma9200_purchase;
+            }
 
-    // Panto & Doors
-	spriteset(panto_kuma9200, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_panto.png") {tmpl_8(1,1)}
-	spriteset(doorz_kuma9200, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_doors.png") {tmpl_8(1,1)}
+    // Panto
+	    spriteset(panto_kuma9200, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_panto.png") {tmpl_8(1,1)}
 
-	spritegroup sg_doors_kuma9200 {
-        loaded:  [sprite_blank];
-        loading: [doorz_kuma9200];
-        }
+    // Doors
+        spriteset(doorz_kuma9200, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_doors.png") {tmpl_8(1,1)}
 
-    switch(FEAT_ROADVEHS, SELF, doors_kuma9200, OpenDoors()) {1:sg_doors_kuma9200 ;}
+        spritegroup sg_doors_kuma9200 {
+            loaded:  [sprite_blank];
+            loading: [doorz_kuma9200];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_kuma9200, OpenDoors()) {1:sg_doors_kuma9200 ;}
 
     // Tram Graphics
-    spriteset(ss_kuma9200_lead_bse, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_bse.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma9200_lead_red, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_red.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma9200_lead_wbg, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_wbg.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma9200_lead_hei, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_hei.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma9200_lead_yel, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_yel.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma9200_lead_cya, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_cya.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma9200_lead_cwr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_cwr.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma9200_lead_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_yao.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma9200_lead_wab, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_wab.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma9200_lead_baw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_baw.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma9200_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_blu.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma9200_lead_bay, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_bay.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma9200_lead_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_grn.png") {tmpl_7(1,1)}
-    spriteset(ss_kuma9200_lead_2cc, "src/trams/kumamoto/9200/kuma9200_2cc.png") {tmpl_7(1,1)}
-    //spriteset(ss_kuma9200_lead_1cc, "src/trams/kumamoto/9200/kuma9200_1cc.png") {tmpl_7(1,1)}
-    
-    switch (FEAT_ROADVEHS, PARENT, sw_kuma9200_lead_rdm, random_bits % 12 ) {
-            0:  ss_kuma9200_lead_red;
-            1:  ss_kuma9200_lead_wbg;
-            2:  ss_kuma9200_lead_hei;
-            3:  ss_kuma9200_lead_yel;
-            4:  ss_kuma9200_lead_cya;
-            5:  ss_kuma9200_lead_cwr;
-            6:  ss_kuma9200_lead_yao;
-            7:  ss_kuma9200_lead_wab;
-            8:  ss_kuma9200_lead_baw;
-            9:  ss_kuma9200_lead_blu;
-            10: ss_kuma9200_lead_bay;
-            11: ss_kuma9200_lead_grn;
-        }
-    
-    switch(FEAT_ROADVEHS, PARENT, sw_kuma9200_lead_msk, cargo_subtype) {
-        0 :sw_kuma9200_lead_rdm; 
-        1 :ss_kuma9200_lead_red; 
-        2 :ss_kuma9200_lead_wbg; 
-        3 :ss_kuma9200_lead_hei; 
-        4 :ss_kuma9200_lead_yel; 
-        5 :ss_kuma9200_lead_cya;
-        6 :ss_kuma9200_lead_cwr;
-        7 :ss_kuma9200_lead_yao;
-        8 :ss_kuma9200_lead_wab;
-        9 :ss_kuma9200_lead_baw;
-        10:ss_kuma9200_lead_blu;
-        11:ss_kuma9200_lead_bay;
-        12:ss_kuma9200_lead_grn;
-        13:ss_kuma9200_lead_2cc;
-        }
+        spriteset(ss_kuma9200_lead_bse, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_bse.png") {tmpl_8(1,1)}
+        spriteset(ss_kuma9200_lead_red, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_red.png") {tmpl_8(1,1)}
+        spriteset(ss_kuma9200_lead_wbg, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_wbg.png") {tmpl_8(1,1)}
+        spriteset(ss_kuma9200_lead_hei, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_hei.png") {tmpl_8(1,1)}
+        spriteset(ss_kuma9200_lead_yel, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_yel.png") {tmpl_8(1,1)}
+        spriteset(ss_kuma9200_lead_cya, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_cya.png") {tmpl_8(1,1)}
+        spriteset(ss_kuma9200_lead_cwr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_cwr.png") {tmpl_8(1,1)}
+        spriteset(ss_kuma9200_lead_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_yao.png") {tmpl_8(1,1)}
+        spriteset(ss_kuma9200_lead_wab, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_wab.png") {tmpl_8(1,1)}
+        spriteset(ss_kuma9200_lead_baw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_baw.png") {tmpl_8(1,1)}
+        spriteset(ss_kuma9200_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_blu.png") {tmpl_8(1,1)}
+        spriteset(ss_kuma9200_lead_bay, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_bay.png") {tmpl_8(1,1)}
+        spriteset(ss_kuma9200_lead_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/9200/kuma9200_grn.png") {tmpl_8(1,1)}
+        spriteset(ss_kuma9200_lead_2cc, "src/trams/kumamoto/9200/kuma9200_2cc.png") {tmpl_8(1,1)}
+        //spriteset(ss_kuma9200_lead_1cc, "src/trams/kumamoto/9200/kuma9200_1cc.png") {tmpl_7(1,1)}
+        
+        switch (FEAT_ROADVEHS, PARENT, sw_kuma9200_lead_rdm, random_bits % 12 ) {
+                0:  ss_kuma9200_lead_red;
+                1:  ss_kuma9200_lead_wbg;
+                2:  ss_kuma9200_lead_hei;
+                3:  ss_kuma9200_lead_yel;
+                4:  ss_kuma9200_lead_cya;
+                5:  ss_kuma9200_lead_cwr;
+                6:  ss_kuma9200_lead_yao;
+                7:  ss_kuma9200_lead_wab;
+                8:  ss_kuma9200_lead_baw;
+                9:  ss_kuma9200_lead_blu;
+                10: ss_kuma9200_lead_bay;
+                11: ss_kuma9200_lead_grn;
+            }
+        
+        switch(FEAT_ROADVEHS, PARENT, sw_kuma9200_lead_msk, cargo_subtype) {
+            0 :sw_kuma9200_lead_rdm; 
+            1 :ss_kuma9200_lead_red; 
+            2 :ss_kuma9200_lead_wbg; 
+            3 :ss_kuma9200_lead_hei; 
+            4 :ss_kuma9200_lead_yel; 
+            5 :ss_kuma9200_lead_cya;
+            6 :ss_kuma9200_lead_cwr;
+            7 :ss_kuma9200_lead_yao;
+            8 :ss_kuma9200_lead_wab;
+            9 :ss_kuma9200_lead_baw;
+            10:ss_kuma9200_lead_blu;
+            11:ss_kuma9200_lead_bay;
+            12:ss_kuma9200_lead_grn;
+            13:ss_kuma9200_lead_2cc;
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_kuma9200_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_kuma9200_lead_bse;        // Base
-            1: sw_kuma9200_lead_msk;        // Mask
-            2: panto_kuma9200;              // Pantos
-            3: doors_kuma9200;              // Doors
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_kuma9200_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_kuma9200_lead_bse;        // Base
+                1: sw_kuma9200_lead_msk;        // Mask
+                2: panto_kuma9200;              // Pantos
+                3: doors_kuma9200;              // Doors
+            }
 
 item(FEAT_ROADVEHS, item_kuma9200) {
     property {
@@ -2105,6 +1966,24 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma0800_subtype_text, cargo_subtype) {
             1: spriteset_kuma0800_purchase;
         }
 
+    // Panto & Doors
+	spriteset(panto_kuma0800, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_panto.png") {tmpl_7(1,1)}
+	spriteset(doorz_kuma0800_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_doors.png") {tmpl_7(1,1)}
+    spriteset(doorz_kuma0800_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/kumamoto/0800/kuma0800_doors.png") {tmpl_7(1,25)}
+
+	spritegroup sg_doors_kuma0800_lead {
+        loaded:  [sprite_blank];
+        loading: [doorz_kuma0800_lead];
+        }
+
+    spritegroup sg_doors_kuma0800_rear {
+        loaded:  [sprite_blank];
+        loading: [doorz_kuma0800_rear];
+        }
+
+    switch(FEAT_ROADVEHS, SELF, doors_kuma0800_lead, OpenDoors()) {1:sg_doors_kuma0800_lead;}
+    switch(FEAT_ROADVEHS, SELF, doors_kuma0800_rear, OpenDoors()) {1:sg_doors_kuma0800_rear;}
+
     // Tram Graphics
 
     // Base
@@ -2129,15 +2008,15 @@ switch(FEAT_ROADVEHS, SELF, sw_kuma0800_subtype_text, cargo_subtype) {
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_kuma0800_lead_irl; // Base
             1: sw_kuma0800_lead_mask;       // Mask
-            2: door02_lead;             // Doors
-            3: sprite_panto01;          // Pantos
+            2: doors_kuma0800_lead;         // Doors
+            3: panto_kuma0800;              // Pantos
         }
 
     switch(FEAT_ROADVEHS, SELF, sw_kuma0800_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: spriteset_kuma0800_rear_irl; // Base
             1: sw_kuma0800_rear_mask;       // Mask
-            2: door02_rear;             // Doors
+            2: doors_kuma0800_rear;         // Doors
         }
 
     switch (FEAT_ROADVEHS, SELF, sw_kuma0800_stack, position_in_consist ) {
@@ -2216,6 +2095,33 @@ switch(FEAT_ROADVEHS, SELF, sw_f1000_subtype_text, cargo_subtype) {
             1: ss_f1000_purchase;
         }
 
+    // Panto
+        spriteset(panto_f1000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/f1000/f1000_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_f1000_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/f1000/f1000_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_f1000_cntr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/f1000/f1000_doors.png") {tmpl_7(1,25)}
+        spriteset(doorz_f1000_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/f1000/f1000_doors.png") {tmpl_7(1,49)}
+            
+        spritegroup sg_doors_f1000_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_f1000_lead];
+        }
+
+        spritegroup sg_doors_f1000_cntr {
+            loaded:  [sprite_blank];
+            loading: [doorz_f1000_cntr];
+        }
+
+        spritegroup sg_doors_f1000_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_f1000_rear];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, doors_f1000_lead, OpenDoors()) {1:sg_doors_f1000_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_f1000_cntr, OpenDoors()) {1:sg_doors_f1000_cntr;}
+        switch(FEAT_ROADVEHS, SELF, doors_f1000_rear, OpenDoors()) {1:sg_doors_f1000_rear;}
+
     // Tram Graphics
 
         // Base
@@ -2267,22 +2173,22 @@ switch(FEAT_ROADVEHS, SELF, sw_f1000_subtype_text, cargo_subtype) {
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_f1001_lead;                           // Base
             1: sw_f1000_lead_mask;                      // Mask
-            2: door_niigata03_lead_irl;                 // Doors
-            3: sprite_panto01;                          // Pantos
+            2: doors_fukui_lead;                        // Doors
+            3: panto_f1000;                             // Pantos
         }
 
         switch(FEAT_ROADVEHS, SELF, sw_f1000_cntr_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_f1001_cntr;                           // Base
             1: sw_f1000_cntr_mask;                      // Mask
-            2: door_niigata03_cntr_irl;                 // Doors
+            2: doors_fukui_cntr;                        // Doors
         }
 
         switch(FEAT_ROADVEHS, SELF, sw_f1000_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_f1001_rear;                           // Base
             1: sw_f1000_rear_mask;                      // Mask
-            2: door_niigata03_rear_irl;                 // Doors
+            2: doors_fukui_rear;                        // Doors
         }
 
         switch (FEAT_ROADVEHS, SELF, sw_f1001_stack, position_in_consist ) {
@@ -2359,55 +2265,92 @@ switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(spriteset_mlrv1000_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_purchase.png") {tmpl_p()}
+        spriteset(spriteset_mlrv1000_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_manyosen; 
-            1: spriteset_mlrv1000_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_manyosen; 
+                1: spriteset_mlrv1000_purchase;
+            }
+
+    // Panto
+        spriteset(panto_mlrv1000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_mlrv1000_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_mlrv1000_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doors.png") {tmpl_7(1,25)}
+
+        spritegroup sg_doors_mlrv1000_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_mlrv1000_lead];
+            }
+
+        spritegroup sg_doors_mlrv1000_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_mlrv1000_rear];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_mlrv1000_lead, OpenDoors()) {1:sg_doors_mlrv1000_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_mlrv1000_rear, OpenDoors()) {1:sg_doors_mlrv1000_rear;}
+
+    // Doors Doraemon
+        spriteset(doorz_mlrv1000_lead_dor, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doors_dor.png") {tmpl_7(1,1)}
+        spriteset(doorz_mlrv1000_rear_dor, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doors_dor.png") {tmpl_7(1,25)}
+
+        spritegroup sg_doors_mlrv1000_lead_dor {
+            loaded:  [sprite_blank];
+            loading: [doorz_mlrv1000_lead_dor];
+            }
+
+        spritegroup sg_doors_mlrv1000_rear_dor {
+            loaded:  [sprite_blank];
+            loading: [doorz_mlrv1000_rear_dor];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_mlrv1000_lead_dor, OpenDoors()) {1:sg_doors_mlrv1000_lead_dor;}
+        switch(FEAT_ROADVEHS, SELF, doors_mlrv1000_rear_dor, OpenDoors()) {1:sg_doors_mlrv1000_rear_dor;}
 
     // Tram Graphics
 
-    // Base
-    spriteset(spriteset_mlrv1000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_irl.png") {tmpl_7(1,1 )}
-    spriteset(spriteset_mlrv1000_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_irl.png") {tmpl_7(1,25)}
+        // Base
+        spriteset(spriteset_mlrv1000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_irl.png") {tmpl_7(1,1 )}
+        spriteset(spriteset_mlrv1000_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_irl.png") {tmpl_7(1,25)}
 
-    // Liveries
-    spriteset(spriteset_mlrv1000_lead_doraemon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doraemon.png") {tmpl_7(1,1 )}
-    spriteset(spriteset_mlrv1000_rear_doraemon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doraemon.png") {tmpl_7(1,25)}
+        // Liveries
+        spriteset(spriteset_mlrv1000_lead_doraemon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doraemon.png") {tmpl_7(1,1 )}
+        spriteset(spriteset_mlrv1000_rear_doraemon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/manyosen/mlrv1000/mlrv1000_doraemon.png") {tmpl_7(1,25)}
 
-    spriteset(spriteset_mlrv1000_lead_1cc, "src/trams/manyosen/mlrv1000/mlrv1000_1cc.png") {tmpl_7(1,1 )}
-    spriteset(spriteset_mlrv1000_rear_1cc, "src/trams/manyosen/mlrv1000/mlrv1000_1cc.png") {tmpl_7(1,25)}
+        spriteset(spriteset_mlrv1000_lead_1cc, "src/trams/manyosen/mlrv1000/mlrv1000_1cc.png") {tmpl_7(1,1 )}
+        spriteset(spriteset_mlrv1000_rear_1cc, "src/trams/manyosen/mlrv1000/mlrv1000_1cc.png") {tmpl_7(1,25)}
 
-    // Mask Selection
-    switch(FEAT_ROADVEHS, PARENT, sw_mlrv1000_lead_mask, cargo_subtype) {1:spriteset_mlrv1000_lead_doraemon; 2:spriteset_mlrv1000_lead_1cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_mlrv1000_rear_mask, cargo_subtype) {1:spriteset_mlrv1000_rear_doraemon; 2:spriteset_mlrv1000_rear_1cc;}
+        // Mask Selection
+        switch(FEAT_ROADVEHS, PARENT, sw_mlrv1000_lead_mask, cargo_subtype) {1:spriteset_mlrv1000_lead_doraemon; 2:spriteset_mlrv1000_lead_1cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_mlrv1000_rear_mask, cargo_subtype) {1:spriteset_mlrv1000_rear_doraemon; 2:spriteset_mlrv1000_rear_1cc;}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_door_mlrv1000_lead_doraemon_check, cargo_subtype) {1:door_doraemon_lead;}
-    switch(FEAT_ROADVEHS, PARENT, sw_door_mlrv1000_rear_doraemon_check, cargo_subtype) {1:door_doraemon_rear;}
+        switch(FEAT_ROADVEHS, PARENT, doors_mlrv1000_lead_dor_check, cargo_subtype) {1:doors_mlrv1000_lead_dor;}
+        switch(FEAT_ROADVEHS, PARENT, doors_mlrv1000_rear_dor_check, cargo_subtype) {1:doors_mlrv1000_rear_dor;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_lead_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: spriteset_mlrv1000_lead_irl;             // Base
-            1: sw_mlrv1000_lead_mask;                   // Mask
-            2: door02_lead;                             // Doors (base)
-            3: sw_door_mlrv1000_lead_doraemon_check;    // Doors (extra layer for Doraemon)
-            4: sprite_panto01;                          // Pantos
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_lead_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: spriteset_mlrv1000_lead_irl;             // Base
+                1: sw_mlrv1000_lead_mask;                   // Mask
+                2: doors_mlrv1000_lead;                     // Doors (base)
+                3: sw_door_mlrv1000_lead_doraemon_check;    // Doors (extra layer for Doraemon)
+                4: panto_mlrv1000;                          // Pantos
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_rear_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: spriteset_mlrv1000_rear_irl;             // Base
-            1: sw_mlrv1000_rear_mask;                   // Mask
-            2: door02_rear;                             // Doors (base)
-            3: sw_door_mlrv1000_rear_doraemon_check;    // Doors (extra layer for Doraemon)
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_mlrv1000_rear_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: spriteset_mlrv1000_rear_irl;             // Base
+                1: sw_mlrv1000_rear_mask;                   // Mask
+                2: doors_mlrv1000_rear;                     // Doors (base)
+                3: sw_door_mlrv1000_rear_doraemon_check;    // Doors (extra layer for Doraemon)
+            }
 
-        switch (FEAT_ROADVEHS, SELF, sw_mlrv1000_stack, position_in_consist ) {
-            0:  sw_mlrv1000_lead_stack;
-            sw_mlrv1000_rear_stack;                      //default
-        }
+            switch (FEAT_ROADVEHS, SELF, sw_mlrv1000_stack, position_in_consist ) {
+                0:  sw_mlrv1000_lead_stack;
+                sw_mlrv1000_rear_stack;                      //default
+            }
 
 //set number of articulated parts
 switch (FEAT_ROADVEHS, SELF, sw_mlrv1000_articulated_part, extra_callback_info1) {
@@ -2466,46 +2409,66 @@ switch(FEAT_ROADVEHS, SELF, sw_l_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(ss_l_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_purchase.png") {tmpl_p()}
+        spriteset(ss_l_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_l_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_echizen; 
-            1: ss_l_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_l_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_echizen; 
+                1: ss_l_purchase;
+            }
+
+    // Panto
+        spriteset(panto_l, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_l_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_l_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_doors.png") {tmpl_7(1,25)}
+
+        spritegroup sg_doors_l_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_l_lead];
+            }
+
+        spritegroup sg_doors_l_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_l_rear];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_l_lead, OpenDoors()) {1:sg_doors_l_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_l_rear, OpenDoors()) {1:sg_doors_l_rear;}
 
     // Tram Graphics
 
-    // Base
-    spriteset(ss_l_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_irl.png") {tmpl_7(1,1 )}
-    spriteset(ss_l_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_irl.png") {tmpl_7(1,25)}
+        // Base
+        spriteset(ss_l_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_irl.png") {tmpl_7(1,1 )}
+        spriteset(ss_l_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/fukui/l/l_irl.png") {tmpl_7(1,25)}
 
-    // Liveries
-    spriteset(ss_l_lead_1cc, "src/trams/fukui/l/l_1cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_l_rear_1cc, "src/trams/fukui/l/l_1cc.png") {tmpl_7(1,25)}
+        // Liveries
+        spriteset(ss_l_lead_1cc, "src/trams/fukui/l/l_1cc.png") {tmpl_7(1,1 )}
+        spriteset(ss_l_rear_1cc, "src/trams/fukui/l/l_1cc.png") {tmpl_7(1,25)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_l_lead_mask, cargo_subtype) {1:ss_l_lead_1cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_l_rear_mask, cargo_subtype) {1:ss_l_rear_1cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_l_lead_mask, cargo_subtype) {1:ss_l_lead_1cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_l_rear_mask, cargo_subtype) {1:ss_l_rear_1cc;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_l_lead_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_l_lead_irl;                        // Base
-            1: sw_l_lead_mask;                       // Mask
-            2: door03_lead;                          // Doors
-            3: sprite_panto01;                       // Pantos
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_l_lead_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_l_lead_irl;                       // Base
+                1: sw_l_lead_mask;                      // Mask
+                2: doors_l_lead;                        // Doors
+                3: panto_l;                             // Pantos
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_l_rear_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_l_rear_irl;                        // Base
-            1: sw_l_rear_mask;                       // Mask
-            2: door03_rear;                          // Doors
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_l_rear_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_l_rear_irl;                        // Base
+                1: sw_l_rear_mask;                       // Mask
+                2: doors_l_rear;                         // Doors
+            }
 
-    switch (FEAT_ROADVEHS, SELF, sw_l_stack, position_in_consist ) {
-            0:  sw_l_lead_stack;
-                sw_l_rear_stack;                     //default
-        }    
+        switch (FEAT_ROADVEHS, SELF, sw_l_stack, position_in_consist ) {
+                0:  sw_l_lead_stack;
+                    sw_l_rear_stack;                     //default
+            }    
 
 //set number of articulated parts
 switch (FEAT_ROADVEHS, SELF, sw_l_articulated_part, extra_callback_info1) {
@@ -2582,6 +2545,41 @@ switch(FEAT_ROADVEHS, SELF, sw_tlr0600_subtype_text, cargo_subtype) {
             1: spriteset_tlr0600_purchase;
         }
 
+    // Panto
+        spriteset(panto_tlr0600, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0600_panto.png") {tmpl_7(1,1)}
+    // Doors
+        spriteset(doorz_tlr0600_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0600_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_tlr0600_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/tlr0600/tlr0600_doors.png") {tmpl_7(1,25)}
+
+        spritegroup sg_doors_tlr0600_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_tlr0600_lead];
+            }
+
+        spritegroup sg_doors_tlr0600_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_tlr0600_rear];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_tlr0600_lead, OpenDoors()) {1:sg_doors_tlr0600_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_tlr0600_rear, OpenDoors()) {1:sg_doors_tlr0600_rear;}
+    // Doors 1cc
+        spriteset(ss_door_tlr0600_1cc_lead, "src/trams/toyama/tlr0600/tlr0600_doors_1cc.png") {tmpl_7(1,1)}
+        spriteset(ss_door_tlr0600_1cc_rear, "src/trams/toyama/tlr0600/tlr0600_doors_1cc.png") {tmpl_7(1,25)}
+
+        spritegroup sg_door_tlr0600_1cc_lead {
+            loaded:  [sprite_blank];
+            loading: [ss_door_tlr0600_1cc_lead];
+        }
+
+        spritegroup sg_door_tlr0600_1cc_rear {
+            loaded:  [sprite_blank];
+            loading: [ss_door_tlr0600_1cc_rear];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, door_tlr0600_1cc_lead, OpenDoors()) {1:sg_door_tlr0600_1cc_lead;}
+        switch(FEAT_ROADVEHS, SELF, door_tlr0600_1cc_rear, OpenDoors()) {1:sg_door_tlr0600_1cc_rear;}
+
     // Tram Graphics
 
     // Base
@@ -2627,16 +2625,16 @@ switch(FEAT_ROADVEHS, SELF, sw_tlr0600_subtype_text, cargo_subtype) {
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_tlr0601_lead;                         // Base
             1: sw_tlr0600_lead_mask;                    // Mask
-            2: door02_lead;                             // Doors (base)
+            2: doors_tlr0600_lead;                             // Doors (base)
             3: sw_door_tlr0600_1cc_lead_check;          // Doors (extra layer for Doraemon)
-            4: sprite_panto01;                          // Pantos
+            4: panto_tlr0600;                           // Pantos
         }
 
     switch(FEAT_ROADVEHS, SELF, sw_tlr0600_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_tlr0601_rear;                         // Base
             1: sw_tlr0600_rear_mask;                    // Mask
-            2: door02_rear;                             // Doors (base)
+            2: doors_tlr0600_rear;                             // Doors (base)
             3: sw_door_tlr0600_1cc_rear_check;          // Doors (extra layer for Doraemon)
         }
 
@@ -2710,6 +2708,26 @@ switch(FEAT_ROADVEHS, SELF, sw_de9000_subtype_text, cargo_subtype) {
             0: logo_toyama; 
             1: spriteset_de9000_purchase;
         }
+        
+    // Panto
+        spriteset(panto_de9000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de9000/de9000_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_de9000_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de9000/de9000_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_de9000_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de9000/de9000_doors.png") {tmpl_7(1,25)}
+
+        spritegroup sg_doors_de9000_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_de9000_lead];
+            }
+
+        spritegroup sg_doors_de9000_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_de9000_rear];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_de9000_lead, OpenDoors()) {1:sg_doors_de9000_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_de9000_rear, OpenDoors()) {1:sg_doors_de9000_rear;}
 
     // Tram Graphics
     // Base
@@ -2733,15 +2751,15 @@ switch(FEAT_ROADVEHS, SELF, sw_de9000_subtype_text, cargo_subtype) {
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_de9001_lead;                          // Base
             1: sw_de9000_lead_mask;                     // Mask
-            2: door02_lead;                             // Doors
-            3: sprite_panto01;                          // Pantos
+            2: doors_de9000_lead;                       // Doors
+            3: panto_de9000;                            // Pantos
         }
 
     switch(FEAT_ROADVEHS, SELF, sw_de9000_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_de9001_rear;                          // Base
             1: sw_de9000_rear_mask;                     // Mask
-            2: door02_rear;                             // Doors
+            2: doors_de9000_rear;                       // Doors
         }
     
     switch (FEAT_ROADVEHS, SELF, sw_de9000_stack, position_in_consist ) {
@@ -2809,36 +2827,63 @@ switch(FEAT_ROADVEHS, SELF, sw_t100_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(spriteset_t100_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_purchase.png") {tmpl_p()}
+        spriteset(spriteset_t100_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_t100_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_toyama; 
-            1: spriteset_t100_purchase;
+        switch(FEAT_ROADVEHS, SELF, sw_t100_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_toyama; 
+                1: spriteset_t100_purchase;
+            }
+
+    // Panto
+        spriteset(panto_t100, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_panto.png") {tmpl_7(1,25)}
+
+    // Doors
+        spriteset(doorz_t100_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_t100_cntr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_doors.png") {tmpl_7(1,25)}
+        spriteset(doorz_t100_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_doors.png") {tmpl_7(1,49)}
+            
+        spritegroup sg_doors_t100_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_t100_lead];
         }
+
+        spritegroup sg_doors_t100_cntr {
+            loaded:  [sprite_blank];
+            loading: [doorz_t100_cntr];
+        }
+
+        spritegroup sg_doors_t100_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_t100_rear];
+        }
+
+        switch(FEAT_ROADVEHS, SELF, doors_t100_lead, OpenDoors()) {1:sg_doors_t100_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_t100_cntr, OpenDoors()) {1:sg_doors_t100_cntr;}
+        switch(FEAT_ROADVEHS, SELF, doors_t100_rear, OpenDoors()) {1:sg_doors_t100_rear;}
 
     // Tram Graphics
     // Base
-    spriteset(ss_t100_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_irl.png") {tmpl_7(1,1 )}
-    spriteset(ss_t100_cntr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_irl.png") {tmpl_7(1,25)}
-    spriteset(ss_t100_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_irl.png") {tmpl_7(1,49)}
+        spriteset(ss_t100_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_irl.png") {tmpl_7(1,1 )}
+        spriteset(ss_t100_cntr, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_irl.png") {tmpl_7(1,25)}
+        spriteset(ss_t100_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_irl.png") {tmpl_7(1,49)}
 
     // Liveries
-    spriteset(ss_t100_lead_1cc, "src/trams/toyama/t100/t100_1cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_t100_cntr_1cc, "src/trams/toyama/t100/t100_1cc.png") {tmpl_7(1,25 )}
-    spriteset(ss_t100_rear_1cc, "src/trams/toyama/t100/t100_1cc.png") {tmpl_7(1,49)}
+        spriteset(ss_t100_lead_1cc, "src/trams/toyama/t100/t100_1cc.png") {tmpl_7(1,1 )}
+        spriteset(ss_t100_cntr_1cc, "src/trams/toyama/t100/t100_1cc.png") {tmpl_7(1,25 )}
+        spriteset(ss_t100_rear_1cc, "src/trams/toyama/t100/t100_1cc.png") {tmpl_7(1,49)}
 
-    spriteset(ss_t100_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_blu.png") {tmpl_7(1,1 )}
-    spriteset(ss_t100_cntr_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_blu.png") {tmpl_7(1,25)}
-    spriteset(ss_t100_rear_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_blu.png") {tmpl_7(1,49)}
+        spriteset(ss_t100_lead_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_blu.png") {tmpl_7(1,1 )}
+        spriteset(ss_t100_cntr_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_blu.png") {tmpl_7(1,25)}
+        spriteset(ss_t100_rear_blu, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_blu.png") {tmpl_7(1,49)}
 
-    spriteset(ss_t100_lead_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_grn.png") {tmpl_7(1,1 )}
-    spriteset(ss_t100_cntr_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_grn.png") {tmpl_7(1,25)}
-    spriteset(ss_t100_rear_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_grn.png") {tmpl_7(1,49)}
+        spriteset(ss_t100_lead_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_grn.png") {tmpl_7(1,1 )}
+        spriteset(ss_t100_cntr_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_grn.png") {tmpl_7(1,25)}
+        spriteset(ss_t100_rear_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_grn.png") {tmpl_7(1,49)}
 
-    spriteset(ss_t100_lead_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_yao.png") {tmpl_7(1,1 )}
-    spriteset(ss_t100_cntr_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_yao.png") {tmpl_7(1,25)}
-    spriteset(ss_t100_rear_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_yao.png") {tmpl_7(1,49)}
+        spriteset(ss_t100_lead_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_yao.png") {tmpl_7(1,1 )}
+        spriteset(ss_t100_cntr_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_yao.png") {tmpl_7(1,25)}
+        spriteset(ss_t100_rear_yao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/t100/t100_yao.png") {tmpl_7(1,49)}
 
     // Random Stripe 
     switch (FEAT_ROADVEHS, PARENT, sw_t100_lead_random, random_bits % 4) {
@@ -2865,24 +2910,24 @@ switch(FEAT_ROADVEHS, SELF, sw_t100_subtype_text, cargo_subtype) {
 
     switch(FEAT_ROADVEHS, SELF, sw_t100_lead_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_t100_lead;                          // Base
-            1: sw_t100_lead_mask;                     // Mask
-            2: door07_lead;                             // Doors
+            0: ss_t100_lead;                            // Base
+            1: sw_t100_lead_mask;                       // Mask
+            2: doors_t100_lead;                         // Doors
         }
 
     switch(FEAT_ROADVEHS, SELF, sw_t100_cntr_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_t100_cntr;                          // Base
-            1: sw_t100_cntr_mask;                     // Mask
-            2: door07_cntr;                             // Doors
-            3: sprite_panto04;                          // Pantos
+            0: ss_t100_cntr;                            // Base
+            1: sw_t100_cntr_mask;                       // Mask
+            2: doors_t100_cntr;                         // Doors
+            3: panto_t100;                              // Pantos
         }
 
     switch(FEAT_ROADVEHS, SELF, sw_t100_rear_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_t100_rear;                          // Base
-            1: sw_t100_rear_mask;                     // Mask
-            2: door07_rear;                             // Doors
+            0: ss_t100_rear;                            // Base
+            1: sw_t100_rear_mask;                       // Mask
+            2: doors_t100_rear;                         // Doors
         }
     
     switch (FEAT_ROADVEHS, SELF, sw_t100_stack, position_in_consist ) {
@@ -2959,14 +3004,25 @@ switch(FEAT_ROADVEHS, SELF, sw_toyama8000_subtype_text, cargo_subtype) {
             1: ss_toyama8000_purchase;
         }
 
-    // Tram Graphics
-    spriteset(ss_toyama8000_lead_base, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_bse.png") {tmpl_7(1,1)}
+    // Panto & Doors
+	spriteset(panto_toyama8000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_panto.png") {tmpl_8(1,1)}
+	spriteset(doorz_toyama8000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_doors.png") {tmpl_8(1,1)}
 
-    spriteset(ss_toyama8000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_irl.png") {tmpl_7(1,1)}
-    spriteset(ss_toyama8000_lead_baw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_baw.png") {tmpl_7(1,1)}
-    spriteset(ss_toyama8000_lead_raw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_raw.png") {tmpl_7(1,1)}
-    spriteset(ss_toyama8000_lead_gaw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_gaw.png") {tmpl_7(1,1)}
-    spriteset(ss_toyama8000_lead_cya, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_cya.png") {tmpl_7(1,1)}
+	spritegroup sg_doors_toyama8000 {
+        loaded:  [sprite_blank];
+        loading: [doorz_toyama8000];
+        }
+
+    switch(FEAT_ROADVEHS, SELF, doors_toyama8000, OpenDoors()) {1:sg_doors_toyama8000 ;}
+
+    // Tram Graphics
+    spriteset(ss_toyama8000_lead_base, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_bse.png") {tmpl_8(1,1)}
+
+    spriteset(ss_toyama8000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_irl.png") {tmpl_8(1,1)}
+    spriteset(ss_toyama8000_lead_baw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_baw.png") {tmpl_8(1,1)}
+    spriteset(ss_toyama8000_lead_raw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_raw.png") {tmpl_8(1,1)}
+    spriteset(ss_toyama8000_lead_gaw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_gaw.png") {tmpl_8(1,1)}
+    spriteset(ss_toyama8000_lead_cya, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/8000/toyama8000_cya.png") {tmpl_8(1,1)}
 
     switch(FEAT_ROADVEHS, PARENT, sw_toyama8000_lead_rdm, random_bits % 5) { 
         1: ss_toyama8000_lead_baw;
@@ -2987,10 +3043,10 @@ switch(FEAT_ROADVEHS, SELF, sw_toyama8000_subtype_text, cargo_subtype) {
 
     switch(FEAT_ROADVEHS, SELF, sw_toyama8000_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_toyama8000_lead_base;        // Base
-            1: sw_toyama8000_lead_mask;        // Mask
-            2: sprite_panto05;              // Pantos
-            3: door08;                      // Doors
+            0: ss_toyama8000_lead_base;         // Base
+            1: sw_toyama8000_lead_mask;         // Mask
+            2: panto_toyama8000;                // Pantos
+            3: doors_toyama8000;                // Doors
         }
 
 item(FEAT_ROADVEHS, item_toyama8000) {
@@ -3012,7 +3068,7 @@ item(FEAT_ROADVEHS, item_toyama8000) {
 		refit_cost:						0; // refitting is free
 		running_cost_base:				RUNNING_COST_ROADVEH;
 		weight:							17 ton;
-		length:							7;
+		length:							8;
         }
     graphics {
 		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(DES_TOYAMA8000));
@@ -3052,12 +3108,23 @@ switch(FEAT_ROADVEHS, SELF, sw_toyama7000_subtype_text, cargo_subtype) {
             1: ss_toyama7000_purchase;
         }
 
-    // Tram Graphics
-    spriteset(ss_toyama7000_lead_base, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_bse.png") {tmpl_7(1,1)}
+    // Panto & Doors
+	spriteset(panto_toyama7000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_panto.png") {tmpl_8(1,1)}
+	spriteset(doorz_toyama7000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_doors.png") {tmpl_8(1,1)}
 
-    spriteset(ss_toyama7000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_irl.png") {tmpl_7(1,1)}
-    spriteset(ss_toyama7000_lead_new, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_new.png") {tmpl_7(1,1)}
-    spriteset(ss_toyama7000_lead_raw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_raw.png") {tmpl_7(1,1)}
+	spritegroup sg_doors_toyama7000 {
+        loaded:  [sprite_blank];
+        loading: [doorz_toyama7000];
+        }
+
+    switch(FEAT_ROADVEHS, SELF, doors_toyama7000, OpenDoors()) {1:sg_doors_toyama7000 ;}
+
+    // Tram Graphics
+    spriteset(ss_toyama7000_lead_base, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_bse.png") {tmpl_8(1,1)}
+
+    spriteset(ss_toyama7000_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_irl.png") {tmpl_8(1,1)}
+    spriteset(ss_toyama7000_lead_new, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_new.png") {tmpl_8(1,1)}
+    spriteset(ss_toyama7000_lead_raw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/7000/toyama7000_raw.png") {tmpl_8(1,1)}
 
     switch(FEAT_ROADVEHS, PARENT, sw_toyama7000_lead_rdm, random_bits % 3) { 
         1: ss_toyama7000_lead_new;
@@ -3074,10 +3141,10 @@ switch(FEAT_ROADVEHS, SELF, sw_toyama7000_subtype_text, cargo_subtype) {
 
     switch(FEAT_ROADVEHS, SELF, sw_toyama7000_stack, [ 
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_toyama7000_lead_base;        // Base
-            1: sw_toyama7000_lead_mask;        // Mask
-            2: sprite_panto05;              // Pantos
-            3: door09;                      // Doors
+            0: ss_toyama7000_lead_base;         // Base
+            1: sw_toyama7000_lead_mask;         // Mask
+            2: panto_toyama7000;                // Pantos
+            3: doors_toyama7000;                // Doors
         }
 
 item(FEAT_ROADVEHS, item_toyama7000) {
@@ -3137,6 +3204,17 @@ item(FEAT_ROADVEHS, item_toyama7000) {
             1: ss_toyamade5000_purchase;
         }
 
+    // Panto & Doors
+	spriteset(panto_toyamade5000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de5000/toyamade5000_panto.png") {tmpl_8(1,1)}
+	spriteset(doorz_toyamade5000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de5000/toyamade5000_doors.png") {tmpl_8(1,1)}
+
+	spritegroup sg_doors_toyamade5000 {
+        loaded:  [sprite_blank];
+        loading: [doorz_toyamade5000];
+        }
+
+    switch(FEAT_ROADVEHS, SELF, doors_toyamade5000, OpenDoors()) {1:sg_doors_toyamade5000 ;}
+
     // Tram Graphics
     spriteset(ss_toyamade5000_lead_base, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/toyama/de5000/toyamade5000_bse.png") {tmpl_7(1,1)}
 
@@ -3152,8 +3230,8 @@ item(FEAT_ROADVEHS, item_toyama7000) {
         STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
             0: ss_toyamade5000_lead_base;        // Base
             1: sw_toyamade5000_lead_mask;        // Mask
-            2: sprite_panto05;                  // Pantos
-            3: door10;                          // Doors
+            2: panto_toyamade5000;               // Pantos
+            3: doors_toyamade5000;               // Doors
         }
 
 item(FEAT_ROADVEHS, item_toyamade5000) {
@@ -3175,7 +3253,7 @@ item(FEAT_ROADVEHS, item_toyamade5000) {
 		refit_cost:						0; // refitting is free
 		running_cost_base:				RUNNING_COST_ROADVEH;
 		weight:							18 ton;
-		length:							7;
+		length:							8;
         }
     graphics {
 		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(TOYAMA),string(LIVERIES),string(LV_IRL));
@@ -3209,38 +3287,51 @@ item(FEAT_ROADVEHS, item_toyamade5000) {
 // Graphics
 
     // Purchase
-    spriteset(ss_oka3000_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_purchase.png") {tmpl_p()}
+        spriteset(ss_oka3000_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka3000_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_okayama; 
-            1: ss_oka3000_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_oka3000_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_okayama; 
+                1: ss_oka3000_purchase;
+            }
+
+    // Panto
+        spriteset(panto_oka3000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_panto.png") {tmpl_8(1,1)}
+
+    // Doors
+        spriteset(doorz_oka3000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_doors.png") {tmpl_8(1,1)}
+
+        spritegroup sg_doors_oka3000 {
+            loaded:  [sprite_blank];
+            loading: [doorz_oka3000];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_oka3000, OpenDoors()) {1:sg_doors_oka3000;}
 
     // Tram Graphics
-    spriteset(ss_oka3000_lead_blk, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_blk.png") {tmpl_8(1,1)}
-    spriteset(ss_oka3000_lead_oab, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_oab.png") {tmpl_8(1,1)}
-    spriteset(ss_oka3000_lead_gao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_gao.png") {tmpl_8(1,1)}
- 
-    switch(FEAT_ROADVEHS, PARENT, sw_oka3000_lead_rdm, random_bits % 3) { 
-        1: ss_oka3000_lead_oab;
-        2: ss_oka3000_lead_gao;
-        ss_oka3000_lead_blk;
-        }
+        spriteset(ss_oka3000_lead_blk, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_blk.png") {tmpl_8(1,1)}
+        spriteset(ss_oka3000_lead_oab, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_oab.png") {tmpl_8(1,1)}
+        spriteset(ss_oka3000_lead_gao, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/3000/oka3000_gao.png") {tmpl_8(1,1)}
+    
+        switch(FEAT_ROADVEHS, PARENT, sw_oka3000_lead_rdm, random_bits % 3) { 
+            1: ss_oka3000_lead_oab;
+            2: ss_oka3000_lead_gao;
+            ss_oka3000_lead_blk;
+            }
 
-    switch(FEAT_ROADVEHS, PARENT, ss_oka3000_lead_mask, cargo_subtype) {
-        0: sw_oka3000_lead_rdm;
-        2: ss_oka3000_lead_oab;
-        3: ss_oka3000_lead_gao;
-        }
+        switch(FEAT_ROADVEHS, PARENT, ss_oka3000_lead_mask, cargo_subtype) {
+            0: sw_oka3000_lead_rdm;
+            2: ss_oka3000_lead_oab;
+            3: ss_oka3000_lead_gao;
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka3000_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_oka3000_lead_blk;             // Base
-            1: ss_oka3000_lead_mask;            // Mask
-            2: sprite_panto07;                  // Pantos
-            3: door10;                          // Doors
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_oka3000_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_oka3000_lead_blk;             // Base
+                1: ss_oka3000_lead_mask;            // Mask
+                2: panto_oka3000;                   // Pantos
+                3: doors_oka3000;                   // Doors
+            }
 
 item(FEAT_ROADVEHS, item_oka3000) {
     property {
@@ -3293,38 +3384,51 @@ item(FEAT_ROADVEHS, item_oka3000) {
 // Graphics
 
     // Purchase
-    spriteset(ss_oka7000_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7000/oka7000_purchase.png") {tmpl_p()}
+        spriteset(ss_oka7000_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7000/oka7000_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka7000_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_okayama; 
-            1: ss_oka7000_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_oka7000_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_okayama; 
+                1: ss_oka7000_purchase;
+            }
+
+    // Panto
+        spriteset(panto_oka7000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7000/oka7000_panto.png") {tmpl_8(1,1)}
+
+    // Doors
+        spriteset(doorz_oka7000, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7000/oka7000_doors.png") {tmpl_8(1,1)}
+
+        spritegroup sg_doors_oka7000 {
+            loaded:  [sprite_blank];
+            loading: [doorz_oka7000];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_oka7000, OpenDoors()) {1:sg_doors_oka7000;}
 
     // Tram Graphics
-    spriteset(ss_oka7000_lead_whi, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7000/oka7000_whi.png") {tmpl_8(1,1)}
-    spriteset(ss_oka7000_lead_bar, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7000/oka7000_bar.png") {tmpl_8(1,1)}
-    spriteset(ss_oka7000_lead_wab, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7000/oka7000_wab.png") {tmpl_8(1,1)}
- 
-    switch(FEAT_ROADVEHS, PARENT, sw_oka7000_lead_rdm, random_bits % 3) { 
-        1: ss_oka7000_lead_bar;
-        2: ss_oka7000_lead_wab;
-        ss_oka7000_lead_whi;
-        }
+        spriteset(ss_oka7000_lead_whi, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7000/oka7000_whi.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7000_lead_bar, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7000/oka7000_bar.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7000_lead_wab, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7000/oka7000_wab.png") {tmpl_8(1,1)}
+    
+        switch(FEAT_ROADVEHS, PARENT, sw_oka7000_lead_rdm, random_bits % 3) { 
+            1: ss_oka7000_lead_bar;
+            2: ss_oka7000_lead_wab;
+            ss_oka7000_lead_whi;
+            }
 
-    switch(FEAT_ROADVEHS, PARENT, ss_oka7000_lead_mask, cargo_subtype) {
-        0: sw_oka7000_lead_rdm;
-        2: ss_oka7000_lead_bar;
-        3: ss_oka7000_lead_wab;
-        }
+        switch(FEAT_ROADVEHS, PARENT, ss_oka7000_lead_mask, cargo_subtype) {
+            0: sw_oka7000_lead_rdm;
+            2: ss_oka7000_lead_bar;
+            3: ss_oka7000_lead_wab;
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka7000_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_oka7000_lead_whi;             // Base
-            1: ss_oka7000_lead_mask;            // Mask
-            2: sprite_panto06;                  // Pantos
-            3: door11;                          // Doors
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_oka7000_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_oka7000_lead_whi;             // Base
+                1: ss_oka7000_lead_mask;            // Mask
+                2: panto_oka7000;                  // Pantos
+                3: doors_oka7000;                   // Doors
+            }
 
 item(FEAT_ROADVEHS, item_oka7000) {
     property {
@@ -3380,47 +3484,60 @@ item(FEAT_ROADVEHS, item_oka7000) {
 // Graphics
 
     // Purchase
-    spriteset(ss_oka7100_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_purchase.png") {tmpl_p()}
+        spriteset(ss_oka7100_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka7100_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_okayama; 
-            1: ss_oka7100_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_oka7100_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_okayama; 
+                1: ss_oka7100_purchase;
+            }
+
+    // Panto
+        spriteset(panto_oka7100, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_panto.png") {tmpl_8(1,1)}
+
+    // Doors
+        spriteset(doorz_oka7100, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_doors.png") {tmpl_8(1,1)}
+
+        spritegroup sg_doors_oka7100 {
+            loaded:  [sprite_blank];
+            loading: [doorz_oka7100];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_oka7100, OpenDoors()) {1:sg_doors_oka7100;}
 
     // Tram Graphics
-    spriteset(ss_oka7100_lead_whi, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_whi.png") {tmpl_8(1,1)}
-    spriteset(ss_oka7100_lead_raw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_raw.png") {tmpl_8(1,1)}
-    spriteset(ss_oka7100_lead_ora, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_ora.png") {tmpl_8(1,1)}
-    spriteset(ss_oka7100_lead_wlb, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_wlb.png") {tmpl_8(1,1)}
-    spriteset(ss_oka7100_lead_ray, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_ray.png") {tmpl_8(1,1)}
-    spriteset(ss_oka7100_lead_red, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_red.png") {tmpl_8(1,1)}
- 
-    switch(FEAT_ROADVEHS, PARENT, sw_oka7100_lead_rdm, random_bits % 6) { 
-        1: ss_oka7100_lead_raw;
-        2: ss_oka7100_lead_ora;
-        3: ss_oka7100_lead_wlb;
-        4: ss_oka7100_lead_ray;
-        5: ss_oka7100_lead_red;
-        ss_oka7100_lead_whi;
-        }
+        spriteset(ss_oka7100_lead_whi, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_whi.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7100_lead_raw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_raw.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7100_lead_ora, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_ora.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7100_lead_wlb, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_wlb.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7100_lead_ray, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_ray.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7100_lead_red, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7100/oka7100_red.png") {tmpl_8(1,1)}
+    
+        switch(FEAT_ROADVEHS, PARENT, sw_oka7100_lead_rdm, random_bits % 6) { 
+            1: ss_oka7100_lead_raw;
+            2: ss_oka7100_lead_ora;
+            3: ss_oka7100_lead_wlb;
+            4: ss_oka7100_lead_ray;
+            5: ss_oka7100_lead_red;
+            ss_oka7100_lead_whi;
+            }
 
-    switch(FEAT_ROADVEHS, PARENT, ss_oka7100_lead_mask, cargo_subtype) {
-        0: sw_oka7100_lead_rdm;
-        2: ss_oka7100_lead_raw;
-        3: ss_oka7100_lead_ora;
-        4: ss_oka7100_lead_wlb;
-        5: ss_oka7100_lead_ray;
-        6: ss_oka7100_lead_red;
-        }
+        switch(FEAT_ROADVEHS, PARENT, ss_oka7100_lead_mask, cargo_subtype) {
+            0: sw_oka7100_lead_rdm;
+            2: ss_oka7100_lead_raw;
+            3: ss_oka7100_lead_ora;
+            4: ss_oka7100_lead_wlb;
+            5: ss_oka7100_lead_ray;
+            6: ss_oka7100_lead_red;
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka7100_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_oka7100_lead_whi;             // Base
-            1: ss_oka7100_lead_mask;            // Mask
-            2: sprite_panto06;                  // Pantos
-            3: door11;                          // Doors
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_oka7100_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_oka7100_lead_whi;             // Base
+                1: ss_oka7100_lead_mask;            // Mask
+                2: panto_oka7100;                   // Pantos
+                3: doors_oka7100;                   // Doors
+            }
 
 item(FEAT_ROADVEHS, item_oka7100) {
     property {
@@ -3476,47 +3593,60 @@ item(FEAT_ROADVEHS, item_oka7100) {
 // Graphics
 
     // Purchase
-    spriteset(ss_oka7900_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_purchase.png") {tmpl_p()}
+        spriteset(ss_oka7900_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka7900_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_okayama; 
-            1: ss_oka7900_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_oka7900_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_okayama; 
+                1: ss_oka7900_purchase;
+            }
+
+    // Panto
+        spriteset(panto_oka7900, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_panto.png") {tmpl_8(1,1)}
+
+    // Doors
+        spriteset(doorz_oka7900, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_doors.png") {tmpl_8(1,1)}
+
+        spritegroup sg_doors_oka7900 {
+            loaded:  [sprite_blank];
+            loading: [doorz_oka7900];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_oka7900, OpenDoors()) {1:sg_doors_oka7900;}
 
     // Tram Graphics
-    spriteset(ss_oka7900_lead_whi, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_whi.png") {tmpl_8(1,1)}
-    spriteset(ss_oka7900_lead_yel, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_yel.png") {tmpl_8(1,1)}
-    spriteset(ss_oka7900_lead_yap, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_yap.png") {tmpl_8(1,1)}
-    spriteset(ss_oka7900_lead_raw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_raw.png") {tmpl_8(1,1)}
-    spriteset(ss_oka7900_lead_baw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_baw.png") {tmpl_8(1,1)}
-    spriteset(ss_oka7900_lead_pnk, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_pnk.png") {tmpl_8(1,1)}
- 
-    switch(FEAT_ROADVEHS, PARENT, sw_oka7900_lead_rdm, random_bits % 6) { 
-        1: ss_oka7900_lead_yel;
-        2: ss_oka7900_lead_yap;
-        3: ss_oka7900_lead_raw;
-        4: ss_oka7900_lead_baw;
-        5: ss_oka7900_lead_pnk;
-        ss_oka7900_lead_whi;
-        }
+        spriteset(ss_oka7900_lead_whi, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_whi.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7900_lead_yel, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_yel.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7900_lead_yap, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_yap.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7900_lead_raw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_raw.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7900_lead_baw, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_baw.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7900_lead_pnk, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7900/oka7900_pnk.png") {tmpl_8(1,1)}
+    
+        switch(FEAT_ROADVEHS, PARENT, sw_oka7900_lead_rdm, random_bits % 6) { 
+            1: ss_oka7900_lead_yel;
+            2: ss_oka7900_lead_yap;
+            3: ss_oka7900_lead_raw;
+            4: ss_oka7900_lead_baw;
+            5: ss_oka7900_lead_pnk;
+            ss_oka7900_lead_whi;
+            }
 
-    switch(FEAT_ROADVEHS, PARENT, ss_oka7900_lead_mask, cargo_subtype) {
-        0: sw_oka7900_lead_rdm;
-        2: ss_oka7900_lead_yel;
-        3: ss_oka7900_lead_yap;
-        4: ss_oka7900_lead_raw;
-        5: ss_oka7900_lead_baw;
-        6: ss_oka7900_lead_pnk;
-        }
+        switch(FEAT_ROADVEHS, PARENT, ss_oka7900_lead_mask, cargo_subtype) {
+            0: sw_oka7900_lead_rdm;
+            2: ss_oka7900_lead_yel;
+            3: ss_oka7900_lead_yap;
+            4: ss_oka7900_lead_raw;
+            5: ss_oka7900_lead_baw;
+            6: ss_oka7900_lead_pnk;
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka7900_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_oka7900_lead_whi;             // Base
-            1: ss_oka7900_lead_mask;            // Mask
-            2: sprite_panto06;                  // Pantos
-            3: door11;                          // Doors
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_oka7900_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_oka7900_lead_whi;             // Base
+                1: ss_oka7900_lead_mask;            // Mask
+                2: panto_oka7900;                   // Pantos
+                3: doors_oka7900;                   // Doors
+            }
 
 item(FEAT_ROADVEHS, item_oka7900) {
     property {
@@ -3568,49 +3698,69 @@ switch(FEAT_ROADVEHS, SELF, sw_oka9200_subtype_text, cargo_subtype) {
 // Graphics
 
     // Purchase
-    spriteset(spriteset_oka9200_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_purchase.png") {tmpl_p()}
+        spriteset(spriteset_oka9200_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_purchase.png") {tmpl_p()}
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka9200_purchase, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: logo_okayama; 
-            1: spriteset_oka9200_purchase;
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_oka9200_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_okayama; 
+                1: spriteset_oka9200_purchase;
+            }
+
+    // Panto
+        spriteset(panto_oka9200, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_panto.png") {tmpl_7(1,1)}
+
+    // Doors
+        spriteset(doorz_oka9200_lead, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_doors.png") {tmpl_7(1,1)}
+        spriteset(doorz_oka9200_rear, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_doors.png") {tmpl_7(1,25)}
+
+        spritegroup sg_doors_oka9200_lead {
+            loaded:  [sprite_blank];
+            loading: [doorz_oka9200_lead];
+            }
+
+        spritegroup sg_doors_oka9200_rear {
+            loaded:  [sprite_blank];
+            loading: [doorz_oka9200_rear];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_oka9200_lead, OpenDoors()) {1:sg_doors_oka9200_lead;}
+        switch(FEAT_ROADVEHS, SELF, doors_oka9200_rear, OpenDoors()) {1:sg_doors_oka9200_rear;}
 
     // Tram Graphics
 
     // Base
-    spriteset(ss_oka9200_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_irl.png") {tmpl_7(1,1 )}
-    spriteset(ss_oka9200_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_irl.png") {tmpl_7(1,25)}
+        spriteset(ss_oka9200_lead_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_irl.png") {tmpl_7(1,1 )}
+        spriteset(ss_oka9200_rear_irl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/9200/oka9200_irl.png") {tmpl_7(1,25)}
 
     // Liveries
-    spriteset(ss_oka9200_lead_1cc, "src/trams/okayama/9200/oka9200_1cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_oka9200_rear_1cc, "src/trams/okayama/9200/oka9200_1cc.png") {tmpl_7(1,25)}
+        spriteset(ss_oka9200_lead_1cc, "src/trams/okayama/9200/oka9200_1cc.png") {tmpl_7(1,1 )}
+        spriteset(ss_oka9200_rear_1cc, "src/trams/okayama/9200/oka9200_1cc.png") {tmpl_7(1,25)}
 
-    spriteset(ss_oka9200_lead_2cc, "src/trams/okayama/9200/oka9200_2cc.png") {tmpl_7(1,1 )}
-    spriteset(ss_oka9200_rear_2cc, "src/trams/okayama/9200/oka9200_2cc.png") {tmpl_7(1,25)}
+        spriteset(ss_oka9200_lead_2cc, "src/trams/okayama/9200/oka9200_2cc.png") {tmpl_7(1,1 )}
+        spriteset(ss_oka9200_rear_2cc, "src/trams/okayama/9200/oka9200_2cc.png") {tmpl_7(1,25)}
 
-    switch(FEAT_ROADVEHS, PARENT, sw_oka9200_lead_mask, cargo_subtype) {1:ss_oka9200_lead_1cc; 2:ss_oka9200_lead_2cc;}
-    switch(FEAT_ROADVEHS, PARENT, sw_oka9200_rear_mask, cargo_subtype) {1:ss_oka9200_rear_1cc; 2:ss_oka9200_rear_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_oka9200_lead_mask, cargo_subtype) {1:ss_oka9200_lead_1cc; 2:ss_oka9200_lead_2cc;}
+        switch(FEAT_ROADVEHS, PARENT, sw_oka9200_rear_mask, cargo_subtype) {1:ss_oka9200_rear_1cc; 2:ss_oka9200_rear_2cc;}
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka9200_lead_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_oka9200_lead_irl;                        // Base
-            1: sw_oka9200_lead_mask;                       // Mask
-            2: door03_lead;                             // Doors
-            3: sprite_panto01;                          // Pantos
-        }
+        switch(FEAT_ROADVEHS, SELF, sw_oka9200_lead_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_oka9200_lead_irl;                         // Base
+                1: sw_oka9200_lead_mask;                        // Mask
+                2: doors_oka9200_lead;                          // Doors
+                3: panto_oka9200;                               // Pantos
+            }
 
-    switch(FEAT_ROADVEHS, SELF, sw_oka9200_rear_stack, [ 
-        STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-            0: ss_oka9200_rear_irl;                        // Base
-            1: sw_oka9200_rear_mask;                       // Mask
-            2: door03_rear;                             // Doors
-        }    
+        switch(FEAT_ROADVEHS, SELF, sw_oka9200_rear_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_oka9200_rear_irl;                         // Base
+                1: sw_oka9200_rear_mask;                        // Mask
+                2: doors_oka9200_rear;                          // Doors
+            }    
 
-    switch (FEAT_ROADVEHS, SELF, sw_oka9200_stack, position_in_consist ) {
-            0:  sw_oka9200_lead_stack;
-                sw_oka9200_rear_stack;                     //default
-        }
+        switch (FEAT_ROADVEHS, SELF, sw_oka9200_stack, position_in_consist ) {
+                0:  sw_oka9200_lead_stack;
+                    sw_oka9200_rear_stack;                     //default
+            }
 
 //set number of articulated parts
 switch (FEAT_ROADVEHS, SELF, sw_oka9200_articulated_part, extra_callback_info1) {

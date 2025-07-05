@@ -1,4 +1,5 @@
 
+spriteset (sprite_blank, "src/blank/blank.png") {tmpl_7(1,1)}
 
 switch (FEAT_ROADVEHS, SELF, RunningCostFactor, current_speed) {
         0: return 1/10 ;        	// Stopped

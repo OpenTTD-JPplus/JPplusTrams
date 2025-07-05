@@ -94,22 +94,6 @@ def CreateTramsJSON():
                     output.write(line)
     os.replace('lib/trams_temp.json', 'lib/trams.json')
 
-    # Pantos
-
-    df_panto = pd.read_excel('docs/jpplustrams.ods','trams', usecols=['Tram', 'City', 'Folder', 'Panto', 'Panto_Location'],converters={'Tram':str,'Folder':str})
-    df_panto = df_panto.query('Panto != "user"')
-    panto_dict = df_panto.set_index('Panto').T.to_dict('dict')
-
-    ExportToJSON(panto_dict, 'lib/panto.json')
-
-    # Doors
-
-    df_doors = pd.read_excel('docs/jpplustrams.ods','trams', usecols=['Tram', 'City', 'Folder', 'Doors'],converters={'Tram':str,'Folder':str})
-    df_doors = df_doors.query('Doors != "user"')
-    doors_dict = df_doors.set_index('Doors').T.to_dict('dict')
-
-    ExportToJSON(doors_dict, 'lib/doors.json')
-
     # Stops
 
     # convert excel spreadsheet into dataframe
@@ -155,22 +139,6 @@ def SortTrams():
 
         f.write(']);\n')
         f.close()
-
-def TransferPantos():
-    pantos = LoadJSON('lib/panto.json')
-    for p in pantos:
-        r = int(pantos[p]["Panto_Location"])
-        area = (0, 0 + (r-1) * 24, 248, 0 + r * 24 +1)
-        #print("src/trams/" + pantos[p]["company"] + "/" + pantos[p]["tram"] + "/" + pantos[p]["tram"] + "_panto.png")
-        img = Image.open("src/trams/" + pantos[p]["City"] + "/" + pantos[p]["Folder"] + "/" + pantos[p]["Tram"] + "_panto.png")
-        sprite = img.crop(area)
-        sprite.save("src/parts/pantos/" + p + ".png")
-
-def TransferDoors():
-    doors = LoadJSON('lib/doors.json')
-    for d in doors:
-        sprite = Image.open("src/trams/" + doors[d]["City"] + "/" + doors[d]["Folder"] + "/" + doors[d]["Tram"] + "_doors.png")
-        sprite.save("src/parts/doors/" + d + ".png")
 
 def CropStops():
     stops = LoadJSON('lib/stops.json')

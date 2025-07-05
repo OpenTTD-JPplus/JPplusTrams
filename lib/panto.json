@@ -1,16 +1,4 @@
 {
-    "panto05": {
-        "Tram": "toyama8000",
-        "City": "toyama",
-        "Folder": "8000",
-        "Panto_Location": 1
-    },
-    "panto01": {
-        "Tram": "tlr0600",
-        "City": "toyama",
-        "Folder": "tlr0600",
-        "Panto_Location": 1
-    },
     "panto04": {
         "Tram": "t100",
         "City": "toyama",
