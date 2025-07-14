@@ -60,6 +60,8 @@ Sorted in a rough north to south ordering
 |![3000形](/src/trams/okayama/3000/oka3000_purchase.png)| 3000形 | 1953 |
 |![7000形](/src/trams/okayama/7000/oka7000_purchase.png)| 7000形 | 1980 |
 |![7100形](/src/trams/okayama/7100/oka7100_purchase.png)| 7100形 | 1981 |
+|![7200形](/src/trams/okayama/7200/oka7200_purchase.png)| 7200形 | 1982 |
+|![7300形](/src/trams/okayama/7300/oka7300_purchase.png)| 7300形 | 1983 |
 |![7900形](/src/trams/okayama/7900/oka7900_purchase.png)| 7900形 | 1989 |
 |![9200形](/src/trams/okayama/9200/oka9200_purchase.png)| 9200形 | 2002 |
 <!---
@@ -72,7 +74,6 @@ Sorted in a rough north to south ordering
 |🚧| 2600形 | 1959 |
 |🚧| 3500形 | 1956 |
 |🚧| 3800形 | 1953 |
-|🚧| 7200形 | 1982 |
 |🚧| 7300形 | 1983 |
 |🚧| 7400形 | 1984 |
 |🚧| 7500形 | 1985 |

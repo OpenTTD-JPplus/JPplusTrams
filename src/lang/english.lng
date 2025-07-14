@@ -108,6 +108,8 @@ LV_BLUESTRIPE                                   :{BLUE} Blue {BLACK}Stripe
 LV_GREENSTRIPE                                  :{GREEN} Green {BLACK}Stripe
 LV_REDSTRIPE                                    :{RED} Red {BLACK}Stripe
 
+LV_PATTERN                                      :{GOLD} Pattern
+
 IRL1CC                                          :{GOLD}Original & 1cc
 IRL2CC                                          :{GOLD}Original & 2cc
 IRL1CC2CC                                       :{GOLD}Original, 1cc & 2cc
@@ -165,6 +167,8 @@ OKAYAMA                                         :{GOLD}Okayama Electric Tramway
 STR_OKA3000                                     :3000 Series
 STR_OKA7000                                     :7000 Series
 STR_OKA7100                                     :7100 Series
+STR_OKA7200                                     :7200 Series
+STR_OKA7300                                     :7300 Series
 STR_OKA7900                                     :7900 Series
 STR_OKA9200                                     :9200 Series ("Momo")
 
