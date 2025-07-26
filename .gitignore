@@ -2,6 +2,7 @@
 reference/
 backups/
 .nmlcache/
+docs/.~lock.jpplustrams.ods#
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

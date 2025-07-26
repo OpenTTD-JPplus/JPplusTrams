@@ -53,6 +53,7 @@
 #include "src/trams/okayama/7300/oka7300.pnml"
 #include "src/trams/okayama/7400/oka7400.pnml"
 #include "src/trams/okayama/7500/oka7500.pnml"
+#include "src/trams/okayama/7600/oka7600.pnml"
 #include "src/trams/okayama/7900/oka7900.pnml"
 #include "src/trams/okayama/9200/oka9200.pnml"
 
