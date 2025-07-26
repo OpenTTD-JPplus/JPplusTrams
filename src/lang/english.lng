@@ -171,6 +171,9 @@ STR_OKA7100                                     :7100 Series
 STR_OKA7200                                     :7200 Series
 STR_OKA7300                                     :7300 Series
 STR_OKA7400                                     :7400 Series
+STR_OKA7500                                     :7500 Series
+STR_OKA7600                                     :7600 Series
+STR_OKA7700                                     :7700 Series
 STR_OKA7900                                     :7900 Series
 STR_OKA9200                                     :9200 Series ("Momo")
 

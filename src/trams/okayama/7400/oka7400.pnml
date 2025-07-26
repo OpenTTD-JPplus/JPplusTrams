@@ -6,7 +6,7 @@
         1: return string(LV_RED);
         2: return string(LV_BLUESTRIPE);
         3: return string(LV_REDSTRIPE);
-        4: return string(LV_REBWHITEBLUE);
+        4: return string(LV_REDWHITEBLUE);
         return CB_RESULT_NO_TEXT;
         }
 
@@ -41,11 +41,9 @@
         spriteset(ss_oka7400_lead_rwb, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7400/oka7400_rwb.png") {tmpl_8(1,1)}
     
         switch(FEAT_ROADVEHS, PARENT, sw_oka7400_lead_rdm, random_bits % 4) { 
-            0: ss_oka7400_lead_blu;
             1: ss_oka7400_lead_bls;
             2: ss_oka7400_lead_rds;
             3: ss_oka7400_lead_rwb;
-            ss_oka7400_lead_red;
             }
 
         switch(FEAT_ROADVEHS, PARENT, ss_oka7400_lead_mask, cargo_subtype) {
@@ -58,7 +56,7 @@
 
         switch(FEAT_ROADVEHS, SELF, sw_oka7400_stack, [ 
             STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
-                0: ss_oka7400_lead_whi;             // Base
+                0: ss_oka7400_lead_red;             // Base
                 1: ss_oka7400_lead_mask;            // Mask
                 2: panto_oka7400;                   // Pantos
                 3: doors_oka7400;                   // Doors
