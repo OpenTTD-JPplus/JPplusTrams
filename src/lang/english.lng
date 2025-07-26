@@ -95,6 +95,7 @@ LV_ORANGEBROWN                                  :{ORANGE} Orange {BLACK} &{BROWN
 LV_BLUEWHITE                                    :{LTBLUE} Blue {BLACK} &{WHITE}White
 LV_REDBLUE                                      :{RED} Red{BLACK} &{BLUE}Blue
 LV_REDWHITE                                     :{RED} Red{BLACK} &{WHITE}White
+LV_REDWHITEBLUE                                 :{RED} Red{BLACK}, {WHITE}White{BLACK}& {BLUE}Blue
 LV_REDYELLOW                                    :{RED} Red{BLACK} &{YELLOW}Yellow
 LV_REDWHITEGOLD                                 :{RED} Red{BLACK}, {WHITE}White{BLACK}& {GOLD}Gold
 LV_PINKWHITE                                    :{CREAM} Pink{BLACK} &{WHITE}White
@@ -169,6 +170,7 @@ STR_OKA7000                                     :7000 Series
 STR_OKA7100                                     :7100 Series
 STR_OKA7200                                     :7200 Series
 STR_OKA7300                                     :7300 Series
+STR_OKA7400                                     :7400 Series
 STR_OKA7900                                     :7900 Series
 STR_OKA9200                                     :9200 Series ("Momo")
 
