@@ -57,7 +57,7 @@ STR_PARAM_VALUE_AGE_HARDER                      :Slammed
 
 # Speed
 STR_PARAM_NAME_SPEED                            :Speed Limit
-STR_PARAM_DESC_SPEED                            :Enable Speed Limit Law
+STR_PARAM_DESC_SPEED                            :Japanese Trams have speed limits. Enable this to comply with the Speed Limit Regulations.
 
 # Liveries
 LV_IRL                                          :{GOLD} Original Livery
