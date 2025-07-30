@@ -222,6 +222,7 @@ item(FEAT_ROADVEHS, item_oka7300,		30 ) {}
 item(FEAT_ROADVEHS, item_oka7400,		31 ) {}
 item(FEAT_ROADVEHS, item_oka7500,		32 ) {}
 item(FEAT_ROADVEHS, item_oka7600,		33 ) {}
+item(FEAT_ROADVEHS, item_oka7700,		34 ) {}
 item(FEAT_ROADVEHS, item_oka7900,		27 ) {}
 item(FEAT_ROADVEHS, item_oka9200,		3  ) {}
 item(FEAT_ROADVEHS, item_kuma1060,		9  ) {}
@@ -268,6 +269,7 @@ sort(FEAT_ROADVEHS, [
 31,	// 1984 oka7400
 32,	// 1985 oka7500
 33,	// 1986 oka7600
+34,	// 1987 oka7700
 27,	// 1989 oka7900
 3,	// 2002 oka9200
 
@@ -4089,9 +4091,112 @@ item(FEAT_ROADVEHS, item_oka7600) {
 		speed:							sw_speed_40;
 		default:						sw_oka7600_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
-		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		running_cost_factor:			45 + ((param_runcost * 29 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 29 ) / 2 );
 		purchase:						sw_oka7600_purchase;
+		cost_factor:					((param_buycost * 90 ) / 4 );
+        }
+}
+# 1 "JPplusTrams.pnml" 4
+# 1 "src/trams/okayama/7700/oka7700.pnml" 1
+
+// Cargo Subtypes
+
+    switch(FEAT_ROADVEHS, SELF, sw_oka7700_subtype_text, cargo_subtype) {
+	    0: return string(LV_RANDOM);
+        1: return string(LV_BLACKGREEN);
+        2: return string(LV_GREEN);
+        3: return string(LV_REDSTRIPE);
+        4: return string(LV_CYAN);
+        return CB_RESULT_NO_TEXT;
+        }
+
+// Graphics
+
+    // Purchase
+        spriteset(ss_oka7700_purchase,     ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7700/oka7700_purchase.png") {tmpl_p()}
+
+        switch(FEAT_ROADVEHS, SELF, sw_oka7700_purchase, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: logo_okayama; 
+                1: ss_oka7700_purchase;
+            }
+
+    // Panto
+        spriteset(panto_oka7700, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7700/oka7700_panto.png") {tmpl_8(1,1)}
+
+    // Doors
+        spriteset(doorz_oka7700, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7700/oka7700_doors.png") {tmpl_8(1,1)}
+
+        spritegroup sg_doors_oka7700 {
+            loaded:  [sprite_blank];
+            loading: [doorz_oka7700];
+            }
+
+        switch(FEAT_ROADVEHS, SELF, doors_oka7700, OpenDoors()) {1:sg_doors_oka7700;}
+
+    // Tram Graphics
+        spriteset(ss_oka7700_lead_whi, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7700/oka7700_whi.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7700_lead_bag, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7700/oka7700_bag.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7700_lead_grn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7700/oka7700_grn.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7700_lead_rds, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7700/oka7700_rds.png") {tmpl_8(1,1)}
+        spriteset(ss_oka7700_lead_cya, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "src/trams/okayama/7700/oka7700_cya.png") {tmpl_8(1,1)}
+    
+        switch(FEAT_ROADVEHS, PARENT, sw_oka7700_lead_rdm, random_bits % 4) { 
+            0: ss_oka7700_lead_bag;
+            1: ss_oka7700_lead_grn;
+            2: ss_oka7700_lead_rds;
+            3: ss_oka7700_lead_cya;
+            }
+
+        switch(FEAT_ROADVEHS, PARENT, ss_oka7700_lead_mask, cargo_subtype) {
+            0: sw_oka7700_lead_rdm;
+            1: ss_oka7700_lead_bag;
+            2: ss_oka7700_lead_grn;
+            3: ss_oka7700_lead_rds;
+            4: ss_oka7700_lead_cya;
+            }
+
+        switch(FEAT_ROADVEHS, SELF, sw_oka7700_stack, [ 
+            STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100), getbits(extra_callback_info1, 8, 8) ]) { 
+                0: ss_oka7700_lead_whi;             // Base
+                1: ss_oka7700_lead_mask;            // Mask
+                2: panto_oka7700;                   // Pantos
+                3: doors_oka7700;                   // Doors
+            }
+
+item(FEAT_ROADVEHS, item_oka7700) {
+    property {
+		name:							string(STR_OKA7700);
+		climates_available:				bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		loading_speed:					25;
+		power:							51 * 2 hp;
+		introduction_date:				date(1987,01,01);
+		model_life:						10;
+		vehicle_life:					60;
+		reliability_decay:				14;
+		tram_type:						ELRL;
+		sound_effect:					SOUND_POWER_STATION;
+		visual_effect:					VISUAL_EFFECT_ELECTRIC;
+		sprite_id:						SPRITE_ID_NEW_ROADVEH;
+		misc_flags:						bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_TRAM, ROADVEH_FLAG_SPRITE_STACK);
+		refit_cost:						0; // refitting is free
+		running_cost_base:				RUNNING_COST_ROADVEH;
+		weight:							16.5 ton;
+		length:							8;
+        }
+    graphics {
+		additional_text:				string(STR_CONCAT_4, string(OPERATORS),string(OKAYAMA),string(LIVERIES),string(VARIOUS));
+		cargo_subtype_text:				sw_oka7700_subtype_text;
+		cargo_capacity:					(param_capacity * 96 ) / 2;
+		purchase_cargo_capacity:		(param_capacity * 96 ) / 2;
+		speed:							sw_speed_40;
+		default:						sw_oka7700_stack;
+		cargo_age_period:				sw_cargo_age_period_01;
+		running_cost_factor:			45 + ((param_runcost * 29 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 29 ) / 2 );
+		purchase:						sw_oka7700_purchase;
 		cost_factor:					((param_buycost * 90 ) / 4 );
         }
 }

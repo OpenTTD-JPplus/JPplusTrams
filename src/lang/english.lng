@@ -78,6 +78,7 @@ LV_PINK                                         :{CREAM} Pink
 LV_BLACK                                        :{BLACK} Black
 LV_WHITE                                        :{WHITE} White
 
+LV_BLACKGREEN                                   :{BLACK} Black {BLACK}& {GREEN}Green
 LV_CYANRED                                      :{LTBLUE} Cyan {BLACK}& {RED}Red
 LV_GREENORANGE                                  :{GREEN} Green {BLACK}& {ORANGE}Orange
 LV_YELLOWBLUE                                   :{YELLOW} Yellow {BLACK}& {BLUE}Blue

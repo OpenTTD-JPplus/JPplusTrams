@@ -89,8 +89,8 @@ item(FEAT_ROADVEHS, item_oka7600) {
 		speed:							sw_speed_40;
 		default:						sw_oka7600_stack;
 		cargo_age_period:				sw_cargo_age_period_01;
-		running_cost_factor:			45 + ((param_runcost * 30 ) / 2 ) * RunningCostFactor();
-		purchase_running_cost_factor:	45 + ((param_runcost * 30 ) / 2 );
+		running_cost_factor:			45 + ((param_runcost * 29 ) / 2 ) * RunningCostFactor();
+		purchase_running_cost_factor:	45 + ((param_runcost * 29 ) / 2 );
 		purchase:						sw_oka7600_purchase;
 		cost_factor:					((param_buycost * 90 ) / 4 );
         }

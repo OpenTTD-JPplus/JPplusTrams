@@ -18,6 +18,7 @@ item(FEAT_ROADVEHS, item_oka7300,		30 ) {}
 item(FEAT_ROADVEHS, item_oka7400,		31 ) {}
 item(FEAT_ROADVEHS, item_oka7500,		32 ) {}
 item(FEAT_ROADVEHS, item_oka7600,		33 ) {}
+item(FEAT_ROADVEHS, item_oka7700,		34 ) {}
 item(FEAT_ROADVEHS, item_oka7900,		27 ) {}
 item(FEAT_ROADVEHS, item_oka9200,		3  ) {}
 item(FEAT_ROADVEHS, item_kuma1060,		9  ) {}
@@ -64,6 +65,7 @@ sort(FEAT_ROADVEHS, [
 31,	// 1984 oka7400
 32,	// 1985 oka7500
 33,	// 1986 oka7600
+34,	// 1987 oka7700
 27,	// 1989 oka7900
 3,	// 2002 oka9200
 

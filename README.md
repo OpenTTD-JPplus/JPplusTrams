@@ -65,6 +65,7 @@ Sorted in a rough north to south ordering
 |![7400形](/src/trams/okayama/7400/oka7400_purchase.png)| 7400形 | 1984 |
 |![7500形](/src/trams/okayama/7500/oka7500_purchase.png)| 7500形 | 1985 |
 |![7600形](/src/trams/okayama/7600/oka7600_purchase.png)| 7600形 | 1986 |
+|![7700形](/src/trams/okayama/7700/oka7700_purchase.png)| 7700形 | 1987 |
 |![7900形](/src/trams/okayama/7900/oka7900_purchase.png)| 7900形 | 1989 |
 |![9200形](/src/trams/okayama/9200/oka9200_purchase.png)| 9200形 | 2002 |
 <!---
@@ -95,6 +96,8 @@ Sorted in a rough north to south ordering
 |![9200形](src/trams/kumamoto/9200/kuma9200_purchase.png)| 9200形 | 1992 |
 |![9700形](src/trams/kumamoto/9700/kuma9700_purchase.png)| 9700形 | 1997 |
 |![0800形](src/trams/kumamoto/0800/kuma0800_purchase.png)| 0800形 | 2009 |
+
+![Map](docs/map/map.png)
 
 ## Building
 

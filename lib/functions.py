@@ -1,7 +1,7 @@
 
 import pandas as pd
 import numpy as np
-import json, os
+import json, os, folium, io
 from PIL import Image
 
 def ExportToJSON(dictionary, target_file):
@@ -189,3 +189,21 @@ def UpdateStats():
             with open('src/trams/' + trams[t]["City"] + '/' + trams[t]["Folder"] + '/' + t + '.pnml', 'w') as file:
                 file.writelines(new_lines)
                 file.close()
+
+def PlotMap():
+    # Load the co-ordinates
+    df_map = pd.read_excel('docs/jpplustrams.ods','map', usecols=['Location', 'Longitude', 'Latitude'])
+    # Create the map
+    location_map = folium.Map(location=[38, 138.194722], zoom_start=5.5, control_scale=True, tiles="cartodb positron")
+    #location_map.fit_bounds([[129.408463169, 31.0295791692], [145.543137242, 45.5514834662]])
+    # App the locations
+    for index, location_info in df_map.iterrows():
+        folium.Marker([location_info["Latitude"], location_info["Longitude"]], popup=location_info["Location"] ).add_to(location_map)
+    
+    for index, location_info in df_map.iterrows():
+        folium.Marker([location_info["Latitude"], location_info["Longitude"]], popup=location_info["Location"], 
+            icon=folium.DivIcon(html=f"""<div style="font-family: courier new; color: blue">{location_info['Location']}</div>""") ).add_to(location_map)
+    
+    img_data = location_map._to_png()
+    img = Image.open(io.BytesIO(img_data))
+    img.save('docs/map/map.png')
