@@ -1,0 +1,249 @@
+##grflangid 0x56
+
+# https://newgrf-specs.tt-wiki.net/wiki/NML:Language_files
+
+STR_GRF_NAME                                    :JP+ 路面电车 {VERSION}
+STR_GRF_DESC                                    :{WHITE}JP{RED}+{WHITE} 路面电车{}{}{WHITE}JP{RED}+{WHITE} 路面电车{BLACK} 是 JP+ 系列中最新的成员。{}{}目前包含熊本市电车与宇都宫轻轨列车，预计将按城市更新。{}{}{BLACK}{COPYRIGHT}JP+ 路面电车{}许可证：GPL v2{}{BLACK}{}{BLACK}代码：{}{LTBLUE}KeepinItRail
+
+STR_WEBSITE                                     :https://github.com/KeepinItRail/JPplusTrams
+
+STR_ERROR_GAME_VERSION                          :JP+ 路面电车需要 JGRPP 0.62.0 或更高版本
+
+STR_CONCAT_2                                    :{STRING}{STRING}
+STR_CONCAT_3                                    :{STRING}{STRING}{STRING}
+STR_CONCAT_4                                    :{STRING}{STRING}{STRING}{STRING}
+STR_CONCAT_5                                    :{STRING}{STRING}{STRING}{STRING}{STRING}
+
+OPERATORS                                       :{BLACK}运营者：
+LIVERIES                                        :{}{BLACK}涂装：
+
+# Parameters
+
+# Hide Logos
+STR_PARAM_HIDE_LOGO                             :在购买菜单中显示图标
+
+# Side of Road
+STR_PARAM_NAME_SIDE_OF_ROAD                     :车门开启侧
+STR_PARAM_DESC_SIDE_OF_ROAD                     :设置电车进站时打开的车门。默认为左侧。
+STR_LEFT                                        :左侧
+STR_RIGHT                                       :右侧
+
+# Capacity
+STR_PARAM_NAME_CAP                              :道路载具容量
+STR_PARAM_DESC_CAP                              :调整道路载具的容量。
+STR_PARAM_VALUE_CAP_TTD                         :原版（低）
+STR_PARAM_VALUE_CAP_MED                         :中等
+STR_PARAM_VALUE_CAP_HIGH                        :高
+
+# Run Cost
+STR_PARAM_NAME_RUNCOST                          :道路载具运行成本
+STR_PARAM_DESC_RUNCOST                          :调整道路载具的运行成本。
+STR_PARAM_VALUE_RUNCOST_EASY                    :低
+STR_PARAM_VALUE_RUNCOST_TTDISH                  :原版（中等）
+STR_PARAM_VALUE_RUNCOST_HARD                    :高
+STR_PARAM_VALUE_RUNCOST_HARDER                  :最高
+
+# Purchase Cost
+STR_PARAM_NAME_BUYCOST                          :道路载具购买成本
+STR_PARAM_DESC_BUYCOST                          :调整道路载具的购买成本。
+
+# Aging
+STR_PARAM_NAME_AGE                              :路面电车货物贬值
+STR_PARAM_DESC_AGE                              :调整路面电车所载乘客（货物）的贬值速度。
+STR_PARAM_VALUE_AGE_EASY                        :舒适
+STR_PARAM_VALUE_AGE_NORMAL                      :标准
+STR_PARAM_VALUE_AGE_HARD                        :大汗淋漓
+STR_PARAM_VALUE_AGE_HARDER                      :摩肩擦踵
+
+# Speed
+STR_PARAM_NAME_SPEED                            :限速
+STR_PARAM_DESC_SPEED                            :是否启用限速法律
+
+# Liveries
+LV_IRL                                          : - {GOLD}原色涂装
+LV_1CC                                          : - {GOLD}单公司颜色涂装
+LV_2CC                                          : - {GOLD}双公司颜色涂装
+LV_RANDOM                                       : - {GOLD}随机涂装
+LV_MODERN                                       : - {GOLD}现代涂装
+
+LV_RED                                          : - {RED}红色
+LV_BLUE                                         : - {BLUE}蓝色
+LV_YELLOW                                       : - {YELLOW}黄色
+LV_GREEN                                        : - {GREEN}绿色
+LV_CYAN                                         : - {LTBLUE}青色
+LV_TURQ                                         : - {LTBLUE}绿松石
+LV_PEACH                                        : - {CREAM}桃色
+LV_ORANGE                                       : - {ORANGE}橙色
+LV_PINK                                         : - {CREAM}粉色
+LV_BLACK                                        : - {BLACK}黑色
+
+LV_CYANRED                                      : - {LTBLUE}青{RED}红
+LV_GREENORANGE                                  : - {ORANGE}橙{GREEN}绿
+LV_YELLOWBLUE                                   : - {YELLOW}黄{BLUE}蓝
+LV_YELLOWORANGE                                 : - {ORANGE}橙{YELLOW}黄
+LV_PINKYELLOW                                   : - {CREAM}粉{YELLOW}黄
+LV_WHITEBLUE                                    : - {BLUE}蓝{WHITE}白
+LV_BROWNWHITE                                   : - {BROWN}棕{WHITE}白
+LV_BROWNYELLOW                                  : - {BROWN}棕{YELLOW}黄{BLACK}白
+LV_REDORANGE                                    : - {ORANGE}橙{RED}红
+LV_WBG                                          : - {BLUE}蓝{GREEN}绿
+LV_GREENWHITE                                   : - {GREEN}绿{WHITE}白
+LV_ORANGEWHITE                                  : - {ORANGE}橙{WHITE}白
+LV_ORANGEBROWN                                  : - {ORANGE}橙{BROWN}棕
+LV_BLUEWHITE                                    : - {LTBLUE}蓝{WHITE}白
+LV_REDBLUE                                      : - {RED}红{BLUE}蓝
+LV_REDWHITE                                     : - {RED}红{WHITE}白
+LV_REDWHITEGOLD                                 : - {RED}红{WHITE}白{GOLD}金
+LV_PINKWHITE                                    : - {CREAM}粉{WHITE}白
+LV_MAROONBROWN                                  : - {RED}栗{BROWN}棕
+LV_WHITEBLUERED                                 : - {RED}红{WHITE}白{BLUE}蓝
+LV_BLUEPURPLERED                                : - {RED}红{PURPLE}紫{BLUE}蓝
+
+LV_PINKSTRIPE                                   : - {CREAM}粉色{BLACK}条纹
+LV_BLUESTRIPE                                   : - {BLUE}蓝色{BLACK}条纹
+LV_GREENSTRIPE                                  : - {GREEN}绿色{BLACK}条纹
+LV_REDSTRIPE                                    : - {RED}红色{BLACK}条纹
+
+IRL1CC                                          :{GOLD}原色与单公司颜色
+IRL2CC                                          :{GOLD}原色与双公司颜色
+IRL1CC2CC                                       :{GOLD}原色、单公司颜色与双公司颜色
+VARIOUS                                         :{GOLD}多种涂装，参见“改装”页面
+
+# Operators
+FUKUI                                           :{GOLD}福井铁道
+MANYOSEN                                        :{GOLD}万叶线（富山）
+ECHIZEN                                         :{GOLD}越前（福井）
+
+# Trams
+
+# Utsunomiya LRT
+UTSUNOMIYA                                      :{GOLD}宇都宫轻轨
+STR_HU300                                       :HU300 型“Lightline”
+
+STR_F1000                                       :F1000 型“Fukuram”
+LV_F1001                                        : - {ORANGE}（F1001）
+LV_F1002                                        : - {LTBLUE}（F1002）
+LV_F1003                                        : - {GREEN}（F1003）
+LV_F1004                                        : - {CREAM}（F1004）
+STR_MLRV1000                                    :万叶线 MLRV1000 型“AI-Tram”
+LV_DORAEMON                                     : - {LTBLUE}哆啦Ａ梦涂装
+DES_MLRV1000                                    :{GOLD}原色、单公司涂装与哆啦Ａ梦涂装
+STR_L                                           :L 型“ki-bo”
+
+
+# Toyama
+TOYAMA                                          :{GOLD}富山地方铁道
+STR_TLR0600                                     :TLR0600 型“Portram”
+LV_TLR0601                                      : - {RED}（TLR0601）心君
+LV_TLR0602                                      : - {ORANGE}（TLR0602）摩古君
+LV_TLR0603                                      : - {GOLD}（TLR0603）小花酱
+LV_TLR0604                                      : - {GREEN}（TLR0604）优优君
+LV_TLR0605                                      : - {DKGREEN}（TLR0605）环保君
+LV_TLR0606                                      : - {BLUE}（TLR0606）卢克君
+LV_TLR0607                                      : - {PURPLE}（TLR0607）咻皮君
+LV_TLR0608                                      : - {SILVER}（TLR0608）
+STR_DE9000                                      :De9000 型“Centram”
+LV_DE9001                                       : - {WHITE}De9001（白色）
+LV_DE9002                                       : - {SILVER}De9002（银色）
+LV_DE9003                                       : - {BLACK}De9003（黑色）
+STR_T100                                        :T100 型“Santram”
+
+STR_TOYAMA8000                                  :8000 型
+DES_TOYAMA8000                                  :{GOLD}原色、蓝白、红白、绿白、青色
+
+STR_TOYAMA7000                                  :7000 型
+DES_TOYAMA7000                                  :{GOLD}原色、现代、红白
+
+STR_TOYAMADE5000                                :De5000 型
+
+# Okayama
+OKAYAMA                                         :{GOLD}冈山电气轨道
+STR_OKA3000                                     :3000 型
+STR_OKA7000                                     :7000 型
+STR_OKA9200                                     :9200 型“桃子”
+
+# Kumamoto
+KUMAMOTO                                        :{GOLD}熊本市交通局
+STR_KUMA1060                                    :1060 型
+
+STR_KUMA0800                                    :0800 型
+DES_KUMA0800                                    :{GOLD}原色、“心”、单公司颜色、双公司颜色
+LV_COCORO                                       : -“心”
+
+STR_KUMA1080                                    :1080 型
+STR_KUMA1090                                    :1090 型
+STR_KUMA1200                                    :1200 型
+STR_KUMA1350                                    :1350 型
+STR_KUMA5000                                    :5000 型
+
+STR_KUMA9700                                    :9700 型
+DES_KUMA9700                                    :{GOLD}原色、蓝色条纹、单公司颜色
+LV_BLU                                          : - {BLUE}蓝色条纹
+LV_BLA                                          : - {BLACK}黑色条纹
+
+STR_KUMA9200                                    :9200 型
+DES_KUMA9200                                    :{GOLD}鸿恩、蓝绿、海德堡、黄色、青色、青红、黄橙、蓝白、棕白、蓝色、棕黄、绿色、双公司颜色
+LV_HEI                                          : - {BROWN}海德堡
+LV_JAL                                          : - {RED}日本航空涂装
+
+STR_KUMA8200                                    :8200 型
+DES_KUMA8200                                    :{GOLD}原色、绿松石、现实涂装
+
+STR_KUMA8500                                    :8500 型
+DES_KUMA8500                                    :{GOLD}原色、红色、桃色、橙色、橙白、栗色、红白蓝、红紫蓝、绿色、蓝白、绿色、橙绿
+
+STR_KUMA8800                                    :8800 型
+DES_KUMA8800                                    :{GOLD}绿色条纹、黄绿条纹
+LV_KUMA8801                                     : - {GREEN}绿色{BLACK}条纹
+LV_KUMA8802                                     : - {YELLOW}黄{GREEN}绿{BLACK}条纹
+STR_KUMA8800_101                                :8800 型 101 号
+DES_KUMA8800_101                                :{GOLD}101 号复古涂装
+
+
+# ######### #
+# Roadstops #
+# ######### #
+
+STR_CAT_TEST                                    :JP+ 道路站点
+STR_NAME_TEST                                   :JP+ 道路站点
+
+STR_CAT_OVERPASS                                :JP+ 跨线桥
+STR_CAT_PLATFORMS                               :JP+ 站台
+STR_CAT_BUILDINGS                               :JP+ 车站建筑
+
+# Colours
+GREEN                                           :绿色
+BROWN                                           :棕色
+BLACK                                           :黑色
+
+# Side of road
+FAR_SIDE                                        :，远侧
+NEAR_SIDE                                       :，近侧
+DUAL_SIDES                                      :，双侧
+
+# Number of exits
+SOUTH_EXIT                                      :，南侧出口
+NORTH_EXIT                                      :，北侧出口
+SOUTH_EXITS                                     :，南侧双出口
+NORTH_EXITS                                     :，北侧双出口
+DUAL_EXITS                                      :，双侧出口
+NO_EXITS                                        :，无出口
+
+# Platforms
+PLATFORM                                        :，站台
+NO_PLATFORM                                     :，无站台
+
+STR_BASE                                        :站台
+
+OVERPASS_2SIDES_NORTH                           :远端双楼梯
+OVERPASS_NOSTAIRS                               :无楼梯
+OVERPASS_1SIDE_TOP_NORTH                        :远侧楼梯
+OVERPASS_1SIDE_BOTTOM_NORTH                     :近侧楼梯
+OVERPASS_2SIDES_BOTH                            :双侧双方向楼梯
+OVERPASS_1SIDE_BOTTOM_BOTH                      :近侧双方向楼梯
+
+STR_KUMAMOTO                                    :熊本站台
+STR_KAMIKUMAMOTO                                :上熊本站台
+STR_UTSUNOMIYA                                  :宇都宫站台
+STR_TOYAMA                                      :富山站台
+STR_OKAYAMA                                     :冈山站台
